@@ -1,0 +1,73 @@
+# Travis CI file
+
+# https://docs.travis-ci.com/user/languages/javascript-with-nodejs
+
+language: node_js
+node_js: "6"
+sudo: false
+
+addons:
+    apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - g++-4.8
+        - openjdk-7-jdk
+        - lib32stdc++6
+        - lib32z1
+
+env:
+    global:
+        - CXX=g++-4.8
+        - ANDROID_HOME=$TRAVIS_BUILD_DIR/android-sdk-linux
+        - zipalign=$ANDROID_HOME/build-tools/26.0.1/zipalign
+    matrix:
+        - JOBNAME=learnLangDebug     BDIR=learnLang BTYPE=debug BUILD_SCRIPT="scripts/learnLang.sh debug"
+        - JOBNAME=learnLangFullDebug BDIR=learnLang BTYPE=debug BUILD_SCRIPT="scripts/learnLang.sh debug full"
+        # - JOBNAME=tripSaveDebug      BDIR=learnLang BUILD_SCRIPT=scripts/ionic_cordova_build_android_debug.sh
+        # - JOBNAME=tripSaveRelease    BDIR=learnLang BUILD_SCRIPT=scripts/ionic_cordova_build_android_release.sh
+
+branches:
+    only:
+        - master
+    except: # tags starting with vX.X.X (usually commited by travis)
+        - /^v?\d+\.\d+\.\d+/
+
+git:
+    depth: 3
+    # depth: 100
+
+# cache:
+#     timeout: 300 # 5*60 seconds
+#     directories:
+#     - node_modules
+#     - platforms
+#     - plugins
+#     - android-sdk-linux
+#     - $NVM_DIR # $(npm config get prefix)
+
+before_install:
+    - echo before_install; pwd
+    # - npm i -g npm
+    # - npm --version
+    # - source ./scripts/android_sdk_install.sh
+
+install:
+    - echo install; pwd
+    # - npm install -g gulp bower cordova ionic
+    # - npm install
+    # - bower update
+    # - source ./scripts/ionic_cordova_prepare.sh
+
+before_script:
+    - echo before_script; pwd
+    # - $BUILD_SCRIPT
+    # - scripts/deploy_github_releases.sh $JOBNAME
+
+script:
+    - cd $BDIR
+    - echo script; pwd
+    - cd $BDIR
+    # - ls platforms/android/build/outputs/apk
+    # - ls releases
+    # - echo 1
