@@ -9,9 +9,15 @@ if [ "$BOPT1" == "debug" ];then
 
     cordova build android --debug || exit 1 # --verbose
 
-    cp -frv platforms/android/build/outputs/apk/android-armv7-debug.apk $releases/$myappname-debug.apk
-    cp -frv platforms/android/build/outputs/apk/android-x86-debug.apk   $releases/$myappname-debug-x86.apk
-#    rm -fv  platforms/android/build/outputs/apk/*debug*.apk
+    case "$BOPT2" in
+    "Full")
+        cp -frv platforms/android/build/outputs/apk/android-armv7-debug.apk $releases/$myappname-debug.apk
+        cp -frv platforms/android/build/outputs/apk/android-x86-debug.apk   $releases/$myappname-debug-x86.apk
+        ;;
+    "")
+        cp -frv platforms/android/build/outputs/apk/android-debug.apk $releases/$myappname-debug.apk
+        ;;
+    esac
 
 fi
 
@@ -34,8 +40,12 @@ if [ "$BOPT1" == "release" ];then
     rm -f $keystoreFile || exit 1
     keytool -genkey -v -noprompt -alias $keystoreAlias -keystore $keystoreFile -storepass $storePassword -keypass $keyPassword -keyalg RSA -keysize 2048 -validity $keystoreValidity -dname "CN=ikarus512, OU=ikarus512, O=HSH, L=NN, S=RU, C=RU" || exit 1
 
+    # android-armv7-release-unsigned.apk
+    # android-x86-release-unsigned.apk
+    # android-release-unsigned.apk
+
     ### sign and copy to $releases/ for later check-in
-    for apkFile in $(ls platforms/android/build/outputs/apk/android-*-release-unsigned.apk);do
+    for apkFile in $(ls platforms/android/build/outputs/apk/android*-release-unsigned.apk);do
 
         plat=$(echo $apkFile | perl -e '$_=<>; s/^.*\/\w+|-release-unsigned.apk$|-armv7//g; print;')
         apkFileOut=$releases/$myappname$plat.apk
@@ -48,6 +58,7 @@ if [ "$BOPT1" == "release" ];then
 
     done
 
-    # rm -fv platforms/android/build/outputs/apk/*release*.apk
-
 fi
+
+# rm -fv  platforms/android/build/outputs/apk/*debug*.apk
+# rm -fv platforms/android/build/outputs/apk/*release*.apk

@@ -18,7 +18,10 @@ if [ ! -e platforms/android ];then
         # cordova-plugin-console
     fi
 
-    echo "Android app permissions (platforms/android/AndroidManifest.xml):"
-    cat platforms/android/AndroidManifest.xml | grep permission
+    manifest=platforms/android/AndroidManifest.xml
+    echo "Android app permissions ($manifest):"
+    grep    permission $manifest
+    grep -v permission $manifest >$manifest
+    grep    permission $manifest
 
 fi
