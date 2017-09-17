@@ -22,10 +22,12 @@ env:
         - ANDROID_HOME=$TRAVIS_BUILD_DIR/android-sdk-linux
         - zipalign=$ANDROID_HOME/build-tools/26.0.1/zipalign
     matrix:
-        - JOBNAME=learnLangDebug     BDIR=learnLang BOPT1=debug
-        - JOBNAME=learnLangFullDebug BDIR=learnLang BOPT1=debug BOPT2=full
-        # - JOBNAME=tripSaveDebug      BDIR=tripSave BOPT1=debug
-        # - JOBNAME=tripSaveRelease    BDIR=tripSave BOPT1=release
+        - JOBNAME=learnLangDebug       BDIR=learnLang BOPT1=debug
+        - JOBNAME=learnLangFullDebug   BDIR=learnLang BOPT1=debug BOPT2=Full
+        - JOBNAME=learnLangRelease     BDIR=learnLang BOPT1=release
+        - JOBNAME=learnLangFullRelease BDIR=learnLang BOPT1=release BOPT2=Full
+        # - JOBNAME=tripSaveDebug        BDIR=tripSave BOPT1=debug
+        # - JOBNAME=tripSaveRelease      BDIR=tripSave BOPT1=release
 
 branches:
     only:

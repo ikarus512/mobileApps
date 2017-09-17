@@ -1,25 +1,26 @@
 #!/usr/bin/env bash
 
-myappname=$BDIR
+myappname=$BDIR$BOPT2
+releases=../releases
 
-mkdir -p ../releases
+mkdir -p $releases
 
 if [ "$BOPT1" == "debug" ];then
 
-    cordova build android || exit 1 # --verbose
+    cordova build android --debug || exit 1 # --verbose
 
-    cp -frv platforms/android/build/outputs/apk/android-armv7-debug.apk ../releases/$myappname-debug.apk
-    cp -frv platforms/android/build/outputs/apk/android-x86-debug.apk   ../releases/$myappname-debug-x86.apk
+    cp -frv platforms/android/build/outputs/apk/android-armv7-debug.apk $releases/$myappname-debug.apk
+    cp -frv platforms/android/build/outputs/apk/android-x86-debug.apk   $releases/$myappname-debug-x86.apk
     rm -fv  platforms/android/build/outputs/apk/*debug*.apk
 
 fi
 
 if [ "$BOPT1" == "release" ];then
 
-    if [ -z $zipalign ];then zipalign=$ANDROID_HOME1/build-tools/25.0.2/zipalign; fi
+    # if [ -z $zipalign ];then zipalign=$ANDROID_HOME1/build-tools/25.0.2/zipalign; fi
 
     ### remove debug plugins
-    cordova plugin rm cordova-plugin-console
+    # cordova plugin rm cordova-plugin-console
 
     ### build
     cordova build android --release || exit 1
@@ -33,13 +34,11 @@ if [ "$BOPT1" == "release" ];then
     rm -f $keystoreFile || exit 1
     keytool -genkey -v -noprompt -alias $keystoreAlias -keystore $keystoreFile -storepass $storePassword -keypass $keyPassword -keyalg RSA -keysize 2048 -validity $keystoreValidity -dname "CN=ikarus512, OU=ikarus512, O=HSH, L=NN, S=RU, C=RU" || exit 1
 
-    mkdir -p releases
-
-    ### sign and copy to ./releases/ for later check-in
+    ### sign and copy to $releases/ for later check-in
     for apkFile in $(ls platforms/android/build/outputs/apk/android-*-release-unsigned.apk);do
 
         plat=$(echo $apkFile | perl -e '$_=<>; s/^.*\/\w+|-release-unsigned.apk$|-armv7//g; print;')
-        apkFileOut=releases/$myappname$plat.apk
+        apkFileOut=$releases/$myappname$plat.apk
         rm -f $apkFileOut || exit 1
 
         jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $keystoreFile $apkFile $keystoreAlias -storepass $storePassword -keypass $keyPassword || exit 1
