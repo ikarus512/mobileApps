@@ -41,6 +41,7 @@ cache:
     directories:
     - $NVM_DIR # $(npm config get prefix)
     - android-sdk-linux
+    - $BDIR/node_modules
     - learnLang/node_modules
     - learnLang/platforms
     - learnLang/plugins
@@ -57,7 +58,7 @@ install:
     - pwd
     - cd $BDIR
     - pwd
-    - ./install.sh
+    - source ./install.sh
     # - bower update
     # - source ./s/ionic_cordova_prepare.sh
 
@@ -66,7 +67,7 @@ before_script:
 
 script:
     - pwd
-    - ./script.sh
+    - source ./script.sh
     # - source ./s/deploy_github_releases.sh $JOBNAME
     # - ls platforms/android/build/outputs/apk
     # - ls releases
