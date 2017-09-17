@@ -68,6 +68,6 @@ script:
     - pwd
     - source ./script.sh
     # - source ./s/deploy_github_releases.sh $JOBNAME
-    - ls platforms/android/build/outputs/apk
-    - ls ../releases
+    - ls -lh platforms/android/build/outputs/apk
+    - ls -lh ../releases
     - echo 1
