@@ -37,38 +37,44 @@ git:
     depth: 3
     # depth: 100
 
-# cache:
+cache:
 #     timeout: 300 # 5*60 seconds
-#     directories:
-#     - node_modules
+    directories:
+    - node_modules
+    - learnLang/node_modules
 #     - platforms
 #     - plugins
 #     - android-sdk-linux
 #     - $NVM_DIR # $(npm config get prefix)
 
 before_install:
-    - echo before_install; pwd
-    # - npm i -g npm
+    - pwd
+    - cd $BDIR
+    - pwd
+    - npm install -g npm
     # - npm --version
     # - source ./scripts/android_sdk_install.sh
 
 install:
+    - pwd
     - cd $BDIR
-    - echo install; pwd
+    - pwd
     # - npm install -g gulp bower cordova ionic
-    # - npm install
+    - npm install
     # - bower update
     # - source ./scripts/ionic_cordova_prepare.sh
 
 before_script:
-    - echo before_script; pwd
-    # - $BUILD_SCRIPT
+    - pwd
+    - cd $BDIR
+    - pwd
+    - build.sh $BOPT1 $BOPT2
     # - scripts/deploy_github_releases.sh $JOBNAME
 
 script:
+    - pwd
     - cd $BDIR
-    - echo script; pwd
-    - cd $BDIR
+    - pwd
     # - ls platforms/android/build/outputs/apk
     # - ls releases
     # - echo 1

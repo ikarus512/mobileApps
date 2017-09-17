@@ -1,0 +1,20 @@
+<body onkeypress="myOnKeyPress(event);">
+<audio id="audio" src=hindi/consonants_hi.mp3 controls></audio>
+<div id="show"></div>
+<script>
+  var a = document.getElementById("audio");
+  a.currentTime=24.75;
+  a.onpause = function() {
+    var s = document.getElementById("show");
+    console.log(''+a.currentTime+'/'+a.duration);
+    s.innerHTML=''+a.currentTime+'/'+a.duration;
+  };
+
+  function myOnKeyPress(event) {
+    if(event.which===32) {
+      if(a.paused) a.play();
+      else a.pause();
+    }
+  };
+</script>
+</body>

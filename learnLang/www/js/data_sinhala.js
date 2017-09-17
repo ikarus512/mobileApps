@@ -1,0 +1,597 @@
+"use strict";
+var a = a || {};
+
+a.data_sinhala={
+
+    //======================================
+    // Topic:
+    //======================================
+    "alphabet (алфавит)": {
+      "font-size": "64px", //"4em",
+      "en": "alphabet",
+      "ru": "алфавит",
+      "terms": [
+        // vowels
+        {term:"අ",  transcription:"[a] a",     },
+        {term:"ආ", transcription:"[a:] ā",    },
+        {term:"ඇ", transcription:"[æ] æ",      },
+        {term:"ඈ", transcription:"[æ:] ǣ",     },
+        {term:"ඉ",  transcription:"[i] i",     },
+        {term:"ඊ",  transcription:"[i:] ī",    },
+        {term:"උ",  transcription:"[u] u",     },
+        {term:"ඌ", transcription:"[u:] ū",   },
+
+        {term:"ඍ", transcription:"[ri, ru] ṛ",   },
+        {term:"ඎ", transcription:"[ri:, ru:] ṝ", },
+        {term:"ඏ", transcription:"?l",            termimg:"img/sinhala_li.png"},
+        {term:"ඐ", transcription:"?ll",          termimg:"img/sinhala_lli.png"},
+
+        {term:"එ",  transcription:"[e] e",        },
+        {term:"ඒ",  transcription:"[e:] ee",      },
+        {term:"ඓ", transcription:"[aj] ai",      },
+        {term:"ඔ",  transcription:"[o] o",        },
+        {term:"ඕ",  transcription:"[o:] ō",       },
+        {term:"ඖ", transcription:"[aw] au",      },
+
+        // consonants
+        {term:"ක", transcription:"[ka] ka",  },
+        {term:"ඛ", transcription:"[ka] kʰa (strong)", },
+        {term:"ග", transcription:"[ga] ga",  },
+        {term:"ඝ", transcription:"[ga] gʰa (strong)", },
+        {term:"ඞ", transcription:"[ŋa] ṅa",  },
+        {term:"ඟ", transcription:"[ᵑga] ňga", },
+
+        {term:"ච", transcription:"[ʧa] ca (ча)", },
+        {term:"ඡ", transcription:"[ʧa] cʰa (ча strong)", },
+        {term:"ජ", transcription:"[ʤa] ja", },
+        {term:"ඣ", transcription:"[ʤa] jʰa (strong)", },
+        {term:"ඤ", transcription:"[ɲa] ña", },
+
+        {term:"ට", transcription:"[ʈa] ṭa"/*retroflex*/,   },
+        {term:"ඨ", transcription:"[ʈa] ṭʰa (strong)",  },
+        {term:"ඩ", transcription:"[ɖa] ḍa"/*retroflex*/,   },
+        {term:"ඪ", transcription:"[ɖa] ḍʰa (strong)",  },
+        {term:"ණ", transcription:"[ɳa] ṇa",  },
+        {term:"ඬ", transcription:"[ⁿɖa] ňḍa", },
+
+        {term:"ත", transcription:"[ta] ta",   },
+        {term:"ථ", transcription:"[ta] tʰa (strong)",  },
+        {term:"ද", transcription:"[da] da",   },
+        {term:"ධ", transcription:"[da] dʰa (strong)",  },
+        {term:"න", transcription:"[na] na",   },
+        {term:"ඳ", transcription:"[ⁿda] ňda",  },
+
+        {term:"ප", transcription:"[pa] pa",    },
+        {term:"ඵ", transcription:"[pa] pʰa (strong)",   },
+        {term:"බ", transcription:"[ba] ba",    },
+        {term:"භ", transcription:"[ba] bʰa (strong)",   },
+        {term:"ම", transcription:"[ma] ma",    },
+        {term:"ඹ", transcription:"[ᵐba] ˇmba", },
+
+        {term:"ය", transcription:"[ja] ya",    },
+        {term:"ර", transcription:"[ra] ra",    },
+        {term:"ල", transcription:"[la] la (ля)",},
+        {term:"ව", transcription:"[wa] ua/va",    },
+        {term:"ළ", transcription:"[ḹa,ḷḷa] ḷa",    },
+
+        {term:"ශ", transcription:"[ʃa] śa (ша)",   },
+        {term:"ෂ", transcription:"[ʃa] ṣa (ща)",   },
+        {term:"ස", transcription:"[sa] sa",   },
+        {term:"zස", transcription:"[za] za",  },
+        {term:"හ", transcription:"[ɦa] ha",   },
+        {term:"ෆ", transcription:"[fa] fa",   },
+
+        {term:"ඥ", transcription:"?jnya",     },
+        {term:"ඦ", transcription:"?nyja",     },
+      ]
+    },
+
+    //======================================
+    // Topic:
+    //======================================
+    "alphabet, hard part 1": {
+      "font-size": "64px", //"4em",
+      "en": "alphabet, hard part 1",
+      "ru": "алфавит, трудная часть 1",
+      "terms": [
+        // consonants
+        {term:"ට", transcription:"[ʈa] ṭa"/*retroflex*/,   },
+        {term:"ඨ", transcription:"[ʈa] ṭʰa (strong)",  },
+        {term:"ඩ", transcription:"[ɖa] ḍa"/*retroflex*/,   },
+        {term:"ඪ", transcription:"[ɖa] ḍʰa (strong)",  },
+        {term:"ත", transcription:"[ta] ta",   },
+        {term:"ථ", transcription:"[ta] tʰa (strong)",  },
+        {term:"ද", transcription:"[da] da",   },
+        {term:"ධ", transcription:"[da] dʰa (strong)",  },
+      ]
+    },
+
+    //======================================
+    // Topic:
+    //======================================
+    "alphabet, hard part 2": {
+      "font-size": "64px", //"4em",
+      "en": "alphabet, hard part 2",
+      "ru": "алфавит, трудная часть 2",
+      "terms": [
+        // consonants
+        {term:"ග", transcription:"[ga] ga",  },
+        {term:"ඝ", transcription:"[ga] gʰa (strong)", },
+        {term:"ඞ", transcription:"[ŋa] ṅa",  },
+        {term:"ඟ", transcription:"[ᵑga] ňga", },
+        {term:"ච", transcription:"[ʧa] ca (ча)", },
+        {term:"ඡ", transcription:"[ʧa] cʰa (ча strong)", },
+        {term:"ජ", transcription:"[ʤa] ja", },
+        {term:"ඣ", transcription:"[ʤa] jʰa (strong)", },
+        {term:"ඤ", transcription:"[ɲa] ña", },
+
+        {term:"ණ", transcription:"[na] ṇa",  },
+        {term:"ඬ", transcription:"[ⁿɖa] ňḍa", },
+
+        {term:"ප", transcription:"[pa] pa",    },
+        {term:"ඵ", transcription:"[pa] pʰa (strong)",   },
+        {term:"බ", transcription:"[ba] ba",    },
+        {term:"භ", transcription:"[ba] bʰa (strong)",   },
+
+        {term:"ඥ", transcription:"?jnya",     },
+        {term:"ඦ", transcription:"?nyja",     },
+      ]
+    },
+
+    //======================================
+    // Topic:
+    //======================================
+    "vowel diacritics, conjunct consonants (диакр. гласные, и сопр. согласные)": {
+      "font-size": "64px", //"4em",
+      "en": "vowel diacritics, conjunct consonants",
+      "ru": "диакр. гласные, и сопр. согласные",
+      "terms": [
+        {term:"ක බ ව ර", transcription:"[ka ba wa ra]", },
+        {term:"ක් බ් ව් ර්", transcription:"[k b w r] (pause)", },
+        {term:"කා බා වා රා", transcription:"[ka: ba: wa: ra:]", },
+        {term:"කැ බැ වැ රැ", transcription:"[kæ bæ wæ ræ]", },
+        {term:"කෑ බෑ වෑ රෑ", transcription:"[kæ: bæ: wæ: ræ:]", },
+        {term:"කි බි වි රි", transcription:"[ki bi wi ri]", },
+        {term:"කී බී වී රී", transcription:"[ki: bi: wi: ri:]", },
+        {term:"කු බු වු රු ළු ඵ", transcription:"[ku bu wu ru lu pʰa]", },
+        {term:"කූ බූ වූ රූ ළූ ඵ", transcription:"[ku: bu: wu: ru: lu: pʰa]", },
+        {term:"කෘ", transcription:"[kr]", },
+        {term:"කෲ", transcription:"[krr]", },
+          {term:"දෟ කෟ බෟ වෟ", transcription:"[dl kl bl vl]", },
+          {term:"දෳ කෳ බෳ වෳ", transcription:"[dll kll bll vll]", },
+          {term:"අං කං", transcription:"[aŋ kaŋ]", },
+          {term:"අඃ කඃ", transcription:"[ah kah]", },
+        {term:"කෙ", transcription:"[ke]", },
+        {term:"කේ වේ රේ", transcription:"[ke: we: re:]", },
+        {term:"කෛ", transcription:"[kai]", },
+        {term:"කො", transcription:"[ko]", },
+        {term:"කෝ", transcription:"[ko:]", },
+        {term:"කෞ", transcription:"[kaw]", },
+
+        // combo with zero-width-join
+        {term:"ර්‍ක ර්‍ග", transcription:"[rka rga]", },
+        {term:"ක්‍ර ග්‍ර", transcription:"[kra gra]", },
+        {term:"ක්‍ය ග්‍ය", transcription:"[kja gja]", },
+        {term:"ක්‍ෂ ග්‍ෂ", transcription:"[kʃa gʃa]", },
+        {term:"ක්‍රො ග්‍රො", transcription:"[kro gro]", },
+      ],
+    },
+    //======================================
+    // Topic:
+    //======================================
+    "numbers (числа)": {
+      //"font-size": "1.1em",
+      "en": "numbers",
+      "ru": "числа",
+      "terms": [
+        {term:"බින්‍දුව", transcription:"[binduva]", translation:{en:"0",ru:"0"}},
+        {term:"එක", transcription:"[eka]", translation:{en:"1",ru:"1"}},
+        {term:"දෙක", transcription:"[deka]", translation:{en:"2",ru:"2"}},
+        {term:"තුන", transcription:"[tuna]", translation:{en:"3",ru:"3"}},
+        {term:"හතර", transcription:"[hatara]", translation:{en:"4",ru:"4"}},
+        {term:"පහ", transcription:"[paha]", translation:{en:"5",ru:"5"}},
+        {term:"හය", transcription:"[haya]", translation:{en:"6",ru:"6"}},
+        {term:"හත", transcription:"[hata]", translation:{en:"7",ru:"7"}},
+        {term:"අට", transcription:"[aṭa]", translation:{en:"8",ru:"8"}},
+        {term:"නවය (නමය)", transcription:"[navaya (namaya)]", translation:{en:"9",ru:"9"}},
+        {term:"දහය", transcription:"[dahaya]", translation:{en:"10",ru:"10"}},
+        {term:"එකොළහ", transcription:"[ekoḷaha]", translation:{en:"11",ru:"11"}},
+        {term:"දොළහ", transcription:"[doḷaha]", translation:{en:"12",ru:"12"}},
+        {term:"දහතුන", transcription:"[dahatuna]", translation:{en:"13",ru:"13"}},
+        {term:"දහහතර (දාහතර)", transcription:"[dahahatara (dāhatara)]", translation:{en:"14",ru:"14"}},
+        {term:"පහළොව", transcription:"[pahaḷova]", translation:{en:"15",ru:"15"}},
+        {term:"දහසය (දාසය)", transcription:"[dahasaya (dāsaya)]", translation:{en:"16",ru:"16"}},
+        {term:"දහහත (දාහත)", transcription:"[dahahata (dāhata)]", translation:{en:"17",ru:"17"}},
+        {term:"දහඅට", transcription:"[dahaaṭa]", translation:{en:"18",ru:"18"}},
+        {term:"දහනවය", transcription:"[dahanavaya]", translation:{en:"19",ru:"19"}},
+        {term:"විස්ස", transcription:"[vissa]", translation:{en:"20",ru:"20"}},
+        {term:"විසි එක", transcription:"[visi eka]", translation:{en:"21",ru:"21"}},
+        {term:"විසි දෙක", transcription:"[visi deka]", translation:{en:"22",ru:"22"}},
+        {term:"විසි තුන", transcription:"[visi tuna]", translation:{en:"23",ru:"23"}},
+        {term:"විසි හතර", transcription:"[visi hatara]", translation:{en:"24",ru:"24"}},
+        {term:"විසි පහ", transcription:"[visi paha]", translation:{en:"25",ru:"25"}},
+        {term:"විසි හය", transcription:"[visi haya]", translation:{en:"26",ru:"26"}},
+        {term:"විසි හත", transcription:"[visi hata]", translation:{en:"27",ru:"27"}},
+        {term:"විසි අට", transcription:"[visi aṭa]", translation:{en:"28",ru:"28"}},
+        {term:"විසි නවය", transcription:"[visi navaya]", translation:{en:"29",ru:"29"}},
+        {term:"තිහ", transcription:"[tiha]", translation:{en:"30",ru:"30"}},
+        {term:"තිස් එක", transcription:"[tis eka]", translation:{en:"31",ru:"31"}},
+        {term:"තිස් දෙක", transcription:"[tis deka]", translation:{en:"32",ru:"32"}},
+        {term:"තිස් තුන", transcription:"[tis tuna]", translation:{en:"33",ru:"33"}},
+        {term:"තිස් හතර", transcription:"[tis hatara]", translation:{en:"34",ru:"34"}},
+        {term:"තිස් පහ", transcription:"[tis paha]", translation:{en:"35",ru:"35"}},
+        {term:"තිස් හය", transcription:"[tis haya]", translation:{en:"36",ru:"36"}},
+        {term:"තිස් හත", transcription:"[tis hata]", translation:{en:"37",ru:"37"}},
+        {term:"තිස් අට", transcription:"[tis aṭa]", translation:{en:"38",ru:"38"}},
+        {term:"තිස් නවය", transcription:"[tis navaya]", translation:{en:"39",ru:"39"}},
+        {term:"හතලිහ", transcription:"[hataliha]", translation:{en:"40",ru:"40"}},
+        {term:"හතලිස් එක", transcription:"[hatalis eka]", translation:{en:"41",ru:"41"}},
+        {term:"හතලිස් දෙක", transcription:"[hatalis deka]", translation:{en:"42",ru:"42"}},
+        {term:"හතලිස් තුන", transcription:"[hatalis tuna]", translation:{en:"43",ru:"43"}},
+        {term:"හතලිස් හතර", transcription:"[hatalis hatara]", translation:{en:"44",ru:"44"}},
+        {term:"හතලිස් පහ", transcription:"[hatalis paha]", translation:{en:"45",ru:"45"}},
+        {term:"හතලිස් හය", transcription:"[hatalis haya]", translation:{en:"46",ru:"46"}},
+        {term:"හතලිස් හත", transcription:"[hatalis hata]", translation:{en:"47",ru:"47"}},
+        {term:"හතලිස් අට", transcription:"[hatalis aṭa]", translation:{en:"48",ru:"48"}},
+        {term:"හතලිස් නවය", transcription:"[hatalis navaya]", translation:{en:"49",ru:"49"}},
+        {term:"පනහ", transcription:"[panaha]", translation:{en:"50",ru:"50"}},
+        {term:"පනස් එක", transcription:"[panas eka]", translation:{en:"51",ru:"51"}},
+        {term:"පනස් දෙක", transcription:"[panas deka]", translation:{en:"52",ru:"52"}},
+        {term:"පනස් තුන", transcription:"[panas tuna]", translation:{en:"53",ru:"53"}},
+        {term:"පනස් හතර", transcription:"[panas hatara]", translation:{en:"54",ru:"54"}},
+        {term:"පනස් පහ", transcription:"[panas paha]", translation:{en:"55",ru:"55"}},
+        {term:"පනස් හය", transcription:"[panas haya]", translation:{en:"56",ru:"56"}},
+        {term:"පනස් හත", transcription:"[panas hata]", translation:{en:"57",ru:"57"}},
+        {term:"පනස් අට", transcription:"[panas aṭa]", translation:{en:"58",ru:"58"}},
+        {term:"පනස් නවය", transcription:"[panas navaya]", translation:{en:"59",ru:"59"}},
+        {term:"හැට", transcription:"[hæṭa]", translation:{en:"60",ru:"60"}},
+        {term:"හැට එක", transcription:"[hæṭa eka]", translation:{en:"61",ru:"61"}},
+        {term:"හැට දෙක", transcription:"[hæṭa deka]", translation:{en:"62",ru:"62"}},
+        {term:"හැට තුන", transcription:"[hæṭa tuna]", translation:{en:"63",ru:"63"}},
+        {term:"හැට හතර", transcription:"[hæṭa hatara]", translation:{en:"64",ru:"64"}},
+        {term:"හැට පහ", transcription:"[hæṭa paha]", translation:{en:"65",ru:"65"}},
+        {term:"හැට හය", transcription:"[hæṭa haya]", translation:{en:"66",ru:"66"}},
+        {term:"හැට හත", transcription:"[hæṭa hata]", translation:{en:"67",ru:"67"}},
+        {term:"හැට අට", transcription:"[hæṭa aṭa]", translation:{en:"68",ru:"68"}},
+        {term:"හැට නවය", transcription:"[hæṭa navaya]", translation:{en:"69",ru:"69"}},
+        {term:"හැත්තෑව", transcription:"[hættǣva]", translation:{en:"70",ru:"70"}},
+        {term:"හැත්ත එක", transcription:"[hætta eka]", translation:{en:"71",ru:"71"}},
+        {term:"හැත්ත දෙක", transcription:"[hætta deka]", translation:{en:"72",ru:"72"}},
+        {term:"හැත්ත තුන", transcription:"[hætta tuna]", translation:{en:"73",ru:"73"}},
+        {term:"හැත්ත හතර", transcription:"[hætta hatara]", translation:{en:"74",ru:"74"}},
+        {term:"හැත්ත පහ", transcription:"[hætta paha]", translation:{en:"75",ru:"75"}},
+        {term:"හැත්ත හය", transcription:"[hætta haya]", translation:{en:"76",ru:"76"}},
+        {term:"හැත්ත හත", transcription:"[hætta hata]", translation:{en:"77",ru:"77"}},
+        {term:"හැත්ත අට", transcription:"[hætta aṭa]", translation:{en:"78",ru:"78"}},
+        {term:"හැත්ත නවය", transcription:"[hætta navaya]", translation:{en:"79",ru:"79"}},
+        {term:"අසූව", transcription:"[asūva]", translation:{en:"80",ru:"80"}},
+        {term:"අසූ එක", transcription:"[asū eka]", translation:{en:"81",ru:"81"}},
+        {term:"අසූ දෙක", transcription:"[asū deka]", translation:{en:"82",ru:"82"}},
+        {term:"අසූ තුන", transcription:"[asū tuna]", translation:{en:"83",ru:"83"}},
+        {term:"අසූ හතර", transcription:"[asū hatara]", translation:{en:"84",ru:"84"}},
+        {term:"අසූ පහ", transcription:"[asū paha]", translation:{en:"85",ru:"85"}},
+        {term:"අසූ හය", transcription:"[asū haya]", translation:{en:"86",ru:"86"}},
+        {term:"අසූ හත", transcription:"[asū hata]", translation:{en:"87",ru:"87"}},
+        {term:"අසූ අට", transcription:"[asū aṭa]", translation:{en:"88",ru:"88"}},
+        {term:"අසූ නවය", transcription:"[asū navaya]", translation:{en:"89",ru:"89"}},
+        {term:"අනූව", transcription:"[anūva]", translation:{en:"90",ru:"90"}},
+        {term:"අනූ එක", transcription:"[anū eka]", translation:{en:"91",ru:"91"}},
+        {term:"අනූ දෙක", transcription:"[anū deka]", translation:{en:"92",ru:"92"}},
+        {term:"අනූ තුන", transcription:"[anū tuna]", translation:{en:"93",ru:"93"}},
+        {term:"අනූ හතර", transcription:"[anū hatara]", translation:{en:"94",ru:"94"}},
+        {term:"අනූ පහ", transcription:"[anū paha]", translation:{en:"95",ru:"95"}},
+        {term:"අනූ හය", transcription:"[anū haya]", translation:{en:"96",ru:"96"}},
+        {term:"අනූ හත", transcription:"[anū hata]", translation:{en:"97",ru:"97"}},
+        {term:"අනූ අට", transcription:"[anū aṭa]", translation:{en:"98",ru:"98"}},
+        {term:"අනූ නවය", transcription:"[anū navaya]", translation:{en:"99",ru:"99"}},
+        {term:"සීය (එකසීය)", transcription:"[sīya (ekasīya)]", translation:{en:"100",ru:"100"}},
+        {term:"දෙසීය", transcription:"[desīya]", translation:{en:"200",ru:"200"}},
+        {term:"තුන්සීය", transcription:"[tunsīya]", translation:{en:"300",ru:"300"}},
+        {term:"හරසීය", transcription:"[harasīya]", translation:{en:"400",ru:"400"}},
+        {term:"පන්සීය", transcription:"[pansīya]", translation:{en:"500",ru:"500"}},
+        {term:"හයසීය", transcription:"[hayasīya]", translation:{en:"600",ru:"600"}},
+        {term:"හත්සීය", transcription:"[hatsīya]", translation:{en:"700",ru:"700"}},
+        {term:"අටසීය", transcription:"[aṭasīya]", translation:{en:"800",ru:"800"}},
+        {term:"නවසීය (නමසීය)", transcription:"[navasīya (namasīya)]", translation:{en:"900",ru:"900"}},
+        {term:"දාහ (එකදාහ)", transcription:"[dāha (ekadāha)]", translation:{en:"1,000",ru:"1,000"}},
+        {term:"දෙදාහ", transcription:"[dedāha]", translation:{en:"2,000",ru:"2,000"}},
+        {term:"තුන්දාහ", transcription:"[tundāha]", translation:{en:"3,000",ru:"3,000"}},
+        {term:"හරදාහ", transcription:"[haradāha]", translation:{en:"4,000",ru:"4,000"}},
+        {term:"පන්දාහ", transcription:"[pandāha]", translation:{en:"5,000",ru:"5,000"}},
+        {term:"හයදාහ", transcription:"[hayadāha]", translation:{en:"6,000",ru:"6,000"}},
+        {term:"හත්දාහ", transcription:"[hatdāha]", translation:{en:"7,000",ru:"7,000"}},
+        {term:"අටදාහ", transcription:"[aṭadāha]", translation:{en:"8,000",ru:"8,000"}},
+        {term:"නවදාහ (නමදාහ)", transcription:"[navadāha (namadāha)]", translation:{en:"9,000",ru:"9,000"}},
+        {term:"දහදාහ", transcription:"[dahadāha]", translation:{en:"10,000",ru:"10,000"}},
+        {term:"එකොළොස්දාහ", transcription:"[ekoḷosdāha]", translation:{en:"11,000",ru:"11,000"}},
+        {term:"දොළොස්දාහ", transcription:"[doḷosdāha]", translation:{en:"12,000",ru:"12,000"}},
+        {term:"දහතුන්දාහ", transcription:"[dahatundāha]", translation:{en:"13,000",ru:"13,000"}},
+        {term:"දහතර දාහ", transcription:"[dahataradāha]", translation:{en:"14,000",ru:"14,000"}},
+        {term:"පහළොස්දාහ", transcription:"[pahaḷosdāha]", translation:{en:"15,000",ru:"15,000"}},
+        {term:"දසයදාහ", transcription:"[dasayadāha]", translation:{en:"16,000",ru:"16,000"}},
+        {term:"දහත්දාහ", transcription:"[dahatdāha]", translation:{en:"17,000",ru:"17,000"}},
+        {term:"දහඅටදාහ", transcription:"[dahaaṭadāha]", translation:{en:"18,000",ru:"18,000"}},
+        {term:"දහනවදාහ (දහනමදාහ)", transcription:"[dahanavadāha (dahanamadāha)]", translation:{en:"19,000",ru:"19,000"}},
+        {term:"විසිදාහ", transcription:"[visidāha]", translation:{en:"20,000",ru:"20,000"}},
+        {term:"තිස්දාහ", transcription:"[tisdāha]", translation:{en:"30,000",ru:"30,000"}},
+        {term:"හතලිස්දාහ", transcription:"[hatalisdāha]", translation:{en:"40,000",ru:"40,000"}},
+        {term:"පනස්දාහ", transcription:"[panasdāha]", translation:{en:"50,000",ru:"50,000"}},
+        {term:"හැටදාහ", transcription:"[hæṭadāha]", translation:{en:"60,000",ru:"60,000"}},
+        {term:"හැත්තදාහ", transcription:"[hættadāha]", translation:{en:"70,000",ru:"70,000"}},
+        {term:"අසූදාහ", transcription:"[asūdāha]", translation:{en:"80,000",ru:"80,000"}},
+        {term:"අනූදාහ", transcription:"[anūdāha]", translation:{en:"90,000",ru:"90,000"}},
+        {term:"ලක්‍ෂය", transcription:"[lakṣaya]", translation:{en:"100,000",ru:"100,000"}},
+        {term:"දසලක්‍ෂය", transcription:"[dasalakṣaya]", translation:{en:"1,000,00",ru:"1,000,00"}},
+      ],
+    },
+    //======================================
+    // Topic:
+    //======================================
+    "common phrases (общие фразы)": {
+      //"font-size": "1.1em",
+      "en": "common phrases",
+      "ru": "общие фразы",
+      "terms": [
+        {term:"සාදරයෙන් පිලිගන්නවා", transcription:"[sadarayen piligannawa]", translation:{en:"Welcome",ru:"Добро пожаловать"}},
+        {term:"ආයුඛෝවන්/හලෝ", transcription:"[āyubūvan/halō]", translation:{en:"Hello (General greeting)/hi",ru:"Здравствуйте/привет"}},
+
+        {term:"කොහොමද? / ඔබගේ සැප සනිප කොහොමද?", transcription:"[kohomada? / obage saepa sanīpa kohomadha?]", translation:{en:"How are you?",ru:"Как поживаете?"}},
+
+        {term:"ඉස්තුති මම හොදින් ඉන්නව", transcription:"[istuti mama hodin innava]", translation:{en:"Reply to 'How are you?'",ru:"Ответ на 'Как поживаете?'"}},
+        {term:"හුග කාලෙකින් දක්කෙ", transcription:"[huga kālekin dakke]", translation:{en:"Long time no see",ru:"давно не виделись"}},
+        {term:"ඔයාගේ නම මොකක්ද", transcription:"[oyāgē nama mokakda?]", translation:{en:"What's your name?",ru:"Как Вас зовут?"}},
+        {term:"මගේ නම ...", transcription:"[magē nama ...]", translation:{en:"My name is <...>",ru:"Меня зовут <...>"}},
+        {term:"ඔබ කොහෙන්ද?", transcription:"[oba kohendha?]", translation:{en:"Where are you from?",ru:"Из какой Вы страны?"}},
+        {term:"මම ... වෙන්/යෙන්", transcription:"[mama ... ven/yen]", translation:{en:"I'm from ...",ru:"Я из ..."}},
+        {term:"ඔබ දැනගන්න ලැබිම සතුටක්", transcription:"[oba dhanagana lakēma sathutak]", translation:{en:"Pleased to meet you",ru:"Приятно познакомиться"}},
+        {term:"සුභ උදෑසනක්", transcription:"[subha udhāsanak]", translation:{en:"Good morning",ru:"Доброе утро"}},
+        {term:"සුභ දවාලක්", transcription:"[subha dhavalak]", translation:{en:"Good afternoon",ru:"Добрый день"}},
+        {term:"සුභ සැන්දෑවක්", transcription:"[subha sandhavak]", translation:{en:"Good evening",ru:"Добрый вечер"}},
+        {term:"සුභ රාත්‍රියක්", transcription:"[subha rāhthriyak]", translation:{en:"Good night",ru:"Доброй ночи"}},
+        {term:"ගිහිල්ලා එන්නම්", transcription:"[gihillā ennam]", translation:{en:"~Good bye",ru:"До свидания"}},
+        {term:"හරි, ගිහින් එන්න", transcription:"[hari, gihin enna]", translation:{en:"reply to '~Good bye'",ru:"Ответ на 'До свидания'"}},
+        {term:"මම යනවා", transcription:"[mama yanawā]", translation:{en:"Bye! (I'm going)",ru:"Пока! (Я пошел)"}},
+        {term:"හා", transcription:"[hā]", translation:{en:"reply to 'Bye (I'm going)'",ru:"ответ на 'Пока! (Я пошел)'"}},
+        {term:"සභ ගමන්! / වාසනා වේවා!", transcription:"[sabha gaman! / vāsanā vēvvā!]", translation:{en:"Good luck!",ru:"Удачи!"}},
+        {term:"වාසනාවන්! / ඡය වේවා!", transcription:"[vāsatāvan! / jaya vevā!]", translation:{en:"Cheers! Good Health! (toast)",ru:"~За здоровье (тост)"}},
+        {term:"සුභ දවසක්", transcription:"[subha davasak]", translation:{en:"Have a nice day!",ru:"Хорошего Вам дня!"}},
+        {term:"විනොදෙන් කන්න", transcription:"[vinoden kanna]", translation:{en:"Bon appetit!",ru:"Приятного аппетита!"}},
+        {term:"සුභ ගමනක් වෙවා", transcription:"[subha gamanak vēvā]", translation:{en:"Bon voyage!",ru:"Приятного путешествия!"}},
+        {term:"තේරෙනවා ද", transcription:"[tērenavā da?]", translation:{en:"Do you understand?",ru:"Вы понимаете?"}},
+        {term:"මත තේරෙනවා", transcription:"[mata tērenavā]", translation:{en:"I understand",ru:"Я понимаю"}},
+        {term:"මට ඔබව තේරැමි ගන්න බැනැ", transcription:"[mata obava therum ganna baha]", translation:{en:"I don't understand",ru:"Я не понимаю"}},
+        {term:"කරැණාකරල හෙමින් කියන්න", transcription:"[karunākarala hemin kiyanna]", translation:{en:"Please speak more slowly",ru:"Пожалуйста, говорите медленнее"}},
+        {term:"මට ඔබව තේරැමි ගන්න බැනැ", transcription:"[mata obava therum ganna baha]", translation:{en:"Please say that again",ru:"Пожалуйста, произнесите это еще раз"}},
+        {term:"කරැණාකරල මට ඒක ලියලා දෙන්න පුළුවන්ද", transcription:"[karunākarala mata eka liyala dhenna puluvandha?]", translation:{en:"Please write it down",ru:"Пожалуйста, напишите это"}},
+        {term:"ඔබ ඉංග්රිසි කථා කරනවාද", transcription:"[oba ingreesi kathaa karanavadha?]", translation:{en:"Do you speak English?",ru:"Вы говорите по-английски?"}},
+        {term:"ඔබ සිංහළ කථා කරනවාද", transcription:"[oba sinhala kathā karanavadha?]", translation:{en:"Do you speak Sinhala?",ru:"Вы говорите по-сингальски?"}},
+        {term:"මට එය කියන්න පුළුවන්", transcription:"[maṭa eya kiyanna pūl̠ūvan]", translation:{en:"Yes, a little (reply to 'Do you speak ...?')",ru:"Да, немного (ответ на 'Вы говирите по ...?')"}},
+        {term:"... කියන්නේ කොහොමද?", transcription:"[... kiyanne kohomadha?]", translation:{en:"How do you say ... in Sinhala?",ru:"Как вы говорите ... по-сингальски?"}},
+        {term:"සමාවත්ත", transcription:"[samāvena]", translation:{en:"Excuse me",ru:"Простите пожалуйста (внимание)"}},
+        {term:"මට සමාවෙන්න", transcription:"[mata samāvenna]", translation:{en:"Sorry",ru:"Я сожалею"}},
+        {term:"කියද / කියද මෙක?", transcription:"[kiyeda / kiyeda meka?]", translation:{en:"How much is this?",ru:"Сколько это (стоит)?"}},
+        {term:"ඉස්තුති / බොහොම ස්තුතියි", transcription:"[istuti / bohoma stutiyi]", translation:{en:"Thank you",ru:"Спасибо"}},
+        {term:"එකත කමක් න", transcription:"[ehkata kamak na]", translation:{en:"Reply to thank you",ru:"Пожалуйста (в ответ на Спасибо)"}},
+        {term:"කරැණාකරල", transcription:"[karunakarala]", translation:{en:"Please",ru:"Пожалуйста (..дайте..)"}},
+      ],
+    },
+    //======================================
+    // Topic:
+    //======================================
+    "simple words (простые слова)": {
+      //"font-size": "1.1em",
+      "en": "simple words",
+      "ru": "простые слова",
+      "terms": [
+        {term:"ඔව්", transcription:"[ov]", translation:{en:"yes",ru:"да"}},
+        {term:"නැත", transcription:"[næta]", translation:{en:"no",ru:"нет"}},
+        {term:"මම", transcription:"[mama]", translation:{en:"I",ru:"Я"}},
+        {term:"ඔබ", transcription:"[oba]", translation:{en:"You (single)",ru:"Ты"}},
+        {term:"අපි", transcription:"[api]", translation:{en:"We",ru:"Мы"}},
+        {term:"ඔබලා", transcription:"[obalaa]", translation:{en:"You (plural)",ru:"Вы"}},
+        {term:"ඔහු", transcription:"[ohu]", translation:{en:"He",ru:"Он"}},
+        {term:"ඇය", transcription:"[æya]", translation:{en:"She",ru:"Она"}},
+        {term:"එයාලා", transcription:"[eyaalaa]", translation:{en:"They",ru:"Они"}},
+      ],
+    },
+    //======================================
+    // Topic:
+    //======================================
+    "Cycle 1. What is this?": {
+      //"font-size": "1.1em",
+      "en": "Cycle 1. What is this?",
+      "ru": "Урок 1. Что это?",
+      "terms": [
+        {term:"මේ මොකද්ද?", translation:{en:"What is this?",ru:"Что это (здесь)? (ед.ч.)"}},
+        {term:"මේ පැන්සලයක්", translation:{en:"This is a pencil.",ru:"Это (здесь) карандаш."}},
+        {term:"මේ පොතක්", translation:{en:"This is a book.",ru:"Это (здесь) книга."}},
+        {term:"මේ මේසයක්", translation:{en:"This is a table.",ru:"Это (здесь) стол."}},
+        {term:"මේ ජනේලයක්", translation:{en:"This is a window.",ru:"Это (здесь) окно."}},
+        {term:"පැන්සලය (පැන්සලේ)", translation:{en:"the pencil",ru:"(конкретный) карандаш"}},
+        {term:"පැන්සලයක්", translation:{en:"a pencil",ru:"карандаш"}},
+        {term:"පොත", translation:{en:"the book",ru:"(конкретная) книга"}},
+        {term:"පොතක්", translation:{en:"a book",ru:"книга"}},
+        {term:"ජනේලය (ජනේලේ)", translation:{en:"the window",ru:"(конкретное) окно"}},
+        {term:"ජනේලයක්", translation:{en:"a window",ru:"окно"}},
+        {term:"මේසය (මේසේ)", translation:{en:"the table",ru:"(конкретный) стол"}},
+        {term:"මේසයක්", translation:{en:"a table",ru:"стол"}},
+
+        {term:"පුටුව", translation:{en:"the chair",ru:"(конкретный) стул"}},
+        {term:"පුටුවක්", translation:{en:"a chair",ru:"стул"}},
+        {term:"ඇඳ", translation:{en:"the bed",ru:"(конкретная) кровать"}},
+        {term:"ඇඳක්", translation:{en:"a bed",ru:"кровать"}},
+        {term:"දොර", translation:{en:"the door",ru:"(конкретная) дверь"}},
+        {term:"දොරක්", translation:{en:"a door",ru:"дверь"}},
+        {term:"බිත්‍තිය", translation:{en:"the wall",ru:"(конкретная) стена"}},
+        {term:"බිත්‍තියක්", translation:{en:"a wall",ru:"стена"}},
+        {term:"කාමරය (කාමරේ‍)", translation:{en:"the room",ru:"(конкретная) комната"}},
+        {term:"කාමරයක්", translation:{en:"a room",ru:"комната"}},
+        {term:"කන්තෝ‍රුව", translation:{en:"the office",ru:"(конкретный) офис"}},
+        {term:"කන්තෝ‍රුවක්", translation:{en:"a office",ru:"офис"}},
+
+        {term:"මොකද්ද", translation:{en:"what (singular)",ru:"что? (ед.ч.)"}},
+        {term:"මොකද", translation:{en:"why",ru:"почему?"}},
+      ],
+    },
+    //======================================
+    // Topic:
+    //======================================
+    "Cycle 2. What is that over there?": {
+      //"font-size": "1.1em",
+      "en": "Cycle 2. What is that over there?",
+      "ru": "Урок 2. Что это там?",
+      "terms": [
+        {term:"අර මොකද්ද?", translation:{en:"What is that over there?",ru:"Что это там? (ед.ч.)"}},
+        {term:"අර පැන්සලයක්", translation:{en:"That is a pencil.",ru:"Это (там) карандаш."}},
+
+        {term:"මේ", translation:{en:"this",ru:"этот"}},
+        {term:"ඔය", translation:{en:"that near you",ru:"тот (рядом с Вами)"}},
+        {term:"අර", translation:{en:"that over there",ru:"тот (там)"}},
+        {term:"ඒ‍", translation:{en:"that in question",ru:"тот (рассматриваемый)"}},
+
+        {term:"කියන්න", translation:{en:"Say (it).",ru:"Скажи (это)"}},
+        {term:"ආයෙත් කියන්න", translation:{en:"Say (it) again.",ru:"Скажи (это) снова."}},
+        {term:"ආයෙත් කියන්න ද?", translation:{en:"Should (I) say (it) again.",ru:"(Мне) сказать (это) снова?"}},
+      ],
+    },
+    //======================================
+    // Topic:
+    //======================================
+    "Cycle 3. What are these things?": {
+      //"font-size": "1.1em",
+      "en": "Cycle 3. What are these things?",
+      "ru": "Урок 3. Что эти вещи?",
+      "terms": [
+        {term:"මේවා එලවලු", translation:{en:"These things are vegetables.",ru:"Это овощи"}},
+        {term:"මේවා දොඩමි", translation:{en:"These things are oranges.",ru:"Это апельсины"}},
+        {term:"මේවා කෙසෙල් ගෙඩි", translation:{en:"These things are bananas.",ru:"Это бананы"}},
+        {term:"මේවා සපත්තු", translation:{en:"These things are shoes.",ru:"Это обувь (мн.ч.)"}},
+        {term:"මේවා මේස්", translation:{en:"These things are socks.",ru:"Это носки"}},
+        {term:"මේවා කරාබු", translation:{en:"These things are errings.",ru:"Это серьги"}},
+
+        {term:"මේවා මොනවා ද?", translation:{en:"What are these things?",ru:"Что это (здесь)? (мн.ч.)"}},
+        {term:"ඒවා මොනවා ද", translation:{en:"What are those things?",ru:"Что это (рассматриваемое)? (мн.ч.)"}},
+        {term:"අරවා මොනවා ද", translation:{en:"What are those things over there?",ru:"Что это (там)? (мн.ч.)"}},
+        {term:"මේවා", translation:{en:"These things",ru:"эти вещи"}},
+        {term:"ඕවා", translation:{en:"Those things near you",ru:"те вещи рядом с Вами"}},
+        {term:"අරවා", translation:{en:"Those things over there",ru:"те вещи там"}},
+        {term:"ඒවා", translation:{en:"Those things in question",ru:"те вещи (рассматриваемые)"}},
+
+        {term:"මේක", translation:{en:"This thing",ru:"эта вещь"}},
+        {term:"ඕක", translation:{en:"That thing near you",ru:"та вещь рядом с Вами"}},
+        {term:"අරක", translation:{en:"That thing over there",ru:"та вещь там"}},
+        {term:"ඒක", translation:{en:"That thing in question",ru:"та вещь (рассматриваемые)"}},
+
+        {term:"මොනවා", translation:{en:"what (plural)",ru:"что (мн.ч.)"}},
+        {term:"මොකක් (= මොකද්ද)", translation:{en:"what (singular)",ru:"что (ед.ч.)"}},
+
+        //p34
+        {term:"කොහොම ද?", translation:{en:"Hello (How are you?)",ru:"Здравствуйте (Как Вы?)"}},
+        {term:"සැප සනීප කොහොම ද?", translation:{en:"Hello (How is your health and wellfare?)",ru:"Здравствуйте (Как Ваше здоровье и достаток?)"}},
+        {term:"සනීපෙන් ඉන්නවා", translation:{en:"Hello (answer, I'm in good health)",ru:"Здравствуйте (ответ, Я в хорошем состоянии)"}},
+        {term:"වරදක් නෑ", translation:{en:"Hello (answer, Not bad)",ru:"Здравствуйте (ответ, Неплохо)"}},
+        {term:"හොඳයි", translation:{en:"Hello (answer, Good)",ru:"Здравствуйте (ответ, Хорошо)"}},
+        {term:"මම ගිහින් එන්නම්", translation:{en:"I shall go and come",ru:"Мне нужно идти"}},
+        {term:"හොඳයි. ගිහින් එන්න.", translation:{en:"Good. Go and come.",ru:"Хорошо. Идите."}},
+
+        {term:"තේරුනා ද?", transcription:"[teerunaa da?]", translation:{en:"Did (you) understand?",ru:"(Ты) понял?"}},
+        {term:"මහත්තයාට තේරුනා ද?", transcription:"[mahattayaata terunaa da?]", translation:{en:"Did (you) understand, sir?",ru:"(Вы) поняли, сэр?"}},
+        {term:"නෝනා මහත්තයාට තේරුනා ද?", transcription:"[noonaa mahattayaata terunaa da?]", translation:{en:"Did (you) understand, madam?",ru:"(Вы) поняли, мадам?"}},
+        {term:"ඔව්. මට තේරුනා.", transcription:"[ov. mata terunaa]", translation:{en:"Yes. I understood.",ru:"Да. Я понял."}},
+        {term:"තෑ. මට තේරුනේ තෑ.", transcription:"[nee. mata terunee nee]", translation:{en:"No. I didn't understood.",ru:"Нет. Я не понял."}},
+        {term:"හෙමින් කියන්න.", translation:{en:"Say (it) slowly.",ru:"Произнесите (это) медленно."}},
+      ],
+    },
+    //======================================
+    // Topic:
+    //======================================
+    "Cycle 4. Are these things boxes?": {
+      //"font-size": "1.1em",
+      "en": "Cycle 4. Are these things boxes?",
+      "ru": "Урок 4. Это коробки?",
+      "terms": [
+        //p35
+        {term:"ඔව්. මේවා කාපි.", translation:{en:"Yes. These things are coins.",ru:"Да. Это монеты."}},
+        {term:"ඔව්. මේක ඔරලෝසුවක්.", translation:{en:"Yes. This is a clock.",ru:"Да. Это часы."}},
+        {term:"ඔව්. මේක මාලයක්.", translation:{en:"Yes. This is a necklace.",ru:"Да. Это ожерелье."}},
+        {term:"ඔව්. මේවා පෙට්ටි.", translation:{en:"Yes. These things are boxes.",ru:"Да. Это коробки."}},
+        {term:"ඔව්. මේක මුද්දක්.", translation:{en:"Yes. This is a ring.",ru:"Да. Это кольцо."}},
+        {term:"නෑ. මේවා කාසි නෙමෙයි. මේවා පෙට්ටි.", translation:{en:"No. These things are not coins. These are boxes.",ru:"Нет. Это не монеты. Это коробки."}},
+        {term:"නෑ. මේ යතුරක් නෙමෙයි. මේ ඉබ්බෙක්.", translation:{en:"No. This is not a key. This is a padlock.",ru:"Нет. Это не ключ. Это замок."}},
+
+        {term:"මේවා පෙට්ටි ද?", translation:{en:"Are these things boxes?",ru:"Это коробки?"}},
+        {term:"මේ යතුරක් ද?", translation:{en:"Is this a key?",ru:"Это ключ?"}},
+      ],
+    },
+    //======================================
+    // Topic:
+    //======================================
+    "Cycle 5. Is that answer correct?": {
+      //"font-size": "1.1em",
+      "en": "Cycle 5. Is that answer correct?",
+      "ru": "Урок 5. Это правильный ответ?",
+      "terms": [
+        //p36
+        {term:"ඒක වැරදියි", translation:{en:"It is wrong.",ru:"Это неправильно."}},
+        {term:"ඒක හරි", translation:{en:"It is correct.",ru:"Это правильно."}},
+        {term:"ඒ උත්තරය වැරදියි", translation:{en:"That answer is wrong.",ru:"Тот ответ неправильный."}},
+        {term:"ඒ උත්තරය හරි", translation:{en:"That answer is correct.",ru:"Тот ответ правильный."}},
+        {term:"ඒ උත්තරය හරි ද?", translation:{en:"Is that answer correct?",ru:"Это правильный ответ?"}},
+        {term:"ඒක හරි ද?", translation:{en:"Is that correct?",ru:"Это правильно?"}},
+        {term:"ඒක වැරදි ද?", translation:{en:"Is that wrong?",ru:"Это неправильно?"}},
+        {term:"ඒ උත්තරය වැරදි ද?", translation:{en:"Is that answer wrong?",ru:"Тот ответ неправильный?"}},
+        {term:"ඒක වැරදි ද හරි ද?", translation:{en:"Is that wrong or correct?",ru:"Это неправильно или правильно?"}},
+        {term:"ඒක හරි ද වැරදි ද?", translation:{en:"Is that correct or wrong?",ru:"Это правильно или неправильно?"}},
+        {term:"හරි උත්තරය මොකද්ද?", translation:{en:"What is the correct answer?",ru:"Правильный ответ какой?"}},
+      ],
+    },
+    //======================================
+    // Topic:
+    //======================================
+    "Cycle 6. Making requests.": {
+      //"font-size": "1.1em",
+      "en": "Cycle 6. Making requests.",
+      "ru": "Урок 5. Просьбы.",
+      "terms": [
+        //p40
+        {term:"දොර අරින්න", translation:{en:"Please open the door.",ru:"Откройте дверь."}},
+        {term:"දොර වහන්න", translation:{en:"Please close the door.",ru:"Закройте дверь."}},
+        {term:"ජනේලය අරින්න", translation:{en:"Please open the window.",ru:"Откройте окно."}},
+        {term:"ඉඳගන්න", translation:{en:"Please sit down.",ru:"Сядьте."}},
+        {term:"හිටගන්න", translation:{en:"Please stand up.",ru:"Встаньте."}},
+        {term:"පින්තූරය විස්තර කරන්න", translation:{en:"Please descrive the picture.",ru:"Опишите картину."}},
+        {term:"ප්‍රශ්නයක අහන්න", translation:{en:"Please ask question.",ru:"Спросите вопрос."}},
+        {term:"උත්තරය දෙන්න", translation:{en:"Please give the answer.",ru:"Дайте ответ."}},
+        {term:"අර මහත්තයාට කියන්න දොර අරින්න කියලා.", translation:{en:"Please tell that gentleman to open the door.",ru:"Скажите этому джентельмену открыть дверь."}},
+        {term:"අර මහත්තයාට කියන්න දොර වහන්න කියලා.", translation:{en:"Please tell that gentleman to close the door.",ru:"Скажите этому джентельмену закрыть дверь."}},
+        {term:"අර නෝනා මහත්තයාට කියන්න මෙහාට එන්න කියලා.", translation:{en:"Please tell that lady to come here.",ru:"Скажите этой леди подойти сюда."}},
+        {term:"අර මහත්තයාට කියන්න හිටගන්න කියලා.", translation:{en:"Please tell that gentleman to stand up.",ru:"Скажите этому джентельмену встать."}},
+        {term:"යන්න එපා", translation:{en:"Please don't go.",ru:"Не идите."}},
+        {term:"කෑගහන්න එපා", translation:{en:"Please don't shout.",ru:"Не кричите."}},
+        {term:"ඉංග්‍රීසියෙන් කතාකරන්න එපා", translation:{en:"Please don't talk in English.",ru:"Не говорите по-английски."}},
+        {term:"සිගරට් බොන්න එපා", translation:{en:"Please don't smoke cigarettes.",ru:"Не курите сигарету."}},
+        {term:"පොත් අරින්න එපා", translation:{en:"Please don't open the books.",ru:"Не открывайте книги."}},
+        {term:"කතාකරන්න එපා", translation:{en:"Please don't talk.",ru:"Не говорите."}},
+        {term:"කරන්ට", translation:{en:"to do (infinitive variant A ending, Kandian highlands)",ru:"делать (окончание инфинитива варианта A, горный вариант)"}},
+        {term:"කරන්ඩ", translation:{en:"to do (infinitive variant B ending, most common)",ru:"делать (окончание инфинитива варианта B, более частое)"}},
+        {term:"කරන්න", translation:{en:"to do (infinitive variant C ending, prestigious)",ru:"делать (окончание инфинитива варианта C, престижный)"}},
+        //p45
+        {term:"", translation:{en:"",ru:""}},
+        {term:"", translation:{en:"",ru:""}},
+        {term:"", translation:{en:"",ru:""}},
+        {term:"", translation:{en:"",ru:""}},
+        {term:"", translation:{en:"",ru:""}},
+      ],
+    },
+    // //======================================
+    // // Topic:
+    // //======================================
+    // "Unit 1. What is this?": {
+    //   //"font-size": "1.1em",
+    //   "en": "Cycle 1. What is this?",
+    //   "ru": "Урок 1. Что это?",
+    //   "terms": [
+    //     {term:"", translation:{en:"",ru:""}},
+    //   ],
+    // },
+};
