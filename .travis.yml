@@ -22,10 +22,10 @@ env:
         - ANDROID_HOME=$TRAVIS_BUILD_DIR/android-sdk-linux
         - zipalign=$ANDROID_HOME/build-tools/26.0.1/zipalign
     matrix:
-        - JOBNAME=learnLangDebug     BDIR=learnLang BTYPE=debug BUILD_SCRIPT="scripts/learnLang.sh debug"
-        - JOBNAME=learnLangFullDebug BDIR=learnLang BTYPE=debug BUILD_SCRIPT="scripts/learnLang.sh debug full"
-        # - JOBNAME=tripSaveDebug      BDIR=learnLang BUILD_SCRIPT=scripts/ionic_cordova_build_android_debug.sh
-        # - JOBNAME=tripSaveRelease    BDIR=learnLang BUILD_SCRIPT=scripts/ionic_cordova_build_android_release.sh
+        - JOBNAME=learnLangDebug     BDIR=learnLang BOPT1=debug
+        - JOBNAME=learnLangFullDebug BDIR=learnLang BOPT1=debug BOPT2=full
+        # - JOBNAME=tripSaveDebug      BDIR=tripSave BOPT1=debug
+        # - JOBNAME=tripSaveRelease    BDIR=tripSave BOPT1=release
 
 branches:
     only:
@@ -35,46 +35,39 @@ branches:
 
 git:
     depth: 3
-    # depth: 100
 
 cache:
-#     timeout: 300 # 5*60 seconds
+    timeout: 300 # (5*60 s = 5 min)
     directories:
-    - node_modules
+    - $NVM_DIR # $(npm config get prefix)
+    - android-sdk-linux
     - learnLang/node_modules
-#     - platforms
-#     - plugins
-#     - android-sdk-linux
-#     - $NVM_DIR # $(npm config get prefix)
+    - learnLang/platforms
+    - learnLang/plugins
 
 before_install:
-    - pwd
-    - cd $BDIR
-    - pwd
+    - source ./s/android_sdk_install.sh
     - npm install -g npm
-    # - npm --version
-    # - source ./scripts/android_sdk_install.sh
+    - node --version
+    - npm --version
+    - pwd
+    - npm install -g gulp bower cordova ionic
 
 install:
     - pwd
     - cd $BDIR
     - pwd
-    # - npm install -g gulp bower cordova ionic
-    - npm install
+    - ./install.sh
     # - bower update
-    # - source ./scripts/ionic_cordova_prepare.sh
+    # - source ./s/ionic_cordova_prepare.sh
 
 before_script:
     - pwd
-    - cd $BDIR
-    - pwd
-    - build.sh $BOPT1 $BOPT2
-    # - scripts/deploy_github_releases.sh $JOBNAME
 
 script:
     - pwd
-    - cd $BDIR
-    - pwd
+    - ./script.sh
+    # - source ./s/deploy_github_releases.sh $JOBNAME
     # - ls platforms/android/build/outputs/apk
     # - ls releases
     # - echo 1
