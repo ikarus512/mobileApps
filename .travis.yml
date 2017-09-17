@@ -53,6 +53,7 @@ before_install:
     # - source ./scripts/android_sdk_install.sh
 
 install:
+    - cd $BDIR
     - echo install; pwd
     # - npm install -g gulp bower cordova ionic
     # - npm install
