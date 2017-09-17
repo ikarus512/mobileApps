@@ -11,7 +11,7 @@ if [ "$BOPT1" == "debug" ];then
 
     cp -frv platforms/android/build/outputs/apk/android-armv7-debug.apk $releases/$myappname-debug.apk
     cp -frv platforms/android/build/outputs/apk/android-x86-debug.apk   $releases/$myappname-debug-x86.apk
-    rm -fv  platforms/android/build/outputs/apk/*debug*.apk
+#    rm -fv  platforms/android/build/outputs/apk/*debug*.apk
 
 fi
 
@@ -48,6 +48,6 @@ if [ "$BOPT1" == "release" ];then
 
     done
 
-    rm -fv platforms/android/build/outputs/apk/*release*.apk
+    # rm -fv platforms/android/build/outputs/apk/*release*.apk
 
 fi
