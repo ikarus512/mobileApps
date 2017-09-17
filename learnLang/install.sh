@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
-echo script $0
-echo opt1=$1
-echo opt2=$2
+
+npm i
+
+chmod -R +x hooks
+
+if [ ! -e platforms/android ];then
+
+    cordova prepare || exit 1
+    # cordova prepare --verbose || exit 1
+
+    cordova platform add android || exit 1
+
+fi

@@ -42,9 +42,8 @@ cache:
     - $NVM_DIR # $(npm config get prefix)
     - android-sdk-linux
     - $BDIR/node_modules
-    - learnLang/node_modules
-    - learnLang/platforms
-    - learnLang/plugins
+    - $BDIR/platforms
+    - $BDIR/plugins
 
 before_install:
     - source ./s/android_sdk_install.sh
@@ -69,6 +68,6 @@ script:
     - pwd
     - source ./script.sh
     # - source ./s/deploy_github_releases.sh $JOBNAME
-    # - ls platforms/android/build/outputs/apk
-    # - ls releases
-    # - echo 1
+    - ls platforms/android/build/outputs/apk
+    - ls ../releases
+    - echo 1
