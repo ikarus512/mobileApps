@@ -26,4 +26,4 @@ echo "Android app permissions old ($manifest):"
 grep    permission $manifest
 grep -v permission $manifest.old >$manifest
 echo "Android app permissions new ($manifest):"
-grep    permission $manifest
+grep    permission $manifest || echo "No matches"
