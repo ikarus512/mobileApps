@@ -5,6 +5,8 @@ releases=../releases
 
 mkdir -p $releases
 
+rm -fv platforms/android/build/outputs/apk/*.apk
+
 if [ "$BOPT1" == "debug" ];then
 
     cordova build android --debug || exit 1 # --verbose
@@ -60,5 +62,4 @@ if [ "$BOPT1" == "release" ];then
 
 fi
 
-# rm -fv  platforms/android/build/outputs/apk/*debug*.apk
-# rm -fv platforms/android/build/outputs/apk/*release*.apk
+rm -fv platforms/android/build/outputs/apk/*.apk
