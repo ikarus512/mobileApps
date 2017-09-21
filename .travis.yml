@@ -22,12 +22,12 @@ env:
         - ANDROID_HOME=$TRAVIS_BUILD_DIR/android-sdk-linux
         - zipalign=$ANDROID_HOME/build-tools/26.0.1/zipalign
     matrix:
-        - JOBNAME=learnLangDebug     BDIR=learnLang BOPT1=debug BOPT2=""
-        - JOBNAME=learnLangFullDebug BDIR=learnLang BOPT1=debug BOPT2=Full
-        - JOBNAME=learnLang          BDIR=learnLang BOPT1=release BOPT2=""
-        - JOBNAME=learnLangFull      BDIR=learnLang BOPT1=release BOPT2=Full
-        # - JOBNAME=tripSaveDebug      BDIR=tripSave BOPT1=debug
-        # - JOBNAME=tripSaveRelease    BDIR=tripSave BOPT1=release
+        - JOBNAME=learnLangDebug     APP=learnLang TARG=android BOPT1=debug BOPT2=""
+        - JOBNAME=learnLangFullDebug APP=learnLang TARG=android BOPT1=debug BOPT2=Full
+        - JOBNAME=learnLang          APP=learnLang TARG=android BOPT1=release BOPT2=""
+        - JOBNAME=learnLangFull      APP=learnLang TARG=android BOPT1=release BOPT2=Full
+        # - JOBNAME=tripSaveDebug      APP=tripSave TARG=android BOPT1=debug
+        # - JOBNAME=tripSaveRelease    APP=tripSave TARG=android BOPT1=release
 
 branches:
     only:
@@ -43,12 +43,12 @@ cache:
     directories:
     - $NVM_DIR # $(npm config get prefix)
     - android-sdk-linux
-    - $BDIR/node_modules
-    - $BDIR/platforms
-    - $BDIR/plugins
+    - app-$APP/node_modules
+    - app-$APP/platforms
+    - app-$APP/plugins
 
 before_install:
-    - source ./s/android_sdk_install.sh
+    - source ./server-scripts/android_sdk_install.sh
     - npm install -g npm
     - node --version
     - npm --version
@@ -57,19 +57,20 @@ before_install:
 
 install:
     - pwd
-    - cd $BDIR
+    - cd app-$APP
     - pwd
-    - source ./install.sh
+    - source ./scripts/copy-$TARG.sh
+    - source ./scripts/install-$TARG.sh
     # - bower update
-    # - source ./s/ionic_cordova_prepare.sh
+    # - source ./server-scripts/ionic_cordova_prepare.sh
 
 before_script:
     - pwd
 
 script:
     - pwd
-    - source ./script.sh
-    # - source ./s/deploy_github_releases.sh $JOBNAME
+    - source ./scripts/build-$TARG.sh
+    # - source ./server-scripts/deploy_github_releases.sh $JOBNAME
     - ls -lh platforms/android/build/outputs/apk
     - ls -lh ../releases
     - echo 1

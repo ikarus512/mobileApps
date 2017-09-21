@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-myappname=$BDIR$BOPT2
+myappname=$APP$BOPT2
 releases=../releases
 
 mkdir -p $releases
