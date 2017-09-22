@@ -1,0 +1,18 @@
+Development settings:
+APP_URL=https://localhost:5000
+
+
+git clone https://github.com/ikarus512/mobileApps
+npm init
+npm start
+git add -A && git commit -m "First version" && git push origin master
+
+
+ heroku login
+heroku create ikarus512-mobileapps
+ heroku git:remote -a ikarus512-mobileapps
+heroku config:set APP_URL=https://ikarus512-mobileapps.herokuapp.com
+git push heroku master
+ start heroku logs --tail
+
+https://ikarus512-mobileapps.herokuapp.com
