@@ -12,6 +12,7 @@ if [ -z $CLONE_DIR    ]; then CLONE_DIR=$PWD/../_tmp/mobileApps; fi
 # ==============================================================================
 
 HEROKU_APP=ikarus512-mobileApps
+REPO=ikarus512/mobileApps
 
 if [ "$EXTRASTEP" == "deploy" ];then
     cd $HOME_DIR
