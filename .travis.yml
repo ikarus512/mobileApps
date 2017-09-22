@@ -70,5 +70,5 @@ script:
 
     - ls -lh $RELEASES_DIR || echo 1
 
-deploy:
-    - source ./scripts-main/deploy_heroku.sh
+# deploy:
+#     - source ./scripts-main/deploy_heroku.sh
