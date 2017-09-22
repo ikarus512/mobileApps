@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-source ./../scripts-main/_github_api.sh
+cd $HOME_DIR
+source ./scripts-main/_github_api.sh
 
 githubTagAndPublishRelease ikarus512/mobileApps
 

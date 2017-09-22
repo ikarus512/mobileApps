@@ -24,9 +24,11 @@ if [ -z $OPT2     ]; then PLAT=Full; fi
 
 # if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi
 # RELEASES_DIR=../releases
-# TMP_DIR=_tmp/mobileApps
+# CLONE_DIR=_tmp/mobileApps
 
 # ==============================================================================
+
+cd $HOME_DIR
 
 function githubReleaseCreate() {
 
@@ -181,7 +183,7 @@ function cloneRepo() {
         #     git remote -v
         # popd
     fi
-    pushd $TMP_DIR >/dev/null
+    pushd $CLONE_DIR >/dev/null
         git fetch
     popd >/dev/null
 }
@@ -192,16 +194,16 @@ function getPackageVersion() {
 
 function getLatestTag() {
     local REPO=$1
-    cloneRepo $REPO $TMP_DIR
-    pushd $TMP_DIR >/dev/null
+    cloneRepo $REPO $CLONE_DIR
+    pushd $CLONE_DIR >/dev/null
         result=$(git describe --tags | sed -E 's/^v([0-9]{1,}\.[0-9]{1,}\.[0-9]{1,}).*$/\1/g')
     popd >/dev/null
 }
 
 function getLatestBuildNumber() {
     local REPO=$1
-    cloneRepo $REPO $TMP_DIR
-    result=$(sed -nE 's/^[ \t]*"travisBuildNumber": "([0-9]{1,})",$/\1/p' $TMP_DIR/package.json)
+    cloneRepo $REPO $CLONE_DIR
+    result=$(sed -nE 's/^[ \t]*"travisBuildNumber": "([0-9]{1,})",$/\1/p' $CLONE_DIR/package.json)
 }
 
 function getNewTagBumped() {
@@ -268,7 +270,7 @@ function githubTagAndPublishRelease() {
 
         if [ "$TRAVIS_BUILD_NUMBER" != "$latestBuildNumber" ];then
 
-            sed --in-place -r "s/^(\s*\"travisBuildNumber\": \")[0-9]+(\",)$/\1$TRAVIS_BUILD_NUMBER\2/" $TMP_DIR/package.json
+            sed --in-place -r "s/^(\s*\"travisBuildNumber\": \")[0-9]+(\",)$/\1$TRAVIS_BUILD_NUMBER\2/" $CLONE_DIR/package.json
             if [ $errors -ne 0 ];then echo "Error in $func"; return 1; fi
 
             # bump package version
@@ -277,7 +279,7 @@ function githubTagAndPublishRelease() {
             getNewTagBumped $packageVersion $latestTag; newTag=$result; echo "=== newTag=$newTag"
 
             # git tag, commit, push
-            pushd $TMP_DIR >/dev/null
+            pushd $CLONE_DIR >/dev/null
                 ### echo "=== Save newVer into a git tag (e.g. v1.2.44):"
                 ###     git tag -a v$newVer -m "[ci skip] (Travis Build #$TRAVIS_BUILD_NUMBER): add tag v$newVer"
                 # echo "=== Bump version to $newVer inside package.json, commit, and tag"
@@ -299,12 +301,12 @@ function githubTagAndPublishRelease() {
         githubReleaseCreate $REPO v$latestTag
         case $JOBNAME in
         tripSave_debug)
-            githubReleaseUploadAsset $REPO v$latestTag releases/$APPNAME-debug.apk
-            githubReleaseUploadAsset $REPO v$latestTag releases/$APPNAME-debug-x86.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug-x86.apk
         ;;
         tripSave_release)
-            githubReleaseUploadAsset $REPO v$latestTag releases/$APPNAME.apk
-            githubReleaseUploadAsset $REPO v$latestTag releases/$APPNAME-x86.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-x86.apk
         ;;
         esac
 

@@ -19,10 +19,10 @@ addons:
 env:
     global:
         - CXX=g++-4.8
-        - ANDROID_HOME=$TRAVIS_BUILD_DIR/android-sdk-linux
-        - APPNAME=$APP$OPT2
-        - RELEASES_DIR=$PWD/releases
-        - TMP_DIR=$PWD/_tmp/mobileApps
+        - HOME_DIR=$PWD
+        - ANDROID_HOME=$HOME_DIR/android-sdk-linux
+        - RELEASES_DIR=$HOME_DIR/releases
+        - CLONE_DIR=$HOME_DIR/_tmp/mobileApps
     matrix:
         - JOBNAME=learnLangDebug     APP=learnLang PLAT=android OPT1=debug OPT2=""
         - JOBNAME=learnLangFullDebug APP=learnLang PLAT=android OPT1=debug OPT2=Full
@@ -50,12 +50,10 @@ cache:
     - app-$APP/plugins
 
 before_install:
-    - echo TRAVIS_BUILD_DIR=$TRAVIS_BUILD_DIR;
-      echo APPNAME=$APPNAME;
-      echo RELEASES_DIR=$RELEASES_DIR;
-      echo TMP_DIR=$TMP_DIR;
-      exit
+    # Environment 2:
+    - APPNAME=$APP$OPT2
 
+    # For each app:
     - cd app-$APP
     - npm install -g npm
     - source ./scripts/before_install.sh
@@ -66,6 +64,11 @@ install:
 
 script:
     - source ./scripts/build.sh
-    # - source ./../scripts-main/deploy_github_releases.sh
-    # - source ./../scripts-main/deploy_heroku.sh
-    - ls -lh ../releases || echo 1
+
+    - cd $HOME_DIR
+    - source ./scripts-main/deploy_github_releases.sh
+
+    - ls -lh $RELEASES_DIR || echo 1
+
+deploy:
+    - source ./scripts-main/deploy_heroku.sh
