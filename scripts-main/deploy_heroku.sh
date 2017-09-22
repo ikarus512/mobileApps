@@ -23,10 +23,19 @@ if [ "$EXTRASTEP" == "deploy" ];then
     cd $CLONE_DIR
     git fetch
 
-    echo "Host git.heroku.com"           >>~/.netrc
-    echo "   password $HEROKU_API_TOKEN" >>~/.netrc
-    echo "   login $MYEMAIL"             >>~/.netrc
+    # echo "Host git.heroku.com"           >>~/.netrc
+    # echo "   password $HEROKU_API_TOKEN" >>~/.netrc
+    # echo "   login $MYEMAIL"             >>~/.netrc
+    # git remote add heroku https://git.heroku.com/$HEROKU_APP.git
+    # git push heroku master
 
-    git remote add heroku https://git.heroku.com/$HEROKU_APP.git
+    gem install heroku
+    echo "Host heroku.com"                 >>~/.ssh/config
+    echo "   StrictHostKeyChecking no"     >>~/.ssh/config
+    echo "   CheckHostIP no"               >>~/.ssh/config
+    echo "   UserKnownHostsFile=/dev/null" >>~/.ssh/config
+    # heroku login
+    # git remote add heroku https://git.heroku.com/$HEROKU_APP.git
+    git remote add heroku git@heroku.com:$HEROKU_APP.git
     git push heroku master
 fi
