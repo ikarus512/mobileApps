@@ -50,10 +50,10 @@ cache:
     - app-$APP/plugins
 
 before_install:
-    - echo TRAVIS_BUILD_DIR=$TRAVIS_BUILD_DIR
-      echo APPNAME=$APPNAME
-      echo RELEASES_DIR=$RELEASES_DIR
-      echo TMP_DIR=$TMP_DIR
+    - echo TRAVIS_BUILD_DIR=$TRAVIS_BUILD_DIR;
+      echo APPNAME=$APPNAME;
+      echo RELEASES_DIR=$RELEASES_DIR;
+      echo TMP_DIR=$TMP_DIR;
       exit
 
     - cd app-$APP
