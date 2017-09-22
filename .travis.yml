@@ -29,6 +29,7 @@ env:
         - JOBNAME=learnLangFullDebug APP=learnLang PLAT=android OPT1=debug OPT2=Full
         - JOBNAME=learnLang          APP=learnLang PLAT=android OPT1=release OPT2=""
         - JOBNAME=learnLangFull      APP=learnLang PLAT=android OPT1=release OPT2=Full
+        - JOBNAME=deploy             APP=deploy PLAT= OPT1= OPT2=
         # - JOBNAME=tripSaveDebug      APP=tripSave PLAT=android OPT1=debug
         # - JOBNAME=tripSaveRelease    APP=tripSave PLAT=android OPT1=release
 
@@ -70,6 +71,4 @@ script:
 after_script:
     - cd $HOME_DIR
     - source ./scripts-main/deploy_github_releases.sh
-
-# deploy:
-#     - source ./scripts-main/deploy_heroku.sh
+    - source ./scripts-main/deploy_heroku.sh

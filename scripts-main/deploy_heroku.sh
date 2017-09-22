@@ -13,13 +13,17 @@ if [ -z $CLONE_DIR    ]; then CLONE_DIR=$PWD/../_tmp/mobileApps; fi
 
 HEROKU_APP=ikarus512-mobileApps
 
-cd $CLONE_DIR
+if [ $APP == deploy ];then
+    cd $HOME_DIR
+    mkdir -p _tmp
+    cd _tmp
+    git clone --depth=3 https://ikarus512:$GITHUB_API_TOKEN@github.com/$REPO.git
+    cd $CLONE_DIR
 
-# # Pushes to Heroku. This is forced so it will work even if the app is running.
-# yes | git push heroku master -f
+    echo "Host git.heroku.com"           >>~/.netrc
+    echo "   password $HEROKU_API_TOKEN" >>~/.netrc
+    echo "   login $MYEMAIL"             >>~/.netrc
 
-#git clone --depth=20 https://ikarus512:$GITHUB_API_TOKEN@github.com/$REPO.git $dir
-#git remote add heroku git@heroku.com:$HEROKU_APP.git
-#git remote add heroku https://ikarus512:$HEROKU_API_TOKEN@heroku.com:$HEROKU_APP.git
-git remote add heroku https://ikarus512:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP.git
-git push heroku master
+    git remote add heroku https://git.heroku.com/$HEROKU_APP.git
+    git push heroku master
+fi
