@@ -58,4 +58,5 @@ install:
 script:
     - source ./scripts/build.sh
     # - source ./../scripts-main/deploy_github_releases.sh $JOBNAME
+    # - source ./../scripts-main/deploy_heroku.sh $JOBNAME
     - ls -lh ../releases || echo 1
