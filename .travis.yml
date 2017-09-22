@@ -21,6 +21,7 @@ env:
         - CXX=g++-4.8
         - HOME_DIR=$PWD
         - ANDROID_HOME=$HOME_DIR/android-sdk-linux
+        - ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign
         - RELEASES_DIR=$HOME_DIR/releases
         - CLONE_DIR=$HOME_DIR/_tmp/mobileApps
     matrix:
