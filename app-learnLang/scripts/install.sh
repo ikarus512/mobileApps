@@ -13,7 +13,7 @@ if [ ! -e platforms/android ];then
     # cordova platform add android #--save
     cordova platform add android || exit 1
 
-    if [ "$BOPT2" == "Full" ];then
+    if [ "$OPT2" == "Full" ];then
         # cordova plugin add cordova-plugin-dialogs      ## navigator.notification.alert()
         cordova plugin add cordova-plugin-crosswalk-webview
         # cordova-plugin-console

@@ -1,29 +1,34 @@
 #!/usr/bin/env bash
 
-myappname=$APP$BOPT2
-releases=../releases
+if [ "$APP"  == "" ]; then APP=learnLang; fi
+if [ "$PLAT" == "" ]; then PLAT=android; fi
+if [ "$OPT1" == "" ]; then OPT1=debug; fi
+if [ "$OPT2" == "" ]; then PLAT=Full; fi
 
-mkdir -p $releases
+APPNAME=$APP$OPT2
+RELEASES_DIR=../releases
+
+mkdir -p $RELEASES_DIR
 
 rm -fv platforms/android/build/outputs/apk/*.apk
 
-if [ "$BOPT1" == "debug" ];then
+if [ "$OPT1" == "debug" ];then
 
     cordova build android --debug || exit 1 # --verbose
 
-    case "$BOPT2" in
+    case "$OPT2" in
     "Full")
-        cp -frv platforms/android/build/outputs/apk/android-armv7-debug.apk $releases/$myappname-debug.apk
-        cp -frv platforms/android/build/outputs/apk/android-x86-debug.apk   $releases/$myappname-debug-x86.apk
+        cp -frv platforms/android/build/outputs/apk/android-armv7-debug.apk $RELEASES_DIR/$APPNAME-debug.apk
+        cp -frv platforms/android/build/outputs/apk/android-x86-debug.apk   $RELEASES_DIR/$APPNAME-debug-x86.apk
         ;;
     "")
-        cp -frv platforms/android/build/outputs/apk/android-debug.apk $releases/$myappname-debug.apk
+        cp -frv platforms/android/build/outputs/apk/android-debug.apk $RELEASES_DIR/$APPNAME-debug.apk
         ;;
     esac
 
 fi
 
-if [ "$BOPT1" == "release" ];then
+if [ "$OPT1" == "release" ];then
 
     # if [ -z $zipalign ];then zipalign=$ANDROID_HOME1/build-tools/25.0.2/zipalign; fi
 
@@ -34,8 +39,8 @@ if [ "$BOPT1" == "release" ];then
     cordova build android --release || exit 1
 
     ### keystore:    CN=Your name, OU=OrgUnit, O=Org, L=city/Locality, S=STate/province, C=Country code
-    keystoreFile=ikarus512-$myappname.keystore
-    keystoreAlias=ikarus512$myappname
+    keystoreFile=ikarus512-$APPNAME.keystore
+    keystoreAlias=ikarus512$APPNAME
     storePassword=$(dd if=/dev/urandom bs=32 count=1 2>/dev/null | sha256sum -b | sed 's/ .*//')
     keyPassword=$(dd if=/dev/urandom bs=32 count=1 2>/dev/null | sha256sum -b | sed 's/ .*//')
     keystoreValidity=10000 # days
@@ -46,11 +51,12 @@ if [ "$BOPT1" == "release" ];then
     # android-x86-release-unsigned.apk
     # android-release-unsigned.apk
 
-    ### sign and copy to $releases/ for later check-in
+    ### sign and copy to $RELEASES_DIR/ for later check-in
     for apkFile in $(ls platforms/android/build/outputs/apk/android*-release-unsigned.apk);do
 
-        plat=$(echo $apkFile | perl -e '$_=<>; s/^.*\/\w+|-release-unsigned.apk$|-armv7//g; print;')
-        apkFileOut=$releases/$myappname$plat.apk
+        plat1=$(echo $apkFile | perl -e '$_=<>; s/^.*\/\w+|-release-unsigned.apk$|-armv7//g; print;')
+        apkFileOut=$RELEASES_DIR/$APPNAME$plat1.apk
+        unset plat1
         rm -f $apkFileOut || exit 1
 
         jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $keystoreFile $apkFile $keystoreAlias -storepass $storePassword -keypass $keyPassword || exit 1

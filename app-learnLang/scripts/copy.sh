@@ -2,7 +2,7 @@
 
 cp -frv src www
 
-if [ "$BOPT2" != "Full" ];then
+if [ "$OPT2" != "Full" ];then
     rm -frv www/js/data_hindi_oldfont.js
     rm -frv www/js/data_music.js
     # rm -frv www/js/data_example.js
