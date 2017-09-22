@@ -189,7 +189,7 @@ function cloneRepo() {
 }
 
 function getPackageVersion() {
-    result=$(sed -nE 's/^[ \t]*"version": "([0-9]{1,}\.[0-9]{1,}\.[0-9x]{1,})",$/\1/p' package.json)
+    result=$(sed -nE 's/^[ \t]*"version": "([0-9]{1,}\.[0-9]{1,}\.[0-9x]{1,})",$/\1/p' $HOME_DIR/package.json)
 }
 
 function getLatestTag() {

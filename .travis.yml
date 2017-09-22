@@ -39,7 +39,7 @@ branches:
         - /^v?\d+\.\d+\.\d+/
 
 git:
-    depth: 3
+    depth: 100
 
 cache:
     timeout: 300 # (5*60 s = 5 min)
@@ -65,11 +65,11 @@ install:
 
 script:
     - source ./scripts/build.sh
+    - ls -lh $RELEASES_DIR || echo 1
 
+after_script:
     - cd $HOME_DIR
     - source ./scripts-main/deploy_github_releases.sh
-
-    - ls -lh $RELEASES_DIR || echo 1
 
 # deploy:
 #     - source ./scripts-main/deploy_heroku.sh
