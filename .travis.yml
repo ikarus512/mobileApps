@@ -67,7 +67,7 @@ script:
     - source ./scripts/build.sh
     - ls -lh $RELEASES_DIR || echo 1
 
-after_success:
+after_script:
     - cd $HOME_DIR
     - source ./scripts-main/deploy_github_releases.sh
     - source ./scripts-main/deploy_heroku.sh
