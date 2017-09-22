@@ -15,11 +15,13 @@ HEROKU_APP=ikarus512-mobileApps
 REPO=ikarus512/mobileApps
 
 if [ "$EXTRASTEP" == "deploy" ];then
-    cd $HOME_DIR
-    mkdir -p _tmp
-    cd _tmp
-    git clone --depth=3 https://ikarus512:$GITHUB_API_TOKEN@github.com/$REPO.git || echo 1
+    mkdir -p $HOME_DIR/_tmp
+    cd $HOME_DIR/_tmp
+    if [ ! -e $CLONE_DIR ];then
+        git clone --depth=3 https://ikarus512:$GITHUB_API_TOKEN@github.com/$REPO.git || echo 1
+    fi
     cd $CLONE_DIR
+    git fetch
 
     echo "Host git.heroku.com"           >>~/.netrc
     echo "   password $HEROKU_API_TOKEN" >>~/.netrc
