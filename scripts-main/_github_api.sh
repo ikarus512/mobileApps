@@ -21,10 +21,9 @@ if [ -z $APP      ]; then APP=learnLang; fi
 if [ -z $PLAT     ]; then PLAT=android; fi
 if [ -z $OPT1     ]; then OPT1=debug; fi
 if [ -z $OPT2     ]; then PLAT=Full; fi
-
-# if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi
-# RELEASES_DIR=../releases
-# CLONE_DIR=_tmp/mobileApps
+if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi
+if [ -z $RELEASES_DIR ]; then RELEASES_DIR=$PWD/../releases; fi
+if [ -z $CLONE_DIR    ]; then CLONE_DIR=$PWD/../_tmp/mobileApps; fi
 
 # ==============================================================================
 
@@ -319,12 +318,3 @@ function githubTagAndPublishRelease() {
     fi
 
 }
-
-# REPO=ikarus512/mobileApps
-# tag=v1.0.14
-# aFile=platforms/android/build/outputs/apk/tripSave3.apk
-
-# githubReleaseCreate $REPO $tag
-# githubReleaseUploadAsset $REPO $tag $aFile
-# githubReleaseDelete $REPO $tag
-# githubTagAndPublishRelease $REPO
