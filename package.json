@@ -1,6 +1,6 @@
 {
   "name": "mobileapps",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Mobile Apps",
   "main": "server/index.js",
   "scripts": {
