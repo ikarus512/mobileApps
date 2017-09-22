@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
 case $PLAT in
-android)
-    source ./scripts-main/android_sdk_install.sh
-    ;;
+android) pushd $HOME_DIR; source ./scripts-main/android_sdk_install.sh; popd ;;
 esac
 
 case $APP in
