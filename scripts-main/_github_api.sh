@@ -299,15 +299,21 @@ function githubTagAndPublishRelease() {
 
         getLatestTag $REPO; latestTag=$result; echo "=== latestTag=$latestTag"
         githubReleaseCreate $REPO v$latestTag
-        case $JOBNAME in
-        tripSave_debug)
+        case $APP.$OPT1.$OPT2 in
+        learnLang.debug.Full)
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug-x86.apk
-        ;;
-        tripSave_release)
+            ;;
+        learnLang.debug.)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk
+            ;;
+        learnLang.release.Full)
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-x86.apk
-        ;;
+            ;;
+        learnLang.release.)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk
+            ;;
         esac
 
     fi
