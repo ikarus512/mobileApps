@@ -17,7 +17,7 @@ if [ "$EXTRASTEP" == "deploy" ];then
     cd $HOME_DIR
     mkdir -p _tmp
     cd _tmp
-    git clone --depth=3 https://ikarus512:$GITHUB_API_TOKEN@github.com/$REPO.git
+    git clone --depth=3 https://ikarus512:$GITHUB_API_TOKEN@github.com/$REPO.git || echo 1
     cd $CLONE_DIR
 
     echo "Host git.heroku.com"           >>~/.netrc
