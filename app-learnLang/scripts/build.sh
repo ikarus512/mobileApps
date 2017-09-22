@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
-if [ "$APP"  == "" ]; then APP=learnLang; fi
-if [ "$PLAT" == "" ]; then PLAT=android; fi
-if [ "$OPT1" == "" ]; then OPT1=debug; fi
-if [ "$OPT2" == "" ]; then PLAT=Full; fi
+if [ -z $APP      ]; then APP=learnLang; fi
+if [ -z $PLAT     ]; then PLAT=android; fi
+if [ -z $OPT1     ]; then OPT1=debug; fi
+if [ -z $OPT2     ]; then PLAT=Full; fi
+if [ -z $ZIPALIGN ]; then ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign; fi
 
 APPNAME=$APP$OPT2
 RELEASES_DIR=../releases
+
+# ==============================================================================
 
 mkdir -p $RELEASES_DIR
 
@@ -29,8 +32,6 @@ if [ "$OPT1" == "debug" ];then
 fi
 
 if [ "$OPT1" == "release" ];then
-
-    # if [ -z $zipalign ];then zipalign=$ANDROID_HOME1/build-tools/25.0.2/zipalign; fi
 
     ### remove debug plugins
     # cordova plugin rm cordova-plugin-console
@@ -62,7 +63,7 @@ if [ "$OPT1" == "release" ];then
         jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $keystoreFile $apkFile $keystoreAlias -storepass $storePassword -keypass $keyPassword || exit 1
         jarsigner -verify $apkFile $keystoreAlias || exit 1
 
-        $zipalign -v 4 $apkFile $apkFileOut || exit 1
+        $ZIPALIGN -v 4 $apkFile $apkFileOut || exit 1
 
     done
 

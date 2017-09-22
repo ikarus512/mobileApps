@@ -20,7 +20,6 @@ env:
     global:
         - CXX=g++-4.8
         - ANDROID_HOME=$TRAVIS_BUILD_DIR/android-sdk-linux
-        - zipalign=$ANDROID_HOME/build-tools/26.0.1/zipalign
     matrix:
         - JOBNAME=learnLangDebug     APP=learnLang PLAT=android OPT1=debug OPT2=""
         - JOBNAME=learnLangFullDebug APP=learnLang PLAT=android OPT1=debug OPT2=Full
@@ -48,29 +47,15 @@ cache:
     - app-$APP/plugins
 
 before_install:
-    - source ./server-scripts/android_sdk_install.sh
+    - cd app-$APP
     - npm install -g npm
-    - node --version
-    - npm --version
-    - pwd
-    - npm install -g gulp bower cordova ionic
+    - source ./scripts/before_install.sh
 
 install:
-    - pwd
-    - cd app-$APP
-    - pwd
     - source ./scripts/copy.sh
     - source ./scripts/install.sh
-    # - bower update
-    # - source ./server-scripts/ionic_cordova_prepare.sh
-
-before_script:
-    - pwd
 
 script:
-    - pwd
     - source ./scripts/build.sh
-    # - source ./server-scripts/deploy_github_releases.sh $JOBNAME
-    - ls -lh platforms/android/build/outputs/apk
-    - ls -lh ../releases
-    - echo 1
+    # - source ./../scripts-main/deploy_github_releases.sh $JOBNAME
+    - ls -lh ../releases || echo 1

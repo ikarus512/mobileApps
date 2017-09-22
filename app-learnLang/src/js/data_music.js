@@ -394,11 +394,11 @@ a.data_music={
     //======================================
     // Topic:
     //======================================
-    "3 notes, 1.5": {
+    "3 notes in 3": {
       "font-family": "myFontBravuraText",
       "font-size": "40px", //"4em",
-      "en": "3 notes, 1.5",
-      "ru": "3 ноты, 1.5",
+      "en": "3 notes in 3",
+      "ru": "3 ноты через 3",
       "terms": [
         {transcription:"G1 C2 F2", term:'<ib><zh><note-middle>&#xe01a;&#xe062;&#xe01a;</note-middle><br>'+
           '<note-middle0>===&#xe1d5;</note-middle0><br>'+

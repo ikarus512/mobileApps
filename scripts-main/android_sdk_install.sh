@@ -2,6 +2,7 @@
 
 export ANDROID_HOME=$PWD/android-sdk-linux
 export ANDROID_SDK=$ANDROID_HOME
+export ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign
 export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/23.0.2:${PATH}
 
 if [ ! -e android-sdk-linux/tools/bin ];then
