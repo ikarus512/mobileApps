@@ -15,6 +15,7 @@ HEROKU_APP=ikarus512-mobileApps
 REPO=ikarus512/mobileApps
 
 if [ "$EXTRASTEP" == "deploy" ];then
+
     mkdir -p $HOME_DIR/_tmp
     cd $HOME_DIR/_tmp
     if [ ! -e $CLONE_DIR ];then
@@ -23,7 +24,12 @@ if [ "$EXTRASTEP" == "deploy" ];then
     cd $CLONE_DIR
     git fetch
 
-    gem install heroku
+    # gem install heroku
+    gem uninstall heroku
+
+    npm install -g heroku-cli
+    heroku --version
+
     echo "Host heroku.com"                 >>~/.ssh/config
     echo "   StrictHostKeyChecking no"     >>~/.ssh/config
     echo "   CheckHostIP no"               >>~/.ssh/config
@@ -37,4 +43,5 @@ if [ "$EXTRASTEP" == "deploy" ];then
     # git remote add heroku https://git.heroku.com/$HEROKU_APP.git
     git remote add heroku git@heroku.com:$HEROKU_APP.git
     git push heroku master
+
 fi
