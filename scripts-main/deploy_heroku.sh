@@ -32,9 +32,11 @@ if [ "$EXTRASTEP" == "deploy" ];then
     echo "  CheckHostIP no"               >>~/.ssh/config
     echo "  UserKnownHostsFile=/dev/null" >>~/.ssh/config
     # # heroku login
+    echo -e "" >~/.netrc
     echo -e -n "Host api.heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL\n" >>~/.netrc
     echo -e -n "Host git.heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL\n" >>~/.netrc
-    echo -e -n     "Host heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL\n" >>~/.netrc
+    # echo -e -n     "Host heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL\n" >>~/.netrc
+    cat ~/.netrc #danger!!!
 
     # git remote add heroku https://git.heroku.com/$HEROKU_APP.git
     git remote add heroku git@heroku.com:$HEROKU_APP.git
