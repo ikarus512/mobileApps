@@ -32,13 +32,15 @@ if [ "$EXTRASTEP" == "deploy" ];then
     echo "  CheckHostIP no"               >>~/.ssh/config
     echo "  UserKnownHostsFile=/dev/null" >>~/.ssh/config
     # # heroku login
-    { echo "$MYEMAIL"; sleep 3; echo "$HEROKU_API_TOKEN"; sleep 3; } | heroku login
     echo -e -n "Host api.heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL" >>~/.netrc
     echo -e -n "Host git.heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL" >>~/.netrc
     echo -e -n     "Host heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL" >>~/.netrc
 
     # git remote add heroku https://git.heroku.com/$HEROKU_APP.git
     git remote add heroku git@heroku.com:$HEROKU_APP.git
+    # heroku keys:clear
+    # yes | heroku keys:add
+    { echo "$MYEMAIL"; sleep 3; echo "$HEROKU_API_TOKEN"; sleep 3; } | heroku login
     git push heroku master
 
 fi
