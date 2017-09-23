@@ -27,15 +27,15 @@ if [ "$EXTRASTEP" == "deploy" ];then
     npm install -g heroku-cli
     heroku --version
 
-    # echo "Host heroku.com"                 >>~/.ssh/config
-    # echo "  StrictHostKeyChecking no"     >>~/.ssh/config
-    # echo "  CheckHostIP no"               >>~/.ssh/config
-    # echo "  UserKnownHostsFile=/dev/null" >>~/.ssh/config
+    echo "Host heroku.com"                 >>~/.ssh/config
+    echo "  StrictHostKeyChecking no"     >>~/.ssh/config
+    echo "  CheckHostIP no"               >>~/.ssh/config
+    echo "  UserKnownHostsFile=/dev/null" >>~/.ssh/config
     # # heroku login
-    { echo "$MYEMAIL"; echo "$HEROKU_API_TOKEN"; sleep 3; } | heroku login
-    # echo -e -n "Host api.heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL" >>~/.netrc
-    # echo -e -n "Host git.heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL" >>~/.netrc
-    # echo -e -n     "Host heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL" >>~/.netrc
+    { echo "$MYEMAIL"; sleep 3; echo "$HEROKU_API_TOKEN"; sleep 3; } | heroku login
+    echo -e -n "Host api.heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL" >>~/.netrc
+    echo -e -n "Host git.heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL" >>~/.netrc
+    echo -e -n     "Host heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL" >>~/.netrc
 
     git remote add heroku https://git.heroku.com/$HEROKU_APP.git
     git push heroku master
