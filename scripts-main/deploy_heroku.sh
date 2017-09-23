@@ -25,6 +25,7 @@ if [ "$EXTRASTEP" == "deploy" ];then
     git fetch
 
     npm install -g heroku-cli
+    heroku auth:token #dander!!!
     heroku --version
 
     echo "Host heroku.com"                 >>~/.ssh/config
@@ -36,7 +37,7 @@ if [ "$EXTRASTEP" == "deploy" ];then
     echo -e -n "Host git.heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL" >>~/.netrc
     echo -e -n     "Host heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL" >>~/.netrc
 
-    git remote add heroku https://git.heroku.com/$HEROKU_APP.git
+    # git remote add heroku https://git.heroku.com/$HEROKU_APP.git
     git push heroku master
 
 fi
