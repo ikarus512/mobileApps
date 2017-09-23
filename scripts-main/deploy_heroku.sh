@@ -37,8 +37,8 @@ if [ "$EXTRASTEP" == "deploy" ];then
 
     # # heroku login
     echo -e "" >~/.netrc
-    echo -e -n "Host api.heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL\n" >>~/.netrc
-    echo -e -n "Host git.heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL\n" >>~/.netrc
+    echo -e -n "machine api.heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL\n" >>~/.netrc
+    echo -e -n "machine git.heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL\n" >>~/.netrc
     # echo "======= cat ~/.netrc"
     # cat ~/.netrc
     # echo "======="
@@ -47,10 +47,18 @@ if [ "$EXTRASTEP" == "deploy" ];then
     # git remote add heroku git@heroku.com:$HEROKU_APP.git
     # heroku keys:clear
     # yes | heroku keys:add
-echo "======= heroku login"
+    echo "======= heroku login"
     { echo "$MYEMAIL"; sleep 3; echo "$HEROKU_API_TOKEN"; sleep 3; } | heroku login
-echo "======="
+    echo "======="
+
+    echo "=======1"
     git remote add heroku https://git.heroku.com/$HEROKU_APP.git
+    echo "=======2"
     git push heroku master
+    echo "=======3"
+    git remote add heroku1 git@heroku.com:$HEROKU_APP.git
+    echo "=======4"
+    git push heroku1 master
+    echo "======="
 
 fi
