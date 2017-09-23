@@ -11,7 +11,7 @@ if [ -z $CLONE_DIR    ]; then CLONE_DIR=$PWD/../_tmp/mobileApps; fi
 
 # ==============================================================================
 
-HEROKU_APP=ikarus512-mobileApps
+HEROKU_APP=ikarus512-mobileapps
 REPO=ikarus512/mobileApps
 
 if [ "$EXTRASTEP" == "deploy" ];then
@@ -37,9 +37,6 @@ if [ "$EXTRASTEP" == "deploy" ];then
     echo -e -n     "Host heroku.com\n  password $HEROKU_API_TOKEN\n  login $MYEMAIL" >>~/.netrc
 
     git remote add heroku https://git.heroku.com/$HEROKU_APP.git
-    git push heroku master
-    # git remote add heroku https://git.heroku.com/$HEROKU_APP.git
-    git remote add heroku git@heroku.com:$HEROKU_APP.git
     git push heroku master
 
 fi
