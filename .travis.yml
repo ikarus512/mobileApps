@@ -46,16 +46,16 @@ cache:
     directories:
     - $NVM_DIR # $(npm config get prefix)
     - android-sdk-linux
-    - app-$APP/node_modules
-    - app-$APP/platforms
-    - app-$APP/plugins
+    - apps/$APP/node_modules
+    - apps/$APP/platforms
+    - apps/$APP/plugins
 
 before_install:
     ### Environment 2:
     - export APPNAME=$APP$OPT2
-    - export ANDROID_MANIFEST=$HOME_DIR/app-$APP/platforms/android/AndroidManifest.xml
+    - export ANDROID_MANIFEST=$HOME_DIR/apps/$APP/platforms/android/AndroidManifest.xml
 
-    - cd app-$APP
+    - cd apps/$APP
     - npm install -g npm
     - source ./scripts/before_install.sh
 
