@@ -22,12 +22,14 @@ if [ "$OPT1" == "debug" ];then
 
     cordova build android --debug || exit 1 # --verbose
 
+    ls -lh platforms/android/build/outputs/apk
+
     case "$OPT2" in
     "Full")
         cp -frv platforms/android/build/outputs/apk/android-armv7-debug.apk $RELEASES_DIR/$APPNAME-debug.apk
         cp -frv platforms/android/build/outputs/apk/android-x86-debug.apk   $RELEASES_DIR/$APPNAME-debug-x86.apk
         ;;
-    "")
+    *)
         cp -frv platforms/android/build/outputs/apk/android-debug.apk $RELEASES_DIR/$APPNAME-debug.apk
         ;;
     esac
