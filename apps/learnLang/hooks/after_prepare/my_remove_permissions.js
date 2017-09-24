@@ -27,7 +27,9 @@ var permissionsToRemove = [
 var fs = require('fs');
 var path = require('path');
 var rootdir = process.argv[2];
-var manifestFile = path.join(rootdir, "platforms/android/AndroidManifest.xml");
+console.log("(my hook) cur dir:",process.env.PWD);
+console.log("(my hook) args:",process.argv);
+var manifestFile = path.join(process.env.APP_DIR, "platforms/android/AndroidManifest.xml");
 
 fs.readFile( manifestFile, "utf8", function( err, data ) {
     if (err) { return console.log( err ); }
