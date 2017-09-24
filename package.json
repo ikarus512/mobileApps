@@ -16,7 +16,9 @@
     "node",
     "express",
     "android",
-    "cordova"
+    "cordova",
+    "javascript",
+    "jquerymobile"
   ],
   "author": "ikarus512",
   "license": "GPL-3.0",

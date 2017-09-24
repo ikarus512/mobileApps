@@ -20,7 +20,7 @@
 if [ -z $APP      ]; then APP=learnLang; fi
 if [ -z $PLAT     ]; then PLAT=android; fi
 if [ -z $OPT1     ]; then OPT1=debug; fi
-if [ -z $OPT2     ]; then PLAT=Full; fi
+if [ -z $OPT2     ]; then OPT2=; fi
 if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi
 if [ -z $RELEASES_DIR ]; then RELEASES_DIR=$PWD/../releases; fi
 if [ -z $CLONE_DIR    ]; then CLONE_DIR=$PWD/../_tmp/mobileApps; fi
@@ -299,20 +299,14 @@ function githubTagAndPublishRelease() {
         getLatestTag $REPO; latestTag=$result; echo "=== latestTag=$latestTag"
         githubReleaseCreate $REPO v$latestTag
         case $APP.$OPT1.$OPT2 in
-        learnLang.debug.Full)
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug-x86.apk
-            ;;
-        learnLang.debug.)
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk
-            ;;
-        learnLang.release.Full)
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-x86.apk
-            ;;
-        learnLang.release.)
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk
-            ;;
+        learnLang.debug.Full) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug-x86.apk ;;
+        learnLang.debug.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk ;;
+        learnLang.release.Full) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-x86.apk ;;
+        learnLang.release.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk ;;
+        puzzle15.debug.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk ;;
+        puzzle15.release.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk ;;
         esac
 
     fi

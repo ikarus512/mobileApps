@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # Env from .travis.yml:
-if [ -z $APP      ]; then APP=learnLang; fi
+if [ -z $APP      ]; then APP=puzzle15; fi
 if [ -z $PLAT     ]; then PLAT=android; fi
 if [ -z $OPT1     ]; then OPT1=debug; fi
-if [ -z $OPT2     ]; then OPT2=Full; fi
+if [ -z $OPT2     ]; then OPT2=; fi
 if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi
 
 if [ -z $ANDROID_HOME ]; then ANDROID_HOME=$PWD/../android-sdk-linux; fi
@@ -22,15 +22,7 @@ if [ "$OPT1" == "debug" ];then
 
     cordova build android --debug || exit 1 # --verbose
 
-    case "$OPT2" in
-    "Full")
-        cp -frv platforms/android/build/outputs/apk/android-armv7-debug.apk $RELEASES_DIR/$APPNAME-debug.apk
-        cp -frv platforms/android/build/outputs/apk/android-x86-debug.apk   $RELEASES_DIR/$APPNAME-debug-x86.apk
-        ;;
-    "")
-        cp -frv platforms/android/build/outputs/apk/android-debug.apk $RELEASES_DIR/$APPNAME-debug.apk
-        ;;
-    esac
+    cp -frv platforms/android/build/outputs/apk/android-debug.apk $RELEASES_DIR/$APPNAME-debug.apk
 
 fi
 
