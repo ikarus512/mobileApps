@@ -15,3 +15,6 @@ echo "==="
 
 echo "Android app permissions ($ANDROID_MANIFEST):"
 grep    permission $ANDROID_MANIFEST || echo "    (no matches found)"
+
+echo "=== $APP_DIR/plugins/android.json:"
+grep    permission $APP_DIR/plugins/android.json -C 2 || echo "    (no matches found)"
