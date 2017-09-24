@@ -53,6 +53,7 @@ cache:
 before_install:
     ### Environment 2:
     - export APPNAME=$APP$OPT2
+    - export ANDROID_MANIFEST=$HOME_DIR/app-$APP/platforms/android/AndroidManifest.xml
 
     - cd app-$APP
     - npm install -g npm
@@ -62,8 +63,10 @@ install:
     - source ./scripts/copy.sh
     - source ./scripts/install.sh
 
-script:
+before_script:
     - source ./scripts/build.sh
+
+script:
     - ls -lh $RELEASES_DIR || echo 1
 
 after_success:

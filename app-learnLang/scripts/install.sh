@@ -5,7 +5,7 @@ npm i
 mkdir hooks
 chmod -R +x hooks
 
-if [ ! -e platforms/android ];then
+if [ ! -e platforms/android -o ! -e plugins ];then
 
     # cordova prepare || exit 1
     # cordova prepare --verbose || exit 1
@@ -25,10 +25,9 @@ if [ ! -e platforms/android ];then
 
 fi
 
-manifest=platforms/android/AndroidManifest.xml
-mv -fv $manifest $manifest.old
-echo "Android app permissions old ($manifest):"
-grep    permission $manifest.old || echo "    (no matches found)"
-grep -v permission $manifest.old >$manifest
-echo "Android app permissions new ($manifest):"
-grep    permission $manifest || echo "    (no matches found)"
+mv -fv $ANDROID_MANIFEST $ANDROID_MANIFEST.old
+echo "Android app permissions old ($ANDROID_MANIFEST):"
+grep    permission $ANDROID_MANIFEST.old || echo "    (no matches found)"
+grep -v permission $ANDROID_MANIFEST.old >$ANDROID_MANIFEST
+echo "Android app permissions new ($ANDROID_MANIFEST):"
+grep    permission $ANDROID_MANIFEST || echo "    (no matches found)"
