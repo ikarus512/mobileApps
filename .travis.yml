@@ -63,10 +63,10 @@ install:
     - source ./scripts/install.sh
 
 script:
-    # - source ./scripts/build.sh
+    - source ./scripts/build.sh
     - ls -lh $RELEASES_DIR || echo 1
 
 after_success:
     - cd $HOME_DIR
-    # - source ./scripts-main/deploy_github_releases.sh
-    - source ./scripts-main/deploy_heroku.sh
+    - source ./scripts-main/deploy_github_releases.sh
+    # - source ./scripts-main/deploy_heroku.sh

@@ -36,9 +36,6 @@ fi
 
 if [ "$OPT1" == "release" ];then
 
-    ### remove debug plugins
-    # cordova plugin rm cordova-plugin-console
-
     ### build
     cordova build android --release || exit 1
 
