@@ -26,7 +26,7 @@ if [ ! -e platforms/android ];then
 fi
 
 manifest=platforms/android/AndroidManifest.xml
-mv -frv $manifest $manifest.old
+mv -fv $manifest $manifest.old
 echo "Android app permissions old ($manifest):"
 grep    permission $manifest.old || echo "    (no matches found)"
 grep -v permission $manifest.old >$manifest

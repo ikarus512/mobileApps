@@ -12,13 +12,21 @@ cordova emulate android
 cordova run android
 
 
-cordova plugin add cordova-plugin-dialogs      ## navigator.notification.alert()
+cordova plugin add cordova-plugin-media ### may be not needed
+cordova plugin add cordova-plugin-dialogs ### navigator.notification.alert()
 cordova plugin ls
+
+# cloning, and restoring platforms/plugins:
+git clone https://github.com/ikarus512/android_puzzle15.git  & cd android_puzzle15 & cordova prepare
 
 npm i -g cordova-jquery
 cordova-jquery   ## insert jquery mobile into current project
 
-<uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
 
 
