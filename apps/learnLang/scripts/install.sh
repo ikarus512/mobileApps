@@ -2,7 +2,7 @@
 
 npm i
 
-mkdir hooks
+#mkdir hooks
 chmod -R +x hooks
 ls -hl hooks/after_prepare
 
