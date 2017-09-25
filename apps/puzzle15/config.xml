@@ -18,6 +18,7 @@
     <platform name="android">
         <allow-intent href="market:*" />
         <hook type="after_prepare" src="hooks/after_prepare/android_hook_remove_permissions.js"/>
+        <hook type="after_prepare" src="hooks/after_prepare/android_check_permissions.sh"/>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
