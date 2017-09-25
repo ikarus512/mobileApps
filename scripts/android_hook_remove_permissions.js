@@ -16,11 +16,14 @@
 //       the /plugins/<plugin-name>/plugin.xml files for <uses-permission> tags.
 
 var permissionsToRemove = [
+    "ACCESS_COARSE_LOCATION",
+    "ACCESS_FINE_LOCATION",
+    "CAMERA",
     "INTERNET",
-    "WRITE_EXTERNAL_STORAGE",
-    "RECORD_AUDIO",
     "MODIFY_AUDIO_SETTINGS",
-    "READ_PHONE_STATE"
+    "READ_PHONE_STATE",
+    "RECORD_AUDIO",
+    "WRITE_EXTERNAL_STORAGE",
 ];
 
 
@@ -28,6 +31,7 @@ var fs = require('fs');
 var path = require('path');
 var rootdir = process.env.APP_DIR;
 var manifestFile = path.join(rootdir, "platforms/android/AndroidManifest.xml");
+var androidJsonFile = path.join(rootdir, "platforms/android/android.json");
 
 console.log('=== Inside hook ' + process.argv[0] + ':');
 
@@ -36,17 +40,54 @@ fs.readFile( manifestFile, "utf8", function( err, data ) {
 
     var result = data;
     for (var i=0; i<permissionsToRemove.length; i++) {
+        // <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         var re_str = '<uses-permission android:name=\\"android.permission.' + permissionsToRemove[i] + '\\" />';
         var re = RegExp(re_str, 'g');
         if (result.search(re)) {
             console.log('    found:');
             console.log('        ' + re_str);
-            console.log('    replacing...');
+            console.log('        replacing...');
             result = result.replace(re, '');
+        }
+        if (result.search(re)) {
+            console.log('        FAIL replacing failed');
+        } else {
+            console.log('        OK replacing passed');
         }
     }
 
     fs.writeFile( manifestFile, result, "utf8", function( err ) {
+        if (err) { return console.log( err ); }
+    });
+});
+
+////
+
+fs.readFile( androidJsonFile, "utf8", function( err, data ) {
+    if (err) { return console.log( err ); }
+
+    var result = data;
+    for (var i=0; i<permissionsToRemove.length; i++) {
+        // <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        // var re_str = '<uses-permission android:name=\\"android.permission.' + permissionsToRemove[i] + '\\" />';
+        // "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+        var re_str = '<uses-permission android:name=\\"android.permission.' + permissionsToRemove[i] + '\\" />';
+
+        var re = RegExp(re_str, 'g');
+        if (result.search(re)) {
+            console.log('    found:');
+            console.log('        ' + re_str);
+            console.log('        replacing...');
+            result = result.replace(re, '');
+        }
+        if (result.search(re)) {
+            console.log('        FAIL replacing failed');
+        } else {
+            console.log('        OK replacing passed');
+        }
+    }
+
+    fs.writeFile( androidJsonFile, result, "utf8", function( err ) {
         if (err) { return console.log( err ); }
     });
 });
