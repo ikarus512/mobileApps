@@ -14,6 +14,9 @@ if [ ! -e platforms/android -o ! -e plugins ];then
     # cordova platform add android #--save
     cordova platform add android || exit 1
 
+    cordova plugin add cordova-plugin-dialogs
+    cordova plugin add cordova-plugin-media
+
     if [ "$OPT1" == "debug" ];then
         ### remove debug plugins
         # cordova plugin add cordova-plugin-console
