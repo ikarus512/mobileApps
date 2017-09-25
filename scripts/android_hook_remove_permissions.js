@@ -29,12 +29,21 @@ var path = require('path');
 var rootdir = process.env.APP_DIR;
 var manifestFile = path.join(rootdir, "platforms/android/AndroidManifest.xml");
 
+console.log('=== Inside hook ' + process.argv[0] + ':');
+
 fs.readFile( manifestFile, "utf8", function( err, data ) {
     if (err) { return console.log( err ); }
 
     var result = data;
     for (var i=0; i<permissionsToRemove.length; i++) {
-        result = result.replace( "<uses-permission android:name=\"android.permission." + permissionsToRemove[i] + "\" />", "" );
+        var re_str = '<uses-permission android:name=\\"android.permission.' + permissionsToRemove[i] + '\\" />';
+        var re = RegExp(re_str, 'g');
+        if (result.search(re)) {
+            console.log('    found:');
+            console.log('        ' + re_str);
+            console.log('    replacing...');
+            result = result.replace(re, '');
+        }
     }
 
     fs.writeFile( manifestFile, result, "utf8", function( err ) {

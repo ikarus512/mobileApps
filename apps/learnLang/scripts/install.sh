@@ -2,9 +2,9 @@
 
 npm i
 
-#mkdir hooks
+mkdir -p hooks
 chmod -R +x hooks
-ls -hl hooks/after_prepare
+ls -hl hooks
 
 if [ ! -e platforms/android -o ! -e plugins ];then
 
