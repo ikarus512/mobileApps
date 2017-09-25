@@ -2,9 +2,9 @@
 
 npm i
 
-#mkdir hooks
+mkdir -p hooks
 chmod -R +x hooks
-ls -hl hooks/after_prepare
+ls -hl hooks
 
 if [ ! -e platforms/android -o ! -e plugins ];then
 
@@ -21,9 +21,5 @@ if [ ! -e platforms/android -o ! -e plugins ];then
 
 fi
 
-mv -fv $ANDROID_MANIFEST $ANDROID_MANIFEST.old
-echo "Android app permissions old ($ANDROID_MANIFEST):"
-grep    permission $ANDROID_MANIFEST.old || echo "    (no matches found)"
-grep -v permission $ANDROID_MANIFEST.old >$ANDROID_MANIFEST
-echo "Android app permissions new ($ANDROID_MANIFEST):"
-grep    permission $ANDROID_MANIFEST || echo "    (no matches found)"
+echo "=== android check permissions:"
+source $HOME_DIR/scripts/android_check_permissions.sh

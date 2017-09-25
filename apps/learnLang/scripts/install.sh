@@ -26,5 +26,5 @@ if [ ! -e platforms/android -o ! -e plugins ];then
 
 fi
 
-echo "=== check-permissions.sh:"
-source $APP_DIR/scripts/check-permissions.sh
+echo "=== android check permissions:"
+source $HOME_DIR/scripts/android_check_permissions.sh

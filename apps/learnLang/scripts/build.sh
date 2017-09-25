@@ -41,8 +41,8 @@ if [ "$OPT1" == "release" ];then
     ### build
     cordova build android --release || exit 1
 
-    echo "=== check-permissions.sh:"
-    source $APP_DIR/scripts/check-permissions.sh
+    echo "=== android check permissions:"
+    source $HOME_DIR/scripts/android_check_permissions.sh
 
     ### keystore:    CN=Your name, OU=OrgUnit, O=Org, L=city/Locality, S=STate/province, C=Country code
     keystoreFile=ikarus512-$APPNAME.keystore
