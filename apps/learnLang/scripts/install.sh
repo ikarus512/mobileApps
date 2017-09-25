@@ -26,9 +26,5 @@ if [ ! -e platforms/android -o ! -e plugins ];then
 
 fi
 
-mv -fv $ANDROID_MANIFEST $ANDROID_MANIFEST.old
-echo "Android app permissions old ($ANDROID_MANIFEST):"
-grep    permission $ANDROID_MANIFEST.old || echo "    (no matches found)"
-grep -v permission $ANDROID_MANIFEST.old >$ANDROID_MANIFEST
-echo "Android app permissions new ($ANDROID_MANIFEST):"
-grep    permission $ANDROID_MANIFEST || echo "    (no matches found)"
+echo "=== check-permissions.sh:"
+source $APP_DIR/scripts/check-permissions.sh
