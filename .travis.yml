@@ -29,7 +29,7 @@ env:
         # - JOBNAME=learnLangFullDebug APP=learnLang PLAT=android OPT1=debug OPT2=Full
         - JOBNAME=learnLang          APP=learnLang PLAT=android OPT1=release
         - JOBNAME=learnLangFull      APP=learnLang PLAT=android OPT1=release OPT2=Full EXTRASTEP=deploy
-        - JOBNAME=puzzle15Debug      APP=puzzle15  PLAT=android OPT1=debug
+        # - JOBNAME=puzzle15Debug      APP=puzzle15  PLAT=android OPT1=debug
         - JOBNAME=puzzle15           APP=puzzle15  PLAT=android OPT1=release
         # - JOBNAME=tripSaveDebug      APP=tripSave PLAT=android OPT1=debug
         # - JOBNAME=tripSaveRelease    APP=tripSave PLAT=android OPT1=release
