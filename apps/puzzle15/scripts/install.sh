@@ -14,10 +14,12 @@ if [ ! -e platforms/android -o ! -e plugins ];then
     # cordova platform add android #--save
     cordova platform add android || exit 1
 
-    # if [ "$OPT1" == "debug" ];then
-    #     ### remove debug plugins
-    #     cordova plugin add cordova-plugin-console
-    # fi
+    if [ "$OPT1" == "debug" ];then
+        ### remove debug plugins
+        # cordova plugin add cordova-plugin-console
+        # cordova plugin add cordova-plugin-dialogs ### navigator.notification.alert()
+        cordova plugin add cordova-plugin-crosswalk-webview
+    fi
 
 fi
 

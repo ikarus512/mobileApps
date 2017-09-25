@@ -305,7 +305,9 @@ function githubTagAndPublishRelease() {
         learnLang.release.Full) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-x86.apk ;;
         learnLang.release.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk ;;
-        puzzle15.debug.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk ;;
+        # puzzle15.debug.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk ;;
+        puzzle15.debug.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug-X86.apk ;;
         puzzle15.release.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk ;;
         esac
 
