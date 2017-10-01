@@ -19,6 +19,7 @@ a.data={
 
 a.data["arabian العربية"] = a.data_arabian;
 a.data["chinese 普通話中文"] = a.data_chinese;
+a.data["guitar " + String.fromCharCode(0x2669,0x266A,0x266B,0x266C)] = a.data_guitar;
 a.data["hindi हिंदी"] = a.data_hindi;
 a.data["hindi हिंदी (old font)"] = a.data_hindi_oldfont;
 a.data["music (west) " + String.fromCharCode(0x2669,0x266A,0x266B,0x266C)] = a.data_music;
