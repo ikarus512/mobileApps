@@ -1,16 +1,11 @@
 "use strict";
 var a = a || {};
 
-a.data_sinhala={
-
-    //======================================
-    // Topic:
-    //======================================
-    "alphabet (алфавит)": {
-      "font-size": "64px", //"4em",
-      "en": "alphabet",
-      "ru": "алфавит",
-      "terms": [
+a.learnData.add({
+    en: "languages/sinhala සිංහල/alphabet",
+    ru: "языки    /сингала සිංහල/алфавит ",
+    "font-size": "64px", //"4em",
+    terms: [
         // vowels
         {term:"අ",  transcription:"[a] a",     },
         {term:"ආ", transcription:"[a:] ā",    },
@@ -83,17 +78,14 @@ a.data_sinhala={
 
         {term:"ඥ", transcription:"?jnya",     },
         {term:"ඦ", transcription:"?nyja",     },
-      ]
-    },
+    ]
+});
 
-    //======================================
-    // Topic:
-    //======================================
-    "alphabet, hard part 1": {
-      "font-size": "64px", //"4em",
-      "en": "alphabet, hard part 1",
-      "ru": "алфавит, трудная часть 1",
-      "terms": [
+a.learnData.add({
+    en: "languages/sinhala සිංහල/alphabet, hard part 1",
+    ru: "языки    /сингала සිංහල/алфавит, трудная часть 1",
+    "font-size": "64px", //"4em",
+    terms: [
         // consonants
         {term:"ට", transcription:"[ʈa] ṭa"/*retroflex*/,   },
         {term:"ඨ", transcription:"[ʈa] ṭʰa (strong)",  },
@@ -104,16 +96,13 @@ a.data_sinhala={
         {term:"ද", transcription:"[da] da",   },
         {term:"ධ", transcription:"[da] dʰa (strong)",  },
       ]
-    },
+});
 
-    //======================================
-    // Topic:
-    //======================================
-    "alphabet, hard part 2": {
-      "font-size": "64px", //"4em",
-      "en": "alphabet, hard part 2",
-      "ru": "алфавит, трудная часть 2",
-      "terms": [
+a.learnData.add({
+    en: "languages/sinhala සිංහල/alphabet, hard part 2",
+    ru: "языки    /сингала සිංහල/алфавит, трудная часть 2",
+    "font-size": "64px", //"4em",
+    terms: [
         // consonants
         {term:"ග", transcription:"[ga] ga",  },
         {term:"ඝ", transcription:"[ga] gʰa (strong)", },
@@ -135,17 +124,14 @@ a.data_sinhala={
 
         {term:"ඥ", transcription:"?jnya",     },
         {term:"ඦ", transcription:"?nyja",     },
-      ]
-    },
+    ]
+});
 
-    //======================================
-    // Topic:
-    //======================================
-    "vowel diacritics, conjunct consonants (диакр. гласные, и сопр. согласные)": {
-      "font-size": "64px", //"4em",
-      "en": "vowel diacritics, conjunct consonants",
-      "ru": "диакр. гласные, и сопр. согласные",
-      "terms": [
+a.learnData.add({
+    en: "languages/sinhala සිංහල/vowel diacritics, conjunct consonants",
+    ru: "языки    /сингала සිංහල/диакр. гласные, и сопр. согласные",
+    "font-size": "64px", //"4em",
+    terms: [
         {term:"ක බ ව ර", transcription:"[ka ba wa ra]", },
         {term:"ක් බ් ව් ර්", transcription:"[k b w r] (pause)", },
         {term:"කා බා වා රා", transcription:"[ka: ba: wa: ra:]", },
@@ -174,16 +160,14 @@ a.data_sinhala={
         {term:"ක්‍ය ග්‍ය", transcription:"[kja gja]", },
         {term:"ක්‍ෂ ග්‍ෂ", transcription:"[kʃa gʃa]", },
         {term:"ක්‍රො ග්‍රො", transcription:"[kro gro]", },
-      ],
-    },
-    //======================================
-    // Topic:
-    //======================================
-    "numbers (числа)": {
-      //"font-size": "1.1em",
-      "en": "numbers",
-      "ru": "числа",
-      "terms": [
+    ],
+});
+
+a.learnData.add({
+    en: "languages/sinhala සිංහල/numbers",
+    ru: "языки    /сингала සිංහල/числа",
+    //"font-size": "1.1em",
+    terms: [
         {term:"බින්‍දුව", transcription:"[binduva]", translation:{en:"0",ru:"0"}},
         {term:"එක", transcription:"[eka]", translation:{en:"1",ru:"1"}},
         {term:"දෙක", transcription:"[deka]", translation:{en:"2",ru:"2"}},
@@ -322,16 +306,14 @@ a.data_sinhala={
         {term:"අනූදාහ", transcription:"[anūdāha]", translation:{en:"90,000",ru:"90,000"}},
         {term:"ලක්‍ෂය", transcription:"[lakṣaya]", translation:{en:"100,000",ru:"100,000"}},
         {term:"දසලක්‍ෂය", transcription:"[dasalakṣaya]", translation:{en:"1,000,00",ru:"1,000,00"}},
-      ],
-    },
-    //======================================
-    // Topic:
-    //======================================
-    "common phrases (общие фразы)": {
-      //"font-size": "1.1em",
-      "en": "common phrases",
-      "ru": "общие фразы",
-      "terms": [
+    ],
+});
+
+a.learnData.add({
+    en: "languages/sinhala සිංහල/common phrases",
+    ru: "языки    /сингала සිංහල/общие фразы",
+    //"font-size": "1.1em",
+    terms: [
         {term:"සාදරයෙන් පිලිගන්නවා", transcription:"[sadarayen piligannawa]", translation:{en:"Welcome",ru:"Добро пожаловать"}},
         {term:"ආයුඛෝවන්/හලෝ", transcription:"[āyubūvan/halō]", translation:{en:"Hello (General greeting)/hi",ru:"Здравствуйте/привет"}},
 
@@ -374,15 +356,13 @@ a.data_sinhala={
         {term:"එකත කමක් න", transcription:"[ehkata kamak na]", translation:{en:"Reply to thank you",ru:"Пожалуйста (в ответ на Спасибо)"}},
         {term:"කරැණාකරල", transcription:"[karunakarala]", translation:{en:"Please",ru:"Пожалуйста (..дайте..)"}},
       ],
-    },
-    //======================================
-    // Topic:
-    //======================================
-    "simple words (простые слова)": {
-      //"font-size": "1.1em",
-      "en": "simple words",
-      "ru": "простые слова",
-      "terms": [
+});
+
+a.learnData.add({
+    en: "languages/sinhala සිංහල/simple words",
+    ru: "языки    /сингала සිංහල/простые слова",
+    //"font-size": "1.1em",
+    terms: [
         {term:"ඔව්", transcription:"[ov]", translation:{en:"yes",ru:"да"}},
         {term:"නැත", transcription:"[næta]", translation:{en:"no",ru:"нет"}},
         {term:"මම", transcription:"[mama]", translation:{en:"I",ru:"Я"}},
@@ -392,16 +372,14 @@ a.data_sinhala={
         {term:"ඔහු", transcription:"[ohu]", translation:{en:"He",ru:"Он"}},
         {term:"ඇය", transcription:"[æya]", translation:{en:"She",ru:"Она"}},
         {term:"එයාලා", transcription:"[eyaalaa]", translation:{en:"They",ru:"Они"}},
-      ],
-    },
-    //======================================
-    // Topic:
-    //======================================
-    "Cycle 1. What is this?": {
-      //"font-size": "1.1em",
-      "en": "Cycle 1. What is this?",
-      "ru": "Урок 1. Что это?",
-      "terms": [
+    ],
+});
+
+a.learnData.add({
+    en: "languages/sinhala සිංහල/Cycle 1. What is this?",
+    ru: "языки    /сингала සිංහල/Урок 1. Что это?",
+    //"font-size": "1.1em",
+    terms: [
         {term:"මේ මොකද්ද?", translation:{en:"What is this?",ru:"Что это (здесь)? (ед.ч.)"}},
         {term:"මේ පැන්සලයක්", translation:{en:"This is a pencil.",ru:"Это (здесь) карандаш."}},
         {term:"මේ පොතක්", translation:{en:"This is a book.",ru:"Это (здесь) книга."}},
@@ -431,16 +409,14 @@ a.data_sinhala={
 
         {term:"මොකද්ද", translation:{en:"what (singular)",ru:"что? (ед.ч.)"}},
         {term:"මොකද", translation:{en:"why",ru:"почему?"}},
-      ],
-    },
-    //======================================
-    // Topic:
-    //======================================
-    "Cycle 2. What is that over there?": {
-      //"font-size": "1.1em",
-      "en": "Cycle 2. What is that over there?",
-      "ru": "Урок 2. Что это там?",
-      "terms": [
+    ],
+});
+
+a.learnData.add({
+    en: "languages/sinhala සිංහල/Cycle 2. What is that over there?",
+    ru: "языки    /сингала සිංහල/Урок 2. Что это там?",
+    //"font-size": "1.1em",
+    terms: [
         {term:"අර මොකද්ද?", translation:{en:"What is that over there?",ru:"Что это там? (ед.ч.)"}},
         {term:"අර පැන්සලයක්", translation:{en:"That is a pencil.",ru:"Это (там) карандаш."}},
 
@@ -452,16 +428,14 @@ a.data_sinhala={
         {term:"කියන්න", translation:{en:"Say (it).",ru:"Скажи (это)"}},
         {term:"ආයෙත් කියන්න", translation:{en:"Say (it) again.",ru:"Скажи (это) снова."}},
         {term:"ආයෙත් කියන්න ද?", translation:{en:"Should (I) say (it) again.",ru:"(Мне) сказать (это) снова?"}},
-      ],
-    },
-    //======================================
-    // Topic:
-    //======================================
-    "Cycle 3. What are these things?": {
-      //"font-size": "1.1em",
-      "en": "Cycle 3. What are these things?",
-      "ru": "Урок 3. Что эти вещи?",
-      "terms": [
+    ],
+});
+
+a.learnData.add({
+    en: "languages/sinhala සිංහල/Cycle 3. What are these things?",
+    ru: "языки    /сингала සිංහල/Урок 3. Что эти вещи?",
+    //"font-size": "1.1em",
+    terms: [
         {term:"මේවා එලවලු", translation:{en:"These things are vegetables.",ru:"Это овощи"}},
         {term:"මේවා දොඩමි", translation:{en:"These things are oranges.",ru:"Это апельсины"}},
         {term:"මේවා කෙසෙල් ගෙඩි", translation:{en:"These things are bananas.",ru:"Это бананы"}},
@@ -500,16 +474,14 @@ a.data_sinhala={
         {term:"ඔව්. මට තේරුනා.", transcription:"[ov. mata terunaa]", translation:{en:"Yes. I understood.",ru:"Да. Я понял."}},
         {term:"තෑ. මට තේරුනේ තෑ.", transcription:"[nee. mata terunee nee]", translation:{en:"No. I didn't understood.",ru:"Нет. Я не понял."}},
         {term:"හෙමින් කියන්න.", translation:{en:"Say (it) slowly.",ru:"Произнесите (это) медленно."}},
-      ],
-    },
-    //======================================
-    // Topic:
-    //======================================
-    "Cycle 4. Are these things boxes?": {
-      //"font-size": "1.1em",
-      "en": "Cycle 4. Are these things boxes?",
-      "ru": "Урок 4. Это коробки?",
-      "terms": [
+    ],
+});
+
+a.learnData.add({
+    en: "languages/sinhala සිංහල/Cycle 4. Are these things boxes?",
+    ru: "языки    /сингала සිංහල/Урок 4. Это коробки?",
+    //"font-size": "1.1em",
+    terms: [
         //p35
         {term:"ඔව්. මේවා කාපි.", translation:{en:"Yes. These things are coins.",ru:"Да. Это монеты."}},
         {term:"ඔව්. මේක ඔරලෝසුවක්.", translation:{en:"Yes. This is a clock.",ru:"Да. Это часы."}},
@@ -521,16 +493,14 @@ a.data_sinhala={
 
         {term:"මේවා පෙට්ටි ද?", translation:{en:"Are these things boxes?",ru:"Это коробки?"}},
         {term:"මේ යතුරක් ද?", translation:{en:"Is this a key?",ru:"Это ключ?"}},
-      ],
-    },
-    //======================================
-    // Topic:
-    //======================================
-    "Cycle 5. Is that answer correct?": {
-      //"font-size": "1.1em",
-      "en": "Cycle 5. Is that answer correct?",
-      "ru": "Урок 5. Это правильный ответ?",
-      "terms": [
+    ],
+});
+
+a.learnData.add({
+    en: "languages/sinhala සිංහල/Cycle 5. Is that answer correct?",
+    ru: "языки    /сингала සිංහල/Урок 5. Это правильный ответ?",
+    //"font-size": "1.1em",
+    terms: [
         //p36
         {term:"ඒක වැරදියි", translation:{en:"It is wrong.",ru:"Это неправильно."}},
         {term:"ඒක හරි", translation:{en:"It is correct.",ru:"Это правильно."}},
@@ -543,16 +513,14 @@ a.data_sinhala={
         {term:"ඒක වැරදි ද හරි ද?", translation:{en:"Is that wrong or correct?",ru:"Это неправильно или правильно?"}},
         {term:"ඒක හරි ද වැරදි ද?", translation:{en:"Is that correct or wrong?",ru:"Это правильно или неправильно?"}},
         {term:"හරි උත්තරය මොකද්ද?", translation:{en:"What is the correct answer?",ru:"Правильный ответ какой?"}},
-      ],
-    },
-    //======================================
-    // Topic:
-    //======================================
-    "Cycle 6. Making requests.": {
-      //"font-size": "1.1em",
-      "en": "Cycle 6. Making requests.",
-      "ru": "Урок 5. Просьбы.",
-      "terms": [
+    ],
+});
+
+a.learnData.add({
+    en: "languages/sinhala සිංහල/Cycle 6. Making requests.",
+    ru: "языки    /сингала සිංහල/Урок 5. Просьбы.",
+    //"font-size": "1.1em",
+    terms: [
         //p40
         {term:"දොර අරින්න", translation:{en:"Please open the door.",ru:"Откройте дверь."}},
         {term:"දොර වහන්න", translation:{en:"Please close the door.",ru:"Закройте дверь."}},
@@ -576,22 +544,10 @@ a.data_sinhala={
         {term:"කරන්ඩ", translation:{en:"to do (infinitive variant B ending, most common)",ru:"делать (окончание инфинитива варианта B, более частое)"}},
         {term:"කරන්න", translation:{en:"to do (infinitive variant C ending, prestigious)",ru:"делать (окончание инфинитива варианта C, престижный)"}},
         //p45
-        {term:"", translation:{en:"",ru:""}},
-        {term:"", translation:{en:"",ru:""}},
-        {term:"", translation:{en:"",ru:""}},
-        {term:"", translation:{en:"",ru:""}},
-        {term:"", translation:{en:"",ru:""}},
-      ],
-    },
-    // //======================================
-    // // Topic:
-    // //======================================
-    // "Unit 1. What is this?": {
-    //   //"font-size": "1.1em",
-    //   "en": "Cycle 1. What is this?",
-    //   "ru": "Урок 1. Что это?",
-    //   "terms": [
-    //     {term:"", translation:{en:"",ru:""}},
-    //   ],
-    // },
-};
+        // {term:"", translation:{en:"",ru:""}},
+        // {term:"", translation:{en:"",ru:""}},
+        // {term:"", translation:{en:"",ru:""}},
+        // {term:"", translation:{en:"",ru:""}},
+        // {term:"", translation:{en:"",ru:""}},
+    ],
+});

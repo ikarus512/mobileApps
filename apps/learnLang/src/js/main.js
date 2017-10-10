@@ -71,12 +71,15 @@ a.generateArrTermIndex = function() {
 a.dataInit = function() {
   a.termIndex = 0;
   a.trainingStep = 0;
-  a.terms = a.data[a.learnedLanguage.name][a.learnedTopic.name].terms;
 
-  var v = a.data[a.learnedLanguage.name][a.learnedTopic.name]["font-size"];
+  var learnData = a.learnData.get();
+  // var learnData = a.data[a.learnedLanguage.name][a.learnedTopic.name];
+  a.terms = learnData.terms;
+
+  var v = learnData["font-size"];
   if(v) a.termFontSize=v;
   else  a.termFontSize="20px";
-  var v = a.data[a.learnedLanguage.name][a.learnedTopic.name]["font-family"];
+  var v = learnData["font-family"];
   if(v) a.termFontFamily=v;
   else  a.termFontFamily="myFontDefault";
 
@@ -186,24 +189,43 @@ a.getTermContent = function(termIndex,span) {
 }
 
 a.onReady=function() {
-  a.learnedLanguage.name = a.storage.load('learnedLanguage',a.learnedLanguage.name);
-  a.learnedTopic.name = a.storage.load('learnedTopic',a.learnedTopic.name);
+    a.learnedTopic.name = a.storage.load('learnedTopic',a.learnedTopic.name);
 
-  a.interfaceLanguage.init();
-  a.learnedTopic.init();
-  a.learnedLanguage.init();
-  a.soundopt.init();
+    a.interfaceLanguage.init();
+    a.learnedTopic.init();
+    a.soundopt.init();
 
-  a.termOrder.init();
-  a.termViewOrder.init();
+    a.termOrder.init();
+    a.termViewOrder.init();
 
-  a.click('button#exitbutton', a.exit );
+    a.click('button#exitbutton', a.exit );
 
-  a.click('#trainOnePage', a.trainingNextView );
-  jQuery(document).on('pagebeforeshow','#trainOnePage',a.trainOnePageInit);
-  jQuery(document).on('pagebeforehide','#trainOnePage',a.trainOnePageHide);
-  jQuery(document).on('pagebeforeshow','#trainAllPage',a.trainAllPageInit);
-  jQuery(document).on('pagebeforehide','#trainAllPage',a.trainAllPageHide);
+    a.click('#trainOnePage', a.trainingNextView );
+    jQuery(document).on('pagebeforeshow','#trainOnePage',a.trainOnePageInit);
+    jQuery(document).on('pagebeforehide','#trainOnePage',a.trainOnePageHide);
+    jQuery(document).on('pagebeforeshow','#trainAllPage',a.trainAllPageInit);
+    jQuery(document).on('pagebeforehide','#trainAllPage',a.trainAllPageHide);
+
+    jQuery(document).bind('pagebeforechange', function(e, data) {
+        // var to = data.toPage,
+        //     from = data.options.fromPage;
+
+        if (!a.learnData.get()) {
+            var interfaceLanguage = a.interfaceLanguage ? a.interfaceLanguage.name : "en";
+            alert({en: 'Choose topic.', ru: 'Выберите тему.'}[interfaceLanguage]);
+
+            // // remove active class on button
+            // // otherwise button would remain highlighted (seems not needed)
+            // jQuery.mobile.activePage.find('.ui-btn-active').removeClass('ui-btn-active');
+
+            // TODO: remove also focus (button still focused)
+            // jQuery('button').blur();
+            // jQuery('#tree').focus();
+            // jQuery.mobile.activePage.find('#tree').focus();
+
+            e.preventDefault();
+        }
+    });
 
   // Flicker fix (show content only when loaded)
   jQuery('body').css('display','block');

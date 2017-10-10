@@ -22,6 +22,8 @@
     <!--[if IE]>
         <link rel="stylesheet" href="css/myfont_ie.css}" type="text/css" charset="utf-8" />
     <![endif]-->
+    <link rel="stylesheet" type="text/css" href="lib/fancytree/ui.fancytree.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/fancytree/user_tunings.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <title>LearnLang</title>
 </head>
@@ -41,7 +43,7 @@
 
         <h1>learnLang</h1>
         <!-- <h1> <en>Options</en> <ru>Настройки</ru> </h1> -->
-        
+
         <div data-type="horizontal" data-role="controlgroup" class="ui-btn-right">
         <button id="exitbutton" data-rel="back" data-icon="arrow-l"> <en>Exit</en><ru>Выход</ru> </button>
         <!-- <a href="index.html#"> --> <img src=img/icon.png> <!-- </a> -->
@@ -62,21 +64,12 @@
                 <label for="en"><en>English</en><ru>Английский</ru></label>
                 <input type="radio" name="interfaceLanguage" id="en" value="en" checked="checked">
                 <label for="ru"><en>Russian</en><ru>Русский</ru></label>
-                <input type="radio" name="interfaceLanguage" id="ru" value="ru"> 
-            </fieldset>
-
-            <fieldset data-role="controlgroup">
-                <legend><en>Learned Language:</en><ru>Изучаемый язык:</ru></legend>
-                <select name="learnedLanguage" id="learnedLanguage" data-native-menu="false">
-                    <!-- <option>Please Choose</option>                 -->
-                </select>
+                <input type="radio" name="interfaceLanguage" id="ru" value="ru">
             </fieldset>
 
             <fieldset data-role="controlgroup">
                 <legend><en>Learned Topic:</en><ru>Изучаемая тема:</ru></legend>
-                <select name="learnedTopic" id="learnedTopic" data-native-menu="false">
-                    <!-- <option>Please Choose</option>                 -->
-                </select>
+                <div id="tree"></div>
             </fieldset>
 
             <fieldset data-role="controlgroup">
@@ -84,7 +77,7 @@
                 <label for="seq"><en>Ordered</en><ru>Последовательный</ru></label>
                 <input type="radio" name="termOrder" id="seq"  value="seq" checked="checked">
                 <label for="rand"><en>Random</en><ru>Случайный</ru></label>
-                <input type="radio" name="termOrder" id="rand" value="rand"> 
+                <input type="radio" name="termOrder" id="rand" value="rand">
             </fieldset>
 
             <fieldset data-role="controlgroup">
@@ -114,7 +107,7 @@
                 <label for="on"><en>on</en><ru>вкл</ru></label>
                 <input type="radio" name="soundopt" id="on" value="on">
                 <label for="off"><en>off</en><ru>выкл</ru></label>
-                <input type="radio" name="soundopt" id="off" value="off" checked="checked"> 
+                <input type="radio" name="soundopt" id="off" value="off" checked="checked">
             </fieldset>
 
         </div>
@@ -139,7 +132,7 @@
         <a href="index.html#" data-role="button" data-icon="back" data-rel="back"><en>Back</en><ru>Назад</ru></a>
         </div>
 
-        <h4><!-- <en>Language:</en><ru>Язык:</ru> --><span class="learnedLanguageName"></span></h4>
+        <h4><!-- <en>Language:</en><ru>Язык:</ru> --><span class="learnedTopic"></span></h4>
 
         <div data-type="horizontal" data-role="controlgroup" class="ui-btn-right">
         <!-- <a href="index.html#"> --> <img src=img/icon.png> <!-- </a> -->
@@ -163,7 +156,7 @@
     <!-- <div class=mydebug></div> -->
 
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
-        <h4><!-- <en>Topic:</en><ru>Тема:</ru>  --><span class="learnedTopicName"></span></h4>
+        <h4><!-- <en>Topic:</en><ru>Тема:</ru>  --><span class="learnedSubTopic"></span></h4>
     </div>
 </div>
 
@@ -182,7 +175,7 @@
         <a href="index.html#" data-role="button" data-icon="back" data-rel="back"><en>Back</en><ru>Назад</ru></a>
         </div>
 
-        <h4><!-- <en>Language:</en><ru>Язык:</ru> --><span class="learnedLanguageName"></span></h4>
+        <h4><!-- <en>Language:</en><ru>Язык:</ru> --><span class="learnedTopic"></span></h4>
 
         <div data-type="horizontal" data-role="controlgroup" class="ui-btn-right">
         <!-- <a href="index.html#"> --> <img src=img/icon.png> <!-- </a> -->
@@ -204,7 +197,7 @@
     <!-- <div class=mydebug></div> -->
 
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
-        <h4><!-- <en>Topic:</en><ru>Тема:</ru>  --><span class="learnedTopicName"></span></h4>
+        <h4><!-- <en>Topic:</en><ru>Тема:</ru>  --><span class="learnedSubTopic"></span></h4>
     </div>
 </div>
 
@@ -225,30 +218,31 @@
 <script type="text/javascript" src="lib/jquery-1.5.0.mobile.min.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
 
+<script type="text/javascript" src="lib/fancytree/jquery.fancytree-all-deps.min.js"></script>
+
 <!-- Application -->
-<script type="text/javascript" src="js/data_arabian.js"></script>
-<script type="text/javascript" src="js/data_chinese.js"></script>
-<!-- <script type="text/javascript" src="js/data_georgian.js"></script> -->
-<script type="text/javascript" src="js/data_guitar.js"></script>
-<!-- <script type="text/javascript" src="js/data_japanese.js"></script> -->
-<script type="text/javascript" src="js/data_hindi.js"></script>
-<script type="text/javascript" src="js/data_hindi_oldfont.js"></script>
-<!-- <script type="text/javascript" src="js/data_hebrew.js"></script> -->
-<!-- <script type="text/javascript" src="js/data_korean.js"></script> -->
-<script type="text/javascript" src="js/data_music.js"></script>
-<script type="text/javascript" src="js/data_sinhala.js"></script>
-<script type="text/javascript" src="js/data_swahili.js"></script>
-<!-- <script type="text/javascript" src="js/data_thai.js"></script> -->
-<script type="text/javascript" src="js/data_turkish.js"></script>
-<script type="text/javascript" src="js/data_example.js"></script>
 <script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript" src="js/data/arabian.js"></script>
+<script type="text/javascript" src="js/data/chinese.js"></script>
+<!-- <script type="text/javascript" src="js/data/georgian.js"></script> -->
+<script type="text/javascript" src="js/data/guitar.js"></script>
+<!-- <script type="text/javascript" src="js/data/japanese.js"></script> -->
+<script type="text/javascript" src="js/data/hindi.js"></script>
+<script type="text/javascript" src="js/data/hindi_oldfont.js"></script>
+<!-- <script type="text/javascript" src="js/data/hebrew.js"></script> -->
+<!-- <script type="text/javascript" src="js/data/korean.js"></script> -->
+<script type="text/javascript" src="js/data/music.js"></script>
+<script type="text/javascript" src="js/data/sinhala.js"></script>
+<script type="text/javascript" src="js/data/swahili.js"></script>
+<!-- <script type="text/javascript" src="js/data/thai.js"></script> -->
+<script type="text/javascript" src="js/data/turkish.js"></script>
+<script type="text/javascript" src="js/data/example.js"></script>
 
 <script type="text/javascript" src="js/first.js"></script>
 <script type="text/javascript" src="js/debug.js"></script>
 <script type="text/javascript" src="js/storage.js"></script>
 
 <script type="text/javascript" src="js/opt_interface_language.js"></script>
-<script type="text/javascript" src="js/opt_learned_language.js"></script>
 <script type="text/javascript" src="js/opt_learned_topic.js"></script>
 <script type="text/javascript" src="js/opt_term_view_order.js"></script>
 <script type="text/javascript" src="js/opt_term_order.js"></script>

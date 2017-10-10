@@ -12,3 +12,5 @@ a.data_hindi_oldfont_init = function() {
   }
 };
 a.data_hindi_oldfont_init();
+
+//a.learnData.add(a.data_hindi_oldfont);

@@ -1,24 +1,21 @@
 "use strict";
 var a = a || {};
 
-a.data_music={
+// http://www.smufl.org
+// https://w3c.github.io/smufl/gitbook
+// https://github.com/steinbergmedia/bravura
+// staff5LinesWide fClef staff5LinesWide staffPosLower8 noteQuarterUp / legerLine
+// {transcription:"C2", term:'<ib><zh>&#xe01a;&#xe062;&#xe01a; &#xeb9f;&#xe1d7;<br> =-&#xeb9d;&#xe022;<br> =-&#xeb9f;&#xe022;</zh></ib>', },
 
-    // http://www.smufl.org
-    // https://w3c.github.io/smufl/gitbook
-    // https://github.com/steinbergmedia/bravura
+//western music notes
+//+String.fromCharCode(0x2669,0x266A,0x266B,0x266C)
 
-    // staff5LinesWide fClef staff5LinesWide staffPosLower8 noteQuarterUp / legerLine
-    // {transcription:"C2", term:'<ib><zh>&#xe01a;&#xe062;&#xe01a; &#xeb9f;&#xe1d7;<br> =-&#xeb9d;&#xe022;<br> =-&#xeb9f;&#xe022;</zh></ib>', },
-
-    //======================================
-    // Topic:
-    //======================================
-    "1 note, G Clef": {
-      "font-family": "myFontBravuraText",
-      "font-size": "40px", //"4em",
-      "en": "1 note, G Clef",
-      "ru": "1 нота, скрипичный ключ",
-      "terms": [
+a.learnData.add({
+    en: "music /notes/1 note, G Clef",
+    ru: "музыка/ноты /1 нота, скрипичный ключ",
+    "font-family": "myFontBravuraText",
+    "font-size": "40px", //"4em",
+    terms: [
         {transcription:"E3", term:'<ib><zh><note-middle>-&#xe01a;&#xe050;&#xe01a;=&#xe01a;</note-middle><br><note-below3>-===&#xe012; &#xeb9a;&#xe1d7;</note-below3></zh></ib>', },
         {transcription:"F3", term:'<ib><zh><note-middle>-&#xe01a;&#xe050;&#xe01a;=&#xe01a;</note-middle><br><note-below3>-===&#xe012; &#xeb99;&#xe1d7;</note-below3></zh></ib>', },
         {transcription:"G3", term:'<ib><zh><note-middle>-&#xe01a;&#xe050;&#xe01a;=&#xe01a;</note-middle><br><note-below2>-===&#xe011; &#xeb99;&#xe1d7;</note-below2></zh></ib>', },
@@ -45,18 +42,15 @@ a.data_music={
         {transcription:"D6", term:'<ib><zh><note-above2>-===&#xe011; &#xeb91;&#xe1d8;</note-above2><br><note-middle>-&#xe01a;&#xe050;&#xe01a;=&#xe01a;</note-middle></zh></ib>', },
         {transcription:"E6", term:'<ib><zh><note-above3>-===&#xe012; &#xeb91;&#xe1d8;</note-above3><br><note-middle>-&#xe01a;&#xe050;&#xe01a;=&#xe01a;</note-middle></zh></ib>', },
         {transcription:"F6", term:'<ib><zh><note-above3>-===&#xe012; &#xeb92;&#xe1d8;</note-above3><br><note-middle>-&#xe01a;&#xe050;&#xe01a;=&#xe01a;</note-middle></zh></ib>', },
-      ]
-    },
+    ]
+});
 
-    //======================================
-    // Topic:
-    //======================================
-    "1 note, F Clef": {
-      "font-family": "myFontBravuraText",
-      "font-size": "40px", //"4em",
-      "en": "1 note, F Clef",
-      "ru": "1 нота, басовый ключ",
-      "terms": [
+a.learnData.add({
+    en: "music /notes/1 note, F Clef",
+    ru: "музыка/ноты /1 нота, басовый ключ",
+    "font-family": "myFontBravuraText",
+    "font-size": "40px", //"4em",
+    terms: [
         {transcription:"G1", term:'<ib><zh><note-middle>-&#xe01a;&#xe062;&#xe01a;=&#xe01a;</note-middle><br><note-below3>-===&#xe012; &#xeb9a;&#xe1d7;</note-below3></zh></ib>', },
         {transcription:"A1", term:'<ib><zh><note-middle>-&#xe01a;&#xe062;&#xe01a;=&#xe01a;</note-middle><br><note-below3>-===&#xe012; &#xeb99;&#xe1d7;</note-below3></zh></ib>', },
         {transcription:"H1", term:'<ib><zh><note-middle>-&#xe01a;&#xe062;&#xe01a;=&#xe01a;</note-middle><br><note-below2>-===&#xe011; &#xeb99;&#xe1d7;</note-below2></zh></ib>', },
@@ -83,18 +77,15 @@ a.data_music={
         {transcription:"F4", term:'<ib><zh><note-above2>-===&#xe011; &#xeb91;&#xe1d8;</note-above2><br><note-middle>-&#xe01a;&#xe062;&#xe01a;=&#xe01a;</note-middle></zh></ib>', },
         {transcription:"G4", term:'<ib><zh><note-above3>-===&#xe012; &#xeb91;&#xe1d8;</note-above3><br><note-middle>-&#xe01a;&#xe062;&#xe01a;=&#xe01a;</note-middle></zh></ib>', },
         {transcription:"A4", term:'<ib><zh><note-above3>-===&#xe012; &#xeb92;&#xe1d8;</note-above3><br><note-middle>-&#xe01a;&#xe062;&#xe01a;=&#xe01a;</note-middle></zh></ib>', },
-      ]
-    },
+    ]
+});
 
-    //======================================
-    // Topic:
-    //======================================
-    "1 note": {
-      "font-family": "myFontBravuraText",
-      "font-size": "40px", //"4em",
-      "en": "1 note",
-      "ru": "1 нота",
-      "terms": [
+a.learnData.add({
+    en: "music /notes/1 note",
+    ru: "музыка/ноты /1 нота",
+    "font-family": "myFontBravuraText",
+    "font-size": "40px", //"4em",
+    terms: [
         {transcription:"G1", term:'<ib><zh><note-middle>-&#xe01a;&#xe062;&#xe01a;=&#xe01a;</note-middle><br><note-below3>-===&#xe012; &#xeb9a;&#xe1d7;</note-below3></zh></ib>', },
         {transcription:"A1", term:'<ib><zh><note-middle>-&#xe01a;&#xe062;&#xe01a;=&#xe01a;</note-middle><br><note-below3>-===&#xe012; &#xeb99;&#xe1d7;</note-below3></zh></ib>', },
         {transcription:"H1", term:'<ib><zh><note-middle>-&#xe01a;&#xe062;&#xe01a;=&#xe01a;</note-middle><br><note-below2>-===&#xe011; &#xeb99;&#xe1d7;</note-below2></zh></ib>', },
@@ -151,17 +142,14 @@ a.data_music={
         {transcription:"E6", term:'<ib><zh><note-above3>-===&#xe012; &#xeb91;&#xe1d8;</note-above3><br><note-middle>-&#xe01a;&#xe050;&#xe01a;=&#xe01a;</note-middle></zh></ib>', },
         {transcription:"F6", term:'<ib><zh><note-above3>-===&#xe012; &#xeb92;&#xe1d8;</note-above3><br><note-middle>-&#xe01a;&#xe050;&#xe01a;=&#xe01a;</note-middle></zh></ib>', },
       ]
-    },
+});
 
-    //======================================
-    // Topic:
-    //======================================
-    "3 notes in one": {
-      "font-family": "myFontBravuraText",
-      "font-size": "40px", //"4em",
-      "en": "3 notes in one",
-      "ru": "3 ноты через одну",
-      "terms": [
+a.learnData.add({
+    en: "music /notes/3 notes in one",
+    ru: "музыка/ноты /3 ноты через одну",
+    "font-family": "myFontBravuraText",
+    "font-size": "40px", //"4em",
+    terms: [
         {transcription:"G1 H1 D2", term:'<ib><zh><note-middle>&#xe01a;&#xe062;&#xe01a;</note-middle><br>'+
           '<note-middle0>===&#xeb99;&#xe1d5;</note-middle0><br>'+
           '<note-middle0>===&#xeb9b;&#xe1d5;</note-middle0><br>'+
@@ -389,17 +377,14 @@ a.data_music={
           '<note-middle>&#xe01a;&#xe050;&#xe01a;</note-middle><br>'+
           '</zh></ib>', },
       ]
-    },
+});
 
-    //======================================
-    // Topic:
-    //======================================
-    "3 notes in two": {
-      "font-family": "myFontBravuraText",
-      "font-size": "40px", //"4em",
-      "en": "3 notes in two",
-      "ru": "3 ноты через две",
-      "terms": [
+a.learnData.add({
+    en: "music /notes/3 notes in two",
+    ru: "музыка/ноты /3 ноты через две",
+    "font-family": "myFontBravuraText",
+    "font-size": "40px", //"4em",
+    terms: [
         {transcription:"G1 C2 F2", term:'<ib><zh><note-middle>&#xe01a;&#xe062;&#xe01a;</note-middle><br>'+
           '<note-middle0>===&#xe1d5;</note-middle0><br>'+
           '<note-middle0>===&#xeb9a;&#xe1d5;</note-middle0><br>'+
@@ -605,7 +590,5 @@ a.data_music={
           '<note-middle0>===&#xe1d6;</note-middle0><br>'+
           '<note-middle>&#xe01a;&#xe050;&#xe01a;</note-middle><br>'+
           '</zh></ib>', },
-      ]
-    },
-
-};
+    ]
+});

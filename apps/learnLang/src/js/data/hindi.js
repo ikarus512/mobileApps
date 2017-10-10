@@ -1,20 +1,15 @@
 "use strict";
 var a = a || {};
 
-a.data_hindi={
-
 //  ा ि ी ु ू े ै ो ौ ं ः ँ ृ  //ॊ़ॉ्ॆ ऒऑऍऎ
 //a a i i u u e e:o o: n h am r
 
-    //======================================
-    // Topic:
-    //======================================
-    "vowels/diacritics": {
-      "font-size": "48px", //"3em",
-      //"font-family": "myFontDevanagariUttara",
-      "en": "vowels/diacritics",
-      "ru": "гласные/диакритики",
-      "terms": [
+a.learnData.add({
+    en: "languages/hindi हिंदी/alphabet/vowels, diacritics ",
+    ru: "языки    /хинди हिंदी/алфавит /гласные, диакритики",
+    //"font-family": "myFontDevanagariUttara",
+    "font-size": "48px", //"3em",
+    terms: [
         {term:"अ", transcription:"a [ǝ]", transcriptionsnd:"snd/hindi/vowels_hi.mp3//0.1//0.6"},
         {term:"आ", transcription:"ā [a:]", transcriptionsnd:"snd/hindi/vowels_hi.mp3//0.7//2.05"},
         {term:"इ", transcription:"i [i]", transcriptionsnd:"snd/hindi/vowels_hi.mp3//2.10//3.00"},
@@ -50,17 +45,15 @@ a.data_hindi={
         {term:"पॄ", transcription:"pṛṛ"},
         {term:"पॢ", transcription:"pl"},
         {term:"पॣ", transcription:"pll"},
-      ],
-    },
-    //======================================
-    // Topic:
-    //======================================
-    "consonants": {
-      "font-size": "48px", //"3em",
-      //"font-family": "myFontDevanagariUttara",
-      "en": "consonants",
-      "ru": "согласные",
-      "terms": [
+    ],
+});
+
+a.learnData.add({
+    en: "languages/hindi हिंदी/alphabet/consonants",
+    ru: "языки    /хинди हिंदी/алфавит /согласные",
+    //"font-family": "myFontDevanagariUttara",
+    "font-size": "48px", //"3em",
+    terms: [
         {term:"क", transcription:"[ka] ka", transcriptionsnd:"snd/hindi/consonants_hi.mp3//0.00//0.70"},
         {term:"ख", transcription:"[ka] kʰa (strong)", transcriptionsnd:"snd/hindi/consonants_hi.mp3//0.70//1.65"},
         {term:"ग", transcription:"[ga] ga", transcriptionsnd:"snd/hindi/consonants_hi.mp3//1.70//2.57"},
@@ -110,17 +103,15 @@ a.data_hindi={
         {term:"फ़", transcription:"fa [fǝ]"},
         {term:"ड़", transcription:"ṛa [ɽǝ]"},
         {term:"ढ़", transcription:"ṟẖa [ɽʰǝ]"},
-      ],
-    },
-    //======================================
-    // Topic:
-    //======================================
-    "conjunct consonants, ra forms": {
-      "font-size": "48px", //"3em",
-      //"font-family": "myFontDevanagariUttara",
-      "en": "conjunct cons., ra forms",
-      "ru": "сопряженные согл., ra-формы",
-      "terms": [
+    ],
+});
+
+a.learnData.add({
+    en: "languages/hindi हिंदी/alphabet/conjunct cons., ra forms",
+    ru: "языки    /хинди हिंदी/алфавит /сопряженные согл., ra-формы",
+    //"font-family": "myFontDevanagariUttara",
+    "font-size": "48px", //"3em",
+    terms: [
         // common conjunct consonants
         {term:"क्ष क्त क्क", transcription:"kṣa, kta, kka (क+ष, क+त, क+क)"},
         {term:"ज्ञ", transcription:"jña (ज+ञ)"},
@@ -157,17 +148,15 @@ a.data_hindi={
         {term:"र्पे र्ते र्गे र्टे र्हे", transcription:"rpe rte rge rṭe rhe"},
     /**/{term:"प्र त्र ग्र ट्र ह्र", transcription:"pra tra gra ṭra hra"},
     /**/{term:"प्रे त्रे ग्रे ट्रे ह्रे", transcription:"pre tre gre ṭre hre"},
-      ],
-    },
-    //======================================
-    // Topic:
-    //======================================
-    "- all letters/combinations": {
-      //"font-size": "1.1em",
-      //"font-family": "myFontDevanagariUttara",
-      "en": "- all letters/combinations",
-      "ru": "- все буквы/сочетания",
-      "terms": [
+    ],
+});
+
+a.learnData.add({
+    en: "languages/hindi हिंदी/alphabet/all letters, combinations",
+    ru: "языки    /хинди हिंदी/алфавит /все буквы, сочетания     ",
+    //"font-family": "myFontDevanagariUttara",
+    "font-size": "48px", //"3em",
+    terms: [
         {term:"अ", transcription:"a [ǝ]", transcriptionsnd:"snd/hindi/vowels_hi.mp3//0.1//0.6"},
         {term:"आ", transcription:"ā [a:]", transcriptionsnd:"snd/hindi/vowels_hi.mp3//0.7//2.05"},
         {term:"इ", transcription:"i [i]", transcriptionsnd:"snd/hindi/vowels_hi.mp3//2.10//3.00"},
@@ -319,18 +308,15 @@ a.data_hindi={
     /**/{term:"ग्रे", transcription:"gre"},
     /**/{term:"ट्रे", transcription:"ṭre"},
     /**/{term:"ह्रे", transcription:"hre"},
-      ],
-    },
+    ],
+});
 
-    //======================================
-    // Topic:
-    //======================================
-    "numbers": {
-      //"font-size": "1.1em",
-      //"font-family": "myFontDevanagariUttara",
-      "en": "numbers",
-      "ru": "числа",
-      "terms": [
+a.learnData.add({
+    en: "languages/hindi हिंदी/numbers",
+    ru: "языки    /хинди हिंदी/числа",
+    //"font-family": "myFontDevanagariUttara",
+    "font-size": "48px", //"3em",
+    terms: [
         {translation:{en:"0",ru:"0"}, term:"० शून्य",transcription:"[śūnya]"},
         {translation:{en:"1",ru:"1"}, term:"१ एक",transcription:"[ek]"},
         {translation:{en:"2",ru:"2"}, term:"२ दो",transcription:"[do]"},
@@ -437,18 +423,15 @@ a.data_hindi={
         {term:"१०,००,००० दस लाख", transcription:"[das lākh]", translation:{en:"1 million",ru:"1 миллион"}},
         {term:"१००,००,००० करोड़", transcription:"[karoṛ]", translation:{en:"10 million",ru:"10 миллионов"}},
         {term:"१०,००,००,००० दस करोड़", transcription:"[das karoṛ]", translation:{en:"100 million",ru:"100 миллионов"}},
-      ],
-    },
+    ],
+});
 
-    //======================================
-    // Topic:
-    //======================================
-    "common phrases (общие фразы)": {
-      //"font-size": "1.1em",
-      //"font-family": "myFontDevanagariUttara",
-      "en": "common phrases",
-      "ru": "общие фразы",
-      "terms": [
+a.learnData.add({
+    en: "languages/hindi हिंदी/common phrases",
+    ru: "языки    /хинди हिंदी/общие фразы",
+    //"font-family": "myFontDevanagariUttara",
+    "font-size": "48px", //"3em",
+    terms: [
         {term:"स्वागत / सवागत हैं", transcription:"[svāgat / svāgat haiṅ]", translation:{en:"Welcome",ru:"Добро пожаловать"}},
         {term:"नमस्ते / नमस्कार", transcription:"[namaste/namaskār]", translation:{en:"Hello (General greeting)",ru:"Здравствуйте"}},
 
@@ -488,18 +471,15 @@ a.data_hindi={
         {term:"क्षमा कीजिए / माफ़ कीजिये", transcription:"[kṣama kījiye/māf kījiye]", translation:{en:"Sorry",ru:"Я сожалею"}},
         {term:"धन्यवाद / आभारी हुँ", transcription:"[dhanyavād/ābhārī hōṅ]", translation:{en:"Thank you",ru:"Спасибо"}},
         {term:"मेरा सौभाग्य है / कोई बात नहीं", transcription:"[merā subhāgya hai / koi baat nahi]", translation:{en:"Reply to thank you",ru:"Пожалуйста (в ответ на Спасибо)"}},
-      ],
-    },
+    ],
+});
 
-    //======================================
-    // Topic:
-    //======================================
-    "Unit 1. What is this?": {
-      //"font-size": "1.1em",
-      //"font-family": "myFontDevanagariUttara",
-      "en": "Unit 1. What is this?",
-      "ru": "Модуль 1. Что это?",
-      "terms": [
+a.learnData.add({
+    en: "languages/hindi हिंदी/lessons/Unit 1. What is this?",
+    ru: "языки    /хинди हिंदी/уроки  /Модуль 1. Что это?",
+    //"font-family": "myFontDevanagariUttara",
+    "font-size": "48px", //"3em",
+    terms: [
         //p13
         {term:"यह", translation:{en:"this",ru:"это"}},
         {term:"क्या", translation:{en:"what",ru:"что"}},
@@ -514,17 +494,15 @@ a.data_hindi={
         {term:"जी?", translation:{en:"Pardon? What did you say?",ru:"Что вы сказали?"}},
         {term:"ठीक है", translation:{en:"That's right.",ru:"Это правильно."}},
         {term:"और यह?", translation:{en:"And this?",ru:"А это?"}},
-      ],
-    },
-    //======================================
-    // Topic:
-    //======================================
-    "Unit 2. What's the name of this country?": {
-      //"font-size": "1.1em",
-      //"font-family": "myFontDevanagariUttara",
-      "en": "Unit 2. What's the name of this country?",
-      "ru": "Модуль 2. Какое имя у этой страны?",
-      "terms": [
+    ],
+});
+
+a.learnData.add({
+    en: "languages/hindi हिंदी/lessons/Unit 2. What's the name of this country?",
+    ru: "языки    /хинди हिंदी/уроки  /Модуль 2. Какое имя у этой страны?",
+    //"font-family": "myFontDevanagariUttara",
+    "font-size": "48px", //"3em",
+    terms: [
         //p15
         {term:"इस", translation:{en:"this",ru:"это"}},
         {term:"देश", translation:{en:"country",ru:"страна"}},
@@ -548,6 +526,5 @@ a.data_hindi={
         {term:"कल मिलेंगे", translation:{en:"Wi'll get together tomorrow.",ru:"Соберемся вместе завтра."}},
         {term:"नमस्ते", translation:{en:"Hello/Goodbye",ru:"Здравствуйте/До свидяния"}},
         //p19
-      ],
-    },
-};
+    ],
+});
