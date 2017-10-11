@@ -4,7 +4,9 @@ var a = a || {};
 //  ा ि ी ु ू े ै ो ौ ं ः ँ ृ  //ॊ़ॉ्ॆ ऒऑऍऎ
 //a a i i u u e e:o o: n h am r
 
-a.learnData.add({
+a.dataLanguagesHindi = [{
+    //==========================================================================
+    //==========================================================================
     en: "languages/hindi हिंदी/alphabet/vowels, diacritics ",
     ru: "языки    /хинди हिंदी/алфавит /гласные, диакритики",
     //"font-family": "myFontDevanagariUttara",
@@ -46,9 +48,9 @@ a.learnData.add({
         {term:"पॢ", transcription:"pl"},
         {term:"पॣ", transcription:"pll"},
     ],
-});
-
-a.learnData.add({
+}, {
+    //==========================================================================
+    //==========================================================================
     en: "languages/hindi हिंदी/alphabet/consonants",
     ru: "языки    /хинди हिंदी/алфавит /согласные",
     //"font-family": "myFontDevanagariUttara",
@@ -104,9 +106,9 @@ a.learnData.add({
         {term:"ड़", transcription:"ṛa [ɽǝ]"},
         {term:"ढ़", transcription:"ṟẖa [ɽʰǝ]"},
     ],
-});
-
-a.learnData.add({
+}, {
+    //==========================================================================
+    //==========================================================================
     en: "languages/hindi हिंदी/alphabet/conjunct cons., ra forms",
     ru: "языки    /хинди हिंदी/алфавит /сопряженные согл., ra-формы",
     //"font-family": "myFontDevanagariUttara",
@@ -149,9 +151,9 @@ a.learnData.add({
     /**/{term:"प्र त्र ग्र ट्र ह्र", transcription:"pra tra gra ṭra hra"},
     /**/{term:"प्रे त्रे ग्रे ट्रे ह्रे", transcription:"pre tre gre ṭre hre"},
     ],
-});
-
-a.learnData.add({
+}, {
+    //==========================================================================
+    //==========================================================================
     en: "languages/hindi हिंदी/alphabet/all letters, combinations",
     ru: "языки    /хинди हिंदी/алфавит /все буквы, сочетания     ",
     //"font-family": "myFontDevanagariUttara",
@@ -309,9 +311,9 @@ a.learnData.add({
     /**/{term:"ट्रे", transcription:"ṭre"},
     /**/{term:"ह्रे", transcription:"hre"},
     ],
-});
-
-a.learnData.add({
+}, {
+    //==========================================================================
+    //==========================================================================
     en: "languages/hindi हिंदी/numbers",
     ru: "языки    /хинди हिंदी/числа",
     //"font-family": "myFontDevanagariUttara",
@@ -424,9 +426,9 @@ a.learnData.add({
         {term:"१००,००,००० करोड़", transcription:"[karoṛ]", translation:{en:"10 million",ru:"10 миллионов"}},
         {term:"१०,००,००,००० दस करोड़", transcription:"[das karoṛ]", translation:{en:"100 million",ru:"100 миллионов"}},
     ],
-});
-
-a.learnData.add({
+}, {
+    //==========================================================================
+    //==========================================================================
     en: "languages/hindi हिंदी/common phrases",
     ru: "языки    /хинди हिंदी/общие фразы",
     //"font-family": "myFontDevanagariUttara",
@@ -472,9 +474,9 @@ a.learnData.add({
         {term:"धन्यवाद / आभारी हुँ", transcription:"[dhanyavād/ābhārī hōṅ]", translation:{en:"Thank you",ru:"Спасибо"}},
         {term:"मेरा सौभाग्य है / कोई बात नहीं", transcription:"[merā subhāgya hai / koi baat nahi]", translation:{en:"Reply to thank you",ru:"Пожалуйста (в ответ на Спасибо)"}},
     ],
-});
-
-a.learnData.add({
+}, {
+    //==========================================================================
+    //==========================================================================
     en: "languages/hindi हिंदी/lessons/Unit 1. What is this?",
     ru: "языки    /хинди हिंदी/уроки  /Модуль 1. Что это?",
     //"font-family": "myFontDevanagariUttara",
@@ -495,9 +497,9 @@ a.learnData.add({
         {term:"ठीक है", translation:{en:"That's right.",ru:"Это правильно."}},
         {term:"और यह?", translation:{en:"And this?",ru:"А это?"}},
     ],
-});
-
-a.learnData.add({
+}, {
+    //==========================================================================
+    //==========================================================================
     en: "languages/hindi हिंदी/lessons/Unit 2. What's the name of this country?",
     ru: "языки    /хинди हिंदी/уроки  /Модуль 2. Какое имя у этой страны?",
     //"font-family": "myFontDevanagariUttara",
@@ -527,4 +529,8 @@ a.learnData.add({
         {term:"नमस्ते", translation:{en:"Hello/Goodbye",ru:"Здравствуйте/До свидяния"}},
         //p19
     ],
+}];
+
+a.dataLanguagesHindi.forEach(function(learnTopicData) {
+    a.learnData.add(learnTopicData);
 });

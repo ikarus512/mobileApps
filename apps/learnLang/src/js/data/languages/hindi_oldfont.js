@@ -1,16 +1,13 @@
 "use strict";
 var a = a || {};
 
-a.data_hindi_oldfont = {};
-a.data_hindi_oldfont_init = function() {
-  for(var topic in a.data_hindi) {
-    a.data_hindi_oldfont[topic] = {};
-    for(var key in a.data_hindi[topic]) {
-      a.data_hindi_oldfont[topic][key] = a.data_hindi[topic][key];
-    }
-    a.data_hindi_oldfont[topic]["font-family"] = "myFontDevanagariUttara";
-  }
-};
-a.data_hindi_oldfont_init();
-
-//a.learnData.add(a.data_hindi_oldfont);
+a.dataLanguagesHindi.forEach(function(learnTopicData) {
+    var newData = {
+        en: learnTopicData.en.replace(RegExp("languages/hindi हिंदी/"),"languages/hindi हिंदी (old font)/"),
+        ru: learnTopicData.ru.replace(RegExp("языки    /хинди हिंदी/"),"языки    /хинди हिंदी (старый шрифт)/"),
+        "font-family": "myFontDevanagariUttara",
+        "font-size": learnTopicData["font-size"],
+        terms: learnTopicData.terms, // reference, not a copy
+    };
+    a.learnData.add(newData);
+});
