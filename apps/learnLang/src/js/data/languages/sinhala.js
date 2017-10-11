@@ -2,8 +2,8 @@
 var a = a || {};
 
 a.learnData.add({
-    en: "languages/sinhala සිංහල/alphabet",
-    ru: "языки    /сингала සිංහල/алфавит ",
+    en: "languages/sinhala සිංහල/alphabet/alphabet",
+    ru: "языки    /сингала සිංහල/алфавит /алфавит",
     "font-size": "64px", //"4em",
     terms: [
         // vowels
@@ -82,8 +82,8 @@ a.learnData.add({
 });
 
 a.learnData.add({
-    en: "languages/sinhala සිංහල/alphabet, hard part 1",
-    ru: "языки    /сингала සිංහල/алфавит, трудная часть 1",
+    en: "languages/sinhala සිංහල/alphabet/hard part 1",
+    ru: "языки    /сингала සිංහල/алфавит /трудная часть 1",
     "font-size": "64px", //"4em",
     terms: [
         // consonants
@@ -99,8 +99,8 @@ a.learnData.add({
 });
 
 a.learnData.add({
-    en: "languages/sinhala සිංහල/alphabet, hard part 2",
-    ru: "языки    /сингала සිංහල/алфавит, трудная часть 2",
+    en: "languages/sinhala සිංහල/alphabet/hard part 2",
+    ru: "языки    /сингала සිංහල/алфавит /трудная часть 2",
     "font-size": "64px", //"4em",
     terms: [
         // consonants
@@ -128,8 +128,8 @@ a.learnData.add({
 });
 
 a.learnData.add({
-    en: "languages/sinhala සිංහල/vowel diacritics, conjunct consonants",
-    ru: "языки    /сингала සිංහල/диакр. гласные, и сопр. согласные",
+    en: "languages/sinhala සිංහල/alphabet/vowel diacritics, conjunct consonants",
+    ru: "языки    /сингала සිංහල/алфавит /диакр. гласные, и сопр. согласные",
     "font-size": "64px", //"4em",
     terms: [
         {term:"ක බ ව ර", transcription:"[ka ba wa ra]", },
@@ -376,8 +376,8 @@ a.learnData.add({
 });
 
 a.learnData.add({
-    en: "languages/sinhala සිංහල/Cycle 1. What is this?",
-    ru: "языки    /сингала සිංහල/Урок 1. Что это?",
+    en: "languages/sinhala සිංහල/lessons/Cycle 1. What is this?",
+    ru: "языки    /сингала සිංහල/уроки  /Урок 1. Что это?",
     //"font-size": "1.1em",
     terms: [
         {term:"මේ මොකද්ද?", translation:{en:"What is this?",ru:"Что это (здесь)? (ед.ч.)"}},
@@ -413,8 +413,8 @@ a.learnData.add({
 });
 
 a.learnData.add({
-    en: "languages/sinhala සිංහල/Cycle 2. What is that over there?",
-    ru: "языки    /сингала සිංහල/Урок 2. Что это там?",
+    en: "languages/sinhala සිංහල/lessons/Cycle 2. What is that over there?",
+    ru: "языки    /сингала සිංහල/уроки  /Урок 2. Что это там?",
     //"font-size": "1.1em",
     terms: [
         {term:"අර මොකද්ද?", translation:{en:"What is that over there?",ru:"Что это там? (ед.ч.)"}},
@@ -432,8 +432,8 @@ a.learnData.add({
 });
 
 a.learnData.add({
-    en: "languages/sinhala සිංහල/Cycle 3. What are these things?",
-    ru: "языки    /сингала සිංහල/Урок 3. Что эти вещи?",
+    en: "languages/sinhala සිංහල/lessons/Cycle 3. What are these things?",
+    ru: "языки    /сингала සිංහල/уроки  /Урок 3. Что эти вещи?",
     //"font-size": "1.1em",
     terms: [
         {term:"මේවා එලවලු", translation:{en:"These things are vegetables.",ru:"Это овощи"}},
@@ -478,8 +478,8 @@ a.learnData.add({
 });
 
 a.learnData.add({
-    en: "languages/sinhala සිංහල/Cycle 4. Are these things boxes?",
-    ru: "языки    /сингала සිංහල/Урок 4. Это коробки?",
+    en: "languages/sinhala සිංහල/lessons/Cycle 4. Are these things boxes?",
+    ru: "языки    /сингала සිංහල/уроки  /Урок 4. Это коробки?",
     //"font-size": "1.1em",
     terms: [
         //p35
@@ -497,8 +497,8 @@ a.learnData.add({
 });
 
 a.learnData.add({
-    en: "languages/sinhala සිංහල/Cycle 5. Is that answer correct?",
-    ru: "языки    /сингала සිංහල/Урок 5. Это правильный ответ?",
+    en: "languages/sinhala සිංහල/lessons/Cycle 5. Is that answer correct?",
+    ru: "языки    /сингала සිංහල/уроки  /Урок 5. Это правильный ответ?",
     //"font-size": "1.1em",
     terms: [
         //p36
@@ -517,8 +517,8 @@ a.learnData.add({
 });
 
 a.learnData.add({
-    en: "languages/sinhala සිංහල/Cycle 6. Making requests.",
-    ru: "языки    /сингала සිංහල/Урок 5. Просьбы.",
+    en: "languages/sinhala සිංහල/lessons/Cycle 6. Making requests.",
+    ru: "языки    /сингала සිංහල/уроки  /Урок 5. Просьбы.",
     //"font-size": "1.1em",
     terms: [
         //p40

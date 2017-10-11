@@ -66,6 +66,6 @@ a.interfaceLanguage.init = function() {
     a.interfaceLanguage.name = jQuery('input[name=interfaceLanguage]:checked').val();
     a.storage.save('interfaceLanguage',a.interfaceLanguage.name);
     a.interfaceLanguage.setVisibility();
-    a.learnedTopic.repopulate(a.interfaceLanguage.name, oldActiveTopicKey);
+    a.learnedTopic.repopulate(a.interfaceLanguage.name, oldActiveTopicKey); // calls .select() second time. TODO: fix
   }
 };

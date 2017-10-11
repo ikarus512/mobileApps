@@ -21,7 +21,7 @@ a.learnedTopic.name=''; // Default value
 // Repopulate selectmenu, select current item, return current selection
 a.learnedTopic.repopulate = function(interfaceLanguage) {
     a.learnData.repopulate(interfaceLanguage);
-    a.learnData.select(a.learnedTopic.name);
+    a.learnData.select(a.learnData.getTree(), a.learnedTopic.name, a.learnedTopic.name.split('/'));
 };
 
 a.learnedTopic.onChange = function() {

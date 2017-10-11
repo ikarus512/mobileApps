@@ -213,7 +213,7 @@ a.onReady=function() {
 
         if (!a.learnData.get()) {
             var interfaceLanguage = a.interfaceLanguage ? a.interfaceLanguage.name : "en";
-            alert({en: 'Choose topic.', ru: 'Выберите тему.'}[interfaceLanguage]);
+            alert({en: 'Choose sub-topic.', ru: 'Выберите подтему.'}[interfaceLanguage]);
 
             // // remove active class on button
             // // otherwise button would remain highlighted (seems not needed)

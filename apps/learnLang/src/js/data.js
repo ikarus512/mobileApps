@@ -41,6 +41,7 @@ var a = a || {};
         self.add = add;
         self.repopulate = repopulate;
         self.select = select;
+        self.getTree = function() { return tree; } // TODO: not very good to provide this access
         self.currentPath = function() { return _currentPath; };
         self.currentData = function() { return data[self.currentPath()] };
         self.getCurrentTopicKey = function() { return keys[_currentPath]; };
@@ -87,11 +88,11 @@ var a = a || {};
 
         function setCurrentPath(path) {
             _currentPath = path;
-            console.log('setCurrentPath('+path+')');
+            console.log('setCurrentPath('+path+'), key=',keys[path]);
 
             a.storage.save('learnedTopic', _currentPath);
 
-            var _curPath = _currentPath.split('/');
+            var _curPath = path.split('/');
             var topicIdx = (1 >= 0) ? 1 : 0;
             var subTopicIdx = (_curPath.length-1 >= 0) ? (_curPath.length-1) : (0);
             jQuery(".learnedTopic").html(_curPath[topicIdx]);
@@ -99,10 +100,7 @@ var a = a || {};
         }
 
         function onTreeSelect(event, eventData) {
-            if (!eventData.node.children) {
-                // Here if activated element is a leaf
-                setCurrentPath(nodePath(eventData.node));
-            }
+            setCurrentPath(nodePath(eventData.node));
 
             function nodePath(node) {
                 var s = node.title;
@@ -128,7 +126,7 @@ var a = a || {};
 
         /** Deselect all source tree nodes */
         function sourceTreeDeselect(subTree) {
-            var subTree = subTree ? subTree : tree;
+            if (!subTree) return;
             subTree.forEach(function(node) {
                 if (node.active) delete node.active;
                 if (node.focus) delete node.focus;
@@ -137,49 +135,47 @@ var a = a || {};
         } // function sourceTreeDeselect()
 
         /** Select */
-        function select(path) {
+        function select(subTree, path, pathTitles) {
+            if (!subTree) return;
+            if (!pathTitles) return;
 
-            if (!path) return;
+            // console.log('1 try select(',pathTitles,')')
 
             //  The following do not work for unknown reason (maybe only after tree reload):
             //    fancytree.activateKey(keys[path]);
             //    tree.getNodeByKey(keys[path]).setActive(true); node.setSelected(true);
             //  Hence we change source tree and do fancytree.reload(new source tree).
 
-            var subTree = tree,
-                i,
-                titles = path.split('/');
+            subTree.find(function(node) {
+                if (node.title === pathTitles[0]) {
+                    // found next node along the path
+                    // console.log('    found',node.title)
+                    if (pathTitles.length > 1) {
+                        // further search needed
+                        return select(node.children, path, pathTitles.splice(1));
+                    } else {
+                        // found final node along the path
+                        // console.log('    finished',node.title)
 
-            for (i=0; i<titles.length; i++) {
-                subTree = subTree.filter(function(el) {
-                    return el.title===titles[i];
-                });
-                // console.log(subTree);
-                subTree = (subTree[0] && subTree[0].children) ? subTree[0].children : subTree;
-            }
-            if (subTree[0]) {
-                sourceTreeDeselect();
-console.log('select(',tree[0].title,'-->',path,')')
-console.log('2 ',subTree[0].title)
-                subTree[0].active = true;
-                subTree[0].focus = true;
+                        sourceTreeDeselect(tree);
 
-                fancytree.reload(tree);
-                jQuery('#tree').focus();
+                        // console.log('2     select(',node.title,'-->',pathTitles,')')
+                        node.active = true;
+                        node.focus = true;
 
-                _currentPath = path; //nodePath(eventData.node);
-                // console.log('onTreeSelect: keys[',_currentPath,']=',keys[_currentPath],'=',eventData.node.key);
+                        fancytree.reload(tree);
+                        // jQuery('#tree').focus(); // TODO: does not work
 
-                a.storage.save('learnedTopic', _currentPath);
-                var _curPath = _currentPath.split('/');
-                var topicIdx = (1 >= 0) ? 1 : 0;
-                var subTopicIdx = (_curPath.length-1 >= 0) ? (_curPath.length-1) : (0);
-                jQuery(".learnedTopic").html(_curPath[topicIdx]);
-                jQuery(".learnedSubTopic").html(_curPath[subTopicIdx]);
+                        setCurrentPath(path) //nodePath(eventData.node);
 
-            }
+                        return false; // further search not needed
+                    }
+                } else {
+                    return false;
+                }
+            });
 
-        } /* function select(path) */
+        } /* function select(subTree, pathTitles) */
 
         /** repopulate tree accordingly current language */
         function repopulate(interfaceLanguage, oldActiveTopicKey) {
@@ -188,7 +184,7 @@ console.log('2 ',subTree[0].title)
             var oldKey = oldActiveTopicKey ? oldActiveTopicKey : self.getCurrentTopicKey();
             var key = 0;
             tree = [];
-            var newCurrentPath;
+            var newCurrentPath, newCurrentPathTitles;
 
             paths[lang].forEach(function(path,idx,arr) {
                 var titles = path.split('/').map(function(el){return el.trim()}),
@@ -208,21 +204,25 @@ console.log('2 ',subTree[0].title)
                 var elem;
                 for(i=0; i<titles.length; i++) {
                     elem = getElemByTitle(subTree, titles[i])
-                    if (elem) {
+                    if (elem) { // elem already exists
                         subTree = elem.children;
-                    } else {
-                        if (i<titles.length-1) {
+                    } else { // create new elem
+                        if (i<titles.length-1) { // create new non-leaf elem
                             elem = {title: titles[i], key: key, folder: true, children: []};
                             subTree.push(elem);
                             subTree = elem.children;
-                        } else {
+                        } else { // create new leaf elem
                             elem = {title: titles[i], key: key};
-                            keys[path] = key;
-                            // console.log('key=',key,', path=',path, ', key=',oldKey,
-                            //     (key===oldKey),self.getCurrentTopicKey(),', cur=',_currentPath)
-                            if (oldKey && key===oldKey) newCurrentPath = titles.join('/');
                             subTree.push(elem);
                         }
+                        var t = titles.slice(0,i+1),
+                            p = t.join('/');
+                        if (oldKey && key===oldKey) {
+                            newCurrentPath = p;
+                            newCurrentPathTitles = t;
+                        }
+                        // console.log('keys[',p,']=',key)
+                        keys[p] = key;
                         key++;
                     }
                 }
@@ -230,8 +230,7 @@ console.log('2 ',subTree[0].title)
             });
 
             fancytree.reload(tree);
-
-            self.select(newCurrentPath); // calls fancytree.reload(tree);
+            self.select(tree, newCurrentPath, newCurrentPathTitles); // calls fancytree.reload(tree) too. TODO: eliminate extra call
 
         }; /* function repopulate() { */
 
