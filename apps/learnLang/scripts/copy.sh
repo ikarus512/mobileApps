@@ -14,9 +14,8 @@ if [ "$OPT2" != "Full" ];then
     rm -frv www/js/data/languages/hindi_oldfont.js
     rm -frv www/js/data/music/notes.js
     rm -frv www/js/data/music/guitar.js
-    # rm -frv www/js/data/example.js
-    # cat src/js/data.js | grep -vP "data/languages/hindi_oldfont|data/music/notes|data/music/guitar" >www/js/data.js
-    cat   src/index.html | grep -vP "data/languages/hindi_oldfont|data/music/music|data/music/guitar" >www/index.html
+    rm -frv www/js/data/example.js
+    cat   src/index.html | grep -vP "data/languages/hindi_oldfont|data/music/notes|data/music/guitar|data/example" >www/index.html
     echo "www/index.html:============"
     cat   www/index.html | grep -P  "data/"
     echo "www/index.html=============EOF"
