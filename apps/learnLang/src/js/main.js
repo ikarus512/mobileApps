@@ -206,6 +206,7 @@ a.onReady=function() {
     jQuery(document).on('pagebeforeshow','#trainAllPage',a.trainAllPageInit);
     jQuery(document).on('pagebeforehide','#trainAllPage',a.trainAllPageHide);
 
+    // Prohibit page change if topic not selected
     jQuery(document).bind('pagebeforechange', function(e, data) {
         // var to = data.toPage,
         //     from = data.options.fromPage;

@@ -62,13 +62,10 @@ a.interfaceLanguage.init = function() {
   jQuery('input[name=interfaceLanguage]').on('change', onInterfaceLanguageChange);
 
   function onInterfaceLanguageChange() {
-    //TODO1:
-    // var interfaceLanguageOld = a.interfaceLanguage.name;
+    var oldActiveTopicKey = a.learnData.getCurrentTopicKey();
     a.interfaceLanguage.name = jQuery('input[name=interfaceLanguage]:checked').val();
-    // var interfaceLanguageNew = a.interfaceLanguage.name;
     a.storage.save('interfaceLanguage',a.interfaceLanguage.name);
     a.interfaceLanguage.setVisibility();
-    //TODO1:
-    a.learnedTopic.repopulate(/*interfaceLanguageNew, interfaceLanguageOld*/);
+    a.learnedTopic.repopulate(a.interfaceLanguage.name, oldActiveTopicKey);
   }
 };

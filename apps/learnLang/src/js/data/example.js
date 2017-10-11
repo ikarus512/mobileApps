@@ -3,8 +3,8 @@ var a = a || {};
 
 a.learnData.add({
     //"font-size": "1.1em",
-    en: "languages/example " + String.fromCharCode(0x2669,0x266A,0x266B,0x266C) + "/alphabet",
-    ru: "языки    /пример " + String.fromCharCode(0x2669,0x266A,0x266B,0x266C) + " /алфавит ",
+    en: "example " + String.fromCharCode(0x2669,0x266A,0x266B,0x266C) + "/alphabet",
+    ru: "пример " + String.fromCharCode(0x2669,0x266A,0x266B,0x266C) + " /алфавит ",
     terms: [
         {term:"क्ष", termimg:"img/icon.png", transcription:"kṣa (क+ष)", transcriptionsnd:"snd/hindi/numbers/0_hindi.mp3", transcriptionimg:"img/icon.png", translation:{en:"translation1-en", ru:"перевод1-ру"}, translationimg:"img/icon.png"},
         {term:"ज्ञ", termimg:"img/icon.png", transcription:"jña (ज+ञ)", transcriptionsnd:"snd/hindi/numbers/0_hindi.mp3//0.4//0.6", transcriptionimg:"img/icon.png", translation:{en:"translation2-en", ru:"перевод2-ру"}, translationimg:"img/icon.png"},
@@ -15,8 +15,8 @@ a.learnData.add({
 
 a.learnData.add({
     //"font-size": "1.1em",
-    en: "languages/example " + String.fromCharCode(0x2669,0x266A,0x266B,0x266C) + "/common phrases",
-    ru: "языки    /пример " + String.fromCharCode(0x2669,0x266A,0x266B,0x266C) + " /общие фразы   ",
+    en: "example " + String.fromCharCode(0x2669,0x266A,0x266B,0x266C) + "/common phrases",
+    ru: "пример " + String.fromCharCode(0x2669,0x266A,0x266B,0x266C) + " /общие фразы   ",
     terms: [
         {term:"क्ष", termimg:"img/icon.png", transcription:"kṣa (क+ष)", transcriptionsnd:"snd/hindi/numbers/0_hindi.mp3", transcriptionimg:"img/icon.png", translation:{en:"translation1-en", ru:"перевод1-ру"}, translationimg:"img/icon.png"},
         {term:"ज्ञ", termimg:"img/icon.png", transcription:"jña (ज+ञ)", transcriptionsnd:"snd/hindi/numbers/0_hindi.mp3//0.4//0.6", transcriptionimg:"img/icon.png", translation:{en:"translation2-en", ru:"перевод2-ру"}, translationimg:"img/icon.png"},

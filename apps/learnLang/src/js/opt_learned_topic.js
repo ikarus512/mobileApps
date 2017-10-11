@@ -19,8 +19,8 @@ a.learnedTopic={};
 a.learnedTopic.name=''; // Default value
 
 // Repopulate selectmenu, select current item, return current selection
-a.learnedTopic.repopulate = function() {
-    a.learnData.repopulate();
+a.learnedTopic.repopulate = function(interfaceLanguage) {
+    a.learnData.repopulate(interfaceLanguage);
     a.learnData.select(a.learnedTopic.name);
 };
 
@@ -35,5 +35,5 @@ a.learnedTopic.onChange = function() {
 * @author Evgeny
 */
 a.learnedTopic.init = function() {
-    a.learnedTopic.repopulate();
+    a.learnedTopic.repopulate(a.interfaceLanguage.name);
 };

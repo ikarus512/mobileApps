@@ -35,7 +35,6 @@ var a = a || {};
             paths = {en:[], ru:[]},
             tree = [], // tree nodes data (path from root to leaf is key to find data)
             data = {}, // learned data, accessed as data[path]
-            //TODO1:
             keys = {}; // used to keep same topic after interface language change
 
         // Public members
@@ -44,6 +43,7 @@ var a = a || {};
         self.select = select;
         self.currentPath = function() { return _currentPath; };
         self.currentData = function() { return data[self.currentPath()] };
+        self.getCurrentTopicKey = function() { return keys[_currentPath]; };
         self.get = self.currentData; // currently selected data
         init();
 
@@ -53,7 +53,7 @@ var a = a || {};
         function init() {
 
             jQuery('#tree').fancytree({
-                activate: onChange,
+                activate: onTreeSelect,
                 source: tree,
                 activeVisible: true, // Make sure, active nodes are visible (expanded)
                 aria: false, // Enable WAI-ARIA support
@@ -85,18 +85,23 @@ var a = a || {};
 
         } /* function init() */
 
-        function onChange(event, eventData) {
+        function setCurrentPath(path) {
+            _currentPath = path;
+            console.log('setCurrentPath('+path+')');
+
+            a.storage.save('learnedTopic', _currentPath);
+
+            var _curPath = _currentPath.split('/');
+            var topicIdx = (1 >= 0) ? 1 : 0;
+            var subTopicIdx = (_curPath.length-1 >= 0) ? (_curPath.length-1) : (0);
+            jQuery(".learnedTopic").html(_curPath[topicIdx]);
+            jQuery(".learnedSubTopic").html(_curPath[subTopicIdx]);
+        }
+
+        function onTreeSelect(event, eventData) {
             if (!eventData.node.children) {
                 // Here if activated element is a leaf
-                _currentPath = nodePath(eventData.node);
-                // console.log('onChange: keys[',_currentPath,']=',keys[_currentPath],'=',eventData.node.key);
-
-                a.storage.save('learnedTopic', _currentPath);
-                var _curPath = _currentPath.split('/');
-                var topicIdx = (1 >= 0) ? 1 : 0;
-                var subTopicIdx = (_curPath.length-1 >= 0) ? (_curPath.length-1) : (0);
-                jQuery(".learnedTopic").html(_curPath[topicIdx]);
-                jQuery(".learnedSubTopic").html(_curPath[subTopicIdx]);
+                setCurrentPath(nodePath(eventData.node));
             }
 
             function nodePath(node) {
@@ -108,7 +113,7 @@ var a = a || {};
                 }
                 return s;
             };
-        } /* function onChange(event, eventData) */
+        } /* function onTreeSelect(event, eventData) */
 
         /** Add learned data */
         function add(d) {
@@ -121,15 +126,30 @@ var a = a || {};
             data[path_en] = d;
         } /* function add(d) */
 
+        /** Deselect all source tree nodes */
+        function sourceTreeDeselect(subTree) {
+            var subTree = subTree ? subTree : tree;
+            subTree.forEach(function(node) {
+                if (node.active) delete node.active;
+                if (node.focus) delete node.focus;
+                if (node.children) sourceTreeDeselect(node.children);
+            });
+        } // function sourceTreeDeselect()
+
         /** Select */
         function select(path) {
 
-            //fancytree.activateKey(keys[path]);
-            //tree.getNodeByKey(keys[path]).setActive(true); node.setSelected(true);
+            if (!path) return;
+
+            //  The following do not work for unknown reason (maybe only after tree reload):
+            //    fancytree.activateKey(keys[path]);
+            //    tree.getNodeByKey(keys[path]).setActive(true); node.setSelected(true);
+            //  Hence we change source tree and do fancytree.reload(new source tree).
 
             var subTree = tree,
                 i,
                 titles = path.split('/');
+
             for (i=0; i<titles.length; i++) {
                 subTree = subTree.filter(function(el) {
                     return el.title===titles[i];
@@ -138,43 +158,39 @@ var a = a || {};
                 subTree = (subTree[0] && subTree[0].children) ? subTree[0].children : subTree;
             }
             if (subTree[0]) {
+                sourceTreeDeselect();
+console.log('select(',tree[0].title,'-->',path,')')
+console.log('2 ',subTree[0].title)
                 subTree[0].active = true;
                 subTree[0].focus = true;
+
+                fancytree.reload(tree);
+                jQuery('#tree').focus();
+
+                _currentPath = path; //nodePath(eventData.node);
+                // console.log('onTreeSelect: keys[',_currentPath,']=',keys[_currentPath],'=',eventData.node.key);
+
+                a.storage.save('learnedTopic', _currentPath);
+                var _curPath = _currentPath.split('/');
+                var topicIdx = (1 >= 0) ? 1 : 0;
+                var subTopicIdx = (_curPath.length-1 >= 0) ? (_curPath.length-1) : (0);
+                jQuery(".learnedTopic").html(_curPath[topicIdx]);
+                jQuery(".learnedSubTopic").html(_curPath[subTopicIdx]);
+
             }
-
-            fancytree.reload(tree);
-            // fancytree.focus();
-            jQuery('#tree').focus();
-            // console.log('focusing');
-
-
-
-            _currentPath = path; //nodePath(eventData.node);
-            // console.log('onChange: keys[',_currentPath,']=',keys[_currentPath],'=',eventData.node.key);
-
-            a.storage.save('learnedTopic', _currentPath);
-            var _curPath = _currentPath.split('/');
-            var topicIdx = (1 >= 0) ? 1 : 0;
-            var subTopicIdx = (_curPath.length-1 >= 0) ? (_curPath.length-1) : (0);
-            jQuery(".learnedTopic").html(_curPath[topicIdx]);
-            jQuery(".learnedSubTopic").html(_curPath[subTopicIdx]);
 
         } /* function select(path) */
 
         /** repopulate tree accordingly current language */
-        function repopulate(interfaceLanguageNew, interfaceLanguageOld) {
+        function repopulate(interfaceLanguage, oldActiveTopicKey) {
 
-            //TODO1:
-            // if (interfaceLanguageNew && interfaceLanguageOld) {
-            //     var key = keys[_currentPath];
-            //     _currentPath = ....[key];
-            // }
-
-            var interfaceLanguage = a.interfaceLanguage ? a.interfaceLanguage.name : "en";
+            var lang = interfaceLanguage ? interfaceLanguage : "en";
+            var oldKey = oldActiveTopicKey ? oldActiveTopicKey : self.getCurrentTopicKey();
             var key = 0;
             tree = [];
+            var newCurrentPath;
 
-            paths[interfaceLanguage].forEach(function(path,idx,arr) {
+            paths[lang].forEach(function(path,idx,arr) {
                 var titles = path.split('/').map(function(el){return el.trim()}),
                     i;
 
@@ -201,8 +217,11 @@ var a = a || {};
                             subTree = elem.children;
                         } else {
                             elem = {title: titles[i], key: key};
-                            subTree.push(elem);
                             keys[path] = key;
+                            // console.log('key=',key,', path=',path, ', key=',oldKey,
+                            //     (key===oldKey),self.getCurrentTopicKey(),', cur=',_currentPath)
+                            if (oldKey && key===oldKey) newCurrentPath = titles.join('/');
+                            subTree.push(elem);
                         }
                         key++;
                     }
@@ -211,6 +230,8 @@ var a = a || {};
             });
 
             fancytree.reload(tree);
+
+            self.select(newCurrentPath); // calls fancytree.reload(tree);
 
         }; /* function repopulate() { */
 

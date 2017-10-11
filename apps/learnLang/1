@@ -38,5 +38,5 @@ In case of problem: Unable to load Maven meta-data from https://download.01.org/
  This walkaround It's not a solution. Is only to continue working.
 
 
-https://github.com/mar10/fancytree    TODO: Problem, how to auto focus?
-TODO1: keys = {}; // used to keep same topic after interface language change
+https://github.com/mar10/fancytree    TODO: Problem, how to auto focus at tree and its current node?
+TODO: do not re-create source tree, but only change titles (hence no need to keep keys[] and do anything after language change)
