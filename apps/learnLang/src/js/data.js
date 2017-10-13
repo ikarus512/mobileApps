@@ -114,14 +114,19 @@ var a = a || {};
         } /* function onTreeSelect(event, eventData) */
 
         /** Add learned data */
-        function add(d) {
-            var path_ru = d.ru.split('/').map(function(el){return el.trim()}).join('/'),
-                path_en = d.en.split('/').map(function(el){return el.trim()}).join('/');
+        function add(d, termConverter) {
+            var ruPath = d.ru.split('/').map(function(el){return el.trim()}).join('/'),
+                enPath = d.en.split('/').map(function(el){return el.trim()}).join('/');
 
-            paths.en.push(path_en);
-            paths.ru.push(path_ru);
-            data[path_ru] = d;
-            data[path_en] = d;
+            paths.en.push(enPath);
+            paths.ru.push(ruPath);
+            data[ruPath] = d;
+            data[enPath] = d;
+            if (termConverter) {
+                d.terms.forEach(function(el) {
+                    el.term = termConverter(el.term);
+                });
+            }
         } /* function add(d) */
 
         /** Deselect all source tree nodes */
