@@ -166,10 +166,16 @@ var a = a || {};
 
                         // console.log('2     select(',node.title,'-->',pathTitles,')')
                         node.active = true;
+                        // node.selected = true;
                         node.focus = true;
 
                         fancytree.reload(tree);
                         // jQuery('#tree').focus(); // TODO: does not work
+                        // jQuery.mobile.activePage.find('#tree').focus();
+                        // fancytree.$container.focus();
+                        // var fancytree = jQuery('#tree').fancytree('getTree');
+                        // jQuery('#tree').focus();
+                        jQuery('#tree').fancytree('getActiveNode').setFocus();
 
                         setCurrentPath(path) //nodePath(eventData.node);
 
