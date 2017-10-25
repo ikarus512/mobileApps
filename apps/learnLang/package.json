@@ -1,5 +1,35 @@
 {
-    "name": "com.example.learnlang",
-    "version": "1.0.0",
-    "displayName": "LearnLang"
+  "name": "com.example.learnlang",
+  "version": "1.0.0",
+  "displayName": "LearnLang",
+  "0001": "=== nw.js options: ======================================",
+  "devDependencies": {
+    "nwjs-builder-phoenix": "^1.14.6"
+  },
+  "main": "src/index.html",
+  "icon": "src/img/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikarus512/mobileApps.git"
+  },
+  "author": "ikarus512",
+  "license": "GPL-3.0",
+  "scripts": {
+    "dist-win": "build --tasks win-x64 .",
+    "dist-all": "build --tasks win-x86,win-x64,linux-x86,linux-x64,mac-x64 --concurrent .",
+    "start": "run --x86 .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "build": {
+    "0001-help-opts": "https://github.com/evshiron/nwjs-builder-phoenix/blob/master/docs/Options.md",
+    "nwVersion": "lts",
+    "nwFlavor": "normal",
+    "output": "./../../releases/.",
+    "outputPattern": "learnLang-${VERSION}-${PLATFORM}-${ARCH}",
+    "packed": true,
+    "targets": ["zip", "nsis7z"],
+    "files": ["src/**/*"],
+    "strippedProperties": ["build"],
+    "window": {"icon": "./src/img/icon.png"}
+  }
 }
