@@ -63,6 +63,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "makensis": "^0.8.1",
+    "makensis-cli": "^0.2.1",
     "nwjs-builder-phoenix": "^1.14.6"
   },
   "window": {

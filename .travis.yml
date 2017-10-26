@@ -16,6 +16,7 @@ addons:
         - lib32stdc++6
         - lib32z1
         - wine
+        - nsis
         # - wine1.6
 
 env:
