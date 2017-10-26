@@ -52,7 +52,7 @@
     "nsis": {
       "icon": "./src/img/icon.ico",
       "unIcon": "./src/img/icon.ico",
-      "installDirectory": "$PROGRAMFILES\\learnLang",
+      "installDirectory": "$PROGRAMFILES\\ikarus512\\learnLang",
       "diffUpdaters": true
     }
   },

@@ -19,7 +19,7 @@
     "nwVersion": "lts",
     "nwFlavor": "normal",
     "output": "./../../releases/.",
-    "outputPattern": "learnLang-${VERSION}-${PLATFORM}-${ARCH}",
+    "outputPattern": "learnLang-${APPNAME}-${VERSION}-${PLATFORM}-${ARCH}",
     "packed": true,
     "targets": [
       "zip",
@@ -33,14 +33,14 @@
       "build"
     ],
     "win": {
-      "productName": "learnLang",
-      "companyName": "ikarus512",
+      "productName": "${APPNAME}",
+      "companyName": "${COMPANYNAME}",
       "copyright": "(C) 2017 ikarus512",
       "icon": "./src/img/icon.ico"
     },
     "mac": {
-      "name": "learnLang",
-      "displayName": "learnLang",
+      "name": "${APPNAME}",
+      "displayName": "${APPNAME}",
       "copyright": "(C) 2017 ikarus512",
       "icon-converter-online-url": "===== https://iconverticons.com/online =====",
       "icon": "./src/img/icon.icns",
@@ -52,7 +52,7 @@
     "nsis": {
       "icon": "./src/img/icon.ico",
       "unIcon": "./src/img/icon.ico",
-      "installDirectory": "$PROGRAMFILES\\learnLang",
+      "installDirectory": "$PROGRAMFILES\\${COMPANYNAME}\\${APPNAME}",
       "diffUpdaters": true
     }
   },
