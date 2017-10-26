@@ -184,6 +184,7 @@ function cloneRepo() {
     fi
     pushd $CLONE_DIR >/dev/null
         git fetch
+        git pull
     popd >/dev/null
 }
 
@@ -298,6 +299,7 @@ function githubTagAndPublishRelease() {
 
         getLatestTag $REPO; latestTag=$result; echo "=== latestTag=$latestTag"
         githubReleaseCreate $REPO v$latestTag
+        echo "\$APP.\$PLAT.\$OPT1.\$OPT2 == $APP.$PLAT.$OPT1.$OPT2"
         case $APP.$PLAT.$OPT1.$OPT2 in
         learnLang.android.debug.Full) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug-x86.apk ;;
