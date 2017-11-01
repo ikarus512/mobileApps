@@ -25,7 +25,7 @@ if [ "$PLAT" == "desktop" ];then
     npm run dist-all
 
     ### 2. Create installation for win32, using nw.js distro and src (or www) folder
-    pushd scripts; ./create-installer-win32-nsis-nwjs.sh; popd
+    pushd scripts; source ./create-installer-win32-nsis-nwjs.sh; popd
 
     echo "=== ls -l ../../releases:"
     ls -l ../../releases
