@@ -16,11 +16,23 @@ if(window.navigator.appVersion.search(/Android/i)>=0) {
 if(window.navigator.appVersion.search(/Windows/i)>=0) {
     a.os="Win";
 }
+
+// nw.App.quit();
+
 if(typeof(cordova)==="undefined" || typeof(cordova.version)==="undefined") {
-    a.cordova=false;
-    a.alert=function(){window.alert(arguments[0],arguments[1],arguments[2],arguments[3]);};
-    a.exit =function(){};
-    a.previousPage=function(){window.history.back();};
+    if(nw) {
+        // Here if NW.js
+        a.cordova=false;
+        a.alert=function(){window.alert(arguments[0],arguments[1],arguments[2],arguments[3]);};
+        a.exit =function(){nw.App.quit();};
+        a.previousPage=function(){window.history.back();};
+    } else {
+        // Here if usual browser
+        a.cordova=false;
+        a.alert=function(){window.alert(arguments[0],arguments[1],arguments[2],arguments[3]);};
+        a.exit =function(){};
+        a.previousPage=function(){window.history.back();};
+    }
 } else {
     a.cordova=true;
     a.alert=function(){navigator.notification.alert(arguments[0],arguments[1],arguments[2],arguments[3]);};
