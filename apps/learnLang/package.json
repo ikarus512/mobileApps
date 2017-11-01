@@ -22,9 +22,7 @@
     "outputPattern": "learnLang-${VERSION}-${PLATFORM}-${ARCH}",
     "packed": true,
     "targets": [
-      "zip",
-      "nsis",
-      "nsis7z"
+      "zip"
     ],
     "files": [
       "./src/**/*"

@@ -1,0 +1,4 @@
+learnLang-win32
+*.out.log
+*.exe
+nwjs-*

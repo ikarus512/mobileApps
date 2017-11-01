@@ -311,12 +311,9 @@ function githubTagAndPublishRelease() {
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-linux-x64.zip
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-linux-x86.zip
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-mac-x64.zip
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-win-x64.7z
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-win-x64.exe
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-win-x64.zip
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-win-x86.7z
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-win-x86.exe
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-win-x86.zip
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-win32-setup.exe
             ;;
         # puzzle15.android.debug.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk ;;
         puzzle15.android.debug.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk
