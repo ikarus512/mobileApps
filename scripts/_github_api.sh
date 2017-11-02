@@ -313,6 +313,9 @@ function githubTagAndPublishRelease() {
             #githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-mac-x64.zip
             #githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-win-x64.zip
             #githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-win-x86.zip
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-linux-ia32.tar.gz
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-linux-x64.tar.gz
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-osx-x64.tar.gz
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-win-ia32-setup.exe
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-win-x64-setup.exe
             ;;
