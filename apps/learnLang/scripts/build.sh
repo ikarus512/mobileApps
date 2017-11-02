@@ -60,12 +60,17 @@ if [ "$PLAT" == "desktop" ];then
 
     ### Create installations using nw.js distro and www folder (www compiled from src)
     pushd scripts
-    source ./create-installer-win-ia32-nsis-nwjs.sh &
-    source ./create-installer-win-x64-nsis-nwjs.sh &
-    source ./create-installer-osx-x64-nsis-nwjs.sh &
-    source ./create-installer-linux-ia32-nsis-nwjs.sh &
-    source ./create-installer-linux-x64-nsis-nwjs.sh &
+    wget https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-linux-ia32.tar.gz &
+    wget https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-linux-x64.tar.gz &
+    wget https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-osx-x64.zip &
+    wget https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-ia32.zip &
+    wget https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-x64.zip &
     wait
+    source ./create-installer-win-ia32-nsis-nwjs.sh
+    source ./create-installer-win-x64-nsis-nwjs.sh
+    source ./create-installer-osx-x64-nsis-nwjs.sh
+    source ./create-installer-linux-ia32-nsis-nwjs.sh
+    source ./create-installer-linux-x64-nsis-nwjs.sh
     popd
 
     echo "=== ls -l ../../releases:"

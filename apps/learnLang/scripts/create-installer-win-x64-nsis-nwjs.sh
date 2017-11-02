@@ -14,11 +14,11 @@ v=0.26.2
 flavor=release; sdk=
 #flavor=debug; sdk=-sdk
 
-wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-win-x64.zip
+if [ ! -f nwjs$sdk-v$v-win-x64.zip ];then wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-win-x64.zip; fi
 unzip nwjs$sdk-v$v-win-x64.zip
 chmod 777 -R nwjs$sdk-v$v-win-x64
 mv nwjs$sdk-v$v-win-x64 learnLang-win-x64
-cp -fr ../src ./learnLang-win-x64/src/
+cp -fr ../www ./learnLang-win-x64/www/
 cp -f  ../package.json ./learnLang-win-x64/
 cp -f  learnLang-win-x64/nw.exe learnLang-win-x64/learnLang-start.exe
 ###cd learnLang-win-x64; nw.exe . # run

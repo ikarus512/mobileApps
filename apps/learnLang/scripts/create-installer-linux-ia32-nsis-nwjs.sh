@@ -14,12 +14,13 @@ v=0.26.2
 flavor=release; sdk=
 #flavor=debug; sdk=-sdk
 
-wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-linux-ia32.tar.gz
+if [ ! -f nwjs$sdk-v$v-linux-ia32.tar.gz ];then wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-linux-ia32.tar.gz; fi
 tar -xvzf nwjs$sdk-v$v-linux-ia32.tar.gz
 chmod 777 -R nwjs$sdk-v$v-linux-ia32
 mv nwjs$sdk-v$v-linux-ia32 learnLang-linux-ia32
-cp -fr ../src ./learnLang-linux-ia32/src/
+cp -fr ../www ./learnLang-linux-ia32/www/
 cp -f  ../package.json ./learnLang-linux-ia32/
+ echo ls learnLang-linux-ia32:
  ls -l learnLang-linux-ia32
 # cp -f  learnLang-linux-ia32/nw.exe learnLang-linux-ia32/learnLang-start.exe
 ###cd learnLang-linux-ia32; nw.exe . # run
@@ -29,4 +30,5 @@ cp -f  ../package.json ./learnLang-linux-ia32/
 
 # ../node_modules/.bin/makensis-cli compile ./create-installer-linux-ia32-nsis-nwjs.nsi >create-installer-linux-ia32-nsis-nwjs.out.txt 2>&1
 # cat create-installer-linux-ia32-nsis-nwjs.out.txt
-# mv learnLang-linux-ia32-setup.exe ../../../releases
+tar -zcvf learnLang-linux-ia32.tar.gz learnLang-linux-ia32
+mv learnLang-linux-ia32.tar.gz ../../../releases

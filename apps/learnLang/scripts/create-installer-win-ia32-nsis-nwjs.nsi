@@ -15,7 +15,7 @@ InstallDir "$PROGRAMFILES\${COMPANYNAME}\${APPNAME}"
 
 LicenseData "..\..\..\LICENSE" # txt (DOS \r\n) or rtf file
 Name "${COMPANYNAME} - ${APPNAME}" # Installer/uninstaller's title bar text
-Icon "..\src\img\icon.ico"
+Icon "..\www\img\icon.ico"
 OutFile "learnLang-win32-setup.exe" # define installer name
 
 !include LogicLib.nsh # library from NSIS package
@@ -44,7 +44,7 @@ section "install"
     setOutPath "$INSTDIR" # target install dir
     # Files added here should be removed by the uninstaller (see section "uninstall")
     file /r learnLang-win32\*
-    file "..\src\img\icon.ico"
+    file "..\www\img\icon.ico"
     #file "${APPNAME}-start.exe"
 
     # Uninstaller - See function un.onInit and section "uninstall" for configuration
@@ -102,7 +102,7 @@ section "uninstall"
     delete  "$INSTDIR\*" ### dangerous!.. (better to remove file-by-file)
     rmDir /r $INSTDIR\locales
     rmDir /r $INSTDIR\swiftshader
-    rmDir /r $INSTDIR\src
+    rmDir /r $INSTDIR\www
     rmDir    $INSTDIR ## remove if empty
 
     # Remove uninstaller information from the registry

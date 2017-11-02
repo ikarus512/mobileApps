@@ -14,11 +14,11 @@ v=0.26.2
 flavor=release; sdk=
 #flavor=debug; sdk=-sdk
 
-wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-win-ia32.zip
+if [ ! -f nwjs$sdk-v$v-win-ia32.zip ];then wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-win-ia32.zip; fi
 unzip nwjs$sdk-v$v-win-ia32.zip
 chmod 777 -R nwjs$sdk-v$v-win-ia32
 mv nwjs$sdk-v$v-win-ia32 learnLang-win-ia32
-cp -fr ../src ./learnLang-win-ia32/src/
+cp -fr ../www ./learnLang-win-ia32/www/
 cp -f  ../package.json ./learnLang-win-ia32/
 cp -f  learnLang-win-ia32/nw.exe learnLang-win-ia32/learnLang-start.exe
 ###cd learnLang-win-ia32; nw.exe . # run
