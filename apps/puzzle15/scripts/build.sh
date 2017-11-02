@@ -12,11 +12,39 @@ if [ -z $ZIPALIGN     ]; then ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign
 if [ -z $RELEASES_DIR ]; then RELEASES_DIR=$PWD/../releases; fi
 if [ -z $CLONE_DIR    ]; then CLONE_DIR=$PWD/../_tmp/mobileApps; fi
 
+if [ -z $HOME_DIR     ]; then HOME_DIR=../../../mobileApps; fi
+if [ -z $APP_DIR     ]; then APP_DIR=$HOME_DIR/apps/$APP; fi
+
 # ==============================================================================
+
+cd $APP_DIR
 
 mkdir -p $RELEASES_DIR
 
 rm -fv platforms/android/build/outputs/apk/*.apk
+
+########################################
+### Common
+
+# copy/compile files from src to www
+cp -frv src www
+rm -frv www/img/11
+rm -frv www/img/logo.old.png
+rm -frv www/img/logo1.png
+rm -frv www/img/logo2.png
+rm -frv www/img/logo3.png
+
+# Prepare cordova hooks
+if [ "$PLAT" == "android" ];then
+    mkdir -p $APP_DIR/hooks/after_prepare
+    cp -frv $HOME_DIR/scripts/android_hook_remove_permissions.js $APP_DIR/hooks/after_prepare/
+    cp -frv $HOME_DIR/scripts/android_check_permissions.sh       $APP_DIR/hooks/after_prepare/
+    chmod -R +x hooks
+    ls -hl $APP_DIR/hooks/after_prepare
+fi
+
+########################################
+### Platform-specific binaries build
 
 if [ "$OPT1" == "debug" ];then
     cordova build android --debug || exit 1 # --verbose

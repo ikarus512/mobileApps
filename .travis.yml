@@ -67,11 +67,10 @@ before_install:
     - source ./scripts/before_install.sh
 
 install:
-    - source ./scripts/copy.sh
     - source ./scripts/install.sh
-    - source $HOME_DIR/scripts/android_check_permissions.sh
 
 before_script:
+    - source $HOME_DIR/scripts/android_check_permissions.sh
     - source ./scripts/build.sh
     - source $HOME_DIR/scripts/android_check_permissions.sh
 

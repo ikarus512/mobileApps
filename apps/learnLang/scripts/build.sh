@@ -12,25 +12,66 @@ if [ -z $ZIPALIGN     ]; then ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign
 if [ -z $RELEASES_DIR ]; then RELEASES_DIR=$PWD/../releases; fi
 if [ -z $CLONE_DIR    ]; then CLONE_DIR=$PWD/../_tmp/mobileApps; fi
 
+if [ -z $HOME_DIR     ]; then HOME_DIR=../../../mobileApps; fi
+if [ -z $APP_DIR     ]; then APP_DIR=$HOME_DIR/apps/$APP; fi
+
 # ==============================================================================
+
+cd $APP_DIR
 
 mkdir -p $RELEASES_DIR
 
 rm -fv platforms/android/build/outputs/apk/*.apk
 
+########################################
+### Common
+
+# copy/compile files from src to www
+cp -frv src www
+rm -frv www/fonts/resources
+if [ "$OPT2" != "Full" ];then
+    rm -frv www/js/data/languages/hindi_oldfont.js
+    rm -frv www/js/data/music/notes.js
+    rm -frv www/js/data/music/guitar.js
+    rm -frv www/js/data/example.js
+    cat   src/index.html | grep -vP "data/languages/hindi_oldfont|data/music/notes|data/music/guitar|data/example" >www/index.html
+    echo "www/index.html:============"
+    cat   www/index.html | grep -P  "data/"
+    echo "www/index.html=============EOF"
+fi
+
+# Prepare cordova hooks
+if [ "$PLAT" == "android" ];then
+    mkdir -p $APP_DIR/hooks/after_prepare
+    cp -frv $HOME_DIR/scripts/android_hook_remove_permissions.js $APP_DIR/hooks/after_prepare/
+    cp -frv $HOME_DIR/scripts/android_check_permissions.sh       $APP_DIR/hooks/after_prepare/
+    chmod -R +x hooks
+    ls -hl $APP_DIR/hooks/after_prepare
+fi
+
+########################################
+### Platform-specific binaries build
+
 if [ "$PLAT" == "desktop" ];then
     npm i
 
-    ### 1. Create installations using nwjs-builder-phoenix
-    npm run dist-all
+    ### Create installations using nwjs-builder-phoenix
+    #npm run dist-all
 
-    ### 2. Create installation for win32, using nw.js distro and src (or www) folder
-    pushd scripts; source ./create-installer-win32-nsis-nwjs.sh; popd
+    ### Create installations using nw.js distro and www folder (www compiled from src)
+    pushd scripts
+    source ./create-installer-win-ia32-nsis-nwjs.sh
+    source ./create-installer-win-x64-nsis-nwjs.sh
+    source ./create-installer-osx-x64-nsis-nwjs.sh
+    source ./create-installer-linux-ia32-nsis-nwjs.sh
+    source ./create-installer-linux-x64-nsis-nwjs.sh
+    popd
 
     echo "=== ls -l ../../releases:"
     ls -l ../../releases
     echo "=== ls"
-else
+
+else # Here if android
 
     if [ "$OPT1" == "debug" ];then
 

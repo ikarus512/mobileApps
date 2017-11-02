@@ -308,12 +308,13 @@ function githubTagAndPublishRelease() {
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-x86.apk ;;
         learnLang.android.release.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk ;;
         learnLang.desktop.release.Full)
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-linux-x64.zip
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-linux-x86.zip
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-mac-x64.zip
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-win-x64.zip
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-win-x86.zip
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-win32-setup.exe
+            #githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-linux-x64.zip
+            #githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-linux-x86.zip
+            #githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-mac-x64.zip
+            #githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-win-x64.zip
+            #githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-1.0.0-win-x86.zip
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-win-ia32-setup.exe
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-win-x64-setup.exe
             ;;
         # puzzle15.android.debug.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk ;;
         puzzle15.android.debug.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk

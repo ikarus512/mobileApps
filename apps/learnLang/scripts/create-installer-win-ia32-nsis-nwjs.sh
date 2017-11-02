@@ -17,15 +17,15 @@ flavor=release; sdk=
 wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-win-ia32.zip
 unzip nwjs$sdk-v$v-win-ia32.zip
 chmod 777 -R nwjs$sdk-v$v-win-ia32
-mv nwjs$sdk-v$v-win-ia32 learnLang-win32
-cp -fr ../src ./learnLang-win32/src/
-cp -f  ../package.json ./learnLang-win32/
-cp -f  learnLang-win32/nw.exe learnLang-win32/learnLang-start.exe
-###cd learnLang-win32; nw.exe . # run
+mv nwjs$sdk-v$v-win-ia32 learnLang-win-ia32
+cp -fr ../src ./learnLang-win-ia32/src/
+cp -f  ../package.json ./learnLang-win-ia32/
+cp -f  learnLang-win-ia32/nw.exe learnLang-win-ia32/learnLang-start.exe
+###cd learnLang-win-ia32; nw.exe . # run
 
 ### Create NSIS installation
 ### http://nsis.sourceforge.net/Docs
 
-../node_modules/.bin/makensis-cli compile ./create-installer-win32-nsis-nwjs.nsi >create-installer-win32-nsis-nwjs.out.txt 2>&1
-cat create-installer-win32-nsis-nwjs.out.txt
-mv learnLang-win32-setup.exe ../../../releases
+../node_modules/.bin/makensis-cli compile ./create-installer-win-ia32-nsis-nwjs.nsi >create-installer-win-ia32-nsis-nwjs.out.txt 2>&1
+cat create-installer-win-ia32-nsis-nwjs.out.txt
+mv learnLang-win-ia32-setup.exe ../../../releases
