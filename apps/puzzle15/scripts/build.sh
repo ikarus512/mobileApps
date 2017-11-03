@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+if [ $TRAVIS_OS_NAME != $BLD_OS ];then exit 1; fi
+
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=puzzle15; fi
 if [ -z $PLAT     ]; then PLAT=android; fi

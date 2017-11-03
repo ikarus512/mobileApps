@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-echo "=== platforms:"
+if [ $TRAVIS_OS_NAME != $BLD_OS ];then exit 1; fi
+
+echo "=== cordova platforms:"
 ls $APP_DIR/platforms
-echo "=== plugins:"
+echo "=== cordova plugins:"
 ls $APP_DIR/plugins
 echo "==="
 

@@ -19,6 +19,10 @@ addons:
         - nsis
         # - wine1.6
 
+os: # doubling build matrix
+    - linux # Here, $TRAVIS_OS_NAME == linux
+    - osx   # Here, $TRAVIS_OS_NAME == osx
+
 env:
     global:
         - CXX=g++-4.8
@@ -28,15 +32,23 @@ env:
         - RELEASES_DIR=$HOME_DIR/releases
         - CLONE_DIR=$HOME_DIR/_tmp/mobileApps
     matrix:
-        # - JOBNAME=learnLangDebug     APP=learnLang PLAT=android OPT1=debug
-        # - JOBNAME=learnLangFullDebug APP=learnLang PLAT=android OPT1=debug OPT2=Full
-        - JOBNAME=learnLang          APP=learnLang PLAT=android OPT1=release
-        - JOBNAME=learnLangFull      APP=learnLang PLAT=android OPT1=release OPT2=Full EXTRASTEP=deploy
-        - JOBNAME=learnLangDeskFull  APP=learnLang PLAT=desktop OPT1=release OPT2=Full
-        # - JOBNAME=puzzle15Debug      APP=puzzle15  PLAT=android OPT1=debug
-        - JOBNAME=puzzle15           APP=puzzle15  PLAT=android OPT1=release
-        # - JOBNAME=tripSaveDebug      APP=tripSave PLAT=android OPT1=debug
-        # - JOBNAME=tripSaveRelease    APP=tripSave PLAT=android OPT1=release
+        ### TODO: matrix include
+        ### TODO: remove $PLAT, replace it by $BLD_OS/$FRM/$TRG_OS
+        ### TODO: APP-->APPDIR; set APPNAME here
+        #
+        ### learnLang:
+        # JOBNAME=010 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug
+        # JOBNAME=020 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug OPT2=Full
+        - JOBNAME=030 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release
+        - JOBNAME=040 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release OPT2=Full EXTRASTEP=deploy
+        - JOBNAME=050 APP=learnLang PLAT=desktop BLD_OS=linux FRM=nwjs    TRG_OS=linux_win OPT1=release OPT2=Full
+        - JOBNAME=060 APP=learnLang PLAT=desktop BLD_OS=osx   FRM=nwjs    TRG_OS=osx       OPT1=release OPT2=Full
+        ### puzzle15:
+        # JOBNAME=070 APP=puzzle15  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug
+        - JOBNAME=080 APP=puzzle15  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release
+        ### tripSave:
+        # JOBNAME=090 APP=tripSave  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug
+        # JOBNAME=100 APP=tripSave  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release
 
 branches:
     only:

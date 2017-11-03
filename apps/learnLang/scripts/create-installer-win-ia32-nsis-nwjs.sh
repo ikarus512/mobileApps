@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+if [ $TRAVIS_OS_NAME != $BLD_OS ];then exit 1; fi
+
 ### Create NW.JS-based distribution
 ### http://nwjs.io
 ### http://docs.nwjs.io/en/latest/For Users/Package and Distribute/
