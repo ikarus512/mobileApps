@@ -16,6 +16,7 @@ env:
         - CXX=g++-4.8
 
         - WORK_DIR=$PWD
+        - ANDROID_HOME1=$WORK_DIR/_tmp_cached
         - ANDROID_HOME=$WORK_DIR/_tmp_cached/android-sdk-linux
         - ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign
         - RELEASES_DIR=$WORK_DIR/releases

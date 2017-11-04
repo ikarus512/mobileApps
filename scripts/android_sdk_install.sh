@@ -4,8 +4,8 @@ echo
 echo "  ####################"
 echo "  ### android_sdk_install started"
 #pushd $WORK_DIR >/dev/null 2>&1
-mkdir -p $ANDROID_HOME
-pushd $ANDROID_HOME >/dev/null 2>&1
+mkdir -p $ANDROID_HOME1
+pushd $ANDROID_HOME1 >/dev/null 2>&1
 echo "  ### PWD=$PWD"
 
 export ANDROID_HOME=$PWD/_tmp_cached/android-sdk-linux
@@ -16,8 +16,9 @@ export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-t
 if [ ! -e $ANDROID_HOME/tools/bin ];then
     echo "  ### installing android sdk to ANDROID_HOME=$ANDROID_HOME"
 
-    cmd="wget --quiet http://dl.google.com/android/android-sdk_r24.4-linux.tgz"; echo "### $cmd"; $cmd
-    cmd="tar -xf android-sdk_r24.4-linux.tgz"; echo "### $cmd"; $cmd
+   #cmd="wget --quiet http://dl.google.com/android/android-sdk_r24.4-linux.tgz"; echo "  ### $cmd"; $cmd
+    cmd="wget         http://dl.google.com/android/android-sdk_r24.4-linux.tgz"; echo "  ### $cmd"; $cmd
+    cmd="tar -xvf android-sdk_r24.4-linux.tgz"; echo "  ### $cmd"; $cmd
 
     #android list sdk --extended # && android list sdk -a --extended
 
@@ -37,6 +38,7 @@ else
     echo "  ### android sdk is already installed in ANDROID_HOME=$ANDROID_HOME"
 fi
 
+echo "ls \$ANDROID_HOME1"; ls $ANDROID_HOME1
 echo "ls \$ANDROID_HOME"; ls $ANDROID_HOME
 echo "ls \$ANDROID_HOME/build-tools"; ls $ANDROID_HOME/build-tools
 
