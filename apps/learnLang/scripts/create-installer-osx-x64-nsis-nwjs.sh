@@ -15,7 +15,7 @@ flavor=release; sdk=
 #flavor=debug; sdk=-sdk
 
 if [ ! -f nwjs$sdk-v$v-osx-x64.zip ];then wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-osx-x64.zip; fi
-unzip nwjs$sdk-v$v-osx-x64.zip
+unzip nwjs$sdk-v$v-osx-x64.zip | tail -n 20
 chmod 777 -R nwjs$sdk-v$v-osx-x64
 mv nwjs$sdk-v$v-osx-x64 learnLang-osx-x64
 cp -fr ../www ./learnLang-osx-x64/www/
@@ -30,5 +30,5 @@ cp -f  ../package.json ./learnLang-osx-x64/
 
 # ../node_modules/.bin/makensis-cli compile ./create-installer-osx-x64-nsis-nwjs.nsi >create-installer-osx-x64-nsis-nwjs.out.txt 2>&1
 # cat create-installer-osx-x64-nsis-nwjs.out.txt
-tar -zcvf learnLang-osx-x64.tar.gz learnLang-osx-x64
-mv learnLang-osx-x64.tar.gz ../../../releases
+tar -zcvf learnLang-osx-x64.tar.gz learnLang-osx-x64 | tail -n 20
+mv learnLang-osx-x64.tar.gz $RELEASES_DIR

@@ -15,7 +15,7 @@ flavor=release; sdk=
 #flavor=debug; sdk=-sdk
 
 if [ ! -f nwjs$sdk-v$v-win-x64.zip ];then wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-win-x64.zip; fi
-unzip nwjs$sdk-v$v-win-x64.zip
+unzip nwjs$sdk-v$v-win-x64.zip | tail -n 20
 chmod 777 -R nwjs$sdk-v$v-win-x64
 mv nwjs$sdk-v$v-win-x64 learnLang-win-x64
 cp -fr ../www ./learnLang-win-x64/www/
@@ -26,6 +26,6 @@ cp -f  learnLang-win-x64/nw.exe learnLang-win-x64/learnLang-start.exe
 ### Create NSIS installation
 ### http://nsis.sourceforge.net/Docs
 
-../node_modules/.bin/makensis-cli compile ./create-installer-win-x64-nsis-nwjs.nsi >create-installer-win-x64-nsis-nwjs.out.txt 2>&1
-cat create-installer-win-x64-nsis-nwjs.out.txt
-mv learnLang-win-x64-setup.exe ../../../releases
+$APPL_DIR/node_modules/.bin/makensis-cli compile ./create-installer-win-x64-nsis-nwjs.nsi >create-installer-win-x64-nsis-nwjs.out.txt 2>&1
+cat create-installer-win-x64-nsis-nwjs.out.txt | tail -n 20
+mv learnLang-win-x64-setup.exe $RELEASES_DIR

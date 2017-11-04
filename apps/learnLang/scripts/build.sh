@@ -39,9 +39,7 @@ linux-win)
     source ./create-installer-linux-x64-nsis-nwjs.sh
     popd
 
-    echo "=== ls -l ../../releases:"
-    ls -l ../../releases
-    echo "=== ls"
+    cmd="ls -l $RELEASES_DIR"; echo "### $cmd"; $cmd
 ;;
 osx)
     ### Create installations using nw.js distro and www folder (www compiled from src)
@@ -50,9 +48,7 @@ osx)
     source ./create-installer-osx-x64-nsis-nwjs.sh
     popd
 
-    echo "=== ls -l ../../releases:"
-    ls -l ../../releases
-    echo "=== ls"
+    cmd="ls -l $RELEASES_DIR"; echo "### $cmd"; $cmd
 ;;
 android)
     rm -fv platforms/android/build/outputs/apk/*.apk
