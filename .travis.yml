@@ -61,14 +61,14 @@ branches:
 git:
     depth: 20
 
-cache:
-    timeout: 300 # (5*60 s = 5 min)
-    directories:
-    - $NVM_DIR # $(npm config get prefix)
-    - _tmp_cached/android-sdk-linux
-    - apps/$APP/node_modules
-    - apps/$APP/platforms
-    - apps/$APP/plugins
+# cache:
+#     timeout: 300 # (5*60 s = 5 min)
+#     directories:
+#     - $NVM_DIR # $(npm config get prefix)
+#     - _tmp_cached/android-sdk-linux
+#     - apps/$APP/node_modules
+#     - apps/$APP/platforms
+#     - apps/$APP/plugins
 
 before_script:
     - export APPNAME=$APP$OPT2
