@@ -6,12 +6,12 @@ echo "### install started"
 pushd $APPL_DIR >/dev/null 2>&1
 echo "### PWD=$PWD"
 
-case $FRM in
-cordova) cp -frv package.cordova.json package.json ;;
-nwjs)    cp -frv package.nwjs.json    package.json ;;
-esac
+# case $FRM in
+# cordova) cp -frv package.cordova.json package.json ;;
+# nwjs)    cp -frv package.nwjs.json    package.json ;;
+# esac
 
-npm i
+cmd="npm i"; echo "### $cmd"; $cmd
 
 mkdir -p hooks
 chmod -R +x hooks
@@ -23,7 +23,7 @@ if [ ! -e platforms/android -o ! -e plugins ];then
     # cordova prepare || exit 1
     # cordova prepare --verbose || exit 1
 
-    cmd="cordova platform add android"; echo $cmd; $cmd || exit 1
+    cmd="cordova platform add android"; echo "### $cmd"; $cmd || exit 1
 
     # if [ "$OPT1" == "debug" ];then
     #     ### remove debug plugins
@@ -31,8 +31,8 @@ if [ ! -e platforms/android -o ! -e plugins ];then
     # fi
 
     if [ "$OPT2" == "Full" ];then
-        # cmd="cordova plugin add cordova-plugin-dialogs"; echo $cmd; $cmd || exit 1 ### navigator.notification.alert()
-        cmd="cordova plugin add cordova-plugin-crosswalk-webview"; echo $cmd; $cmd || exit 1
+        # cmd="cordova plugin add cordova-plugin-dialogs"; echo "### $cmd"; $cmd || exit 1 ### navigator.notification.alert()
+        cmd="cordova plugin add cordova-plugin-crosswalk-webview"; echo "### $cmd"; $cmd || exit 1
     fi
 
 fi
