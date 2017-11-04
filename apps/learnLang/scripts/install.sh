@@ -3,7 +3,7 @@
 echo
 echo "########################################"
 echo "### install started"
-pushd $APPL_DIR
+pushd $APPL_DIR >/dev/null 2>&1
 echo "### PWD=$PWD"
 
 npm i
@@ -13,6 +13,8 @@ chmod -R +x hooks
 ls -hl hooks
 
 if [ ! -e platforms/android -o ! -e plugins ];then
+
+    echo "### cordova platform add android"
 
     # cordova prepare || exit 1
     # cordova prepare --verbose || exit 1
@@ -35,6 +37,6 @@ fi
 echo "=== android check permissions:"
 source $HOME_DIR/scripts/android_check_permissions.sh
 
-popd
+popd >/dev/null 2>&1
 echo "### install finished"
 echo "########################################"

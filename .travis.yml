@@ -21,6 +21,7 @@ env:
         - RELEASES_DIR=$HOME_DIR/releases
         - CLONE_DIR=$HOME_DIR/_tmp/mobileApps
 
+### TODO: clean packaje.json from nwjs-build-phoenix staff
 ### TODO: remove $PLAT, replace it by $FRM/$TRG_OS
 ### TODO: APP-->APPL_DIR (remove APP_DIR); set APPNAME here(?)
 ### TODO: HOME_DIR-->WORK_DIR

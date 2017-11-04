@@ -3,7 +3,7 @@
 echo
 echo "########################################"
 echo "### build started"
-pushd $APPL_DIR
+pushd $APPL_DIR >/dev/null 2>&1
 echo "### PWD=$PWD"
 
 # Env from .travis.yml:
@@ -100,6 +100,6 @@ fi
 
 rm -fv platforms/android/build/outputs/apk/*.apk
 
-popd
+popd >/dev/null 2>&1
 echo "### build finished"
 echo "########################################"

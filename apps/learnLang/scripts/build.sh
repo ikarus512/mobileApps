@@ -3,7 +3,7 @@
 echo
 echo "########################################"
 echo "### build started"
-pushd $APPL_DIR
+pushd $APPL_DIR >/dev/null 2>&1
 echo "### PWD=$PWD"
 
 # Env from .travis.yml:
@@ -145,6 +145,6 @@ else # Here if android
 
 fi
 
-popd
+popd >/dev/null 2>&1
 echo "### build finished"
 echo "########################################"

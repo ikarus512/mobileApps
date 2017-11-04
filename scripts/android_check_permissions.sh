@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+echo
+echo "  ####################"
+echo "  ### android_check_permissions started"
+#pushd $APPL_DIR >/dev/null 2>&1
+echo "  ### PWD=$PWD"
+
 echo "=== cordova platforms:"
 ls $APP_DIR/platforms
 echo "=== cordova plugins:"
@@ -38,3 +44,7 @@ if [ ! -f $ANDROID_JSON ];then echo "    file absent"; else
 grep permission $ANDROID_JSON || echo "    (no matches found)"; fi
 
 rm -frv $ANDROID_MANIFEST.old || echo ""
+
+#popd >/dev/null 2>&1
+echo "  ### android_check_permissions finished"
+echo "  ####################"

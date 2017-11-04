@@ -3,9 +3,9 @@
 echo
 echo "########################################"
 echo "### before_install started"
-pushd $APPL_DIR
+pushd $APPL_DIR >/dev/null 2>&1
 echo "### PWD=$PWD"
 
-popd
+popd >/dev/null 2>&1
 echo "### before_install finished"
 echo "########################################"

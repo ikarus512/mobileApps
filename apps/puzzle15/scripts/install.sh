@@ -3,7 +3,7 @@
 echo
 echo "########################################"
 echo "### install started"
-pushd $APPL_DIR
+pushd $APPL_DIR >/dev/null 2>&1
 echo "### PWD=$PWD"
 
 npm i
@@ -34,6 +34,6 @@ fi
 echo "=== android check permissions:"
 source $HOME_DIR/scripts/android_check_permissions.sh
 
-popd
+popd >/dev/null 2>&1
 echo "### install finished"
 echo "########################################"

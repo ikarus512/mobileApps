@@ -3,7 +3,7 @@
 echo
 echo "########################################"
 echo "### common_before_install started"
-pushd $HOME_DIR
+pushd $HOME_DIR >/dev/null 2>&1
 echo "### PWD=$PWD"
 echo
 echo "### TRAVIS_OS_NAME=$TRAVIS_OS_NAME"
@@ -33,6 +33,6 @@ linux.nwjs.linux-win)
 ;;
 esac
 
-popd
+popd >/dev/null 2>&1
 echo "### common_before_install finished"
 echo "########################################"
