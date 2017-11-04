@@ -75,7 +75,9 @@ before_script:
     - export APPL_DIR=$WORK_DIR/apps/$APP
     - export ANDROID_MANIFEST=$APPL_DIR/platforms/android/AndroidManifest.xml
 
+    - echo JAVA_HOME=$JAVA_HOME
     - echo "ls \$ANDROID_HOME"; ls $ANDROID_HOME # TODO: remove this line
+    - echo "ls \$ANDROID_HOME/build-tools"; ls $ANDROID_HOME/build-tools # TODO: remove this line
 
     - . $WORK_DIR/scripts/common_before_install.sh
     - . $APPL_DIR/scripts/before_install.sh
