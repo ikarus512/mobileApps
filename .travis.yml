@@ -19,10 +19,6 @@ addons:
         - nsis
         # - wine1.6
 
-os: # doubling build matrix
-    - linux # Here, $TRAVIS_OS_NAME == linux
-    - osx   # Here, $TRAVIS_OS_NAME == osx
-
 env:
     global:
         - CXX=g++-4.8
@@ -31,24 +27,44 @@ env:
         - ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign
         - RELEASES_DIR=$HOME_DIR/releases
         - CLONE_DIR=$HOME_DIR/_tmp/mobileApps
-    matrix:
-        ### TODO: matrix include
-        ### TODO: remove $PLAT, replace it by $BLD_OS/$FRM/$TRG_OS
-        ### TODO: APP-->APPDIR; set APPNAME here
-        #
-        ### learnLang:
-        # JOBNAME=010 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug
-        # JOBNAME=020 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug OPT2=Full
-        - JOBNAME=030 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release
-        - JOBNAME=040 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release OPT2=Full EXTRASTEP=deploy
-        - JOBNAME=050 APP=learnLang PLAT=desktop BLD_OS=linux FRM=nwjs    TRG_OS=linux_win OPT1=release OPT2=Full
-        - JOBNAME=060 APP=learnLang PLAT=desktop BLD_OS=osx   FRM=nwjs    TRG_OS=osx       OPT1=release OPT2=Full
-        ### puzzle15:
-        # JOBNAME=070 APP=puzzle15  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug
-        - JOBNAME=080 APP=puzzle15  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release
-        ### tripSave:
-        # JOBNAME=090 APP=tripSave  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug
-        # JOBNAME=100 APP=tripSave  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release
+
+matrix:
+    include:
+        - os: linux
+          env: JOBNAME=030 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release
+        - os: linux
+          env: JOBNAME=040 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release OPT2=Full EXTRASTEP=deploy
+        - os: linux
+          env: JOBNAME=050 APP=learnLang PLAT=desktop BLD_OS=linux FRM=nwjs    TRG_OS=linux_win OPT1=release OPT2=Full
+        - os: osx
+          env: JOBNAME=060 APP=learnLang PLAT=desktop BLD_OS=osx   FRM=nwjs    TRG_OS=osx       OPT1=release OPT2=Full
+
+# env:
+#     global:
+#         - CXX=g++-4.8
+#         - HOME_DIR=$PWD
+#         - ANDROID_HOME=$HOME_DIR/android-sdk-linux
+#         - ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign
+#         - RELEASES_DIR=$HOME_DIR/releases
+#         - CLONE_DIR=$HOME_DIR/_tmp/mobileApps
+#     matrix:
+#         ### TODO: matrix include
+#         ### TODO: remove $PLAT, replace it by $BLD_OS/$FRM/$TRG_OS
+#         ### TODO: APP-->APPDIR; set APPNAME here
+#         #
+#         ### learnLang:
+#         # JOBNAME=010 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug
+#         # JOBNAME=020 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug OPT2=Full
+#         - JOBNAME=030 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release
+#         - JOBNAME=040 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release OPT2=Full EXTRASTEP=deploy
+#         - JOBNAME=050 APP=learnLang PLAT=desktop BLD_OS=linux FRM=nwjs    TRG_OS=linux_win OPT1=release OPT2=Full
+#         - JOBNAME=060 APP=learnLang PLAT=desktop BLD_OS=osx   FRM=nwjs    TRG_OS=osx       OPT1=release OPT2=Full
+#         ### puzzle15:
+#         # JOBNAME=070 APP=puzzle15  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug
+#         - JOBNAME=080 APP=puzzle15  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release
+#         ### tripSave:
+#         # JOBNAME=090 APP=tripSave  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug
+#         # JOBNAME=100 APP=tripSave  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release
 
 branches:
     only:
