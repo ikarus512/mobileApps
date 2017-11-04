@@ -13,32 +13,34 @@ echo "### PWD=$PWD"
 
 cmd="npm i"; echo "### $cmd"; $cmd
 
-mkdir -p hooks
-chmod -R +x hooks
-ls -hl hooks
+if [ $FRM.$TRG_OS == cordova.android ];then
 
-if [ ! -e platforms/android -o ! -e plugins ];then
+    mkdir -p hooks
+    chmod -R +x hooks
+    ls -hl hooks
 
-    # echo "### cordova prepare"
-    # cordova prepare || exit 1
-    # cordova prepare --verbose || exit 1
+    if [ ! -e platforms/android -o ! -e plugins ];then
 
-    cmd="cordova platform add android"; echo "### $cmd"; $cmd || exit 1
+        # echo "### cordova prepare"
+        # cordova prepare || exit 1
+        # cordova prepare --verbose || exit 1
 
-    # if [ "$OPT1" == "debug" ];then
-    #     ### remove debug plugins
-    #     cordova plugin add cordova-plugin-console
-    # fi
+        cmd="cordova platform add android"; echo "### $cmd"; $cmd || exit 1
 
-    if [ "$OPT2" == "Full" ];then
-        # cmd="cordova plugin add cordova-plugin-dialogs"; echo "### $cmd"; $cmd || exit 1 ### navigator.notification.alert()
-        cmd="cordova plugin add cordova-plugin-crosswalk-webview"; echo "### $cmd"; $cmd || exit 1
+        # if [ "$OPT1" == "debug" ];then
+        #     cordova plugin add cordova-plugin-console
+        # fi
+
+        if [ "$OPT2" == "Full" ];then
+            # cmd="cordova plugin add cordova-plugin-dialogs"; echo "### $cmd"; $cmd || exit 1 ### navigator.notification.alert()
+            cmd="cordova plugin add cordova-plugin-crosswalk-webview"; echo "### $cmd"; $cmd || exit 1
+        fi
+
     fi
 
+    echo "=== android check permissions:"
+    . $WORK_DIR/scripts/android_check_permissions.sh
 fi
-
-echo "=== android check permissions:"
-. $WORK_DIR/scripts/android_check_permissions.sh
 
 popd >/dev/null 2>&1
 echo "### install finished"
