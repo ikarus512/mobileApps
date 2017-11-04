@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-if [ $TRAVIS_OS_NAME != $BLD_OS ];then exit 1; fi
-
 export ANDROID_HOME=$PWD/android-sdk-linux
 export ANDROID_SDK=$ANDROID_HOME
 export ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign

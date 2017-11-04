@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-if [ $TRAVIS_OS_NAME != $BLD_OS ];then exit 1; fi
-
 npm i
 
 mkdir -p hooks

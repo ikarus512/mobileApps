@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-if [ $TRAVIS_OS_NAME != $BLD_OS ];then exit 1; fi
-
 //
 // This hook removes specific permissions from the AndroidManifest.xml
 // The AndroidManifest is re-generated during the prepare stage,
