@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+echo
 echo "########################################"
-echo "### $0"
-pushd $HOME_DIR/apps/$APP
+echo "### install started"
+pushd $APPL_DIR
 echo "### PWD=$PWD"
 
 npm i
@@ -33,4 +34,6 @@ fi
 echo "=== android check permissions:"
 source $HOME_DIR/scripts/android_check_permissions.sh
 
-pop
+popd
+echo "### install finished"
+echo "########################################"

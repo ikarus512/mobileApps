@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+echo
 echo "########################################"
-echo "### $0"
-pushd $HOME_DIR/apps/$APP
+echo "### build started"
+pushd $APPL_DIR
 echo "### PWD=$PWD"
 
 # Env from .travis.yml:
@@ -99,4 +100,6 @@ fi
 
 rm -fv platforms/android/build/outputs/apk/*.apk
 
-pop
+popd
+echo "### build finished"
+echo "########################################"

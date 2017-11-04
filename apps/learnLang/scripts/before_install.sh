@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
+echo
 echo "########################################"
-echo "### $0"
-pushd $HOME_DIR/apps/$APP
+echo "### before_install started"
+pushd $APPL_DIR
 echo "### PWD=$PWD"
 
 popd
+echo "### before_install finished"
+echo "########################################"

@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+echo
 echo "########################################"
-echo "### $0"
-#pushd $HOME_DIR/apps/$APP
+echo "### build started"
+pushd $APPL_DIR
 echo "### PWD=$PWD"
 
 # Env from .travis.yml:
@@ -58,7 +59,7 @@ fi
 ### Platform-specific binaries build
 
 if [ "$PLAT" == "desktop" ];then
-    npm i
+    #npm i
 
     ### Create installations using nwjs-builder-phoenix
     #npm run dist-all
@@ -144,4 +145,6 @@ else # Here if android
 
 fi
 
-#popd
+popd
+echo "### build finished"
+echo "########################################"
