@@ -3,7 +3,9 @@
 echo
 echo "  ####################"
 echo "  ### android_sdk_install started"
-pushd $WORK_DIR >/dev/null 2>&1
+#pushd $WORK_DIR >/dev/null 2>&1
+mkdir -p $ANDROID_HOME
+pushd $ANDROID_HOME >/dev/null 2>&1
 echo "  ### PWD=$PWD"
 
 export ANDROID_HOME=$PWD/_tmp_cached/android-sdk-linux
@@ -14,12 +16,12 @@ export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-t
 if [ ! -e $ANDROID_HOME/tools/bin ];then
     echo "  ### installing android sdk to ANDROID_HOME=$ANDROID_HOME"
 
-    wget --quiet http://dl.google.com/android/android-sdk_r24.4-linux.tgz
-    tar -xf android-sdk_r24.4-linux.tgz
+    cmd="wget --quiet http://dl.google.com/android/android-sdk_r24.4-linux.tgz"; echo "### $cmd"; $cmd
+    cmd="tar -xf android-sdk_r24.4-linux.tgz"; echo "### $cmd"; $cmd
 
     #android list sdk --extended # && android list sdk -a --extended
 
-    ANDROPACKS=tools,platform-tools,build-tools-26.0.1,android-16,android-26
+    ANDROPACKS=tools,platform-tools,build-tools-26.0.1,android-16,android-19,android-26
     ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk -u -a -f -t ${ANDROPACKS}    >/dev/null 2>&1
 
     ### Accept licenses:
@@ -31,10 +33,12 @@ if [ ! -e $ANDROID_HOME/tools/bin ];then
     echo y | sdkmanager --update    >/dev/null 2>&1
     # requests us to accept new licenses not previously accepted
     ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | sdkmanager --licenses    >/dev/null 2>&1
-
 else
     echo "  ### android sdk is already installed in ANDROID_HOME=$ANDROID_HOME"
 fi
+
+echo "ls \$ANDROID_HOME"; ls $ANDROID_HOME
+echo "ls \$ANDROID_HOME/build-tools"; ls $ANDROID_HOME/build-tools
 
 popd >/dev/null 2>&1
 echo "  ### android_sdk_install finished"
