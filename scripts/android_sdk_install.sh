@@ -8,7 +8,7 @@ mkdir -p $ANDROID_HOME1
 pushd $ANDROID_HOME1 >/dev/null 2>&1
 echo "  ### PWD=$PWD"
 
-export ANDROID_HOME=$PWD/_tmp_cached/android-sdk-linux
+#export ANDROID_HOME=$PWD/android-sdk-linux
 export ANDROID_SDK=$ANDROID_HOME
 export ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign
 export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/23.0.2:${PATH}
@@ -16,9 +16,13 @@ export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-t
 if [ ! -e $ANDROID_HOME/tools/bin ];then
     echo "  ### installing android sdk to ANDROID_HOME=$ANDROID_HOME"
 
-   #cmd="wget --quiet http://dl.google.com/android/android-sdk_r24.4-linux.tgz"; echo "  ### $cmd"; $cmd
-    cmd="wget         http://dl.google.com/android/android-sdk_r24.4-linux.tgz"; echo "  ### $cmd"; $cmd
-    cmd="tar -xvf android-sdk_r24.4-linux.tgz"; echo "  ### $cmd"; $cmd
+    # # adb
+    # sudo apt-get install libc6:i386 libstdc++6:i386
+    # # aapt
+    # sudo apt-get install zlib1g:i386
+
+    cmd="wget --quiet http://dl.google.com/android/android-sdk_r24.4-linux.tgz"; echo "  ### $cmd"; $cmd
+    cmd="tar -xvf android-sdk_r24.4-linux.tgz"; echo "  ### $cmd"; $cmd | tail -n 20
 
     #android list sdk --extended # && android list sdk -a --extended
 
