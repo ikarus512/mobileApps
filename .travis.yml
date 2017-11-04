@@ -69,7 +69,7 @@ cache:
     - apps/$APP/platforms
     - apps/$APP/plugins
 
-before_install:
+before_script:
     - export APPNAME=$APP$OPT2
     - export APPL_DIR=$WORK_DIR/apps/$APP
     - export ANDROID_MANIFEST=$APPL_DIR/platforms/android/AndroidManifest.xml
@@ -78,9 +78,6 @@ before_install:
     - . $APPL_DIR/scripts/before_install.sh
     - . $APPL_DIR/scripts/install.sh
 
-install:
-
-before_script:
     - . $APPL_DIR/scripts/build.sh
 
 script:

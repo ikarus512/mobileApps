@@ -6,6 +6,11 @@ echo "### install started"
 pushd $APPL_DIR >/dev/null 2>&1
 echo "### PWD=$PWD"
 
+case $FRM in
+cordova) cp -frv package.cordova.json package.json ;;
+nwjs)    cp -frv package.nwjs.json    package.json ;;
+esac
+
 npm i
 
 mkdir -p hooks
@@ -14,13 +19,11 @@ ls -hl hooks
 
 if [ ! -e platforms/android -o ! -e plugins ];then
 
-    echo "### cordova platform add android"
-
+    # echo "### cordova prepare"
     # cordova prepare || exit 1
     # cordova prepare --verbose || exit 1
 
-    # cordova platform add android #--save
-    cordova platform add android || exit 1
+    cmd="cordova platform add android"; echo $cmd; $cmd || exit 1
 
     # if [ "$OPT1" == "debug" ];then
     #     ### remove debug plugins
@@ -28,14 +31,14 @@ if [ ! -e platforms/android -o ! -e plugins ];then
     # fi
 
     if [ "$OPT2" == "Full" ];then
-        # cordova plugin add cordova-plugin-dialogs ### navigator.notification.alert()
-        cordova plugin add cordova-plugin-crosswalk-webview
+        # cmd="cordova plugin add cordova-plugin-dialogs"; echo $cmd; $cmd || exit 1 ### navigator.notification.alert()
+        cmd="cordova plugin add cordova-plugin-crosswalk-webview"; echo $cmd; $cmd || exit 1
     fi
 
 fi
 
 echo "=== android check permissions:"
-source $WORK_DIR/scripts/android_check_permissions.sh
+. $WORK_DIR/scripts/android_check_permissions.sh
 
 popd >/dev/null 2>&1
 echo "### install finished"

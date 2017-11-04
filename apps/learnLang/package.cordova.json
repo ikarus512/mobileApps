@@ -1,0 +1,18 @@
+{
+  "main": "index.js",
+
+  "name": "com.example.learnlang",
+  "version": "1.0.0",
+  "displayName": "LearnLang",
+
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikarus512/mobileApps.git"
+  },
+  "author": "ikarus512",
+  "license": "GPL-3.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+}
