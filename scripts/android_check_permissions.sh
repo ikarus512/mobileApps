@@ -7,9 +7,9 @@ echo "  ### android_check_permissions started"
 echo "  ### PWD=$PWD"
 
 echo "=== cordova platforms:"
-ls $APP_DIR/platforms
+ls $APPL_DIR/platforms
 echo "=== cordova plugins:"
-ls $APP_DIR/plugins
+ls $APPL_DIR/plugins
 echo "==="
 
 if [ -f $ANDROID_MANIFEST ];then
@@ -18,7 +18,7 @@ if [ -f $ANDROID_MANIFEST ];then
     grep -v permission $ANDROID_MANIFEST.old >$ANDROID_MANIFEST
 fi
 
-ANDROID_JSON=$APP_DIR/platforms/android/android.json
+ANDROID_JSON=$APPL_DIR/platforms/android/android.json
 # if [ -f $ANDROID_JSON ];then
 #     echo "=== fix android permissions JSON:"
 #     mv -fv $ANDROID_JSON $ANDROID_JSON.old
@@ -34,7 +34,7 @@ echo "=== $ANDROID_MANIFEST:"
 if [ ! -f $ANDROID_MANIFEST ];then echo "    file absent"; else
 grep permission $ANDROID_MANIFEST || echo "    (no matches found)"; fi
 
-ANDROID_JSON1=$APP_DIR/plugins/android.json
+ANDROID_JSON1=$APPL_DIR/plugins/android.json
 echo "=== $ANDROID_JSON1:"
 if [ ! -f $ANDROID_JSON1 ];then echo "    file absent"; else
 grep permission $ANDROID_JSON1 || echo "    (no matches found)"; fi

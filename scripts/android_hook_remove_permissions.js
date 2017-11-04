@@ -29,7 +29,7 @@ var permissionsToRemove = [
 
 var fs = require('fs');
 var path = require('path');
-var rootdir = process.env.APP_DIR;
+var rootdir = process.env.APPL_DIR;
 var manifestFile = path.join(rootdir, "platforms/android/AndroidManifest.xml");
 var androidJsonFile = path.join(rootdir, "platforms/android/android.json");
 

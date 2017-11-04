@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+echo
+echo "########################################"
+echo "### deploy_heroku started"
+pushd $WORK_DIR >/dev/null 2>&1
+echo "### PWD=$PWD"
+echo
+
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=learnLang; fi
 if [ -z $PLAT     ]; then PLAT=android; fi
@@ -16,8 +23,8 @@ REPO=ikarus512/mobileApps
 
 if [ "$EXTRASTEP" == "deploy" ];then
 
-    mkdir -p $HOME_DIR/_tmp
-    cd $HOME_DIR/_tmp
+    mkdir -p $WORK_DIR/_tmp
+    cd $WORK_DIR/_tmp
     if [ ! -e $CLONE_DIR ];then
         git clone --depth=3 https://ikarus512:$GITHUB_API_TOKEN@github.com/$REPO.git || echo 1
     fi
@@ -62,3 +69,7 @@ if [ "$EXTRASTEP" == "deploy" ];then
     echo "======="
 
 fi
+
+popd >/dev/null 2>&1
+echo "### deploy_heroku finished"
+echo "########################################"

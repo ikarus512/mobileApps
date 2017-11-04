@@ -15,16 +15,15 @@ env:
     global:
         - CXX=g++-4.8
 
-        - HOME_DIR=$PWD
-        - ANDROID_HOME=$HOME_DIR/_tmp_cached/android-sdk-linux
+        - WORK_DIR=$PWD
+        - ANDROID_HOME=$WORK_DIR/_tmp_cached/android-sdk-linux
         - ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign
-        - RELEASES_DIR=$HOME_DIR/releases
-        - CLONE_DIR=$HOME_DIR/_tmp/mobileApps
+        - RELEASES_DIR=$WORK_DIR/releases
+        - CLONE_DIR=$WORK_DIR/_tmp/mobileApps
 
 ### TODO: clean packaje.json from nwjs-build-phoenix staff
 ### TODO: remove $PLAT, replace it by $FRM/$TRG_OS
-### TODO: APP-->APPL_DIR (remove APP_DIR); set APPNAME here(?)
-### TODO: HOME_DIR-->WORK_DIR
+### TODO: APP-->APPL_DIR; set APPNAME here(?)
 ### TODO: system settings/installations/packages from addons: apt: packages: to install step
 matrix:
   include:
@@ -72,24 +71,21 @@ cache:
 
 before_install:
     - export APPNAME=$APP$OPT2
-    - export APP_DIR=$HOME_DIR/apps/$APP
-    - export APPL_DIR=$HOME_DIR/apps/$APP
-    - export ANDROID_MANIFEST=$APP_DIR/platforms/android/AndroidManifest.xml
+    - export APPL_DIR=$WORK_DIR/apps/$APP
+    - export ANDROID_MANIFEST=$APPL_DIR/platforms/android/AndroidManifest.xml
 
-    - cd $APP_DIR
-    - . $HOME_DIR/scripts/common_before_install.sh
+    - . $WORK_DIR/scripts/common_before_install.sh
     - . $APPL_DIR/scripts/before_install.sh
+    - . $APPL_DIR/scripts/install.sh
 
 install:
-    - . ./scripts/install.sh
 
 before_script:
-    - . ./scripts/build.sh
+    - . $APPL_DIR/scripts/build.sh
 
 script:
     - ls -lh $RELEASES_DIR || echo 1
 
 after_success:
-    - cd $HOME_DIR
-    - . $HOME_DIR/scripts/deploy_github_releases.sh
-    # - . $HOME_DIR/scripts/deploy_heroku.sh
+    - . $WORK_DIR/scripts/deploy_github_releases.sh
+    # - . $WORK_DIR/scripts/deploy_heroku.sh

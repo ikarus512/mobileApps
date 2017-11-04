@@ -32,7 +32,7 @@ fi
 # cordova plugin add cordova-plugin-console
 
 echo "=== android check permissions:"
-source $HOME_DIR/scripts/android_check_permissions.sh
+source $WORK_DIR/scripts/android_check_permissions.sh
 
 popd >/dev/null 2>&1
 echo "### install finished"

@@ -3,7 +3,7 @@
 echo
 echo "  ####################"
 echo "  ### android_sdk_install started"
-pushd $HOME_DIR >/dev/null 2>&1
+pushd $WORK_DIR >/dev/null 2>&1
 echo "  ### PWD=$PWD"
 
 export ANDROID_HOME=$PWD/_tmp_cached/android-sdk-linux

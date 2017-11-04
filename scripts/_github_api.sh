@@ -27,7 +27,7 @@ if [ -z $CLONE_DIR    ]; then CLONE_DIR=$PWD/../_tmp/mobileApps; fi
 
 # ==============================================================================
 
-cd $HOME_DIR
+cd $WORK_DIR
 
 function githubReleaseCreate() {
 
@@ -189,7 +189,7 @@ function cloneRepo() {
 }
 
 function getPackageVersion() {
-    result=$(sed -nE 's/^[ \t]*"version": "([0-9]{1,}\.[0-9]{1,}\.[0-9x]{1,})",$/\1/p' $HOME_DIR/package.json)
+    result=$(sed -nE 's/^[ \t]*"version": "([0-9]{1,}\.[0-9]{1,}\.[0-9x]{1,})",$/\1/p' $WORK_DIR/package.json)
 }
 
 function getLatestTag() {
