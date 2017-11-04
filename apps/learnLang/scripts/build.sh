@@ -45,7 +45,8 @@ linux-win)
 ;;
 osx)
     ### Create installations using nw.js distro and www folder (www compiled from src)
-    wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-osx-x64.zip &
+    pushd scripts
+    wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-osx-x64.zip
     source ./create-installer-osx-x64-nsis-nwjs.sh
     popd
 
@@ -95,6 +96,8 @@ android)
         # android-x86-release-unsigned.apk
         # android-release-unsigned.apk
 
+        cmd="ls -l platforms/android/build/outputs/apk/*"; echo "### $cmd"; $cmd
+
         ### sign and copy to $RELEASES_DIR/ for later check-in
         for apkFile in $(ls platforms/android/build/outputs/apk/android*-release-unsigned.apk);do
 
@@ -109,6 +112,8 @@ android)
             $ZIPALIGN -v 4 $apkFile $apkFileOut || exit 1
 
         done
+
+        cmd="ls -l platforms/android/build/outputs/apk/*"; echo "### $cmd"; $cmd
 
     fi
 

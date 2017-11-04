@@ -17,33 +17,36 @@ env:
         - RELEASES_DIR=$WORK_DIR/releases
         - CLONE_DIR=$WORK_DIR/_tmp/mobileApps
 
+### TODO: rename binaries: learnLangFull-->learnLang, learnLang.apk-->learnLangSmall-android.apk
+### TODO: build learnLang-ios
+### TODO: build learnLang-winphone
 ### TODO: APP-->APPL_DIR; set APPNAME here(?)
 ### TODO: copy version from main package.json (or create from tags or???)
 matrix:
   include:
-    ### learnLang:
-    # - os: linux
-    #   env: JOBNAME=010 APP=learnLang FRM=cordova TRG_OS=android   OPT1=debug
-    # - os: linux
-    #   env: JOBNAME=020 APP=learnLang FRM=cordova TRG_OS=android   OPT1=debug OPT2=Full
+    ### learnLang: ###
+    #-os: linux
+    # env: JB=010 TRG_OS=android   APP=learnLang FRM=cordova OPT1=debug
+    #-os: linux
+    # env: JB=020 TRG_OS=android   APP=learnLang FRM=cordova OPT1=debug OPT2=Full
     - os: linux
-      env: JOBNAME=030 APP=learnLang FRM=cordova TRG_OS=android   OPT1=release
+      env: JB=030 TRG_OS=android   APP=learnLang FRM=cordova OPT1=release
     - os: linux
-      env: JOBNAME=040 APP=learnLang FRM=cordova TRG_OS=android   OPT1=release OPT2=Full EXTRASTEP=deploy
+      env: JB=040 TRG_OS=android   APP=learnLang FRM=cordova OPT1=release OPT2=Full EXTRASTEP=deploy
     - os: linux
-      env: JOBNAME=050 APP=learnLang FRM=nwjs    TRG_OS=linux-win OPT1=release OPT2=Full
+      env: JB=050 TRG_OS=linux-win APP=learnLang FRM=nwjs    OPT1=release OPT2=Full
     - os: osx
-      env: JOBNAME=060 APP=learnLang FRM=nwjs    TRG_OS=osx       OPT1=release OPT2=Full
-    ### puzzle15:
-    # - os: linux
-    #   env: JOBNAME=070 APP=puzzle15  FRM=cordova-ionic TRG_OS=android   OPT1=debug
+      env: JB=060 TRG_OS=osx       APP=learnLang FRM=nwjs    OPT1=release OPT2=Full
+    ### puzzle15: ###
+    #-os: linux
+    # env: JB=070 TRG_OS=android   APP=puzzle15  FRM=cordova-ionic OPT1=debug
     - os: linux
-      env: JOBNAME=080 APP=puzzle15  FRM=cordova-ionic TRG_OS=android   OPT1=release
-    ### tripSave:
-    # - os: linux
-    #   env: JOBNAME=090 APP=tripSave  FRM=cordova TRG_OS=android   OPT1=debug
-    # - os: linux
-    #   env: JOBNAME=100 APP=tripSave  FRM=cordova TRG_OS=android   OPT1=release
+      env: JB=080 TRG_OS=android   APP=puzzle15  FRM=cordova-ionic OPT1=release
+    ### tripSave: ###
+    #-os: linux
+    # env: JB=090 TRG_OS=android   APP=tripSave  FRM=cordova OPT1=debug
+    #-os: linux
+    # env: JB=100 TRG_OS=android   APP=tripSave  FRM=cordova OPT1=release
 
 branches:
     only:
