@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'myFontDefault';
+  src: url('../fonts/FreeSerif.ttf'); /* GNU Free Font */
+}
+@font-face {
+  font-family: 'myFontDevanagariUttara';
+  src: url('../fonts/devanagari-uttara.ttf'); /* hindi: old 'a', letter hanging */
+  /* Problem on Android maybe because of letter hanging... */
+  /* Other hindi fonts (non-unicode): DevLys-310, Kruti-Dev-600, Ananda Akchyar. */
+}
+@font-face {
+  font-family: 'myFontBravuraText';
+  src: url('../fonts/BravuraText-1.219.otf');
+}

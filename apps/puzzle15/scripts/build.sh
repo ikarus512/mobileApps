@@ -8,7 +8,6 @@ echo "### PWD=$PWD"
 
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=puzzle15; fi
-if [ -z $PLAT     ]; then PLAT=android; fi
 if [ -z $OPT1     ]; then OPT1=debug; fi
 if [ -z $OPT2     ]; then OPT2=; fi
 if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi

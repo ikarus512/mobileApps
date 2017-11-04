@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'myFontDefault';
+  src: url('../fonts/FreeSerif.woff'),
+       url('../fonts/FreeSerif.eot');
+  font-weight: bold; /*normal*/
+  font-style: normal;
+}
+@font-face {
+  font-family: 'myFontDevanagariUttara';
+  src: url('../fonts/devanagari-uttara.woff'),
+       url('../fonts/devanagari-uttara.eot');
+  font-weight: bold; /*normal*/
+  font-style: normal;
+}
+@font-face {
+  font-family: 'myFontBravuraText';
+  src: url('../fonts/BravuraText-1.219.woff'),
+       url('../fonts/BravuraText-1.219.eot');
+}

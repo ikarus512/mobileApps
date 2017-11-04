@@ -1,0 +1,50 @@
+fretboard-container {
+    display: inline-block;
+    position: relative;
+    height: 1.1em;
+    width: 1.2em;
+    text-shadow: none;
+}
+
+fretboard-container .grey {
+    color: grey;
+}
+
+fretboard-container fretboard {
+    display: block;
+    position: absolute;
+    left: 0.1em;
+    top: 0.05em;
+}
+
+fretboard-container leftfr0,fretboard-container leftfr1,fretboard-container leftfr2,fretboard-container leftfr3,fretboard-container leftfr4,
+fretboard-container str6fr0,fretboard-container str6fr1,fretboard-container str6fr2,fretboard-container str6fr3,fretboard-container str6fr4,
+fretboard-container str5fr0,fretboard-container str5fr1,fretboard-container str5fr2,fretboard-container str5fr3,fretboard-container str5fr4,
+fretboard-container str4fr0,fretboard-container str4fr1,fretboard-container str4fr2,fretboard-container str4fr3,fretboard-container str4fr4,
+fretboard-container str3fr0,fretboard-container str3fr1,fretboard-container str3fr2,fretboard-container str3fr3,fretboard-container str3fr4,
+fretboard-container str2fr0,fretboard-container str2fr1,fretboard-container str2fr2,fretboard-container str2fr3,fretboard-container str2fr4,
+fretboard-container str1fr0,fretboard-container str1fr1,fretboard-container str1fr2,fretboard-container str1fr3,fretboard-container str1fr4,
+fretboard-container fret-number
+{
+    display: block;
+    position: absolute;
+    left: -0.1em;
+    top: -0.8em;
+}
+
+/*
+fretboard-container fretboard-container leftfr0,fretboard-container str6fr0,fretboard-container str5fr0,fretboard-container str4fr0,fretboard-container str3fr0,fretboard-container str2fr0,fretboard-container str1fr0 { top: -0.8em; }*/
+fretboard-container leftfr1,fretboard-container str6fr1,fretboard-container str5fr1,fretboard-container str4fr1,fretboard-container str3fr1,fretboard-container str2fr1,fretboard-container str1fr1 { top: -0.6em; }
+fretboard-container leftfr2,fretboard-container str6fr2,fretboard-container str5fr2,fretboard-container str4fr2,fretboard-container str3fr2,fretboard-container str2fr2,fretboard-container str1fr2 { top: -0.4em; }
+fretboard-container leftfr3,fretboard-container str6fr3,fretboard-container str5fr3,fretboard-container str4fr3,fretboard-container str3fr3,fretboard-container str2fr3,fretboard-container str1fr3 { top: -0.2em; }
+fretboard-container leftfr4,fretboard-container str6fr4,fretboard-container str5fr4,fretboard-container str4fr4,fretboard-container str3fr4,fretboard-container str2fr4,fretboard-container str1fr4 { top: 0; }
+
+/*
+fretboard-container leftfr0,fretboard-container leftfr1,fretboard-container leftfr2,fretboard-container leftfr3,fretboard-container leftfr4 { left:-0.100em; } */
+fretboard-container str6fr0,fretboard-container str6fr1,fretboard-container str6fr2,fretboard-container str6fr3,fretboard-container str6fr4 { left: 0.050em; }
+fretboard-container str5fr0,fretboard-container str5fr1,fretboard-container str5fr2,fretboard-container str5fr3,fretboard-container str5fr4 { left: 0.185em; }
+fretboard-container str4fr0,fretboard-container str4fr1,fretboard-container str4fr2,fretboard-container str4fr3,fretboard-container str4fr4 { left: 0.320em; }
+fretboard-container str3fr0,fretboard-container str3fr1,fretboard-container str3fr2,fretboard-container str3fr3,fretboard-container str3fr4 { left: 0.455em; }
+fretboard-container str2fr0,fretboard-container str2fr1,fretboard-container str2fr2,fretboard-container str2fr3,fretboard-container str2fr4 { left: 0.590em; }
+fretboard-container str1fr0,fretboard-container str1fr1,fretboard-container str1fr2,fretboard-container str1fr3,fretboard-container str1fr4 { left: 0.725em; }
+fretboard-container fret-number { left: 0.860em; top: -0.45em; }

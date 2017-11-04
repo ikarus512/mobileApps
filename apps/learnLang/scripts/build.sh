@@ -8,7 +8,6 @@ echo "### PWD=$PWD"
 
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=learnLang; fi
-if [ -z $PLAT     ]; then PLAT=android; fi
 if [ -z $OPT1     ]; then OPT1=debug; fi
 if [ -z $OPT2     ]; then OPT2=Full; fi
 if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi
@@ -25,23 +24,17 @@ if [ -z $APPL_DIR     ]; then APPL_DIR=$WORK_DIR/apps/$APP; fi
 
 mkdir -p $RELEASES_DIR
 
-if [ "$PLAT" == "desktop" ];then
-    #npm i
-
-    ### Create installations using nwjs-builder-phoenix
-    #npm run dist-all
-
+case $TRG_OS in
+linux-win)
     ### Create installations using nw.js distro and www folder (www compiled from src)
     pushd scripts
-    wget https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-linux-ia32.tar.gz &
-    wget https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-linux-x64.tar.gz &
-    wget https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-osx-x64.zip &
-    wget https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-ia32.zip &
-    wget https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-x64.zip &
+    wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-linux-ia32.tar.gz &
+    wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-linux-x64.tar.gz &
+    wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-ia32.zip &
+    wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-x64.zip &
     wait
     source ./create-installer-win-ia32-nsis-nwjs.sh
     source ./create-installer-win-x64-nsis-nwjs.sh
-    source ./create-installer-osx-x64-nsis-nwjs.sh
     source ./create-installer-linux-ia32-nsis-nwjs.sh
     source ./create-installer-linux-x64-nsis-nwjs.sh
     popd
@@ -49,9 +42,18 @@ if [ "$PLAT" == "desktop" ];then
     echo "=== ls -l ../../releases:"
     ls -l ../../releases
     echo "=== ls"
+;;
+osx)
+    ### Create installations using nw.js distro and www folder (www compiled from src)
+    wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-osx-x64.zip &
+    source ./create-installer-osx-x64-nsis-nwjs.sh
+    popd
 
-else # Here if android
-
+    echo "=== ls -l ../../releases:"
+    ls -l ../../releases
+    echo "=== ls"
+;;
+android)
     rm -fv platforms/android/build/outputs/apk/*.apk
 
     if [ "$OPT1" == "debug" ];then
@@ -112,7 +114,8 @@ else # Here if android
 
     rm -fv platforms/android/build/outputs/apk/*.apk
 
-fi
+;;
+esac
 
 popd >/dev/null 2>&1
 echo "### build finished"

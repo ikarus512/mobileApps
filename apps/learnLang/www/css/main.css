@@ -1,0 +1,64 @@
+* {
+  /*font-family: 'myFontDefault' !important;/**/
+  /*font-size: 1.1em;/**/
+  user-select: none; /* disable text selection */
+}
+
+#mycontainer *,
+#mycontainerall *{
+  font-size: 20px;
+}
+
+.myFontDefault,
+#learnedLanguage-menu li a,
+#learnedLanguage-button span{
+  font-family: 'myFontDefault' !important;
+}
+.myFontDevanagariUttara{
+  font-family: 'myFontDevanagariUttara' !important;
+}
+.myFontBravuraText,.myFontBravuraText *{
+  font-family: 'myFontBravuraText' !important;
+  // font-size: 40px;
+}
+ib,inline-block{
+  display: inline-block;
+  padding-top: 0.2em;
+}
+zh,zero-height,
+note-middle,note-middle0,
+note-above3,note-below3,note-above2,note-below2,note-above1,note-below1{
+  display: inline-block;
+  text-shadow: none;
+  line-height: 0;
+}
+note-middle{ line-height: 1em; }
+note-above3,note-below3{ line-height: 0.625em; }
+note-above2,note-below2{ line-height: 0.425em; }
+note-above1,note-below1{ line-height: 0.225em; }
+
+legend *{
+  font-weight: 900;/*900*/
+  text-shadow: 2px 2px 4px white,  -2px -2px 4px white,
+              -2px 2px 4px white,   2px -2px 4px white;
+}
+
+.mycontainer{
+    position: relative;
+    //width:500px;
+    //height:500px;
+    margin: auto; /* center horizontally */
+    border: 2px solid black;
+    boxsizing: border-box;
+    background-color: white;
+    text-align: center;
+}
+
+[role=main],[data-role=page]{
+    background:url(../img/bg.jpg);
+}
+
+en { display: inline; }
+ru { display: none; }
+
+body { display: none; } /* Flicker fix */

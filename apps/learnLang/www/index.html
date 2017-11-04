@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src &apos;self&apos; data: gap: https://ssl.gstatic.com &apos;unsafe-eval&apos;; style-src &apos;self&apos; &apos;unsafe-inline&apos;; media-src *; img-src &apos;self&apos; data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <!-- <link rel="stylesheet" type="text/css" href="lib/font-awesome.min-4.7.0.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="lib/w3.css"> -->
+	<link rel="stylesheet" type="text/css" href="lib/jquery-1.5.0.mobile.min.css">
+    <link rel="stylesheet" type="text/css" href="css/myfont_android.css" />
+    <!--[if IE]>
+        <link rel="stylesheet" href="css/myfont_ie.css" type="text/css" charset="utf-8" />
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="lib/fancytree/ui.fancytree.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/fancytree/user_tunings.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/data-music-guitar.css">
+    <title>LearnLang</title>
+</head>
+<body>
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  #optpage                                                                  //
+////////////////////////////////////////////////////////////////////////////////
+-->
+<div data-role="page" id="optpage">
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+        <div data-type="horizontal" data-role="controlgroup" class="ui-btn-left">
+        <a href="index.html#trainOnePage" data-role="button" data-icon="arrow-r"> <en>Learn</en><ru>Учить</ru> </a>
+        <a href="index.html#trainAllPage" data-role="button" data-icon="arrow-r"> <en>All</en><ru>Все</ru> </a>
+        </div>
+
+        <h1>learnLang</h1>
+        <!-- <h1> <en>Options</en> <ru>Настройки</ru> </h1> -->
+
+        <div data-type="horizontal" data-role="controlgroup" class="ui-btn-right">
+        <button id="exitbutton" data-rel="back" data-icon="arrow-l"> <en>Exit</en><ru>Выход</ru> </button>
+        <!-- <a href="index.html#"> --> <img src=img/icon.png> <!-- </a> -->
+        </div>
+    </div><!-- end of page header -->
+
+    <label> &nbsp; </label>
+
+    <div role="main" class="ui-content">
+
+        <div class=mydebug></div>
+
+        <!-- <label> &nbsp; </label> -->
+
+        <div class="ui-grid-a">
+            <fieldset data-role="controlgroup">
+                <legend><en>Interface Language:</en><ru>Язык интерфейса:</ru></legend>
+                <label for="en"><en>English</en><ru>Английский</ru></label>
+                <input type="radio" name="interfaceLanguage" id="en" value="en" checked="checked">
+                <label for="ru"><en>Russian</en><ru>Русский</ru></label>
+                <input type="radio" name="interfaceLanguage" id="ru" value="ru">
+            </fieldset>
+
+            <fieldset data-role="controlgroup">
+                <legend><en>Learned Topic:</en><ru>Изучаемая тема:</ru></legend>
+                <div id="tree"></div>
+            </fieldset>
+
+            <fieldset data-role="controlgroup">
+                <legend><en>Term order:</en><ru>Порядок терминов:</ru></legend>
+                <label for="seq"><en>Ordered</en><ru>Последовательный</ru></label>
+                <input type="radio" name="termOrder" id="seq"  value="seq" checked="checked">
+                <label for="rand"><en>Random</en><ru>Случайный</ru></label>
+                <input type="radio" name="termOrder" id="rand" value="rand">
+            </fieldset>
+
+            <fieldset data-role="controlgroup">
+                <legend><en>Term view order:</en><ru>Порядок просмотра термина:</ru></legend>
+
+                <label for="term-transcr"><en>term, transcription</en><ru>термин, произношение</ru></label>
+                <input type="radio" name="termViewOrder" id="term-transcr" value="term-transcr" checked="checked">
+
+                <label for="transcr-term"><en>transcription, term</en><ru>произношение, термин</ru></label>
+                <input type="radio" name="termViewOrder" id="transcr-term" value="transcr-term">
+
+                <label for="term-transl"><en>term, translation</en><ru>термин, перевод</ru></label>
+                <input type="radio" name="termViewOrder" id="term-transl" value="term-transl">
+
+                <label for="transl-term"><en>translation, term</en><ru>перевод, термин</ru></label>
+                <input type="radio" name="termViewOrder" id="transl-term" value="transl-term">
+
+                <label for="term-transcr-transl"><en>term, transcription, translation</en><ru>термин, произношение, перевод</ru></label>
+                <input type="radio" name="termViewOrder" id="term-transcr-transl" value="term-transcr-transl">
+
+                <label for="transl-term-transcr"><en>translation, term, transcription</en><ru>перевод, термин, произношение</ru></label>
+                <input type="radio" name="termViewOrder" id="transl-term-transcr" value="transl-term-transcr">
+            </fieldset>
+
+            <fieldset data-role="controlgroup">
+                <legend><en>Sound:</en><ru>Звук:</ru></legend>
+                <label for="on"><en>on</en><ru>вкл</ru></label>
+                <input type="radio" name="soundopt" id="on" value="on">
+                <label for="off"><en>off</en><ru>выкл</ru></label>
+                <input type="radio" name="soundopt" id="off" value="off" checked="checked">
+            </fieldset>
+
+        </div>
+        <!-- </form> -->
+
+    </div><!-- end of page content -->
+
+</div>
+
+
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  #trainOnePage                                                                //
+////////////////////////////////////////////////////////////////////////////////
+-->
+<div data-role="page" id="trainOnePage">
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+
+        <div data-type="horizontal" data-role="controlgroup" class="ui-btn-left">
+        <a href="index.html#" data-role="button" data-icon="back" data-rel="back"><en>Back</en><ru>Назад</ru></a>
+        </div>
+
+        <h4><!-- <en>Language:</en><ru>Язык:</ru> --><span class="learnedTopic"></span></h4>
+
+        <div data-type="horizontal" data-role="controlgroup" class="ui-btn-right">
+        <!-- <a href="index.html#"> --> <img src=img/icon.png> <!-- </a> -->
+        </div>
+
+    </div>
+
+    <div role="main" class="ui-content">
+
+        <div class="mycontainer" id="mycontainer">
+<!--             <div class="term" id="term"></div>
+            <div class="term" id="termSound"></div>
+            <div class="term" id="transcription"></div>
+            <div class="term" id="translation"></div>
+            <div class="term" id="img"></div> -->
+        </div>
+
+        <h4>(<span id="termTopicRepeats"></span> <en>repeats</en><ru>повторов</ru>)</h4>
+    </div>
+
+    <!-- <div class=mydebug></div> -->
+
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+        <h4><!-- <en>Topic:</en><ru>Тема:</ru>  --><span class="learnedSubTopic"></span></h4>
+    </div>
+</div>
+
+
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  #trainAllPage                                                             //
+////////////////////////////////////////////////////////////////////////////////
+-->
+<div data-role="page" id="trainAllPage">
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+
+        <div data-type="horizontal" data-role="controlgroup" class="ui-btn-left">
+        <a href="index.html#" data-role="button" data-icon="back" data-rel="back"><en>Back</en><ru>Назад</ru></a>
+        </div>
+
+        <h4><!-- <en>Language:</en><ru>Язык:</ru> --><span class="learnedTopic"></span></h4>
+
+        <div data-type="horizontal" data-role="controlgroup" class="ui-btn-right">
+        <!-- <a href="index.html#"> --> <img src=img/icon.png> <!-- </a> -->
+        </div>
+    </div>
+
+    <div role="main" class="ui-content">
+
+        <div id="mycontainerall">
+<!--             <div class="term" id="term"></div>
+            <div class="term" id="termSound"></div>
+            <div class="term" id="transcription"></div>
+            <div class="term" id="translation"></div>
+            <div class="term" id="img"></div> -->
+        </div>
+
+    </div>
+
+    <!-- <div class=mydebug></div> -->
+
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+        <h4><!-- <en>Topic:</en><ru>Тема:</ru>  --><span class="learnedSubTopic"></span></h4>
+    </div>
+</div>
+
+
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  End of pages.                                                             //
+////////////////////////////////////////////////////////////////////////////////
+-->
+
+
+
+
+
+<script type="text/javascript" src="lib/jquery-1.11.1.min.js" id="cordova-jquery"></script>
+<script type="text/javascript" src="lib/jquery-1.5.0.mobile.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+
+<script type="text/javascript" src="lib/fancytree/jquery.fancytree-all-deps.min.js"></script>
+
+<!-- Application -->
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript" src="js/data/languages/arabian.js"></script>
+<script type="text/javascript" src="js/data/languages/chinese.js"></script>
+<!-- <script type="text/javascript" src="js/data/languages/georgian.js"></script> -->
+<!-- <script type="text/javascript" src="js/data/languages/japanese.js"></script> -->
+<script type="text/javascript" src="js/data/languages/hindi.js"></script>
+<script type="text/javascript" src="js/data/languages/hindi_oldfont.js"></script>
+<!-- <script type="text/javascript" src="js/data/languages/hebrew.js"></script> -->
+<!-- <script type="text/javascript" src="js/data/languages/korean.js"></script> -->
+<script type="text/javascript" src="js/data/languages/sinhala.js"></script>
+<script type="text/javascript" src="js/data/languages/swahili.js"></script>
+<!-- <script type="text/javascript" src="js/data/languages/thai.js"></script> -->
+<script type="text/javascript" src="js/data/languages/turkish.js"></script>
+<script type="text/javascript" src="js/data/music/smuflEntitiesConverter.js"></script>
+<script type="text/javascript" src="js/data/music/guitar.js"></script>
+<script type="text/javascript" src="js/data/music/notes.js"></script>
+<script type="text/javascript" src="js/data/example.js"></script>
+
+<script type="text/javascript" src="js/first.js"></script>
+<script type="text/javascript" src="js/debug.js"></script>
+<script type="text/javascript" src="js/storage.js"></script>
+
+<script type="text/javascript" src="js/opt_interface_language.js"></script>
+<script type="text/javascript" src="js/opt_learned_topic.js"></script>
+<script type="text/javascript" src="js/opt_term_view_order.js"></script>
+<script type="text/javascript" src="js/opt_term_order.js"></script>
+<script type="text/javascript" src="js/opt_soundopt.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+
+<script type="text/javascript" src="js/application_init.js"></script>
+
+</body>
+</html>

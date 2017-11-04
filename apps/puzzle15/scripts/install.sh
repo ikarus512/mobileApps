@@ -13,7 +13,8 @@ echo "### PWD=$PWD"
 
 cmd="npm i"; echo "### $cmd"; $cmd
 
-if [ $FRM.$TRG_OS == cordova.android ];then
+case $FRM.$TRG_OS in
+cordova.android|cordova-ionic.android)
 
     mkdir -p hooks
     chmod -R +x hooks
@@ -42,7 +43,8 @@ if [ $FRM.$TRG_OS == cordova.android ];then
     echo "=== android check permissions:"
     source $WORK_DIR/scripts/android_check_permissions.sh
 
-fi
+;;
+esac
 
 popd >/dev/null 2>&1
 echo "### install finished"

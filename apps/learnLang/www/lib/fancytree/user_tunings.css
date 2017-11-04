@@ -1,0 +1,15 @@
+ul.fancytree-container {
+  border-radius: 5px;
+}
+ul.fancytree-container li {
+  font-size: 32px;
+  font-family: myFontDefault;
+}
+ul.fancytree-container li li {
+  width: 100%;
+}
+.fancytree-plain.fancytree-container.fancytree-treefocus span.fancytree-active span.fancytree-title,
+.fancytree-plain.fancytree-container.fancytree-treefocus span.fancytree-selected span.fancytree-title {
+  background-color: blue;
+  color: white;
+}

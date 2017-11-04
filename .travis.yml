@@ -6,11 +6,6 @@ language: node_js
 node_js: "8"
 sudo: required
 
-# addons:
-#     apt:
-#         sources:
-#         - ubuntu-toolchain-r-test
-
 env:
     global:
         - CXX=g++-4.8
@@ -22,36 +17,33 @@ env:
         - RELEASES_DIR=$WORK_DIR/releases
         - CLONE_DIR=$WORK_DIR/_tmp/mobileApps
 
-### TODO: clean packaje.json from nwjs-build-phoenix staff
-### TODO: remove $PLAT, replace it by $FRM/$TRG_OS
 ### TODO: APP-->APPL_DIR; set APPNAME here(?)
-### TODO: system settings/installations/packages from addons: apt: packages: to install step
 ### TODO: copy version from main package.json (or create from tags or???)
 matrix:
   include:
     ### learnLang:
     # - os: linux
-    #   env: JOBNAME=010 APP=learnLang PLAT=android FRM=cordova TRG_OS=android   OPT1=debug
+    #   env: JOBNAME=010 APP=learnLang FRM=cordova TRG_OS=android   OPT1=debug
     # - os: linux
-    #   env: JOBNAME=020 APP=learnLang PLAT=android FRM=cordova TRG_OS=android   OPT1=debug OPT2=Full
+    #   env: JOBNAME=020 APP=learnLang FRM=cordova TRG_OS=android   OPT1=debug OPT2=Full
     - os: linux
-      env: JOBNAME=030 APP=learnLang PLAT=android FRM=cordova TRG_OS=android   OPT1=release
+      env: JOBNAME=030 APP=learnLang FRM=cordova TRG_OS=android   OPT1=release
     - os: linux
-      env: JOBNAME=040 APP=learnLang PLAT=android FRM=cordova TRG_OS=android   OPT1=release OPT2=Full EXTRASTEP=deploy
+      env: JOBNAME=040 APP=learnLang FRM=cordova TRG_OS=android   OPT1=release OPT2=Full EXTRASTEP=deploy
     - os: linux
-      env: JOBNAME=050 APP=learnLang PLAT=desktop FRM=nwjs    TRG_OS=linux-win OPT1=release OPT2=Full
+      env: JOBNAME=050 APP=learnLang FRM=nwjs    TRG_OS=linux-win OPT1=release OPT2=Full
     - os: osx
-      env: JOBNAME=060 APP=learnLang PLAT=desktop FRM=nwjs    TRG_OS=osx       OPT1=release OPT2=Full
+      env: JOBNAME=060 APP=learnLang FRM=nwjs    TRG_OS=osx       OPT1=release OPT2=Full
     ### puzzle15:
     # - os: linux
-    #   env: JOBNAME=070 APP=puzzle15  PLAT=android FRM=cordova-ionic TRG_OS=android   OPT1=debug
+    #   env: JOBNAME=070 APP=puzzle15  FRM=cordova-ionic TRG_OS=android   OPT1=debug
     - os: linux
-      env: JOBNAME=080 APP=puzzle15  PLAT=android FRM=cordova-ionic TRG_OS=android   OPT1=release
+      env: JOBNAME=080 APP=puzzle15  FRM=cordova-ionic TRG_OS=android   OPT1=release
     ### tripSave:
     # - os: linux
-    #   env: JOBNAME=090 APP=tripSave  PLAT=android FRM=cordova TRG_OS=android   OPT1=debug
+    #   env: JOBNAME=090 APP=tripSave  FRM=cordova TRG_OS=android   OPT1=debug
     # - os: linux
-    #   env: JOBNAME=100 APP=tripSave  PLAT=android FRM=cordova TRG_OS=android   OPT1=release
+    #   env: JOBNAME=100 APP=tripSave  FRM=cordova TRG_OS=android   OPT1=release
 
 branches:
     only:
@@ -62,7 +54,7 @@ branches:
 git:
     depth: 20
 
-# cache:
+# cache: ### caching can be slower than not caching (if many folders)
 #     timeout: 300 # (5*60 s = 5 min)
 #     directories:
 #     - $NVM_DIR # $(npm config get prefix)
