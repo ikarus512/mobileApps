@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+echo "########################################"
+echo "### $0"
+pushd $HOME_DIR/apps/$APP
+echo "### PWD=$PWD"
+
 npm i
 
 mkdir -p hooks
@@ -28,3 +33,5 @@ fi
 
 echo "=== android check permissions:"
 source $HOME_DIR/scripts/android_check_permissions.sh
+
+popd

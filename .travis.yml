@@ -4,70 +4,52 @@
 
 language: node_js
 node_js: "8"
-sudo: false
+sudo: required
 
-addons:
-    apt:
-        sources:
-        - ubuntu-toolchain-r-test
-        packages:
-        - g++-4.8
-        - openjdk-7-jdk
-        - lib32stdc++6
-        - lib32z1
-        - wine
-        - nsis
-        # - wine1.6
+# addons:
+#     apt:
+#         sources:
+#         - ubuntu-toolchain-r-test
 
 env:
     global:
         - CXX=g++-4.8
+
         - HOME_DIR=$PWD
-        - ANDROID_HOME=$HOME_DIR/android-sdk-linux
+        - ANDROID_HOME=$HOME_DIR/_tmp_cached/android-sdk-linux
         - ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign
         - RELEASES_DIR=$HOME_DIR/releases
         - CLONE_DIR=$HOME_DIR/_tmp/mobileApps
 
 ### TODO: remove $PLAT, replace it by $FRM/$TRG_OS
-### TODO: APP-->APPDIR; set APPNAME here(?)
+### TODO: APP-->APPL_DIR (remove APP_DIR); set APPNAME here(?)
+### TODO: HOME_DIR-->WORK_DIR
 ### TODO: system settings/installations/packages from addons: apt: packages: to install step
 matrix:
   include:
+    ### learnLang:
+    # - os: linux
+    #   env: JOBNAME=010 APP=learnLang PLAT=android FRM=cordova TRG_OS=android   OPT1=debug
+    # - os: linux
+    #   env: JOBNAME=020 APP=learnLang PLAT=android FRM=cordova TRG_OS=android   OPT1=debug OPT2=Full
     - os: linux
       env: JOBNAME=030 APP=learnLang PLAT=android FRM=cordova TRG_OS=android   OPT1=release
     - os: linux
       env: JOBNAME=040 APP=learnLang PLAT=android FRM=cordova TRG_OS=android   OPT1=release OPT2=Full EXTRASTEP=deploy
     - os: linux
-      env: JOBNAME=050 APP=learnLang PLAT=desktop FRM=nwjs    TRG_OS=linux_win OPT1=release OPT2=Full
+      env: JOBNAME=050 APP=learnLang PLAT=desktop FRM=nwjs    TRG_OS=linux-win OPT1=release OPT2=Full
     - os: osx
       env: JOBNAME=060 APP=learnLang PLAT=desktop FRM=nwjs    TRG_OS=osx       OPT1=release OPT2=Full
-
-# env:
-#     global:
-#         - CXX=g++-4.8
-#         - HOME_DIR=$PWD
-#         - ANDROID_HOME=$HOME_DIR/android-sdk-linux
-#         - ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign
-#         - RELEASES_DIR=$HOME_DIR/releases
-#         - CLONE_DIR=$HOME_DIR/_tmp/mobileApps
-#     matrix:
-#         ### TODO: matrix include
-#         ### TODO: remove $PLAT, replace it by $BLD_OS/$FRM/$TRG_OS
-#         ### TODO: APP-->APPDIR; set APPNAME here
-#         #
-#         ### learnLang:
-#         # JOBNAME=010 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug
-#         # JOBNAME=020 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug OPT2=Full
-#         - JOBNAME=030 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release
-#         - JOBNAME=040 APP=learnLang PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release OPT2=Full EXTRASTEP=deploy
-#         - JOBNAME=050 APP=learnLang PLAT=desktop BLD_OS=linux FRM=nwjs    TRG_OS=linux_win OPT1=release OPT2=Full
-#         - JOBNAME=060 APP=learnLang PLAT=desktop BLD_OS=osx   FRM=nwjs    TRG_OS=osx       OPT1=release OPT2=Full
-#         ### puzzle15:
-#         # JOBNAME=070 APP=puzzle15  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug
-#         - JOBNAME=080 APP=puzzle15  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release
-#         ### tripSave:
-#         # JOBNAME=090 APP=tripSave  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=debug
-#         # JOBNAME=100 APP=tripSave  PLAT=android BLD_OS=linux FRM=cordova TRG_OS=android   OPT1=release
+    ### puzzle15:
+    # - os: linux
+    #   env: JOBNAME=070 APP=puzzle15  PLAT=android FRM=cordova-ionic TRG_OS=android   OPT1=debug
+    - os: linux
+      env: JOBNAME=080 APP=puzzle15  PLAT=android FRM=cordova-ionic TRG_OS=android   OPT1=release
+    ### tripSave:
+    # - os: linux
+    #   env: JOBNAME=090 APP=tripSave  PLAT=android FRM=cordova TRG_OS=android   OPT1=debug
+    # - os: linux
+    #   env: JOBNAME=100 APP=tripSave  PLAT=android FRM=cordova TRG_OS=android   OPT1=release
 
 branches:
     only:
@@ -82,7 +64,7 @@ cache:
     timeout: 300 # (5*60 s = 5 min)
     directories:
     - $NVM_DIR # $(npm config get prefix)
-    - android-sdk-linux
+    - _tmp_cached/android-sdk-linux
     - apps/$APP/node_modules
     - apps/$APP/platforms
     - apps/$APP/plugins
@@ -101,24 +83,23 @@ before_install:
     ### Environment 2:
     - export APPNAME=$APP$OPT2
     - export APP_DIR=$HOME_DIR/apps/$APP
+    - export APPL_DIR=$HOME_DIR/apps/$APP
     - export ANDROID_MANIFEST=$APP_DIR/platforms/android/AndroidManifest.xml
 
-    - cd apps/$APP
-    - npm install -g npm
-    - source ./scripts/before_install.sh
+    - cd $APP_DIR
+    - . $HOME_DIR/scripts/common_before_install.sh
+    - . $APPL_DIR/scripts/before_install.sh
 
 install:
-    - source ./scripts/install.sh
+    - . ./scripts/install.sh
 
 before_script:
-    - source $HOME_DIR/scripts/android_check_permissions.sh
-    - source ./scripts/build.sh
-    - source $HOME_DIR/scripts/android_check_permissions.sh
+    - . ./scripts/build.sh
 
 script:
     - ls -lh $RELEASES_DIR || echo 1
 
 after_success:
     - cd $HOME_DIR
-    - source $HOME_DIR/scripts/deploy_github_releases.sh
-    # - source $HOME_DIR/scripts/deploy_heroku.sh
+    - . $HOME_DIR/scripts/deploy_github_releases.sh
+    # - . $HOME_DIR/scripts/deploy_heroku.sh

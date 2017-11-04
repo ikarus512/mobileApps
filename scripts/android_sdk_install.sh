@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
-export ANDROID_HOME=$PWD/android-sdk-linux
+echo "########################################"
+echo "### $0"
+pushd $HOME_DIR
+echo "### PWD=$PWD"
+
+export ANDROID_HOME=$PWD/_tmp_cached/android-sdk-linux
 export ANDROID_SDK=$ANDROID_HOME
 export ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign
 export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/23.0.2:${PATH}
 
-if [ ! -e android-sdk-linux/tools/bin ];then
+if [ ! -e $ANDROID_HOME/tools/bin ];then
 
     wget --quiet http://dl.google.com/android/android-sdk_r24.4-linux.tgz
     tar -xf android-sdk_r24.4-linux.tgz
@@ -26,3 +31,5 @@ if [ ! -e android-sdk-linux/tools/bin ];then
     ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | sdkmanager --licenses    >/dev/null 2>&1
 
 fi
+
+popd

@@ -63,7 +63,7 @@ typings/
 ################################################################################
 ### Specifies intentionally untracked files to ignore when using Git
 _tmp/
-android-sdk-linux/
+_tmp_cached/android-sdk-linux/
 node_modules/
 platforms/
 plugins/
