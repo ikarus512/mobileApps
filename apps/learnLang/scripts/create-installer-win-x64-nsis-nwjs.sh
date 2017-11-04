@@ -28,4 +28,4 @@ cp -f  learnLang-win-x64/nw.exe learnLang-win-x64/learnLang-start.exe
 
 $APPL_DIR/node_modules/.bin/makensis-cli compile ./create-installer-win-x64-nsis-nwjs.nsi >create-installer-win-x64-nsis-nwjs.out.txt 2>&1
 cat create-installer-win-x64-nsis-nwjs.out.txt | tail -n 20
-mv learnLang-win-x64-setup.exe $RELEASES_DIR
+mv learnLang-win-x64-setup.exe $RELEASES_DIR/

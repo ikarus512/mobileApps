@@ -28,4 +28,4 @@ cp -f  learnLang-win-ia32/nw.exe learnLang-win-ia32/learnLang-start.exe
 
 $APPL_DIR/node_modules/.bin/makensis-cli compile ./create-installer-win-ia32-nsis-nwjs.nsi >create-installer-win-ia32-nsis-nwjs.out.txt 2>&1
 cat create-installer-win-ia32-nsis-nwjs.out.txt | tail -n 20
-mv learnLang-win-ia32-setup.exe $RELEASES_DIR
+mv learnLang-win-ia32-setup.exe $RELEASES_DIR/

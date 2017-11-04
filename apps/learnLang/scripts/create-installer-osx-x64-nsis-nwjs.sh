@@ -31,4 +31,4 @@ cp -f  ../package.json ./learnLang-osx-x64/
 # ../node_modules/.bin/makensis-cli compile ./create-installer-osx-x64-nsis-nwjs.nsi >create-installer-osx-x64-nsis-nwjs.out.txt 2>&1
 # cat create-installer-osx-x64-nsis-nwjs.out.txt
 tar -zcvf learnLang-osx-x64.tar.gz learnLang-osx-x64 | tail -n 20
-mv learnLang-osx-x64.tar.gz $RELEASES_DIR
+mv learnLang-osx-x64.tar.gz $RELEASES_DIR/
