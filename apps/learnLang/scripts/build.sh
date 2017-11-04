@@ -25,37 +25,6 @@ if [ -z $APPL_DIR     ]; then APPL_DIR=$WORK_DIR/apps/$APP; fi
 
 mkdir -p $RELEASES_DIR
 
-rm -fv platforms/android/build/outputs/apk/*.apk
-
-########################################
-### Common
-
-# copy/compile files from src to www
-cp -frv src www
-rm -frv www/fonts/resources
-if [ "$OPT2" != "Full" ];then
-    rm -frv www/js/data/languages/hindi_oldfont.js
-    rm -frv www/js/data/music/notes.js
-    rm -frv www/js/data/music/guitar.js
-    rm -frv www/js/data/example.js
-    cat   src/index.html | grep -vP "data/languages/hindi_oldfont|data/music/notes|data/music/guitar|data/example" >www/index.html
-    echo "www/index.html:============"
-    cat   www/index.html | grep -P  "data/"
-    echo "www/index.html=============EOF"
-fi
-
-# Prepare cordova hooks
-if [ "$PLAT" == "android" ];then
-    mkdir -p $APPL_DIR/hooks/after_prepare
-    cp -frv $WORK_DIR/scripts/android_hook_remove_permissions.js $APPL_DIR/hooks/after_prepare/
-    cp -frv $WORK_DIR/scripts/android_check_permissions.sh       $APPL_DIR/hooks/after_prepare/
-    chmod -R +x hooks
-    ls -hl $APPL_DIR/hooks/after_prepare
-fi
-
-########################################
-### Platform-specific binaries build
-
 if [ "$PLAT" == "desktop" ];then
     #npm i
 
@@ -82,6 +51,8 @@ if [ "$PLAT" == "desktop" ];then
     echo "=== ls"
 
 else # Here if android
+
+    rm -fv platforms/android/build/outputs/apk/*.apk
 
     if [ "$OPT1" == "debug" ];then
 

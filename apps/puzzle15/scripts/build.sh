@@ -27,29 +27,6 @@ mkdir -p $RELEASES_DIR
 
 rm -fv platforms/android/build/outputs/apk/*.apk
 
-########################################
-### Common
-
-# copy/compile files from src to www
-cp -frv src www
-rm -frv www/img/11
-rm -frv www/img/logo.old.png
-rm -frv www/img/logo1.png
-rm -frv www/img/logo2.png
-rm -frv www/img/logo3.png
-
-# Prepare cordova hooks
-if [ "$PLAT" == "android" ];then
-    mkdir -p $APPL_DIR/hooks/after_prepare
-    cp -frv $WORK_DIR/scripts/android_hook_remove_permissions.js $APPL_DIR/hooks/after_prepare/
-    cp -frv $WORK_DIR/scripts/android_check_permissions.sh       $APPL_DIR/hooks/after_prepare/
-    chmod -R +x hooks
-    ls -hl $APPL_DIR/hooks/after_prepare
-fi
-
-########################################
-### Platform-specific binaries build
-
 if [ "$OPT1" == "debug" ];then
     cordova build android --debug || exit 1 # --verbose
     ls -lh platforms/android/build/outputs/apk

@@ -25,6 +25,7 @@ env:
 ### TODO: remove $PLAT, replace it by $FRM/$TRG_OS
 ### TODO: APP-->APPL_DIR; set APPNAME here(?)
 ### TODO: system settings/installations/packages from addons: apt: packages: to install step
+### TODO: copy version from main package.json (or create from tags or???)
 matrix:
   include:
     ### learnLang:
@@ -76,8 +77,8 @@ before_script:
 
     - . $WORK_DIR/scripts/common_before_install.sh
     - . $APPL_DIR/scripts/before_install.sh
+    - . $APPL_DIR/scripts/copy.sh
     - . $APPL_DIR/scripts/install.sh
-
     - . $APPL_DIR/scripts/build.sh
 
 script:
