@@ -40,6 +40,7 @@ linux-win)
     popd
 
     cmd="ls -l $RELEASES_DIR"; echo "### $cmd"; $cmd
+    cmd="sleep 4m"; echo "### $cmd"; $cmd # in order to deploy only after android/linux-win
 ;;
 osx)
     ### Create installations using nw.js distro and www folder (www compiled from src)
@@ -49,6 +50,7 @@ osx)
     popd
 
     cmd="ls -l $RELEASES_DIR"; echo "### $cmd"; $cmd
+    cmd="sleep 6m"; echo "### $cmd"; $cmd # in order to deploy only after android/linux-win
 ;;
 android)
     rm -fv platforms/android/build/outputs/apk/*.apk
