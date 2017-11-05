@@ -18,22 +18,25 @@ echo "### PWD=$PWD"
 v=0.26.2
 flavor=release; sdk=
 #flavor=debug; sdk=-sdk
+oldd=nwjs$sdk-v$v-win-ia32
+newd=learnLang-win-ia32
 
-if [ ! -f nwjs$sdk-v$v-win-ia32.zip ];then wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-win-ia32.zip; fi
-unzip nwjs$sdk-v$v-win-ia32.zip | tail -n 20
-chmod -R +x nwjs$sdk-v$v-win-ia32
-mv -v nwjs$sdk-v$v-win-ia32 learnLang-win-ia32
-cp -fr ../www ./learnLang-win-ia32/www/
-cp -f  ../package.json ./learnLang-win-ia32/
-cp -f  learnLang-win-ia32/nw.exe learnLang-win-ia32/learnLang-start.exe
-###cd learnLang-win-ia32; nw.exe . # run
+if [ ! -f $oldd.zip ];then mydo wget --quiet https://dl.nwjs.io/v$v/$oldd.zip; fi
+mydo unzip $oldd.zip --mydo-tail-20
+mydo chmod -R +x $oldd
+mydo mv -v $oldd $newd
+mydo cp -fr ../www ./$newd/www/
+mydo cp -f  ../package.json ./$newd/
+mydo cp -f  $newd/nw.exe $newd/learnLang-start.exe
+mydo ls -l $newd
+###cd $newd; nw.exe . # run
 
 ### Create NSIS installation
 ### http://nsis.sourceforge.net/Docs
 
 $APPL_DIR/node_modules/.bin/makensis-cli compile ./create-installer-win-ia32-nsis-nwjs.nsi >create-installer-win-ia32-nsis-nwjs.out.txt 2>&1
-cat create-installer-win-ia32-nsis-nwjs.out.txt | tail -n 20
-mv -v learnLang-win-ia32-setup.exe $RELEASES_DIR/
+mydo cat create-installer-win-ia32-nsis-nwjs.out.txt --mydo-tail-20
+mydo mv -v $newd-setup.exe $RELEASES_DIR/
 
 echo "### finished"
 echo "########################################"

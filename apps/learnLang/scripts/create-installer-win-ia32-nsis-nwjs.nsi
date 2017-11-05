@@ -16,7 +16,7 @@ InstallDir "$PROGRAMFILES\${COMPANYNAME}\${APPNAME}"
 LicenseData "..\..\..\LICENSE" # txt (DOS \r\n) or rtf file
 Name "${COMPANYNAME} - ${APPNAME}" # Installer/uninstaller's title bar text
 Icon "..\www\img\icon.ico"
-OutFile "learnLang-win32-setup.exe" # define installer name
+OutFile "learnLang-win-ia32-setup.exe" # define installer name
 
 !include LogicLib.nsh # library from NSIS package
 
@@ -43,7 +43,7 @@ functionEnd
 section "install"
     setOutPath "$INSTDIR" # target install dir
     # Files added here should be removed by the uninstaller (see section "uninstall")
-    file /r learnLang-win32\*
+    file /r learnLang-win-ia32\*
     file "..\www\img\icon.ico"
     #file "${APPNAME}-start.exe"
 

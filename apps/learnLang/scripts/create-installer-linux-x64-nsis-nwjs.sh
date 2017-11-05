@@ -18,25 +18,25 @@ echo "### PWD=$PWD"
 v=0.26.2
 flavor=release; sdk=
 #flavor=debug; sdk=-sdk
+oldd=nwjs$sdk-v$v-linux-x64
+newd=learnLang-linux-x64
 
-if [ ! -f nwjs$sdk-v$v-linux-x64.tar.gz ];then wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-linux-x64.tar.gz; fi
-tar -xvzf nwjs$sdk-v$v-linux-x64.tar.gz | tail -n 20
-chmod -R +x nwjs$sdk-v$v-linux-x64
-mv -v nwjs$sdk-v$v-linux-x64 learnLang-linux-x64
-cp -fr ../www ./learnLang-linux-x64/www/
-cp -f  ../package.json ./learnLang-linux-x64/
- echo ls learnLang-linux-x64:
- ls -l learnLang-linux-x64
-# cp -f  learnLang-linux-x64/nw.exe learnLang-linux-x64/learnLang-start.exe
-###cd learnLang-linux-x64; nw.exe . # run
+if [ ! -f $oldd.tar.gz ];then mydo wget --quiet https://dl.nwjs.io/v$v/$oldd.tar.gz; fi
+mydo tar -xvzf $oldd.tar.gz --mydo-tail-20
+mydo chmod -R +x $oldd
+mydo mv -v $oldd $newd
+mydo cp -fr ../www ./$newd/www/
+mydo cp -f  ../package.json ./$newd/
+#mydo cp -f  $newd/nw.exe $newd/learnLang-start.exe
+mydo ls -l $newd
+###cd $newd; nw.exe . # run
 
 ### Create NSIS installation
 ### http://nsis.sourceforge.net/Docs
 
-# ../node_modules/.bin/makensis-cli compile ./create-installer-linux-x64-nsis-nwjs.nsi >create-installer-linux-x64-nsis-nwjs.out.txt 2>&1
-# cat create-installer-linux-x64-nsis-nwjs.out.txt
-tar -zcvf learnLang-linux-x64.tar.gz learnLang-linux-x64 | tail -n 20
-mv -v learnLang-linux-x64.tar.gz $RELEASES_DIR/
+mydo tar -zcvf $newd.tar.gz $newd --mydo-tail-20
+
+mydo mv -v $newd.tar.gz $RELEASES_DIR/
 
 echo "### finished"
 echo "########################################"
