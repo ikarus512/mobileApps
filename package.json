@@ -1,7 +1,7 @@
 {
   "name": "mobileapps",
-  "version": "1.0.73",
-  "travisBuildNumber": "130",
+  "version": "1.0.74",
+  "travisBuildNumber": "131",
   "description": "Mobile Apps",
   "main": "server/index.js",
   "scripts": {
