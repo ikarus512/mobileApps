@@ -265,11 +265,12 @@ function githubTagAndPublishRelease() {
 
     if [ "$TRAVIS_BUILD_NUMBER" != "" ];then
 
+        echo "=== thisBuildNumber=$TRAVIS_BUILD_NUMBER"
         getLatestBuildNumber $REPO; latestBuildNumber=$result; echo "=== latestBuildNumber=$latestBuildNumber"
 
         if [ "$TRAVIS_BUILD_NUMBER" != "$latestBuildNumber" ];then
 
-            sed --in-place -r "s/^(\s*\"travisBuildNumber\": \")[0-9]+(\",)$/\1$TRAVIS_BUILD_NUMBER\2/" $CLONE_DIR/package.json
+            sed -i.json -r "s/^(\s*\"travisBuildNumber\": \")[0-9]+(\",)$/\1$TRAVIS_BUILD_NUMBER\2/" $CLONE_DIR/package.json
             if [ $errors -ne 0 ];then echo "Error in $func"; return 1; fi
 
             # bump package version
