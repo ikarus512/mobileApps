@@ -69,6 +69,7 @@ platforms/
 plugins/
 package-lock.json
 *.keystore
+*.bak
 releases/
 www/lib/angular-animate/
 www/lib/angular-sanitize/

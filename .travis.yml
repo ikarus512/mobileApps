@@ -17,7 +17,6 @@ env:
         - RELEASES_DIR=$WORK_DIR/releases
         - CLONE_DIR=$WORK_DIR/_tmp/mobileApps
 
-### TODO: rename binaries: learnLangFull-->learnLang, learnLang.apk-->learnLangSmall-android.apk
 ### TODO: build learnLang-ios
 ### TODO: build learnLang-winphone
 ### TODO: APP-->APPL_DIR; set APPNAME here(?)
