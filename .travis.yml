@@ -17,6 +17,7 @@ env:
         - RELEASES_DIR=$WORK_DIR/releases
         - CLONE_DIR=$WORK_DIR/_tmp/mobileApps
 
+### TODO: replace OPT1 by DEBUG=yes (means 'sdk'-version for nwjs)
 ### TODO: build learnLang-ios
 ### TODO: build learnLang-winphone
 ### TODO: APP-->APPL_DIR; set APPNAME here(?)
@@ -27,15 +28,15 @@ matrix:
     #-os: linux
     # env: JB=010 TRG_OS=android   APP=learnLang FRM=cordova OPT1=debug   OPT2=Small
     #-os: linux
-    # env: JB=020 TRG_OS=android   APP=learnLang FRM=cordova OPT1=debug   OPT2=
+    # env: JB=020 TRG_OS=android   APP=learnLang FRM=cordova OPT1=debug
     - os: linux
       env: JB=030 TRG_OS=android   APP=learnLang FRM=cordova OPT1=release OPT2=Small
     - os: linux
-      env: JB=040 TRG_OS=android   APP=learnLang FRM=cordova OPT1=release OPT2= EXTRASTEP=deploy
+      env: JB=040 TRG_OS=android   APP=learnLang FRM=cordova OPT1=release
     - os: linux
-      env: JB=050 TRG_OS=linux-win APP=learnLang FRM=nwjs    OPT1=release OPT2=
+      env: JB=050 TRG_OS=linux-win APP=learnLang FRM=nwjs    OPT1=release
     - os: osx
-      env: JB=060 TRG_OS=osx       APP=learnLang FRM=nwjs    OPT1=release OPT2=
+      env: JB=060 TRG_OS=osx       APP=learnLang FRM=nwjs    OPT1=release
     ### puzzle15: ###
     #-os: linux
     # env: JB=070 TRG_OS=android   APP=puzzle15  FRM=cordova-ionic OPT1=debug

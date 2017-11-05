@@ -20,7 +20,7 @@ if [ -z $CLONE_DIR    ]; then CLONE_DIR=$PWD/../_tmp/mobileApps; fi
 HEROKU_APP=ikarus512-mobileapps
 REPO=ikarus512/mobileApps
 
-if [ "$EXTRASTEP" == "deploy" ];then
+#if [ "$EXTRASTEP" == "deploy-heroku" ];then
 
     mkdir -p $WORK_DIR/_tmp
     cd $WORK_DIR/_tmp
@@ -67,7 +67,7 @@ if [ "$EXTRASTEP" == "deploy" ];then
     git push heroku1 master
     echo "======="
 
-fi
+#fi
 
 popd >/dev/null 2>&1
 echo "### deploy_heroku finished"

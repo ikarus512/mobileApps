@@ -9,8 +9,7 @@ echo "### PWD=$PWD"
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=puzzle15; fi
 if [ -z $OPT1     ]; then OPT1=debug; fi
-if [ -z $OPT2     ]; then OPT2=; fi
-if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi
+if [ -z $APPNAME  ]; then APPNAME=$APP; fi
 
 if [ -z $ANDROID_HOME ]; then ANDROID_HOME=$PWD/../android-sdk-linux; fi
 if [ -z $ZIPALIGN     ]; then ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign; fi

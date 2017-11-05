@@ -274,7 +274,11 @@ function githubTagAndPublishRelease() {
         if [ "$TRAVIS_BUILD_NUMBER" != "$latestBuildNumber" ];then
 
             mydo "pushd $CLONE_DIR"
-            sed -E "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" -i.bak ./package.json
+            if [ $TRAVIS_OS_NAME == linux ];then
+                sed -E --in-place "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" ./package.json
+            else # osx
+                sed -E -i ''      "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" ./package.json
+            fi
             git diff ./package.json
             mydo "popd"
             if [ $errors -ne 0 ];then echo "Error in $func"; return 1; fi
