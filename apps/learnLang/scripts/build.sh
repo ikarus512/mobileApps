@@ -32,7 +32,7 @@ linux-win)
     wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-linux-x64.tar.gz &
     wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-ia32.zip &
     wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-x64.zip &
-    mydo wait
+    mydo wait %1 %2 %3 %4
     . ./create-installer-win-ia32-nsis-nwjs.sh
     . ./create-installer-win-x64-nsis-nwjs.sh
     . ./create-installer-linux-ia32-nsis-nwjs.sh

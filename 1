@@ -6,8 +6,8 @@ git clone https://github.com/ikarus512/mobileApps
 npm init
 npm start
 git fetch origin && git merge --no-edit -m "[ci skip] merge with branch master" && git status
-git fetch origin && git pull && git status
-git add -A && git commit -m "cosmetic" && git push origin master
+#git rebase origin/master #when branches used
+git fetch origin && git pull && git add -A && git commit -m "cosmetic" && git push origin master
 
 
  heroku login
