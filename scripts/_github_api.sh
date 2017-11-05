@@ -15,6 +15,9 @@
 #  */
 
 # sed doc: http://www.grymoire.com/Unix/Sed.html#uh-62f3
+# https://www.gnu.org/software/sed/manual/sed.txt
+# https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/sed.1.html
+# https://ss64.com/osx/sed.html
 
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=learnLang; fi
@@ -270,7 +273,9 @@ function githubTagAndPublishRelease() {
 
         if [ "$TRAVIS_BUILD_NUMBER" != "$latestBuildNumber" ];then
 
-            sed -i.json -r "s/^(\s*\"travisBuildNumber\": \")[0-9]+(\",)$/\1$TRAVIS_BUILD_NUMBER\2/" $CLONE_DIR/package.json
+            mydo "pushd $CLONE_DIR"
+            sed -Ei "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" ./package.json; git diff ./package.json
+            mydo "popd"
             if [ $errors -ne 0 ];then echo "Error in $func"; return 1; fi
 
             # bump package version
