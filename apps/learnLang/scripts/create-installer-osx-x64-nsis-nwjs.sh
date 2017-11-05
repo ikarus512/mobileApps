@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+echo
+echo "########################################"
+echo "### create-installer-osx-x64 started"
+echo "### PWD=$PWD"
+
 ### Create NW.JS-based distribution
 ### http://nwjs.io
 ### http://docs.nwjs.io/en/latest/For Users/Package and Distribute/
@@ -36,3 +41,6 @@ mydo cp -f  ../package.json ./$newd/
 # cat create-installer-osx-x64-nsis-nwjs.out.txt
 mydo tar -zcvf $newd.tar.gz $newd --mydo-tail-20
 mydo mv -v $newd.tar.gz $RELEASES_DIR/
+
+echo "### finished"
+echo "########################################"

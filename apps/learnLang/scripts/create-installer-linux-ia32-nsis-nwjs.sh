@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+echo
+echo "########################################"
+echo "### create-installer-linux-ia32 started"
+echo "### PWD=$PWD"
+
 ### Create NW.JS-based distribution
 ### http://nwjs.io
 ### http://docs.nwjs.io/en/latest/For Users/Package and Distribute/
@@ -32,3 +37,6 @@ cp -f  ../package.json ./learnLang-linux-ia32/
 # cat create-installer-linux-ia32-nsis-nwjs.out.txt
 tar -zcvf learnLang-linux-ia32.tar.gz learnLang-linux-ia32 | tail -n 20
 mv -v learnLang-linux-ia32.tar.gz $RELEASES_DIR/
+
+echo "### finished"
+echo "########################################"

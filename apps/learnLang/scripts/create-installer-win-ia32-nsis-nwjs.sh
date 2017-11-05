@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+echo
+echo "########################################"
+echo "### create-installer-win-ia32 started"
+echo "### PWD=$PWD"
+
 ### Create NW.JS-based distribution
 ### http://nwjs.io
 ### http://docs.nwjs.io/en/latest/For Users/Package and Distribute/
@@ -29,3 +34,6 @@ cp -f  learnLang-win-ia32/nw.exe learnLang-win-ia32/learnLang-start.exe
 $APPL_DIR/node_modules/.bin/makensis-cli compile ./create-installer-win-ia32-nsis-nwjs.nsi >create-installer-win-ia32-nsis-nwjs.out.txt 2>&1
 cat create-installer-win-ia32-nsis-nwjs.out.txt | tail -n 20
 mv -v learnLang-win-ia32-setup.exe $RELEASES_DIR/
+
+echo "### finished"
+echo "########################################"

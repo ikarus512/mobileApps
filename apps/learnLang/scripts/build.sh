@@ -27,17 +27,17 @@ mkdir -p $RELEASES_DIR
 case $TRG_OS in
 linux-win)
     ### Create installations using nw.js distro and www folder (www compiled from src)
-    pushd scripts
+    mydo pushd scripts
     wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-linux-ia32.tar.gz &
     wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-linux-x64.tar.gz &
     wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-ia32.zip &
     wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-x64.zip &
-    wait
+    mydo wait
     . ./create-installer-win-ia32-nsis-nwjs.sh
     . ./create-installer-win-x64-nsis-nwjs.sh
     . ./create-installer-linux-ia32-nsis-nwjs.sh
     . ./create-installer-linux-x64-nsis-nwjs.sh
-    popd
+    mydo popd
 
     mydo ls -l $RELEASES_DIR
 ;;

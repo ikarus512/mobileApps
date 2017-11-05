@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+echo
+echo "########################################"
+echo "### create-installer-linux-x64 started"
+echo "### PWD=$PWD"
+
 ### Create NW.JS-based distribution
 ### http://nwjs.io
 ### http://docs.nwjs.io/en/latest/For Users/Package and Distribute/
@@ -32,3 +37,6 @@ cp -f  ../package.json ./learnLang-linux-x64/
 # cat create-installer-linux-x64-nsis-nwjs.out.txt
 tar -zcvf learnLang-linux-x64.tar.gz learnLang-linux-x64 | tail -n 20
 mv -v learnLang-linux-x64.tar.gz $RELEASES_DIR/
+
+echo "### finished"
+echo "########################################"
