@@ -274,7 +274,8 @@ function githubTagAndPublishRelease() {
         if [ "$TRAVIS_BUILD_NUMBER" != "$latestBuildNumber" ];then
 
             mydo "pushd $CLONE_DIR"
-            sed -E -e "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" -i ./package.json; git diff ./package.json
+            sed -E "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" -i ./package.json
+            git diff ./package.json
             mydo "popd"
             if [ $errors -ne 0 ];then echo "Error in $func"; return 1; fi
 
@@ -306,25 +307,40 @@ function githubTagAndPublishRelease() {
         githubReleaseCreate $REPO v$latestTag
         echo "\$APP.\$TRG_OS.\$OPT1.\$OPT2 == $APP.$TRG_OS.$OPT1.$OPT2"
         case $APP.$TRG_OS.$OPT1.$OPT2 in
-        learnLang.android.debug.Full) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug-x86.apk ;;
-        learnLang.android.debug.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk ;;
-        learnLang.android.release.Full) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-x86.apk ;;
-        learnLang.android.release.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk ;;
-        learnLang.linux-win.release.Full)
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-linux-ia32.tar.gz
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-linux-x64.tar.gz
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-win-ia32-setup.exe
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-win-x64-setup.exe
+        learnLang.android.debug.)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-debug.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-x86-debug.apk
             ;;
-        learnLang.osx.release.Full)
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/learnLang-osx-x64.tar.gz
+        learnLang.android.debug.Small)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-debug.apk
             ;;
-        # puzzle15.android.debug.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk ;;
-        puzzle15.android.debug.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug.apk
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-debug-X86.apk ;;
-        puzzle15.android.release.) githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME.apk ;;
+        learnLang.android.release.)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-armv7.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-x86.apk
+            ;;
+        learnLang.android.release.Small)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android.apk
+            ;;
+        learnLang.linux-win.release.)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-linux-ia32.tar.gz
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-linux-x64.tar.gz
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-win-ia32-setup.exe
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-win-x64-setup.exe
+            ;;
+        learnLang.osx.release.)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-osx-x64.tar.gz
+            ;;
+
+        puzzle15.android.debug.)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-debug.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-x86-debug.apk
+            ;;
+        puzzle15.android.release.)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android.apk
+            ;;
         esac
 
     fi

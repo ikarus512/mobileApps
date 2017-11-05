@@ -26,17 +26,17 @@ matrix:
   include:
     ### learnLang: ###
     #-os: linux
-    # env: JB=010 TRG_OS=android   APP=learnLang FRM=cordova OPT1=debug
+    # env: JB=010 TRG_OS=android   APP=learnLang FRM=cordova OPT1=debug   OPT2=Small
     #-os: linux
-    # env: JB=020 TRG_OS=android   APP=learnLang FRM=cordova OPT1=debug OPT2=Full
+    # env: JB=020 TRG_OS=android   APP=learnLang FRM=cordova OPT1=debug   OPT2=
     - os: linux
-      env: JB=030 TRG_OS=android   APP=learnLang FRM=cordova OPT1=release
+      env: JB=030 TRG_OS=android   APP=learnLang FRM=cordova OPT1=release OPT2=Small
     - os: linux
-      env: JB=040 TRG_OS=android   APP=learnLang FRM=cordova OPT1=release OPT2=Full EXTRASTEP=deploy
+      env: JB=040 TRG_OS=android   APP=learnLang FRM=cordova OPT1=release OPT2= EXTRASTEP=deploy
     - os: linux
-      env: JB=050 TRG_OS=linux-win APP=learnLang FRM=nwjs    OPT1=release OPT2=Full
+      env: JB=050 TRG_OS=linux-win APP=learnLang FRM=nwjs    OPT1=release OPT2=
     - os: osx
-      env: JB=060 TRG_OS=osx       APP=learnLang FRM=nwjs    OPT1=release OPT2=Full
+      env: JB=060 TRG_OS=osx       APP=learnLang FRM=nwjs    OPT1=release OPT2=
     ### puzzle15: ###
     #-os: linux
     # env: JB=070 TRG_OS=android   APP=puzzle15  FRM=cordova-ionic OPT1=debug

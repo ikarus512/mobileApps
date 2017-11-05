@@ -29,9 +29,9 @@ rm -fv platforms/android/build/outputs/apk/*.apk
 if [ "$OPT1" == "debug" ];then
     cordova build android --debug || exit 1 # --verbose
     ls -lh platforms/android/build/outputs/apk
-    #cp -frv platforms/android/build/outputs/apk/android-debug.apk $RELEASES_DIR/$APPNAME-debug.apk
-    cp -frv platforms/android/build/outputs/apk/android-armv7-debug.apk $RELEASES_DIR/$APPNAME-debug.apk
-    cp -frv platforms/android/build/outputs/apk/android-x86-debug.apk   $RELEASES_DIR/$APPNAME-debug-x86.apk
+    #cp -frv platforms/android/build/outputs/apk/android-debug.apk $RELEASES_DIR/$APPNAME-android-debug.apk
+    cp -frv platforms/android/build/outputs/apk/android-armv7-debug.apk $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
+    cp -frv platforms/android/build/outputs/apk/android-x86-debug.apk   $RELEASES_DIR/$APPNAME-android-x86-debug.apk
 fi
 
 if [ "$OPT1" == "release" ];then
@@ -58,8 +58,8 @@ if [ "$OPT1" == "release" ];then
     ### sign and copy to $RELEASES_DIR/ for later check-in
     for apkFile in $(ls platforms/android/build/outputs/apk/android*-release-unsigned.apk);do
 
-        plat1=$(echo $apkFile | perl -e '$_=<>; s/^.*\/\w+|-release-unsigned.apk$|-armv7//g; print;')
-        apkFileOut=$RELEASES_DIR/$APPNAME$plat1.apk
+        plat1=$(echo $apkFile | perl -e '$_=<>; s/^.*\/\w+|-release-unsigned.apk$//g; print;')
+        apkFileOut=$RELEASES_DIR/$APPNAME-android$plat1.apk
         unset plat1
         rm -f $apkFileOut || exit 1
 

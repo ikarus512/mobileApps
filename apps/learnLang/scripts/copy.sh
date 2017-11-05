@@ -9,7 +9,7 @@ echo "### PWD=$PWD"
 # copy/compile files from src to www
 cp -frv src www
 rm -frv www/fonts/resources
-if [ "$OPT2" != "Full" ];then
+if [ "$OPT2" == "Small" ];then
     rm -frv www/js/data/languages/hindi_oldfont.js
     rm -frv www/js/data/music/notes.js
     rm -frv www/js/data/music/guitar.js

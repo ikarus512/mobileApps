@@ -32,7 +32,7 @@ cordova.android|cordova-ionic.android)
         #     cordova plugin add cordova-plugin-console
         # fi
 
-        if [ "$OPT2" == "Full" ];then
+        if [ "$OPT2" != "Small" ];then
             # mydo cordova plugin add cordova-plugin-dialogs || exit 1 ### navigator.notification.alert()
             mydo cordova plugin add cordova-plugin-crosswalk-webview || exit 1
         fi
