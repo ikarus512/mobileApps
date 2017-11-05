@@ -16,8 +16,8 @@ flavor=release; sdk=
 
 if [ ! -f nwjs$sdk-v$v-linux-x64.tar.gz ];then wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-linux-x64.tar.gz; fi
 tar -xvzf nwjs$sdk-v$v-linux-x64.tar.gz | tail -n 20
-chmod 777 -R nwjs$sdk-v$v-linux-x64
-mv nwjs$sdk-v$v-linux-x64 learnLang-linux-x64
+chmod -R +x nwjs$sdk-v$v-linux-x64
+mv -v nwjs$sdk-v$v-linux-x64 learnLang-linux-x64
 cp -fr ../www ./learnLang-linux-x64/www/
 cp -f  ../package.json ./learnLang-linux-x64/
  echo ls learnLang-linux-x64:
@@ -31,4 +31,4 @@ cp -f  ../package.json ./learnLang-linux-x64/
 # ../node_modules/.bin/makensis-cli compile ./create-installer-linux-x64-nsis-nwjs.nsi >create-installer-linux-x64-nsis-nwjs.out.txt 2>&1
 # cat create-installer-linux-x64-nsis-nwjs.out.txt
 tar -zcvf learnLang-linux-x64.tar.gz learnLang-linux-x64 | tail -n 20
-mv learnLang-linux-x64.tar.gz $RELEASES_DIR/
+mv -v learnLang-linux-x64.tar.gz $RELEASES_DIR/

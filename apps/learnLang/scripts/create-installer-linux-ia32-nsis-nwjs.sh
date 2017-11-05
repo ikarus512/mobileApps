@@ -16,8 +16,8 @@ flavor=release; sdk=
 
 if [ ! -f nwjs$sdk-v$v-linux-ia32.tar.gz ];then wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-linux-ia32.tar.gz; fi
 tar -xvzf nwjs$sdk-v$v-linux-ia32.tar.gz | tail -n 20
-chmod 777 -R nwjs$sdk-v$v-linux-ia32
-mv nwjs$sdk-v$v-linux-ia32 learnLang-linux-ia32
+chmod -R +x nwjs$sdk-v$v-linux-ia32
+mv -v nwjs$sdk-v$v-linux-ia32 learnLang-linux-ia32
 cp -fr ../www ./learnLang-linux-ia32/www/
 cp -f  ../package.json ./learnLang-linux-ia32/
  echo ls learnLang-linux-ia32:
@@ -31,4 +31,4 @@ cp -f  ../package.json ./learnLang-linux-ia32/
 # ../node_modules/.bin/makensis-cli compile ./create-installer-linux-ia32-nsis-nwjs.nsi >create-installer-linux-ia32-nsis-nwjs.out.txt 2>&1
 # cat create-installer-linux-ia32-nsis-nwjs.out.txt
 tar -zcvf learnLang-linux-ia32.tar.gz learnLang-linux-ia32 | tail -n 20
-mv learnLang-linux-ia32.tar.gz $RELEASES_DIR/
+mv -v learnLang-linux-ia32.tar.gz $RELEASES_DIR/

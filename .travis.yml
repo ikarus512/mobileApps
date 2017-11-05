@@ -71,6 +71,7 @@ before_script:
     - export APPL_DIR=$WORK_DIR/apps/$APP
     - export ANDROID_MANIFEST=$APPL_DIR/platforms/android/AndroidManifest.xml
 
+    - . $WORK_DIR/scripts/_mydo.sh
     - . $WORK_DIR/scripts/common_before_install.sh
     - . $APPL_DIR/scripts/before_install.sh
     - . $APPL_DIR/scripts/copy.sh

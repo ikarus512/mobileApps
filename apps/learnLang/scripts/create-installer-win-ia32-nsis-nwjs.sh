@@ -16,8 +16,8 @@ flavor=release; sdk=
 
 if [ ! -f nwjs$sdk-v$v-win-ia32.zip ];then wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-win-ia32.zip; fi
 unzip nwjs$sdk-v$v-win-ia32.zip | tail -n 20
-chmod 777 -R nwjs$sdk-v$v-win-ia32
-mv nwjs$sdk-v$v-win-ia32 learnLang-win-ia32
+chmod -R +x nwjs$sdk-v$v-win-ia32
+mv -v nwjs$sdk-v$v-win-ia32 learnLang-win-ia32
 cp -fr ../www ./learnLang-win-ia32/www/
 cp -f  ../package.json ./learnLang-win-ia32/
 cp -f  learnLang-win-ia32/nw.exe learnLang-win-ia32/learnLang-start.exe
@@ -28,4 +28,4 @@ cp -f  learnLang-win-ia32/nw.exe learnLang-win-ia32/learnLang-start.exe
 
 $APPL_DIR/node_modules/.bin/makensis-cli compile ./create-installer-win-ia32-nsis-nwjs.nsi >create-installer-win-ia32-nsis-nwjs.out.txt 2>&1
 cat create-installer-win-ia32-nsis-nwjs.out.txt | tail -n 20
-mv learnLang-win-ia32-setup.exe $RELEASES_DIR/
+mv -v learnLang-win-ia32-setup.exe $RELEASES_DIR/
