@@ -16,7 +16,7 @@ linux.cordova.android|linux.cordova-ionic.android)
     #sudo apt-get update
     mydo sudo apt-get install g++-4.8 lib32stdc++6 lib32z1 openjdk-7-jdk #default-jdk
 
-    mydo source $WORK_DIR/scripts/android_sdk_install.sh
+    . $WORK_DIR/scripts/android_sdk_install.sh
 
     mydo npm install -g npm
 
@@ -26,7 +26,7 @@ linux.cordova.android|linux.cordova-ionic.android)
     $cmd
 
     #bower update
-    #source $WORK_DIR/scripts/ionic_cordova_prepare.sh
+    #. $WORK_DIR/scripts/ionic_cordova_prepare.sh
 ;;
 linux.nwjs.linux-win)
     mydo sudo apt-get install wine nsis #wine1.6

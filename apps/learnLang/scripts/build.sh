@@ -33,10 +33,10 @@ linux-win)
     wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-ia32.zip &
     wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-x64.zip &
     wait
-    source ./create-installer-win-ia32-nsis-nwjs.sh
-    source ./create-installer-win-x64-nsis-nwjs.sh
-    source ./create-installer-linux-ia32-nsis-nwjs.sh
-    source ./create-installer-linux-x64-nsis-nwjs.sh
+    . ./create-installer-win-ia32-nsis-nwjs.sh
+    . ./create-installer-win-x64-nsis-nwjs.sh
+    . ./create-installer-linux-ia32-nsis-nwjs.sh
+    . ./create-installer-linux-x64-nsis-nwjs.sh
     popd
 
     mydo ls -l $RELEASES_DIR
@@ -45,7 +45,7 @@ osx)
     ### Create installations using nw.js distro and www folder (www compiled from src)
     pushd scripts
     wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-osx-x64.zip
-    source ./create-installer-osx-x64-nsis-nwjs.sh
+    . ./create-installer-osx-x64-nsis-nwjs.sh
     popd
 
     mydo ls -l $RELEASES_DIR
@@ -77,7 +77,7 @@ android)
         cordova build android --release || exit 1
 
         echo "=== android check permissions:"
-        source $WORK_DIR/scripts/android_check_permissions.sh
+        . $WORK_DIR/scripts/android_check_permissions.sh
 
         ### keystore:    CN=Your name, OU=OrgUnit, O=Org, L=city/Locality, S=STate/province, C=Country code
         keystoreFile=ikarus512-$APPNAME.keystore

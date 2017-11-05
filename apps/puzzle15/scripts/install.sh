@@ -41,7 +41,7 @@ cordova.android|cordova-ionic.android)
     fi
 
     echo "=== android check permissions:"
-    source $WORK_DIR/scripts/android_check_permissions.sh
+    . $WORK_DIR/scripts/android_check_permissions.sh
 
 ;;
 esac
