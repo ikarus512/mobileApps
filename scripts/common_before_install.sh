@@ -14,11 +14,11 @@ echo
 case $TRAVIS_OS_NAME.$FRM.$TRG_OS in
 linux.cordova.android|linux.cordova-ionic.android)
     #sudo apt-get update
-    cmd="sudo apt-get install g++-4.8 lib32stdc++6 lib32z1 openjdk-7-jdk"; echo "### $cmd"; $cmd #default-jdk
+    mydo sudo apt-get install g++-4.8 lib32stdc++6 lib32z1 openjdk-7-jdk #default-jdk
 
-    cmd="source $WORK_DIR/scripts/android_sdk_install.sh"; echo "### $cmd"; $cmd
+    mydo source $WORK_DIR/scripts/android_sdk_install.sh
 
-    cmd="npm install -g npm"; echo "### $cmd"; $cmd
+    mydo npm install -g npm
 
     cmd="npm install -g cordova"
     if [ $FRM == cordova-ionic ];then cmd="$cmd gulp bower ionic"; fi
@@ -29,8 +29,8 @@ linux.cordova.android|linux.cordova-ionic.android)
     #source $WORK_DIR/scripts/ionic_cordova_prepare.sh
 ;;
 linux.nwjs.linux-win)
-    cmd="sudo apt-get install wine nsis"; echo "### $cmd"; $cmd #wine1.6
-    cmd="npm install -g npm"; echo "### $cmd"; $cmd
+    mydo sudo apt-get install wine nsis #wine1.6
+    mydo npm install -g npm
 ;;
 esac
 

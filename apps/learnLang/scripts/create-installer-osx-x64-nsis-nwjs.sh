@@ -13,21 +13,26 @@
 v=0.26.2
 flavor=release; sdk=
 #flavor=debug; sdk=-sdk
+oldd=nwjs$sdk-v$v-osx-x64
+newd=learnLang-osx-x64
 
-if [ ! -f nwjs$sdk-v$v-osx-x64.zip ];then mydo wget --quiet https://dl.nwjs.io/v$v/nwjs$sdk-v$v-osx-x64.zip; fi
-mydo unzip nwjs$sdk-v$v-osx-x64.zip --mydo-tail-20
-mydo chmod -R +x nwjs$sdk-v$v-osx-x64
-mydo mv -v nwjs$sdk-v$v-osx-x64 learnLang-osx-x64
-mydo cp -fr ../www ./learnLang-osx-x64/www/
-mydo cp -f  ../package.json ./learnLang-osx-x64/
-mydo ls -l learnLang-osx-x64
-# cp -f  learnLang-osx-x64/nw.exe learnLang-osx-x64/learnLang-start.exe
-###cd learnLang-osx-x64; nw.exe . # run
+if [ ! -f $oldd.zip ];then mydo wget --quiet https://dl.nwjs.io/v$v/$oldd.zip; fi
+mydo unzip $oldd.zip --mydo-tail-20
+mydo chmod -R +x $oldd
+    mydo ls -l $oldd
+mydo mv -v $oldd $newd
+mydo cp -fr ../www ./$newd/www/
+mydo cp -f  ../package.json ./$newd/
+    mydo ls -l
+    mydo ls -l $newd
+    mydo ls -l $oldd
+# cp -f  $newd/nw.exe $newd/learnLang-start.exe
+###cd $newd; nw.exe . # run
 
 ### Create NSIS installation
 ### http://nsis.sourceforge.net/Docs
 
 # ../node_modules/.bin/makensis-cli compile ./create-installer-osx-x64-nsis-nwjs.nsi >create-installer-osx-x64-nsis-nwjs.out.txt 2>&1
 # cat create-installer-osx-x64-nsis-nwjs.out.txt
-mydo tar -zcvf learnLang-osx-x64.tar.gz learnLang-osx-x64 --mydo-tail-20
-mydo mv -v learnLang-osx-x64.tar.gz $RELEASES_DIR/
+mydo tar -zcvf $newd.tar.gz $newd --mydo-tail-20
+mydo mv -v $newd.tar.gz $RELEASES_DIR/

@@ -21,8 +21,8 @@ if [ ! -e $ANDROID_HOME/tools/bin ];then
     # # aapt
     # sudo apt-get install zlib1g:i386
 
-    cmd="wget --quiet http://dl.google.com/android/android-sdk_r24.4-linux.tgz"; echo "  ### $cmd"; $cmd
-    cmd="tar -xvf android-sdk_r24.4-linux.tgz"; echo "  ### $cmd"; $cmd | tail -n 20
+    mydo wget --quiet http://dl.google.com/android/android-sdk_r24.4-linux.tgz
+    mydo tar -xvf android-sdk_r24.4-linux.tgz --mydo-tail-20
 
     #android list sdk --extended # && android list sdk -a --extended
 

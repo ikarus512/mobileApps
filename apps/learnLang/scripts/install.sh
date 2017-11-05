@@ -11,7 +11,7 @@ echo "### PWD=$PWD"
 # nwjs)    cp -frv package.nwjs.json    package.json ;;
 # esac
 
-cmd="npm i"; echo "### $cmd"; $cmd
+mydo npm i
 
 case $FRM.$TRG_OS in
 cordova.android|cordova-ionic.android)
@@ -26,15 +26,15 @@ cordova.android|cordova-ionic.android)
         # cordova prepare || exit 1
         # cordova prepare --verbose || exit 1
 
-        cmd="cordova platform add android"; echo "### $cmd"; $cmd || exit 1
+        mydo cordova platform add android || exit 1
 
         # if [ "$OPT1" == "debug" ];then
         #     cordova plugin add cordova-plugin-console
         # fi
 
         if [ "$OPT2" == "Full" ];then
-            # cmd="cordova plugin add cordova-plugin-dialogs"; echo "### $cmd"; $cmd || exit 1 ### navigator.notification.alert()
-            cmd="cordova plugin add cordova-plugin-crosswalk-webview"; echo "### $cmd"; $cmd || exit 1
+            # mydo cordova plugin add cordova-plugin-dialogs || exit 1 ### navigator.notification.alert()
+            mydo cordova plugin add cordova-plugin-crosswalk-webview || exit 1
         fi
 
     fi
