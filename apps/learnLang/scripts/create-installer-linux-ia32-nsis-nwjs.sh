@@ -16,9 +16,9 @@ echo "### PWD=$PWD"
 # wget https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-x64.zip
 
 v=0.26.2
-sdk=; if [ "$DEBUGV" == "yes" ];then sdk="-sdk"; fi
+sdk=; debug=; if [ "$DEBUGV" == "yes" ];then sdk="-sdk"; debug="-debug"; fi
 oldd=nwjs$sdk-v$v-linux-ia32
-newd=learnLang-linux-ia32
+newd=learnLang-linux-ia32$debug
 
 if [ ! -f $oldd.tar.gz ];then mydo wget --quiet https://dl.nwjs.io/v$v/$oldd.tar.gz; fi
 mydo tar -xvzf $oldd.tar.gz --mydo-tail-20

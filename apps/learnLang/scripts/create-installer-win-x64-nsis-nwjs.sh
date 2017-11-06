@@ -16,9 +16,9 @@ echo "### PWD=$PWD"
 # wget https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-x64.zip
 
 v=0.26.2
-sdk=; if [ "$DEBUGV" == "yes" ];then sdk="-sdk"; fi
+sdk=; debug=; if [ "$DEBUGV" == "yes" ];then sdk="-sdk"; debug="-debug"; fi
 oldd=nwjs$sdk-v$v-win-x64
-newd=learnLang-win-x64
+newd=learnLang-win-x64$debug
 
 if [ ! -f $oldd.zip ];then mydo wget --quiet https://dl.nwjs.io/v$v/$oldd.zip; fi
 mydo unzip $oldd.zip --mydo-tail-20
@@ -33,7 +33,7 @@ mydo ls -l $newd
 ### Create NSIS installation
 ### http://nsis.sourceforge.net/Docs
 
-$APPL_DIR/node_modules/.bin/makensis-cli compile ./create-installer-win-x64-nsis-nwjs.nsi >create-installer-win-x64-nsis-nwjs.out.txt 2>&1
+$APPL_DIR/node_modules/.bin/makensis-cli compile ./create-installer-win-x64-nsis-nwjs$debug.nsi >create-installer-win-x64-nsis-nwjs.out.txt 2>&1
 mydo cat create-installer-win-x64-nsis-nwjs.out.txt --mydo-tail-20
 mydo mv -v $newd-setup.exe $RELEASES_DIR/
 

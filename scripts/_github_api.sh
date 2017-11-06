@@ -324,43 +324,39 @@ function githubTagAndPublishRelease() {
 
         getLatestTag $REPO; latestTag=$result; echo "=== latestTag=$latestTag"
         githubReleaseCreate $REPO v$latestTag
-        DEBUGV1=; if [ "$DEBUGV" == "yes" ];then DEBUGV1=debug; fi
-        echo "\$APP.\$TARGET_OS.\$DEBUGV1.\$OPT2 == $APP.$TARGET_OS.$DEBUGV1.$OPT2"
-        case $APP.$TARGET_OS.$DEBUGV1.$OPT2 in
-        learnLang.android.debug.)
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-debug.apk
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-x86-debug.apk
-            ;;
-        learnLang.android.debug.Small)
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-debug.apk
-            ;;
-        learnLang.android..)
+        mydo echo "APP.TARGET_OS.DEBUGV.OPT2 == $APP.$TARGET_OS.$DEBUGV.$OPT2"
+        case $APP.$TARGET_OS.$DEBUGV.$OPT2 in
+        learnLang.android.*.*)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-debug.apk # if no crosswalk used (just 1 version produced)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-armv7-debug.apk # if crosswalk used (armv7/x86 versions produced)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-x86-debug.apk   # if crosswalk used (armv7/x86 versions produced)
+            #release
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-armv7.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-x86.apk
             ;;
-        learnLang.android..Small)
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android.apk
-            ;;
-        learnLang.linux-win..)
+        learnLang.linux-win.*.)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-linux-ia32-debug.tar.gz
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-linux-x64-debug.tar.gz
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-win-ia32-debug-setup.exe
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-win-x64-debug-setup.exe
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-linux-ia32.tar.gz
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-linux-x64.tar.gz
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-win-ia32-setup.exe
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-win-x64-setup.exe
             ;;
-        learnLang.osx..)
+        learnLang.osx.*.)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-osx-x64-debug.tar.gz
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-osx-x64.tar.gz
             ;;
 
-        puzzle15.android.debug.)
+        puzzle15.android.*.)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-debug.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-x86-debug.apk
             ;;
-        puzzle15.android..)
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android.apk
-            ;;
+
         esac
 
     fi
