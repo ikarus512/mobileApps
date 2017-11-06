@@ -8,7 +8,7 @@ echo "### PWD=$PWD"
 
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=puzzle15; fi
-if [ -z $DEBUGV   ]; then DEBUGV=no; fi
+if [ -z $DEBUGV   ]; then DEBUGV=; fi
 if [ -z $APPNAME  ]; then APPNAME=$APP; fi
 
 if [ -z $ANDROID_HOME ]; then ANDROID_HOME=$PWD/../android-sdk-linux; fi

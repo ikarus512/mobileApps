@@ -21,7 +21,7 @@
 
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=learnLang; fi
-if [ -z $DEBUGV   ]; then DEBUGV=no; fi
+if [ -z $DEBUGV   ]; then DEBUGV=; fi
 if [ -z $OPT2     ]; then OPT2=; fi
 if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi
 if [ -z $RELEASES_DIR ]; then RELEASES_DIR=$PWD/../releases; fi
@@ -324,9 +324,9 @@ function githubTagAndPublishRelease() {
 
         getLatestTag $REPO; latestTag=$result; echo "=== latestTag=$latestTag"
         githubReleaseCreate $REPO v$latestTag
-        if [ $DEBUGV == yes ];then DEBUGV1=debug; else DEBUGV1=; fi
+        DEBUGV1=; if [ "$DEBUGV" == "yes" ];then DEBUGV1=debug; fi
         echo "\$APP.\$TARGET_OS.\$DEBUGV1.\$OPT2 == $APP.$TARGET_OS.$DEBUGV1.$OPT2"
-        case $APP.$TARGET_OS.$DEBUGV.$OPT2 in
+        case $APP.$TARGET_OS.$DEBUGV1.$OPT2 in
         learnLang.android.debug.)
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-debug.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-armv7-debug.apk

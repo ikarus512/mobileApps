@@ -9,7 +9,7 @@ echo
 
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=learnLang; fi
-if [ -z $DEBUGV   ]; then DEBUGV=no; fi
+if [ -z $DEBUGV   ]; then DEBUGV=; fi
 if [ -z $OPT2     ]; then OPT2=; fi
 if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi
 if [ -z $RELEASES_DIR ]; then RELEASES_DIR=$PWD/../releases; fi

@@ -8,7 +8,7 @@ echo "### PWD=$PWD"
 
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=learnLang; fi
-if [ -z $DEBUGV   ]; then DEBUGV=no; fi
+if [ -z $DEBUGV   ]; then DEBUGV=; fi
 if [ -z $OPT2     ]; then OPT2=; fi
 if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi
 
@@ -29,7 +29,7 @@ linux-win)
     ### Create installations using nw.js distro and www folder (www compiled from src)
     mydo pushd scripts
         echo "### wget started"
-        if [ $DEBUGV == yes ];then sdk="-sdk"; fi
+        sdk=; if [ "$DEBUGV" == "yes" ];then sdk="-sdk"; fi
         wget --quiet https://dl.nwjs.io/v0.26.2/nwjs$sdk-v0.26.2-linux-ia32.tar.gz &
         wget --quiet https://dl.nwjs.io/v0.26.2/nwjs$sdk-v0.26.2-linux-x64.tar.gz &
         wget --quiet https://dl.nwjs.io/v0.26.2/nwjs$sdk-v0.26.2-win-ia32.zip &
@@ -48,7 +48,7 @@ linux-win)
 osx)
     ### Create installations using nw.js distro and www folder (www compiled from src)
     pushd scripts
-    if [ $DEBUGV == yes ];then sdk="-sdk"; fi
+    sdk=; if [ "$DEBUGV" == "yes" ];then sdk="-sdk"; fi
     wget --quiet https://dl.nwjs.io/v0.26.2/nwjs$sdk-v0.26.2-osx-x64.zip
     . ./create-installer-osx-x64-nsis-nwjs.sh
     popd
