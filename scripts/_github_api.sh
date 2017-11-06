@@ -275,14 +275,21 @@ function githubTagAndPublishRelease() {
 
             echo "### update travisBuildNumber in package.json"
             mydo "pushd $CLONE_DIR"
-            mydo cat ./package.json --mydo-head-4
+            mydo pwd
+            mydo sed --version
+            mydo ls -l
+            mydo "echo $TRAVIS_BUILD_NUMBER"
+            mydo cat ./package.json --mydo-head-4 --mydo-tail-2
             if [ $TRAVIS_OS_NAME == linux ];then
-                sed -E "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" --in-place package.json
+                sed -E --in-place "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" ./package.json
             else # osx
-                sed -E "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" -i ''      package.json
+                sed -E            "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" ./package.json
             fi
             mydo cat ./package.json --mydo-head-4 --mydo-tail-2
             mydo git diff ./package.json
+            mydo git status
+            mydo git diff
+            mydo ls -l
             mydo "popd"
             if [ $errors -ne 0 ];then echo "Error in $func"; return 1; fi
 
