@@ -11,7 +11,7 @@ echo "### TRAVIS_OS_NAME=$TRAVIS_OS_NAME"
 echo "### uname=$(uname -a)"
 echo
 
-case $TRAVIS_OS_NAME.$FRM.$TRG_OS in
+case $TRAVIS_OS_NAME.$FRM.$TARGET_OS in
 linux.cordova.android|linux.cordova-ionic.android)
     #sudo apt-get update
     mydo sudo apt-get install g++-4.8 lib32stdc++6 lib32z1 openjdk-7-jdk #default-jdk

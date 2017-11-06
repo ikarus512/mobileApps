@@ -21,7 +21,7 @@ if [ "$OPT2" == "Small" ];then
 fi
 
 # Prepare cordova hooks
-if [ "$TRG_OS" == "android" ];then
+if [ "$TARGET_OS" == "android" ];then
     mkdir -p $APPL_DIR/hooks/after_prepare
     cp -frv $WORK_DIR/scripts/android_hook_remove_permissions.js $APPL_DIR/hooks/after_prepare/
     cp -frv $WORK_DIR/scripts/android_check_permissions.sh       $APPL_DIR/hooks/after_prepare/

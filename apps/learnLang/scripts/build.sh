@@ -8,7 +8,7 @@ echo "### PWD=$PWD"
 
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=learnLang; fi
-if [ -z $OPT1     ]; then OPT1=debug; fi
+if [ -z $DEBUGV   ]; then DEBUGV=no; fi
 if [ -z $OPT2     ]; then OPT2=; fi
 if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi
 
@@ -24,7 +24,7 @@ if [ -z $APPL_DIR     ]; then APPL_DIR=$WORK_DIR/apps/$APP; fi
 
 mkdir -p $RELEASES_DIR
 
-case $TRG_OS in
+case $TARGET_OS in
 linux-win)
     ### Create installations using nw.js distro and www folder (www compiled from src)
     mydo pushd scripts
@@ -56,7 +56,7 @@ osx)
 android)
     rm -fv platforms/android/build/outputs/apk/*.apk
 
-    if [ "$OPT1" == "debug" ];then
+    if [ "$DEBUGV" == "yes" ];then
 
         cordova build android --debug || exit 1 # --verbose
 
@@ -72,9 +72,7 @@ android)
             ;;
         esac
 
-    fi
-
-    if [ "$OPT1" == "release" ];then
+    else # elif [ "$DEBUGV" != "yes" ];then
 
         ### build
         cordova build android --release || exit 1

@@ -13,7 +13,7 @@ echo "### PWD=$PWD"
 
 mydo npm i
 
-case $FRM.$TRG_OS in
+case $FRM.$TARGET_OS in
 cordova.android|cordova-ionic.android)
 
     mkdir -p hooks
@@ -28,7 +28,7 @@ cordova.android|cordova-ionic.android)
 
         mydo cordova platform add android || exit 1
 
-        # if [ "$OPT1" == "debug" ];then
+        # if [ "$DEBUGV" == "yes" ];then
         #     cordova plugin add cordova-plugin-console
         # fi
 
@@ -36,7 +36,7 @@ cordova.android|cordova-ionic.android)
 
     if [ ! -e plugins/cordova-plugin-dialogs ];then cordova plugin add cordova-plugin-dialogs; fi
     if [ ! -e plugins/cordova-plugin-media ];then cordova plugin add cordova-plugin-media; fi ### navigator.notification.alert()
-    if [ ! -e plugins/cordova-plugin-crosswalk-webview -a "$OPT1" == "debug" ];then
+    if [ ! -e plugins/cordova-plugin-crosswalk-webview -a "$DEBUGV" == "yes" ];then
         cordova plugin add cordova-plugin-crosswalk-webview
     fi
 

@@ -21,7 +21,7 @@
 
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=learnLang; fi
-if [ -z $OPT1     ]; then OPT1=debug; fi
+if [ -z $DEBUGV   ]; then DEBUGV=no; fi
 if [ -z $OPT2     ]; then OPT2=; fi
 if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi
 if [ -z $RELEASES_DIR ]; then RELEASES_DIR=$PWD/../releases; fi
@@ -276,14 +276,15 @@ function githubTagAndPublishRelease() {
             echo "### update travisBuildNumber in package.json"
             mydo "pushd $CLONE_DIR"
             mydo pwd
-            mydo sed --version
+            mydo sed -V #--version
             mydo ls -l
-            mydo "echo $TRAVIS_BUILD_NUMBER"
+            mydo "echo TRAVIS_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER"
             mydo cat ./package.json --mydo-head-4 --mydo-tail-2
             if [ $TRAVIS_OS_NAME == linux ];then
                 sed -E --in-place "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" ./package.json
             else # osx
-                sed -E            "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" ./package.json
+                sed -E "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" $CLONE_DIR/package.json >package.json.bak
+                mv -frv package.json.bak package.json
             fi
             mydo cat ./package.json --mydo-head-4 --mydo-tail-2
             mydo git diff ./package.json
@@ -319,8 +320,9 @@ function githubTagAndPublishRelease() {
 
         getLatestTag $REPO; latestTag=$result; echo "=== latestTag=$latestTag"
         githubReleaseCreate $REPO v$latestTag
-        echo "\$APP.\$TRG_OS.\$OPT1.\$OPT2 == $APP.$TRG_OS.$OPT1.$OPT2"
-        case $APP.$TRG_OS.$OPT1.$OPT2 in
+        if [ $DEBUGV == yes ];then DEBUGV1=debug; else DEBUGV1=; fi
+        echo "\$APP.\$TARGET_OS.\$DEBUGV1.\$OPT2 == $APP.$TARGET_OS.$DEBUGV1.$OPT2"
+        case $APP.$TARGET_OS.$DEBUGV.$OPT2 in
         learnLang.android.debug.)
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-debug.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
@@ -329,21 +331,21 @@ function githubTagAndPublishRelease() {
         learnLang.android.debug.Small)
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-debug.apk
             ;;
-        learnLang.android.release.)
+        learnLang.android..)
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-armv7.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-x86.apk
             ;;
-        learnLang.android.release.Small)
+        learnLang.android..Small)
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android.apk
             ;;
-        learnLang.linux-win.release.)
+        learnLang.linux-win..)
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-linux-ia32.tar.gz
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-linux-x64.tar.gz
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-win-ia32-setup.exe
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-win-x64-setup.exe
             ;;
-        learnLang.osx.release.)
+        learnLang.osx..)
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-osx-x64.tar.gz
             ;;
 
@@ -352,7 +354,7 @@ function githubTagAndPublishRelease() {
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-x86-debug.apk
             ;;
-        puzzle15.android.release.)
+        puzzle15.android..)
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android.apk
             ;;
         esac

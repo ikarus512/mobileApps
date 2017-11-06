@@ -8,7 +8,7 @@ echo "### PWD=$PWD"
 
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=puzzle15; fi
-if [ -z $OPT1     ]; then OPT1=debug; fi
+if [ -z $DEBUGV   ]; then DEBUGV=no; fi
 if [ -z $APPNAME  ]; then APPNAME=$APP; fi
 
 if [ -z $ANDROID_HOME ]; then ANDROID_HOME=$PWD/../android-sdk-linux; fi
@@ -25,7 +25,7 @@ mkdir -p $RELEASES_DIR
 
 rm -fv platforms/android/build/outputs/apk/*.apk
 
-if [ "$OPT1" == "debug" ];then
+if [ "$DEBUGV" == "yes" ];then
     cordova build android --debug || exit 1 # --verbose
     ls -lh platforms/android/build/outputs/apk
     #cp -frv platforms/android/build/outputs/apk/android-debug.apk $RELEASES_DIR/$APPNAME-android-debug.apk
@@ -33,7 +33,7 @@ if [ "$OPT1" == "debug" ];then
     cp -frv platforms/android/build/outputs/apk/android-x86-debug.apk   $RELEASES_DIR/$APPNAME-android-x86-debug.apk
 fi
 
-if [ "$OPT1" == "release" ];then
+if [ "$DEBUGV" != "yes" ];then
 
     ### build
     cordova build android --release || exit 1

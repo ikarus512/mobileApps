@@ -26,27 +26,27 @@ matrix:
   include:
     ### learnLang: ###
     #-os: linux
-    # env: JB=010 TRG_OS=android   APP=learnLang FRM=cordova OPT1=debug   OPT2=Small
+    # env: JB=010 TOS=android   APP=learnLang FRM=cordova OPT1=debug   OPT2=Small
     #-os: linux
-    # env: JB=020 TRG_OS=android   APP=learnLang FRM=cordova OPT1=debug
+    # env: JB=020 TOS=android   APP=learnLang FRM=cordova OPT1=debug
     - os: linux
-      env: JB=030 TRG_OS=android   APP=learnLang FRM=cordova OPT1=release OPT2=Small
+      env: JB=030 TOS=android   APP=learnLang FRM=cordova OPT1=release OPT2=Small
     - os: linux
-      env: JB=040 TRG_OS=android   APP=learnLang FRM=cordova OPT1=release
+      env: JB=040 TOS=android   APP=learnLang FRM=cordova OPT1=release
     - os: linux
-      env: JB=050 TRG_OS=linux-win APP=learnLang FRM=nwjs    OPT1=release
+      env: JB=050 TOS=linux-win APP=learnLang FRM=nwjs    OPT1=release
     - os: osx
-      env: JB=060 TRG_OS=osx       APP=learnLang FRM=nwjs    OPT1=release
+      env: JB=060 TOS=osx       APP=learnLang FRM=nwjs    OPT1=release
     ### puzzle15: ###
     #-os: linux
-    # env: JB=070 TRG_OS=android   APP=puzzle15  FRM=cordova-ionic OPT1=debug
+    # env: JB=070 TOS=android   APP=puzzle15  FRM=cordova-ionic OPT1=debug
     - os: linux
-      env: JB=080 TRG_OS=android   APP=puzzle15  FRM=cordova-ionic OPT1=release
+      env: JB=080 TOS=android   APP=puzzle15  FRM=cordova-ionic OPT1=release
     ### tripSave: ###
     #-os: linux
-    # env: JB=090 TRG_OS=android   APP=tripSave  FRM=cordova OPT1=debug
+    # env: JB=090 TOS=android   APP=tripSave  FRM=cordova OPT1=debug
     #-os: linux
-    # env: JB=100 TRG_OS=android   APP=tripSave  FRM=cordova OPT1=release
+    # env: JB=100 TOS=android   APP=tripSave  FRM=cordova OPT1=release
 
 branches:
     only:
@@ -68,6 +68,7 @@ git:
 
 before_script:
     - export APPNAME=$APP$OPT2
+    - export TARGET_OS=$TOS
     - export APPL_DIR=$WORK_DIR/apps/$APP
     - export ANDROID_MANIFEST=$APPL_DIR/platforms/android/AndroidManifest.xml
 
