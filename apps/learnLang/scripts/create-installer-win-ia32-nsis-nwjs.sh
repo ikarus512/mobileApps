@@ -33,8 +33,8 @@ mydo ls -l $newd
 ### Create NSIS installation
 ### http://nsis.sourceforge.net/Docs
 
-$APPL_DIR/node_modules/.bin/makensis-cli compile ./create-installer-win-ia32-nsis-nwjs$debug.nsi >create-installer-win-ia32-nsis-nwjs.out.txt 2>&1
-mydo cat create-installer-win-ia32-nsis-nwjs.out.txt --mydo-tail-20
+$APPL_DIR/node_modules/.bin/makensis-cli compile ./create-installer-win-ia32-nsis-nwjs$debug.nsi >create-installer-win-ia32-nsis-nwjs$debug.out.txt 2>&1
+mydo cat create-installer-win-ia32-nsis-nwjs$debug.out.txt --mydo-tail-20
 mydo mv -v $newd-setup.exe $RELEASES_DIR/
 
 echo "### finished"

@@ -32,7 +32,9 @@ cordova.android|cordova-ionic.android)
         #     cordova plugin add cordova-plugin-console
         # fi
 
-        if [ "$OPT2" != "Small" ];then
+        if [ "$OPT2" == "Small" -a "$DEBUGV" == "" ];then
+            mydo echo "No additional plugins needed."
+        else #elif [ "$OPT2" != "Small" -o "$DEBUGV" == "yes" ];then
             # mydo cordova plugin add cordova-plugin-dialogs || exit 1 ### navigator.notification.alert()
             mydo cordova plugin add cordova-plugin-crosswalk-webview || exit 1
         fi

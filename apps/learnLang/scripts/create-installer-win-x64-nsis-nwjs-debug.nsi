@@ -43,7 +43,7 @@ functionEnd
 section "install"
     setOutPath "$INSTDIR" # target install dir
     # Files added here should be removed by the uninstaller (see section "uninstall")
-    file /r learnLang-win-x64\*
+    file /r learnLang-win-x64-debug\*
     file "..\www\img\icon.ico"
     #file "${APPNAME}-start.exe"
 
