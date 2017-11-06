@@ -16,6 +16,8 @@
   },
   "author": "ikarus512",
   "license": "GPL-3.0",
+  "0011": "=== nw.js osx options: ======================================================",
+  "product_string": "learnLang",
   "build": {
     "nwVersion": "lts",
     "nwFlavor": "normal",

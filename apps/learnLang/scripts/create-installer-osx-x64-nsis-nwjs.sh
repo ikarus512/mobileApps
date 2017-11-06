@@ -24,9 +24,17 @@ if [ ! -f $oldd.zip ];then mydo wget --quiet https://dl.nwjs.io/v$v/$oldd.zip; f
 mydo unzip $oldd.zip --mydo-tail-20
 mydo chmod -R +x $oldd
 mydo mv -v $oldd $newd
-mydo cp -fr ../www ./$newd/www/
-mydo cp -f  ../package.json ./$newd/
-#mydo cp -f  $newd/nw.exe $newd/learnLang-start.exe
+    mydo echo Copy app files to nw folder
+    mydo mkdir -p $newd/nwjs.app/Contents/Resources/app.nw
+    mydo cp -fr ../www ./$newd/nwjs.app/Contents/Resources/app.nw/www/
+    mydo cp -f  ../package.json ./$newd/nwjs.app/Contents/Resources/app.nw/
+    mydo cp -f ../src/img/icon.icns ./$newd/nwjs.app/Contents/Resources/nw.icns
+    #about panel:
+    #Contents/Info.plist
+
+    #mydo cp -f  $newd/nw.exe $newd/learnLang-start.exe
+
+
 mydo ls -l $newd
 ###cd $newd; nw.exe . # run
 
