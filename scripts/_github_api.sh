@@ -275,23 +275,26 @@ function githubTagAndPublishRelease() {
 
             echo "### update travisBuildNumber in package.json"
             mydo "pushd $CLONE_DIR"
-            mydo pwd
-            mydo ls -l
-            mydo "echo TRAVIS_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER"
-            mydo cat ./package.json --mydo-head-4 --mydo-tail-2
             mydo echo sed run
             if [ $TRAVIS_OS_NAME == linux ];then
                 sed -E --in-place "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" ./package.json
             else # osx
-                sed -E "s#(^\s*\"travisBuildNumber\": \")[0-9]+(\".*$)#\1${TRAVIS_BUILD_NUMBER}\2#" $CLONE_DIR/package.json >package.json.bak
+                mydo "echo TRAVIS_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER"
+                mydo cat ./package.json --mydo-head-4 --mydo-tail-2
+
+                perl -pe 's/(^ *"travisBuildNumber": ")[0-9]+(".*$)/$1$ENV{"TRAVIS_BUILD_NUMBER"}$2/g;' package.json >package.json.bak
                 mydo cat ./package.json.bak --mydo-head-4 --mydo-tail-2
                 mydo mv -fv package.json.bak package.json
+
+                mydo cat ./package.json --mydo-head-4 --mydo-tail-2
+                mydo git diff ./package.json
+                mydo git status
+                mydo git diff
+                mydo ls -l
+
+                    mydo perl --version
+                    mydo perl --help
             fi
-            mydo cat ./package.json --mydo-head-4 --mydo-tail-2
-            mydo git diff ./package.json
-            mydo git status
-            mydo git diff
-            mydo ls -l
             mydo "popd"
             if [ $errors -ne 0 ];then echo "Error in $func"; return 1; fi
 

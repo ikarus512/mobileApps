@@ -29,10 +29,11 @@ linux-win)
     ### Create installations using nw.js distro and www folder (www compiled from src)
     mydo pushd scripts
         echo "### wget started"
-        wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-linux-ia32.tar.gz &
-        wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-linux-x64.tar.gz &
-        wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-ia32.zip &
-        wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-x64.zip &
+        if [ $DEBUGV == yes ];then sdk="-sdk"; fi
+        wget --quiet https://dl.nwjs.io/v0.26.2/nwjs$sdk-v0.26.2-linux-ia32.tar.gz &
+        wget --quiet https://dl.nwjs.io/v0.26.2/nwjs$sdk-v0.26.2-linux-x64.tar.gz &
+        wget --quiet https://dl.nwjs.io/v0.26.2/nwjs$sdk-v0.26.2-win-ia32.zip &
+        wget --quiet https://dl.nwjs.io/v0.26.2/nwjs$sdk-v0.26.2-win-x64.zip &
         wait %1 %2 %3 %4
         echo "### wget finished"
         mydo ls -l
@@ -47,7 +48,8 @@ linux-win)
 osx)
     ### Create installations using nw.js distro and www folder (www compiled from src)
     pushd scripts
-    wget --quiet https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-osx-x64.zip
+    if [ $DEBUGV == yes ];then sdk="-sdk"; fi
+    wget --quiet https://dl.nwjs.io/v0.26.2/nwjs$sdk-v0.26.2-osx-x64.zip
     . ./create-installer-osx-x64-nsis-nwjs.sh
     popd
 

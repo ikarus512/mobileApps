@@ -17,11 +17,9 @@ env:
         - RELEASES_DIR=$WORK_DIR/releases
         - CLONE_DIR=$WORK_DIR/_tmp/mobileApps
 
-### TODO: replace OPT1 by DEBUG=yes (means 'sdk'-version for nwjs)
 ### TODO: build learnLang-ios
 ### TODO: build learnLang-winphone
-### TODO: APP-->APPL_DIR; set APPNAME here(?)
-### TODO: copy version from main package.json (or create from tags or???)
+### TODO: get version numbers from main package.json to installation info (or create from tags or???)
 matrix:
   include:
     ### learnLang: ###

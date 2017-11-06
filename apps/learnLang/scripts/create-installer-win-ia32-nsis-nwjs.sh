@@ -16,8 +16,7 @@ echo "### PWD=$PWD"
 # wget https://dl.nwjs.io/v0.26.2/nwjs-v0.26.2-win-x64.zip
 
 v=0.26.2
-flavor=release; sdk=
-#flavor=debug; sdk=-sdk
+if [ $DEBUGV == yes ];then sdk="-sdk"; fi
 oldd=nwjs$sdk-v$v-win-ia32
 newd=learnLang-win-ia32
 
