@@ -11,6 +11,12 @@ a.learnData.add({
         {term:"grumpy", translation:{en:"translation3", ru:"сварливый,раздражительный"}},
         {term:"insecure", translation:{en:"translation4", ru:"неуверенный,ненадежный,небезопасный"}},
         {term:"unsociable,unsocial", translation:{en:"translation4", ru:"необщительный"}},
+
+        {term:"upset", translation:{en:"translation3", ru:"расстроенный,разочарованны,огорченный"}},
+        {term:"small talk", translation:{en:"translation3", ru:"пустой разговор, болтовня, легкая беседа"}},
+        {term:"wealthy", translation:{en:"translation3", ru:"богатый"}},
+        {term:"disguised", translation:{en:"translation3", ru:"замаскированный"}},
+        {term:"sympathetic", translation:{en:"translation3", ru:"полный сочувствияOB"}},
     ],
 });
 

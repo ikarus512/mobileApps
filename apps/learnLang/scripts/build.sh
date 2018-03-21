@@ -56,7 +56,7 @@ osx)
     mydo ls -l $RELEASES_DIR
 ;;
 android)
-    rm -fv platforms/android/build/outputs/apk/*.apk
+    # rm -fv platforms/android/build/outputs/apk/*.apk
 
     if [ "$DEBUGV" == "yes" ];then
 
@@ -103,7 +103,7 @@ android)
             plat1=$(echo $apkFile | perl -e '$_=<>; s/^.*\/\w+|-release-unsigned.apk$//g; print;')
             apkFileOut=$RELEASES_DIR/$APPNAME-android$plat1.apk
             unset plat1
-            rm -f $apkFileOut || exit 1
+            # rm -f $apkFileOut || exit 1
 
             jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $keystoreFile $apkFile $keystoreAlias -storepass $storePassword -keypass $keyPassword || exit 1
             jarsigner -verify $apkFile $keystoreAlias || exit 1
@@ -113,10 +113,13 @@ android)
         done
 
         mydo ls -l platforms/android/build/outputs/apk/*
+        mydo ls -l $RELEASES_DIR
 
     fi
 
-    rm -fv platforms/android/build/outputs/apk/*.apk
+    # rm -fv platforms/android/build/outputs/apk/*.apk
+    mydo ls -l platforms/android/build/outputs/apk/*
+    mydo ls -l $RELEASES_DIR
 
 ;;
 esac
