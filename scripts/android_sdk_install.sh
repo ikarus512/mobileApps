@@ -8,9 +8,12 @@ mkdir -p $ANDROID_HOME1
 pushd $ANDROID_HOME1 >/dev/null 2>&1
 echo "  ### PWD=$PWD"
 
+
+export ABTVF=24.0.0 ABTVM=24 ### ABTVM=26   ABTVF=26.0.1
+
 #export ANDROID_HOME=$PWD/android-sdk-linux
 export ANDROID_SDK=$ANDROID_HOME
-export ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign
+export ZIPALIGN=$ANDROID_HOME/build-tools/$ABTVF/zipalign
 export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/23.0.2:${PATH}
 
 if [ ! -e $ANDROID_HOME/tools/bin ];then
@@ -26,7 +29,7 @@ if [ ! -e $ANDROID_HOME/tools/bin ];then
 
     #android list sdk --extended # && android list sdk -a --extended
 
-    ANDROPACKS=tools,platform-tools,build-tools-26.0.1,android-16,android-19,android-26
+    ANDROPACKS=tools,platform-tools,build-tools-$ABTVF,android-16,android-19,android-$ABTVM
     ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk -u -a -f -t ${ANDROPACKS}    >/dev/null 2>&1
 
     ### Accept licenses:

@@ -24,6 +24,8 @@ var permissionsToRemove = [
     "READ_PHONE_STATE",
     "RECORD_AUDIO",
     "WRITE_EXTERNAL_STORAGE",
+    "ACCESS_NETWORK_STATE",
+    "ACCESS_WIFI_STATE",
 ];
 
 
