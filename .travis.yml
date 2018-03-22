@@ -16,46 +16,46 @@ matrix:
     ### learnLang: #####################
     - os: linux
       env: JB=010 TOS=android   APP=learnLang FRM=cordova OPT2=Small
-    - os: linux
-      env: JB=020 TOS=android   APP=learnLang FRM=cordova OPT2=Small    DEBUGV=yes
+    ##- os: linux
+    ##  env: JB=020 TOS=android   APP=learnLang FRM=cordova OPT2=Small    DEBUGV=yes
     - os: linux
       env: JB=030 TOS=android   APP=learnLang FRM=cordova
-    #-os: linux
-    # env: JB=040 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
-    - os: linux
-      env: JB=050 TOS=linux-win APP=learnLang FRM=nwjs
-    - os: linux
-      env: JB=060 TOS=linux-win APP=learnLang FRM=nwjs                  DEBUGV=yes
-    - os: osx
-      env: JB=070 TOS=osx       APP=learnLang FRM=nwjs
-    #-os: osx
-    # env: JB=080 TOS=osx       APP=learnLang FRM=nwjs                  DEBUGV=yes
-    ### puzzle15: ######################
-    - os: linux
-      env: JB=090 TOS=android   APP=puzzle15  FRM=cordova-ionic
-    #-os: linux
-    # env: JB=100 TOS=android   APP=puzzle15  FRM=cordova-ionic         DEBUGV=yes
-    #-os: linux
-    # env: JB=110 TOS=linux-win APP=puzzle15  FRM=nwjs-ionic
-    #-os: linux
-    # env: JB=120 TOS=linux-win APP=puzzle15  FRM=nwjs-ionic            DEBUGV=yes
-    #-os: linux
-    # env: JB=130 TOS=osx       APP=puzzle15  FRM=nwjs-ionic
-    #-os: linux
-    # env: JB=140 TOS=osx       APP=puzzle15  FRM=nwjs-ionic            DEBUGV=yes
-    ### tripSave: ######################
-    #-os: linux
-    # env: JB=150 TOS=android   APP=tripSave  FRM=nwjs
-    #-os: linux
-    # env: JB=160 TOS=android   APP=tripSave  FRM=nwjs                  DEBUGV=yes
-    #-os: linux
-    # env: JB=170 TOS=linux-win APP=tripSave  FRM=nwjs
-    #-os: linux
-    # env: JB=180 TOS=linux-win APP=tripSave  FRM=nwjs                  DEBUGV=yes
-    #-os: linux
-    # env: JB=190 TOS=osx       APP=tripSave  FRM=nwjs
-    #-os: linux
-    # env: JB=200 TOS=osx       APP=tripSave  FRM=nwjs                  DEBUGV=yes
+    ##-os: linux
+    ## env: JB=040 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
+    #- os: linux
+    #  env: JB=050 TOS=linux-win APP=learnLang FRM=nwjs
+    #- os: linux
+    #  env: JB=060 TOS=linux-win APP=learnLang FRM=nwjs                  DEBUGV=yes
+    #- os: osx
+    #  env: JB=070 TOS=osx       APP=learnLang FRM=nwjs
+    ##-os: osx
+    ## env: JB=080 TOS=osx       APP=learnLang FRM=nwjs                  DEBUGV=yes
+    #### puzzle15: ######################
+    #- os: linux
+    #  env: JB=090 TOS=android   APP=puzzle15  FRM=cordova-ionic
+    ##-os: linux
+    ## env: JB=100 TOS=android   APP=puzzle15  FRM=cordova-ionic         DEBUGV=yes
+    ##-os: linux
+    ## env: JB=110 TOS=linux-win APP=puzzle15  FRM=nwjs-ionic
+    ##-os: linux
+    ## env: JB=120 TOS=linux-win APP=puzzle15  FRM=nwjs-ionic            DEBUGV=yes
+    ##-os: linux
+    ## env: JB=130 TOS=osx       APP=puzzle15  FRM=nwjs-ionic
+    ##-os: linux
+    ## env: JB=140 TOS=osx       APP=puzzle15  FRM=nwjs-ionic            DEBUGV=yes
+    #### tripSave: ######################
+    ##-os: linux
+    ## env: JB=150 TOS=android   APP=tripSave  FRM=nwjs
+    ##-os: linux
+    ## env: JB=160 TOS=android   APP=tripSave  FRM=nwjs                  DEBUGV=yes
+    ##-os: linux
+    ## env: JB=170 TOS=linux-win APP=tripSave  FRM=nwjs
+    ##-os: linux
+    ## env: JB=180 TOS=linux-win APP=tripSave  FRM=nwjs                  DEBUGV=yes
+    ##-os: linux
+    ## env: JB=190 TOS=osx       APP=tripSave  FRM=nwjs
+    ##-os: linux
+    ## env: JB=200 TOS=osx       APP=tripSave  FRM=nwjs                  DEBUGV=yes
 
 branches:
     only:
