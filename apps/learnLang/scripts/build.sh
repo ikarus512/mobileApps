@@ -56,21 +56,24 @@ osx)
     mydo ls -l $RELEASES_DIR
 ;;
 android)
-    # rm -fv platforms/android/build/outputs/apk/*.apk
+    if [ "$DEBUGV" == "yes" ];then apkdir=platforms/android/build/outputs/apk/debug
+    else                           apkdir=platforms/android/build/outputs/apk/release
+    fi
+    rm -fv $apkdir/*.apk
 
     if [ "$DEBUGV" == "yes" ];then
 
         cordova build android --debug || exit 1 # --verbose
 
-        ls -lh platforms/android/build/outputs/apk
+        ls -lh $apkdir
 
         case "$OPT2" in
         "Small")
-            cp -frv platforms/android/build/outputs/apk/android-debug.apk $RELEASES_DIR/$APPNAME-android-debug.apk
+            cp -frv $apkdir/android-debug.apk $RELEASES_DIR/$APPNAME-android-debug.apk
             ;;
         *)
-            cp -frv platforms/android/build/outputs/apk/android-armv7-debug.apk $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
-            cp -frv platforms/android/build/outputs/apk/android-x86-debug.apk   $RELEASES_DIR/$APPNAME-android-x86-debug.apk
+            cp -frv $apkdir/android-armv7-debug.apk $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
+            cp -frv $apkdir/android-x86-debug.apk   $RELEASES_DIR/$APPNAME-android-x86-debug.apk
             ;;
         esac
 
@@ -95,15 +98,15 @@ android)
         # android-x86-release-unsigned.apk
         # android-release-unsigned.apk
 
-        mydo ls -l platforms/android/build/outputs/apk/*
+        mydo ls -l $apkdir/*
 
         ### sign and copy to $RELEASES_DIR/ for later check-in
-        for apkFile in $(ls platforms/android/build/outputs/apk/android*-release-unsigned.apk);do
+        for apkFile in $(ls $apkdir/android*-release-unsigned.apk);do
 
             plat1=$(echo $apkFile | perl -e '$_=<>; s/^.*\/\w+|-release-unsigned.apk$//g; print;')
             apkFileOut=$RELEASES_DIR/$APPNAME-android$plat1.apk
             unset plat1
-            # rm -f $apkFileOut || exit 1
+            rm -f $apkFileOut || exit 1
 
             jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $keystoreFile $apkFile $keystoreAlias -storepass $storePassword -keypass $keyPassword || exit 1
             jarsigner -verify $apkFile $keystoreAlias || exit 1
@@ -112,13 +115,13 @@ android)
 
         done
 
-        mydo ls -l platforms/android/build/outputs/apk/*
+        mydo ls -l $apkdir/*
         mydo ls -l $RELEASES_DIR
 
     fi
 
-    # rm -fv platforms/android/build/outputs/apk/*.apk
-    mydo ls -l platforms/android/build/outputs/apk/*
+    rm -fv $apkdir/*.apk
+    mydo ls -l $apkdir/*
     mydo ls -l $RELEASES_DIR
 
 ;;
