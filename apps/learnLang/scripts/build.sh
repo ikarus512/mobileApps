@@ -59,6 +59,9 @@ android)
     if [ "$DEBUGV" == "yes" ];then apkdir=platforms/android/build/outputs/apk/debug
     else                           apkdir=platforms/android/build/outputs/apk/release
     fi
+    rm -fv platforms/android/build/outputs/apk/*.apk
+    rm -fv platforms/android/build/outputs/apk/debug/*.apk
+    rm -fv platforms/android/build/outputs/apk/release/*.apk
     rm -fv $apkdir/*.apk
 
     if [ "$DEBUGV" == "yes" ];then
