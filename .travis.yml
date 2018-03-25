@@ -96,6 +96,13 @@ before_script:
     - . $APPL_DIR/scripts/install.sh
     - . $APPL_DIR/scripts/build.sh
 
+    - mkdir gradle341
+    - pushd gradle341
+    - wget https://services.gradle.org/distributions/gradle-3.4.1-bin.zip
+    - sudo unzip -d /opt/gradle gradle-3.4.1-bin.zip
+    - export PATH=$PWD:$PATH ### :/opt/gradle/gradle-3.4.1/bin
+    - popd
+
 script:
     - ls -lh $RELEASES_DIR || echo 1
 
