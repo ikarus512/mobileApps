@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-exit
+return
 
 echo
 echo "########################################"
