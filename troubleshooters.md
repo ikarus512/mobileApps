@@ -7,7 +7,7 @@ Solutions:
 3) choose xwalk version:
   https://crosswalk-project.org/blog/using-custom-crosswalk-in-cordova-plugin.html
   https://www.npmjs.com/package/cordova-plugin-crosswalk-webview#configure
-  cordova plugin add cordova-plugin-crosswalk-webview --variable XWALK_VERSION="14"
+  cordova plugin add cordova-plugin-crosswalk-webview --variable XWALK_VERSION="20"
 4) script
   https://stackoverflow.com/questions/47413647/ionic-android-build-error-all-flavors-must-now-belong-to-a-named-flavor-dimen?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 
