@@ -13,15 +13,15 @@ sudo: required
 ### TODO: get version numbers from main package.json to installation info (or create from tags or???)
 matrix:
   include:
-    ### learnLang: #####################
-    - os: linux
-      env: JB=010 TOS=android   APP=learnLang FRM=cordova OPT2=Small
+    #### learnLang: #####################
+    #- os: linux
+    #  env: JB=010 TOS=android   APP=learnLang FRM=cordova OPT2=Small
     - os: linux
       env: JB=020 TOS=android   APP=learnLang FRM=cordova OPT2=Small    DEBUGV=yes
-    - os: linux
-      env: JB=030 TOS=android   APP=learnLang FRM=cordova
-    - os: linux
-      env: JB=040 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
+    #- os: linux
+    #  env: JB=030 TOS=android   APP=learnLang FRM=cordova
+    #- os: linux
+    #  env: JB=040 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
     #- os: linux
     #  env: JB=050 TOS=linux-win APP=learnLang FRM=nwjs
     #- os: linux
@@ -94,7 +94,6 @@ before_script:
     - . $APPL_DIR/scripts/before_install.sh
     - . $APPL_DIR/scripts/copy.sh
     - . $APPL_DIR/scripts/install.sh
-    - . $APPL_DIR/scripts/build.sh
 
     - mkdir gradle341
     - pushd gradle341
@@ -102,6 +101,8 @@ before_script:
     - sudo unzip -d /opt/gradle gradle-3.4.1-bin.zip
     - export PATH=$PWD:$PATH ### :/opt/gradle/gradle-3.4.1/bin
     - popd
+
+    - . $APPL_DIR/scripts/build.sh
 
 script:
     - ls -lh $RELEASES_DIR || echo 1
