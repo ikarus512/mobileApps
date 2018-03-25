@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-return
+if [ 0 == 1 ];then
 
 echo
 echo "  ####################"
@@ -50,3 +50,5 @@ rm -frv $ANDROID_MANIFEST.old || echo ""
 #popd >/dev/null 2>&1
 echo "  ### android_check_permissions finished"
 echo "  ####################"
+
+fi
