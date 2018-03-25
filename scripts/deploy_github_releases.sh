@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+exit
+
 echo
 echo "########################################"
 echo "### deploy_github_releases started"

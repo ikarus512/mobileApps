@@ -15,6 +15,8 @@
 //       If the count is more than 1, you should search through
 //       the /plugins/<plugin-name>/plugin.xml files for <uses-permission> tags.
 
+var VERBOSE = 0;
+
 var permissionsToRemove = [
     "ACCESS_COARSE_LOCATION",
     "ACCESS_FINE_LOCATION",
@@ -38,7 +40,10 @@ var androidJsonFile = path.join(rootdir, "platforms/android/android.json");
 console.log('=== Inside hook ' + process.argv[0] + ':');
 
 fs.readFile( manifestFile, "utf8", function( err, data ) {
-    if (err) { return console.log( err ); }
+    if (err) {
+        if (VERBOSE >= 1) console.log( err );
+        return;
+    }
 
     var result = data;
     for (var i=0; i<permissionsToRemove.length; i++) {
@@ -46,27 +51,33 @@ fs.readFile( manifestFile, "utf8", function( err, data ) {
         var re_str = '<uses-permission android:name=\\"android.permission.' + permissionsToRemove[i] + '\\" />';
         var re = RegExp(re_str, 'g');
         if (result.search(re)) {
-            console.log('    found:');
-            console.log('        ' + re_str);
-            console.log('        replacing...');
+            if (VERBOSE >= 1) console.log('    found:');
+            if (VERBOSE >= 1) console.log('        ' + re_str);
+            if (VERBOSE >= 1) console.log('        replacing...');
             result = result.replace(re, '');
         }
         if (result.search(re)) {
-            console.log('        FAIL replacing failed');
+            if (VERBOSE >= 1) console.log('        FAIL replacing failed');
         } else {
-            console.log('        OK replacing passed');
+            if (VERBOSE >= 1) console.log('        OK replacing passed');
         }
     }
 
     fs.writeFile( manifestFile, result, "utf8", function( err ) {
-        if (err) { return console.log( err ); }
+        if (err) {
+            if (VERBOSE >= 1) console.log( err );
+            return;
+        }
     });
 });
 
 ////
 
 fs.readFile( androidJsonFile, "utf8", function( err, data ) {
-    if (err) { return console.log( err ); }
+    if (err) {
+        if (VERBOSE >= 1) console.log( err );
+        return;
+    }
 
     var result = data;
     for (var i=0; i<permissionsToRemove.length; i++) {
@@ -77,19 +88,22 @@ fs.readFile( androidJsonFile, "utf8", function( err, data ) {
 
         var re = RegExp(re_str, 'g');
         if (result.search(re)) {
-            console.log('    found:');
-            console.log('        ' + re_str);
-            console.log('        replacing...');
+            if (VERBOSE >= 1) console.log('    found:');
+            if (VERBOSE >= 1) console.log('        ' + re_str);
+            if (VERBOSE >= 1) console.log('        replacing...');
             result = result.replace(re, '');
         }
         if (result.search(re)) {
-            console.log('        FAIL replacing failed');
+            if (VERBOSE >= 1) console.log('        FAIL replacing failed');
         } else {
-            console.log('        OK replacing passed');
+            if (VERBOSE >= 1) console.log('        OK replacing passed');
         }
     }
 
     fs.writeFile( androidJsonFile, result, "utf8", function( err ) {
-        if (err) { return console.log( err ); }
+        if (err) {
+            if (VERBOSE >= 1) console.log( err );
+            return;
+        }
     });
 });

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+exit
+
 echo
 echo "  ####################"
 echo "  ### android_check_permissions started"
