@@ -101,6 +101,9 @@ before_script:
     - sudo unzip -d /opt/gradle gradle-3.4.1-bin.zip
     - export PATH=$PWD:$PATH ### :/opt/gradle/gradle-3.4.1/bin
     - popd
+    - which gradle
+    - gradle -v
+    - gradle --version
 
     - . $APPL_DIR/scripts/build.sh
 
