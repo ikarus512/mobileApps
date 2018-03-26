@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ 0 == 1 ];then
+if [ 1 == 1 ];then
 
 echo
 echo "  ####################"

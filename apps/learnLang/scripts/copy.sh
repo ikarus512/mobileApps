@@ -24,7 +24,7 @@ fi
 if [ "$TARGET_OS" == "android" ];then
     mkdir -p $APPL_DIR/hooks/after_prepare
     mkdir -p $APPL_DIR/hooks/after_platform_add
-    cp -frv $WORK_DIR/scripts/android_hook_after_platform_add_build-extras.gradle.js $APPL_DIR/hooks/after_platform_add/
+    # cp -frv $WORK_DIR/scripts/android_hook_after_platform_add_build-extras.gradle.js $APPL_DIR/hooks/after_platform_add/
     cp -frv $WORK_DIR/scripts/android_hook_remove_permissions.js $APPL_DIR/hooks/after_prepare/
     cp -frv $WORK_DIR/scripts/android_check_permissions.sh       $APPL_DIR/hooks/after_prepare/
     chmod -R +x hooks

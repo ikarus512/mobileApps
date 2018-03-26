@@ -14,14 +14,14 @@ sudo: required
 matrix:
   include:
     #### learnLang: #####################
-    #- os: linux
-    #  env: JB=010 TOS=android   APP=learnLang FRM=cordova OPT2=Small
+    - os: linux
+      env: JB=010 TOS=android   APP=learnLang FRM=cordova OPT2=Small
     - os: linux
       env: JB=020 TOS=android   APP=learnLang FRM=cordova OPT2=Small    DEBUGV=yes
-    #- os: linux
-    #  env: JB=030 TOS=android   APP=learnLang FRM=cordova
-    #- os: linux
-    #  env: JB=040 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
+    - os: linux
+      env: JB=030 TOS=android   APP=learnLang FRM=cordova
+    - os: linux
+      env: JB=040 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
     #- os: linux
     #  env: JB=050 TOS=linux-win APP=learnLang FRM=nwjs
     #- os: linux
@@ -95,11 +95,11 @@ before_script:
     - . $APPL_DIR/scripts/copy.sh
     - . $APPL_DIR/scripts/install.sh
 
-    - wget https://services.gradle.org/distributions/gradle-3.4.1-bin.zip
-    - sudo unzip -d /opt/gradle gradle-3.4.1-bin.zip
-    - export PATH=/opt/gradle/gradle-3.4.1/bin:$PATH
-    - which gradle
-    - gradle --version
+    #- wget https://services.gradle.org/distributions/gradle-3.4.1-bin.zip
+    #- sudo unzip -d /opt/gradle gradle-3.4.1-bin.zip
+    #- export PATH=/opt/gradle/gradle-3.4.1/bin:$PATH
+    #- which gradle
+    #- gradle --version
 
     - . $APPL_DIR/scripts/build.sh
 
