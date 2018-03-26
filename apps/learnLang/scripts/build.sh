@@ -6,6 +6,12 @@ echo "### build started"
 pushd $APPL_DIR >/dev/null 2>&1
 echo "### PWD=$PWD"
 
+mydo which gradle
+export PATH=/opt/gradle/gradle-3.4.1:$PATH
+mydo which gradle
+mydo echo aaaaaa PATH=$PATH
+mydo gradle --version
+
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=learnLang; fi
 if [ -z $DEBUGV   ]; then DEBUGV=; fi
