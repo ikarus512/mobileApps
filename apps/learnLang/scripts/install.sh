@@ -36,7 +36,7 @@ cordova.android|cordova-ionic.android)
             mydo echo "No additional plugins needed."
         else #elif [ "$OPT2" != "Small" -o "$DEBUGV" == "yes" ];then
             # mydo cordova plugin add cordova-plugin-dialogs || exit 1 ### navigator.notification.alert()
-            mydo cordova plugin add cordova-plugin-crosswalk-webview || exit 1
+            echo # mydo cordova plugin add cordova-plugin-crosswalk-webview || exit 1
             # mydo cordova plugin add cordova-plugin-crosswalk-webview --variable XWALK_VERSION="20" || exit 1
         fi
 
