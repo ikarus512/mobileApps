@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+#msg="english added, fail fixing (now android graddle needs declared flavor dimensions)"
+#msg="english added, crosswalk disabled (because build fail after google gradle update)"
+msg="english added"
+
+# pull-n-merge
+git fetch origin && git merge --no-edit -m "[ci skip] merge with branch master"
+
+# commit
+git add -A; git commit -m "$msg"; git push origin master

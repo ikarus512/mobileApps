@@ -22,12 +22,12 @@ matrix:
       env: JB=030 TOS=android   APP=learnLang FRM=cordova
     - os: linux
       env: JB=040 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
-    #- os: linux
-    #  env: JB=050 TOS=linux-win APP=learnLang FRM=nwjs
+    - os: linux
+      env: JB=050 TOS=linux-win APP=learnLang FRM=nwjs
     #- os: linux
     #  env: JB=060 TOS=linux-win APP=learnLang FRM=nwjs                  DEBUGV=yes
-    #- os: osx
-    #  env: JB=070 TOS=osx       APP=learnLang FRM=nwjs
+    - os: osx
+      env: JB=070 TOS=osx       APP=learnLang FRM=nwjs
     ##-os: osx
     ## env: JB=080 TOS=osx       APP=learnLang FRM=nwjs                  DEBUGV=yes
     #### puzzle15: ######################
