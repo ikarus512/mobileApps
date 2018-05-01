@@ -1,7 +1,12 @@
 {
   "name": "mobileapps",
+<<<<<<< HEAD
   "version": "1.0.111",
   "travisBuildNumber": "153",
+=======
+  "version": "1.0.124",
+  "travisBuildNumber": "174",
+>>>>>>> refs/remotes/origin/master
   "description": "Mobile Apps",
   "main": "server/index.js",
   "scripts": {

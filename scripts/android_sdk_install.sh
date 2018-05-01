@@ -9,7 +9,8 @@ pushd $ANDROID_HOME1 >/dev/null 2>&1
 echo "  ### PWD=$PWD"
 
 
-export ABTVM=26   ABTVF=26.0.2
+if [ -z $ABTVM ];then export ABTVM=26   ABTVF=26.0.2; fi
+
 
 #export ANDROID_HOME=$PWD/android-sdk-linux
 export ANDROID_SDK=$ANDROID_HOME

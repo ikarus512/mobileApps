@@ -86,7 +86,7 @@ before_script:
     - export  ANDROID_MANIFEST=$APPL_DIR/platforms/android/AndroidManifest.xml
     - export  ANDROID_HOME1=$WORK_DIR/_tmp_cached
     - export  ANDROID_HOME=$WORK_DIR/_tmp_cached/android-sdk-linux
-    - export  ABTVF=26.0.2
+    - export  ABTVM=27 ABTVF=27.0.3
     - export  ZIPALIGN=$ANDROID_HOME/build-tools/$ABTVF/zipalign
 
     - . $WORK_DIR/scripts/_mydo.sh
