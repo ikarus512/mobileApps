@@ -12,8 +12,7 @@ if [ -z $DEBUGV   ]; then DEBUGV=; fi
 if [ -z $APPNAME  ]; then APPNAME=$APP; fi
 
 if [ -z $ANDROID_HOME ]; then ANDROID_HOME=$PWD/../android-sdk-linux; fi
-ABTVF=26.0.2
-if [ -z $ZIPALIGN     ]; then ZIPALIGN=$ANDROID_HOME/build-tools/$ABTVF/zipalign; fi
+if [ -z $ZIPALIGN     ]; then ZIPALIGN=$ANDROID_HOME/build-tools/26.0.1/zipalign; fi
 if [ -z $RELEASES_DIR ]; then RELEASES_DIR=$PWD/../releases; fi
 if [ -z $CLONE_DIR    ]; then CLONE_DIR=$PWD/../_tmp/mobileApps; fi
 

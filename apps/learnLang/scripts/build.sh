@@ -6,11 +6,11 @@ echo "### build started"
 pushd $APPL_DIR >/dev/null 2>&1
 echo "### PWD=$PWD"
 
-mydo which gradle
-export PATH=/opt/gradle/gradle-3.4.1:$PATH
-mydo which gradle
-mydo echo aaaaaa PATH=$PATH
-mydo gradle --version
+#mydo which gradle
+#export PATH=/opt/gradle/gradle-3.4.1:$PATH
+#mydo which gradle
+#mydo echo aaaaaa PATH=$PATH
+#mydo gradle --version
 
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=learnLang; fi
@@ -19,7 +19,7 @@ if [ -z $OPT2     ]; then OPT2=; fi
 if [ -z $APPNAME  ]; then APPNAME=$APP$OPT2; fi
 
 if [ -z $ANDROID_HOME ]; then ANDROID_HOME=$PWD/../_tmp_cached/android-sdk-linux; fi
-if [ -z $ZIPALIGN     ]; then ZIPALIGN=$ANDROID_HOME/build-tools/26.0.2/zipalign; fi
+if [ -z $ZIPALIGN     ]; then ZIPALIGN=$ANDROID_HOME/build-tools/$ABTVF/zipalign; fi
 if [ -z $RELEASES_DIR ]; then RELEASES_DIR=$PWD/../releases; fi
 if [ -z $CLONE_DIR    ]; then CLONE_DIR=$PWD/../_tmp/mobileApps; fi
 
@@ -74,7 +74,7 @@ android)
 
         cordova build android --debug || exit 1 # --verbose
 
-        ls -lh $apkdir
+        mydo ls -lh $apkdir
 
         case "$OPT2" in
         "Small")
@@ -123,9 +123,6 @@ android)
             $ZIPALIGN -v 4 $apkFile $apkFileOut || exit 1
 
         done
-
-        mydo ls -l $apkdir/*
-        mydo ls -l $RELEASES_DIR
 
     fi
 
