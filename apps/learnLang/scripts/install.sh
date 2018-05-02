@@ -26,9 +26,9 @@ cordova.android|cordova-ionic.android)
         # cordova prepare || exit 1
         # cordova prepare --verbose || exit 1
 
-        mydo cordova platform rm android || exit 1
-        mydo cordova platform add https://github.com/apache/cordova-android || exit 1
-       #mydo cordova platform add android || exit 1
+        #mydo cordova platform rm android || exit 1
+        #mydo cordova platform add https://github.com/apache/cordova-android || exit 1
+        mydo cordova platform add android || exit 1
 
         # if [ "$DEBUGV" == "yes" ];then
         #     cordova plugin add cordova-plugin-console
@@ -42,8 +42,6 @@ cordova.android|cordova-ionic.android)
             # mydo cordova plugin add cordova-plugin-crosswalk-webview --variable XWALK_VERSION="20" || exit 1
             mydo cordova plugin add cordova-plugin-crosswalk-webview || exit 1
         fi
-#sudo apt install android-tools-adb
-#cordova platform rm android  && cordova platform add https://github.com/apache/cordova-android
 
 
     fi

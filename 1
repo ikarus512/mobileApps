@@ -1,5 +1,28 @@
-./.travis.sh >_tmp/1.1 2>&1
+. .travis.sh >_tmp/1.1 2>&1
+
+cd $APPL_DIR
+#rm -fr platforms plugins
+#cordova platform add browser --save
+#cordova platform add android --save
+##cordova platform ls
+cordova platform rm android  && cordova platform add https://github.com/apache/cordova-android
+cordova plugin add cordova-plugin-crosswalk-webview && cordova build android --info
+
+#cordova requirements
+#cordova build android
+#cordova build
+#npm install -g cordova-browser
+#cordova emulate browser
+#cordova emulate android
+
+adb kill-server; adb start-server
+cordova run android --device
+adb devices
+
 exit
+
+
+
 
 Development settings:
 APP_URL=https://localhost:5000
