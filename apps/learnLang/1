@@ -1,4 +1,8 @@
-cordova platform add android
+#npm un -g cordova
+#npm i -g cordova@6
+#cordova platform add android@6
+#cordova plugin add cordova-plugin-crosswalk-webview
+
 #adb start-server
 cordova run android --device
 exit

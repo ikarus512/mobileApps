@@ -20,7 +20,7 @@ linux.cordova.android|linux.cordova-ionic.android)
 
     #mydo npm install -g npm
 
-    cmd="npm install -g cordova@3.0"
+    cmd="npm install -g cordova@6"
     if [ $FRM == cordova-ionic ];then cmd="$cmd gulp bower ionic"; fi
     echo "### $cmd"
     $cmd

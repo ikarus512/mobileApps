@@ -28,7 +28,7 @@ cordova.android|cordova-ionic.android)
 
         #mydo cordova platform rm android || exit 1
         #mydo cordova platform add https://github.com/apache/cordova-android || exit 1
-        mydo cordova platform add android || exit 1
+        mydo cordova platform add android@6 || exit 1
 
         # if [ "$DEBUGV" == "yes" ];then
         #     cordova plugin add cordova-plugin-console
