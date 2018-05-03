@@ -37,8 +37,9 @@ export  ZIPALIGN=$ANDROID_HOME/build-tools/$ABTVF/zipalign
 #- which gradle
 #- gradle --version
 
-. $APPL_DIR/scripts/build.sh
+#. $APPL_DIR/scripts/build.sh
 #cordova run android --devbug
 
 #script:
 ls -lh $RELEASES_DIR || echo 1
+cd $WORK_DIR

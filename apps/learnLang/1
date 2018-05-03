@@ -1,4 +1,4 @@
-#cordova platform add android
+cordova platform add android
 #adb start-server
 cordova run android --device
 exit
