@@ -6,12 +6,6 @@ echo "### build started"
 pushd $APPL_DIR >/dev/null 2>&1
 echo "### PWD=$PWD"
 
-#mydo which gradle
-#export PATH=/opt/gradle/gradle-3.4.1:$PATH
-#mydo which gradle
-#mydo echo aaaaaa PATH=$PATH
-#mydo gradle --version
-
 # Env from .travis.yml:
 if [ -z $APP      ]; then APP=learnLang; fi
 if [ -z $DEBUGV   ]; then DEBUGV=; fi
@@ -62,9 +56,10 @@ osx)
     mydo ls -l $RELEASES_DIR
 ;;
 android)
-    if [ "$DEBUGV" == "yes" ];then apkdir=platforms/android/build/outputs/apk/debug
-    else                           apkdir=platforms/android/build/outputs/apk/release
-    fi
+    apkdir=platforms/android/build/outputs/apk
+    # if [ "$DEBUGV" == "yes" ];then apkdir=platforms/android/build/outputs/apk/debug
+    # else                           apkdir=platforms/android/build/outputs/apk/release
+    # fi
     rm -fv platforms/android/build/outputs/apk/*.apk
     rm -fv platforms/android/build/outputs/apk/debug/*.apk
     rm -fv platforms/android/build/outputs/apk/release/*.apk

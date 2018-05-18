@@ -1,21 +1,9 @@
-#npm un -g cordova; npm i -g cordova@6; cordova platform add android@6; cordova plugin add cordova-plugin-crosswalk-webview@2
-#npm un -g cordova; npm i -g cordova@5; cordova platform add android@4; cordova plugin add cordova-plugin-crosswalk-webview@1
-cordova platform add android@4 #; cordova plugin rm cordova-plugin-crosswalk-webview
-
-#adb start-server
- cordova run android --device --verbose
- exit
-#cordova plugin add cordova-plugin-crosswalk-webview && cordova build android --info
-
-#sudo apt-get install android-tools-adb android-tools-fastboot
-#exit
-
-#cordova create hello com.example.hello HelloWorld
-#cd hello
-#cordova platform add browser --save
+cordova create hello com.example.hello HelloWorld
+cd hello
+cordova platform add browser --save
+cordova platform add android --save
 cordova platform ls
 cordova requirements
-exit
 cordova build android
 cordova build
 npm install -g cordova-browser
