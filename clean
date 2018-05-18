@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-rm -frv apps/learnLang/platforms
-rm -frv apps/learnLang/plugins
-rm -frv apps/learnLang/node_modules
-#rm -frv apps/learnLang/www
-f=apps/learnLang/config.xml; cp -frv $f.old $f
-f=apps/learnLang/package.json; cp -frv $f.old $f

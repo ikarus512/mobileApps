@@ -72,7 +72,7 @@ android)
 
     if [ "$DEBUGV" == "yes" ];then
 
-        cordova build android --debug || exit 1 # --verbose
+        mydo cordova build android --debug --verbose || exit 1
 
         mydo ls -lh $apkdir
 
@@ -89,7 +89,7 @@ android)
     else # elif [ "$DEBUGV" != "yes" ];then
 
         ### build
-        cordova build android --release || exit 1
+        mydo cordova build android --release --verbose || exit 1
 
         echo "=== android check permissions:"
         . $WORK_DIR/scripts/android_check_permissions.sh
@@ -129,6 +129,14 @@ android)
     rm -fv $apkdir/*.apk
     mydo ls -l $apkdir/*
     mydo ls -l $RELEASES_DIR
+
+    if [ $LOCAL_RUN == yes ];then
+       adb kill-server; adb start-server
+       cordova run android --debug --device --verbose
+        # cordova emulate browser  --verbose
+        # adb devices
+        echo
+    fi
 
 ;;
 esac

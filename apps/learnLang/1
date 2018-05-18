@@ -1,11 +1,10 @@
-#npm un -g cordova
-#npm i -g cordova@6
-#cordova platform add android@6
-#cordova plugin add cordova-plugin-crosswalk-webview
+#npm un -g cordova; npm i -g cordova@6; cordova platform add android@6; cordova plugin add cordova-plugin-crosswalk-webview@2
+#npm un -g cordova; npm i -g cordova@5; cordova platform add android@4; cordova plugin add cordova-plugin-crosswalk-webview@1
+cordova platform add android@4 #; cordova plugin rm cordova-plugin-crosswalk-webview
 
 #adb start-server
-cordova run android --device
-exit
+ cordova run android --device --verbose
+ exit
 #cordova plugin add cordova-plugin-crosswalk-webview && cordova build android --info
 
 #sudo apt-get install android-tools-adb android-tools-fastboot

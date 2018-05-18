@@ -11,7 +11,7 @@ echo "### PWD=$PWD"
 # nwjs)    cp -frv package.nwjs.json    package.json ;;
 # esac
 
-mydo npm i
+#mydo npm i
 
 case $FRM.$TARGET_OS in
 cordova.android|cordova-ionic.android)
@@ -28,7 +28,12 @@ cordova.android|cordova-ionic.android)
 
         #mydo cordova platform rm android || exit 1
         #mydo cordova platform add https://github.com/apache/cordova-android || exit 1
-        mydo cordova platform add android@6 || exit 1
+        #mydo cordova platform add android@6.3.0 || exit 1
+        # mydo cordova platform add android@6 || exit 1
+        mydo cordova platform add android@6.2.3 || exit 1
+        if [ $LOCAL_RUN == yes ];then
+            mydo cordova platform add browser || exit 1
+        fi
 
         # if [ "$DEBUGV" == "yes" ];then
         #     cordova plugin add cordova-plugin-console
@@ -38,10 +43,15 @@ cordova.android|cordova-ionic.android)
             mydo echo "No additional plugins needed."
         else #elif [ "$OPT2" != "Small" -o "$DEBUGV" == "yes" ];then
             # mydo cordova plugin add cordova-plugin-dialogs || exit 1 ### navigator.notification.alert()
-            # mydo cordova plugin add cordova-plugin-crosswalk-webview || exit 1
-            # mydo cordova plugin add cordova-plugin-crosswalk-webview --variable XWALK_VERSION="20" || exit 1
             mydo cordova plugin add cordova-plugin-crosswalk-webview || exit 1
+            # mydo cordova plugin add cordova-plugin-crosswalk-webview --variable XWALK_VERSION="20" || exit 1
+            # mydo cordova plugin add cordova-plugin-crosswalk-webview@1 || exit 1
+            # mydo cordova plugin add cordova-plugin-crosswalk-webview@23 || exit 1
+            # mydo cordova plugin add cordova-plugin-crosswalk-webview@2.3.0 || exit 1
+            echo
         fi
+        mydo git diff config.xml.old config.xml
+        mydo git diff package.json.old package.json
 
 
     fi

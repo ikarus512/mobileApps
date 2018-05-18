@@ -76,6 +76,7 @@ git:
 #     - apps/$APP/plugins
 
 before_script:
+    - export LOCAL_RUN=no
     - export APPNAME=$APP$OPT2
     - export TARGET_OS=$TOS
     - export WORK_DIR=$PWD
@@ -86,9 +87,7 @@ before_script:
     - export  ANDROID_MANIFEST=$APPL_DIR/platforms/android/AndroidManifest.xml
     - export  ANDROID_HOME1=$WORK_DIR/_tmp_cached
     - export  ANDROID_HOME=$WORK_DIR/_tmp_cached/android-sdk-linux
-    - export  ABTVM=27 ABTVF=27.0.3
-    - export  ABTVM=26 ABTVF=26.0.2
-    - export  ABTVM=25 ABTVF=25.0.1
+    - export  ABTVM=25 ABTVF=25.0.2
     - export  ZIPALIGN=$ANDROID_HOME/build-tools/$ABTVF/zipalign
 
     - . $WORK_DIR/scripts/_mydo.sh

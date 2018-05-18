@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#return
+if [ $LOCAL_RUN == yes ];then return; fi
 
 echo
 echo "########################################"
