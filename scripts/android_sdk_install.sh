@@ -18,7 +18,7 @@ export ZIPALIGN=$ANDROID_HOME/build-tools/$ABTVF/zipalign
 export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/23.0.2:${PATH}
 
 
-if [[ ! -e $ANDROID_HOME/tools/bin ]] || [[ ! -e $ANDROID_HOME/build-tools ]];then
+if [[ ! -e $ANDROID_HOME/tools ]] || [[ ! -e $ANDROID_HOME/build-tools ]];then
 #if [ 1 == 0 ];then
     echo "  ### installing android sdk to ANDROID_HOME=$ANDROID_HOME"
 

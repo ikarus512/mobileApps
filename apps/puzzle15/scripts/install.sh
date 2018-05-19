@@ -26,7 +26,7 @@ cordova.android|cordova-ionic.android)
         # cordova prepare || exit 1
         # cordova prepare --verbose || exit 1
 
-        mydo cordova platform add android || exit 1
+        mydo cordova platform add android@6.2.3 || exit 1
 
         # if [ "$DEBUGV" == "yes" ];then
         #     cordova plugin add cordova-plugin-console

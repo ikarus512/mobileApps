@@ -11,7 +11,9 @@ echo "### PWD=$PWD"
 # nwjs)    cp -frv package.nwjs.json    package.json ;;
 # esac
 
-#mydo npm i
+if [ $TARGET_OS == linux-win ];then
+    mydo npm i
+fi
 
 case $FRM.$TARGET_OS in
 cordova.android|cordova-ionic.android)

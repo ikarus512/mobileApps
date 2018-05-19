@@ -73,11 +73,11 @@ android)
 
         case "$OPT2" in
         "Small")
-            cp -frv $apkdir/android-debug.apk $RELEASES_DIR/$APPNAME-android-debug.apk
+            mydo cp -frv $apkdir/android-debug.apk $RELEASES_DIR/$APPNAME-android-debug.apk
             ;;
         *)
-            cp -frv $apkdir/android-armv7-debug.apk $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
-            cp -frv $apkdir/android-x86-debug.apk   $RELEASES_DIR/$APPNAME-android-x86-debug.apk
+            mydo cp -frv $apkdir/android-armv7-debug.apk $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
+            mydo cp -frv $apkdir/android-x86-debug.apk   $RELEASES_DIR/$APPNAME-android-x86-debug.apk
             ;;
         esac
 
@@ -96,7 +96,7 @@ android)
         keyPassword=$(dd if=/dev/urandom bs=32 count=1 2>/dev/null | sha256sum -b | sed 's/ .*//')
         keystoreValidity=10000 # days
         rm -f $keystoreFile || exit 1
-        keytool -genkey -v -noprompt -alias $keystoreAlias -keystore $keystoreFile -storepass $storePassword -keypass $keyPassword -keyalg RSA -keysize 2048 -validity $keystoreValidity -dname "CN=ikarus512, OU=ikarus512, O=HSH, L=NN, S=RU, C=RU" || exit 1
+        mydo keytool -genkey -v -noprompt -alias $keystoreAlias -keystore $keystoreFile -storepass $storePassword -keypass $keyPassword -keyalg RSA -keysize 2048 -validity $keystoreValidity -dname "CN=ikarus512, OU=ikarus512, O=HSH, L=NN, S=RU, C=RU" || exit 1
 
         # android-armv7-release-unsigned.apk
         # android-x86-release-unsigned.apk
@@ -121,15 +121,15 @@ android)
 
     fi
 
-    rm -fv $apkdir/*.apk
+    mydo rm -fv $apkdir/*.apk
     mydo ls -l $apkdir/*
     mydo ls -l $RELEASES_DIR
 
     if [ $LOCAL_RUN == yes ];then
-       adb kill-server; adb start-server
-       cordova run android --debug --device --verbose
-        # cordova emulate browser  --verbose
-        # adb devices
+        mydo adb kill-server; adb start-server
+        mydo cordova run android --debug --device --verbose
+        # mydo cordova emulate browser  --verbose
+        # mydo adb devices
         echo
     fi
 
