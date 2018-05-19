@@ -40,7 +40,8 @@ linux.cordova.android|linux.cordova-ionic.android)
 
 ;;
 linux.nwjs.linux-win)
-    mydo sudo apt-get install wine nsis #wine1.6
+    mydo sudo apt-get update -y
+    mydo sudo apt-get install -y wine nsis #wine1.6
     mydo npm install -g npm
 ;;
 esac
