@@ -57,6 +57,7 @@ osx)
 ;;
 ios)
     mydo cordova build ios --debug --verbose || exit 1
+    cp platforms/ios/build/emulator/LearnLang.app $RELEASES_DIR/$APPNAME-ios-debug.app
 ;;
 android)
     apkdir=platforms/android/build/outputs/apk

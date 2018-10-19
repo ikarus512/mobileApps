@@ -326,6 +326,10 @@ function githubTagAndPublishRelease() {
         githubReleaseCreate $REPO v$latestTag
         mydo echo "APP.TARGET_OS.DEBUGV.OPT2 == $APP.$TARGET_OS.$DEBUGV.$OPT2"
         case $APP.$TARGET_OS.$DEBUGV.$OPT2 in
+        learnLang.ios.*.*)
+            #mobileApps/apps/learnLang/platforms/ios/build/emulator/LearnLang.app
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-ios-debug.app
+            ;;
         learnLang.android.*.*)
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-debug.apk # if no crosswalk used (just 1 version produced)
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-armv7-debug.apk # if crosswalk used (armv7/x86 versions produced)
