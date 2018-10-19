@@ -39,6 +39,10 @@ linux.cordova.android|linux.cordova-ionic.android)
     fi
 
 ;;
+osx.cordova.ios)
+    mydo npm install -g npm
+    mydo npm install -g cordova
+;;
 linux.nwjs.linux-win)
     mydo sudo apt-get update -y
     mydo sudo apt-get install -y wine nsis #wine1.6
