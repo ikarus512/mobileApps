@@ -17,7 +17,7 @@ fi
 
 if [ $TARGET_OS == ios ];then
     mydo npm i
-    mydo cordova platform add android@6.2.3 || exit 1
+    mydo cordova platform add ios || exit 1
     #mydo cordova plugin add cordova-plugin-crosswalk-webview || exit 1
 fi
 
