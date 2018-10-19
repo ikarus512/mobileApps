@@ -55,6 +55,9 @@ osx)
 
     mydo ls -l $RELEASES_DIR
 ;;
+ios)
+    mydo cordova build ios --debug --verbose || exit 1
+;;
 android)
     apkdir=platforms/android/build/outputs/apk
     # if [ "$DEBUGV" == "yes" ];then apkdir=platforms/android/build/outputs/apk/debug
