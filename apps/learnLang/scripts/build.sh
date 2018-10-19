@@ -56,7 +56,7 @@ osx)
     mydo ls -l $RELEASES_DIR
 ;;
 ios)
-    mydo cordova build ios --device --debug --verbose || exit 1
+    #mydo cordova build ios --device --debug --verbose || exit 1
     mydo cordova build ios --device --release --verbose || exit 1
     cp platforms/ios/build/emulator/LearnLang.app $RELEASES_DIR/$APPNAME-ios-debug.app
 ;;
