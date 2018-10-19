@@ -13,7 +13,7 @@ sudo: required
 ### TODO: get version numbers from main package.json to installation info (or create from tags or???)
 matrix:
   include:
-    - os: linux
+    - os: osx
       env: JB=005 TOS=ios       APP=learnLang FRM=cordova OPT2=Small
     # ### learnLang: #####################
     # - os: linux
