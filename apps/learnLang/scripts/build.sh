@@ -57,8 +57,15 @@ osx)
 ;;
 ios)
     #mydo cordova build ios --device --debug --verbose || exit 1
+    mydo cordova build ios --device --release --verbose
     mydo cordova build ios --device --release --verbose || exit 1
-    cp platforms/ios/build/emulator/LearnLang.app $RELEASES_DIR/$APPNAME-ios-debug.app
+    #####################
+    # Make the ipa file #
+    #####################
+    OUTPUTDIR=$PWD/platforms/ios/build/device
+    mydo xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$APPNAME.app -o $OUTPUTDIR/$APPNAME.ipa
+    mydo /usr/bin/zip --verbose --recurse-paths $OUTPUTDIR/$APPNAME.dsym.zip $OUTPUTDIR/$APPNAME.app.dsym
+    mydo cp $OUTPUTDIR/LearnLang.app $RELEASES_DIR/$APPNAME-ios.app
 ;;
 android)
     apkdir=platforms/android/build/outputs/apk

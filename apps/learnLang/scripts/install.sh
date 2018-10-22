@@ -16,6 +16,9 @@ if [ $TARGET_OS == linux-win ];then
 fi
 
 if [ $TARGET_OS == ios ];then
+    . ./scripts/ios-decrypt-key.sh
+    . ./scripts/ios-add-key.sh
+
     mydo npm i
     mydo cordova platform add ios || exit 1
     #mydo cordova plugin add cordova-plugin-crosswalk-webview || exit 1
