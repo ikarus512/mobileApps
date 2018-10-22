@@ -16,8 +16,7 @@ if [ $TARGET_OS == linux-win ];then
 fi
 
 if [ $TARGET_OS == ios ];then
-    echo "### source ./scripts/ios-decrypt-key.sh"
-    mydo source ./scripts/ios-decrypt-key.sh
+    mydo . ./scripts/ios-decrypt-key.sh
     mydo . ./scripts/ios-add-key.sh
 
     mydo npm i
