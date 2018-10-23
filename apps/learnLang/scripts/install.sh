@@ -16,6 +16,9 @@ if [ $TARGET_OS == linux-win ];then
 fi
 
 if [ $TARGET_OS == ios ];then
+    mydo echo IOS_DEVELOPER_NAME=$IOS_DEVELOPER_NAME
+    export IOS_DEVELOPER_NAME="iPhone Distribution: ikarus512@yandex.ru (3UX5BEB7M2)"
+    mydo echo IOS_DEVELOPER_NAME=$IOS_DEVELOPER_NAME
     mydo xcodebuild -version
     mydo . $APPL_DIR/scripts/ios-decrypt-key.sh || exit 1
     mydo . $APPL_DIR/scripts/ios-add-key.sh || exit 1

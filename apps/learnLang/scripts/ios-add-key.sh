@@ -35,5 +35,5 @@ mydo security set-keychain-settings -t 3600 \
 
 mydo security default-keychain -s ios-build.keychain || exit 1
 
-mydo mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 cp -v "./scripts/ios-certs-profile/$IOS_PROFILE_NAME.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
