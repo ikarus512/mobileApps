@@ -58,7 +58,7 @@ osx)
 ios)
     #mydo cordova build ios --device --debug --verbose || exit 1
     mydo cordova build ios --device --release --verbose
-    mydo cordova build ios --device --release --verbose || exit 1
+    mydo cordova build ios --device --release --verbose #|| exit 1
     #####################
     # Make the ipa file #
     #####################
