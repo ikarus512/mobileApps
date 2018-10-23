@@ -16,8 +16,8 @@ if [ $TARGET_OS == linux-win ];then
 fi
 
 if [ $TARGET_OS == ios ];then
-    mydo . $APPL_DIR/scripts/ios-decrypt-key.sh
-    mydo . $APPL_DIR/scripts/ios-add-key.sh
+    mydo . $APPL_DIR/scripts/ios-decrypt-key.sh || exit 1
+    mydo . $APPL_DIR/scripts/ios-add-key.sh || exit 1
 
     mydo npm i
     mydo cordova platform add ios || exit 1

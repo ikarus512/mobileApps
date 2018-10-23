@@ -25,17 +25,17 @@ if [[ ! -e "./scripts/ios-certs-profile/dist.p12.enc" ]]; then
     exit 1
 fi
 
-openssl aes-256-cbc \  
+openssl aes-256-cbc \
 -k "$IOS_ENCRYPTION_SECRET" \
 -in "./scripts/ios-certs-profile/$IOS_PROFILE_NAME.mobileprovision.enc" -d -a \
--out "./scripts/ios-certs-profile/$IOS_PROFILE_NAME.mobileprovision"
+-out "./scripts/ios-certs-profile/$IOS_PROFILE_NAME.mobileprovision" || exit 1
 
-openssl aes-256-cbc \  
+openssl aes-256-cbc \
 -k "$IOS_ENCRYPTION_SECRET" \
 -in "./scripts/ios-certs-profile/dist.cer.enc" -d -a \
--out "./scripts/ios-certs-profile/dist.cer"
+-out "./scripts/ios-certs-profile/dist.cer" || exit 1
 
-openssl aes-256-cbc \  
+openssl aes-256-cbc \
 -k "$IOS_ENCRYPTION_SECRET" \
 -in "./scripts/ios-certs-profile/dist.p12.enc" -d -a \
--out "./scripts/ios-certs-profile/dist.p12"
+-out "./scripts/ios-certs-profile/dist.p12" || exit 1
