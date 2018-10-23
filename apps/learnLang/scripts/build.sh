@@ -62,7 +62,15 @@ ios)
     #####################
     # Make the ipa file #
     #####################
+
+    #xctool -workspace TravisExample.xcworkspace -scheme TravisExample -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
+    #PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_NAME.mobileprovision"
+    #OUTPUTDIR="$PWD/build/Release-iphoneos"
+    #echo xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
+    #xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
+
     OUTPUTDIR=$PWD/platforms/ios/build/device
+    mydo ls $OUTPUTDIR
     mydo xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$APPNAME.app -o $OUTPUTDIR/$APPNAME.ipa
     mydo /usr/bin/zip --verbose --recurse-paths $OUTPUTDIR/$APPNAME.dsym.zip $OUTPUTDIR/$APPNAME.app.dsym
     mydo cp $OUTPUTDIR/LearnLang.app $RELEASES_DIR/$APPNAME-ios.app
