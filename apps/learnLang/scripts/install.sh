@@ -16,7 +16,7 @@ if [ $TARGET_OS == linux-win ];then
 fi
 
 if [ $TARGET_OS == ios ];then
-    mydo bash $APPL_DIR/scripts/ios-decrypt-key.sh
+    mydo . $APPL_DIR/scripts/ios-decrypt-key.sh
     mydo . $APPL_DIR/scripts/ios-add-key.sh
 
     mydo npm i
