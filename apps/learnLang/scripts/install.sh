@@ -16,6 +16,7 @@ if [ $TARGET_OS == linux-win ];then
 fi
 
 if [ $TARGET_OS == ios ];then
+    mydo xcodebuild -version
     mydo . $APPL_DIR/scripts/ios-decrypt-key.sh || exit 1
     mydo . $APPL_DIR/scripts/ios-add-key.sh || exit 1
 
