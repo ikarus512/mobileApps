@@ -6,34 +6,34 @@ if [[ -z "$IOS_KEY_PASSWORD" ]]; then
 fi
 
 # Create a custom keychain
-security create-keychain -p travis ios-build.keychain || exit 1
+mydo security create-keychain -p travis ios-build.keychain #|| exit 1
 
     # Make the custom keychain default, so xcodebuild will use it for signing
-    security default-keychain -s ios-build.keychain || exit 1
+    mydo security default-keychain -s ios-build.keychain #|| exit 1
 
     # Unlock the keychain
-    security unlock-keychain -p travis ios-build.keychain || exit 1
+    mydo security unlock-keychain -p travis ios-build.keychain #|| exit 1
 
 # Add certificates to keychain and allow codesign to access them
-security import ./scripts/ios-certs-profile/AppleWWDRCA.cer \
+mydo security import ./scripts/ios-certs-profile/AppleWWDRCA.cer \
 -k ~/Library/Keychains/ios-build.keychain \
--T /usr/bin/codesign || exit 1
+-T /usr/bin/codesign #|| exit 1
 
-security import ./scripts/ios-certs-profile/dist.cer \
+mydo security import ./scripts/ios-certs-profile/dist.cer \
 -k ~/Library/Keychains/ios-build.keychain \
--T /usr/bin/codesign || exit 1
+-T /usr/bin/codesign #|| exit 1
 
-security import ./scripts/ios-certs-profile/dist.p12 \
+mydo security import ./scripts/ios-certs-profile/dist.p12 \
 -k ~/Library/Keychains/ios-build.keychain \
 -P $IOS_KEY_PASSWORD \
--T /usr/bin/codesign || exit 1
+-T /usr/bin/codesign #|| exit 1
 
 # Set keychain timeout to 1 hour for long builds
 # see http://www.egeek.me/2013/02/23/jenkins-and-xcode-user-interaction-is-not-allowed/
-security set-keychain-settings -t 3600 \
--l ~/Library/Keychains/ios-build.keychain || exit 1
+mydo security set-keychain-settings -t 3600 \
+-l ~/Library/Keychains/ios-build.keychain #|| exit 1
 
-security default-keychain -s ios-build.keychain || exit 1
+mydo security default-keychain -s ios-build.keychain || exit 1
 
-mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-cp "./scripts/ios-certs-profile/$IOS_PROFILE_NAME.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
+mydo mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+mydo cp -v "./scripts/ios-certs-profile/$IOS_PROFILE_NAME.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
