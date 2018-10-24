@@ -57,13 +57,18 @@ osx)
 ;;
 ios)
     #mydo cordova build ios --device --debug --verbose || exit 1
-    mydo cordova build ios --device --release --verbose
-    mydo cordova build ios --device --release --verbose #|| exit 1
+    mydo cordova build ios --device --release
+    #mydo cordova build ios --device --release #|| exit 1
+    mydo cat $APPL_DIR/platforms/ios/cordova/build-release.xcconfig
     #####################
     # Make the ipa file #
     #####################
 
-    #xctool -workspace TravisExample.xcworkspace -scheme TravisExample -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
+
+    #CordovaError: Promise rejected with non-error: 'Error code 65 for command:
+    #xcodebuild with args: -xcconfig,./platforms/ios/cordova/build-release.xcconfig,-workspace,LearnLang.xcworkspace,-scheme,LearnLang,-configuration,Release,-destination,generic/platform=iOS,-archivePath,LearnLang.xcarchive,archive,CONFIGURATION_BUILD_DIR=./platforms/ios/build/device,SHARED_PRECOMPS_DIR=./platforms/ios/build/sharedpch'
+
+    #xctool -workspace LearnLang.xcworkspace -scheme LearnLang -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
     #PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_NAME.mobileprovision"
     #OUTPUTDIR="$PWD/build/Release-iphoneos"
     #echo xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
