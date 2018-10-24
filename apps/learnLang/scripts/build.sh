@@ -81,8 +81,8 @@ ios)
     OUTPUTDIR=$PWD/platforms/ios/build/device
     mydo ls $OUTPUTDIR
     #mydo xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa
-    echo xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
-         xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
+    echo '### xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"'
+              xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
     mydo /usr/bin/zip --verbose --recurse-paths $OUTPUTDIR/$APPNAME.dsym.zip $OUTPUTDIR/$IOS_APP_NAME.app.dsym
     mydo cp $OUTPUTDIR/$IOS_APP_NAME.app $RELEASES_DIR/$APPNAME-ios.app
 ;;

@@ -41,7 +41,7 @@ linux.cordova.android|linux.cordova-ionic.android)
 ;;
 osx.cordova.ios)
     mydo npm install -g npm
-    mydo npm install -g cordova
+    mydo npm install -g cordova@6
 ;;
 linux.nwjs.linux-win)
     mydo sudo apt-get update -y
