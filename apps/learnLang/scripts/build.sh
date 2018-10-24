@@ -57,8 +57,9 @@ osx)
 ;;
 ios)
     #mydo cordova build ios --device --debug --verbose || exit 1
-    sed -i "" "s/iPhone Distribution/iPhone Developer/g" $APPL_DIR/platforms/ios/cordova/build-release.xcconfig
-    mydo cordova build ios --device --release
+    #sed -i "" "s/iPhone Distribution/iPhone Developer/g" $APPL_DIR/platforms/ios/cordova/build-release.xcconfig
+    #mydo cordova build ios --device --release  --codeSignIdentity=$IOS_DEVELOPER_NAME
+    mydo cordova build ios --device --release  --codeSignIdentity="iPhone Developer"
     #mydo cordova build ios --device --release #|| exit 1
     mydo cat $APPL_DIR/platforms/ios/cordova/build-release.xcconfig
     #####################
