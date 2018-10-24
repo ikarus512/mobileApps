@@ -72,16 +72,19 @@ ios)
     #xcodebuild with args: -xcconfig,./platforms/ios/cordova/build-release.xcconfig,-workspace,LearnLang.xcworkspace,-scheme,LearnLang,-configuration,Release,-destination,generic/platform=iOS,-archivePath,LearnLang.xcarchive,archive,CONFIGURATION_BUILD_DIR=./platforms/ios/build/device,SHARED_PRECOMPS_DIR=./platforms/ios/build/sharedpch'
 
     #xctool -workspace LearnLang.xcworkspace -scheme LearnLang -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
-    #PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_NAME.mobileprovision"
+    PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_NAME.mobileprovision"
     #OUTPUTDIR="$PWD/build/Release-iphoneos"
     #echo xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
     #xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
 
+    IOS_APP_NAME=LearnLang
     OUTPUTDIR=$PWD/platforms/ios/build/device
     mydo ls $OUTPUTDIR
-    mydo xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$APPNAME.app -o $OUTPUTDIR/$APPNAME.ipa
-    mydo /usr/bin/zip --verbose --recurse-paths $OUTPUTDIR/$APPNAME.dsym.zip $OUTPUTDIR/$APPNAME.app.dsym
-    mydo cp $OUTPUTDIR/LearnLang.app $RELEASES_DIR/$APPNAME-ios.app
+    #mydo xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa
+    echo xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
+         xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
+    mydo /usr/bin/zip --verbose --recurse-paths $OUTPUTDIR/$APPNAME.dsym.zip $OUTPUTDIR/$IOS_APP_NAME.app.dsym
+    mydo cp $OUTPUTDIR/$IOS_APP_NAME.app $RELEASES_DIR/$APPNAME-ios.app
 ;;
 android)
     apkdir=platforms/android/build/outputs/apk
