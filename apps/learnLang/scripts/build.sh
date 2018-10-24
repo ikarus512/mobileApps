@@ -59,9 +59,9 @@ ios)
     #mydo cordova build ios --device --debug --verbose || exit 1
     #sed -i "" "s/iPhone Distribution/iPhone Developer/g" $APPL_DIR/platforms/ios/cordova/build-release.xcconfig
     #mydo cordova build ios --device --release  --codeSignIdentity=$IOS_DEVELOPER_NAME
-         cordova build ios --device --release  --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$HOME/Library/MobileDevice/Provisioning\ Profiles/learnLang.mobileprovision
+        echo "### cordova build ios"; cordova build ios --device --release  --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$HOME/Library/MobileDevice/Provisioning\ Profiles/learnLang.mobileprovision
     #mydo cordova build ios --device --release #|| exit 1
-    mydo ls $HOME/Library/MobileDevice/Provisioning\ Profiles
+    echo "### ls $HOME/Library/MobileDevice/Provisioning\ Profiles"; ls $HOME/Library/MobileDevice/Provisioning\ Profiles
     mydo cat $APPL_DIR/platforms/ios/cordova/build-release.xcconfig
     #####################
     # Make the ipa file #
