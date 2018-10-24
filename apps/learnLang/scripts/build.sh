@@ -79,7 +79,7 @@ ios)
 
     IOS_APP_NAME=LearnLang
     OUTPUTDIR=$PWD/platforms/ios/build/device
-    mydo ls $OUTPUTDIR
+    mydo ls -l $OUTPUTDIR
     #mydo xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa
     echo '### xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"'
               xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
