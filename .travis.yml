@@ -14,7 +14,7 @@ sudo: required
 matrix:
   include:
     - os: osx
-      osx_image: xcode7.3
+      #osx_image: xcode7.3
       env: JB=005 TOS=ios       APP=learnLang FRM=cordova OPT2=Small
     # ### learnLang: #####################
     # - os: linux
@@ -107,5 +107,5 @@ script:
     - ls -lh $RELEASES_DIR || echo 1
 
 after_success:
-    - . $WORK_DIR/scripts/deploy_github_releases.sh
-    # - . $WORK_DIR/scripts/deploy_heroku.sh
+    #- . $WORK_DIR/scripts/deploy_github_releases.sh
+    ### - . $WORK_DIR/scripts/deploy_heroku.sh
