@@ -10,7 +10,8 @@ jQuery.noConflict();
 
 a.os="";
 a.cordova=false;
-if(window.navigator.appVersion.search(/Android/i)>=0) {
+//if(window.navigator.appVersion.search(/Android/i)>=0) {
+if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
     a.os="And";
 }
 if(window.navigator.appVersion.search(/Windows/i)>=0) {
