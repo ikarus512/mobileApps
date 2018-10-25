@@ -79,13 +79,16 @@ ios)
     #xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
 
     IOS_APP_NAME=LearnLang
-    OUTPUTDIR=$PWD/platforms/ios/build/device
-    mydo ls -l $OUTPUTDIR
-    #mydo xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa
-    echo '### xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"'
-              xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
-    mydo /usr/bin/zip --verbose --recurse-paths $OUTPUTDIR/$APPNAME.dsym.zip $OUTPUTDIR/$IOS_APP_NAME.app.dsym
-    mydo cp $OUTPUTDIR/$IOS_APP_NAME.app $RELEASES_DIR/$APPNAME-ios.app
+#    OUTPUTDIR=$PWD/platforms/ios/build/device
+#    mydo ls -l $OUTPUTDIR
+#    #mydo xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa
+#    echo '### xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"'
+#              xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
+#    mydo /usr/bin/zip --verbose --recurse-paths $OUTPUTDIR/$APPNAME.dsym.zip $OUTPUTDIR/$IOS_APP_NAME.app.dsym
+#    mydo cp $OUTPUTDIR/$IOS_APP_NAME.app $RELEASES_DIR/$APPNAME-ios.app
+
+    mydo cp $OUTPUTDIR/$IOS_APP_NAME.ipa $RELEASES_DIR/$APPNAME-ios.ipa
+
 ;;
 android)
     apkdir=platforms/android/build/outputs/apk

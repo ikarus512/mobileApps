@@ -107,5 +107,5 @@ script:
     - ls -lh $RELEASES_DIR || echo 1
 
 after_success:
-    #- . $WORK_DIR/scripts/deploy_github_releases.sh
+    - . $WORK_DIR/scripts/deploy_github_releases.sh
     ### - . $WORK_DIR/scripts/deploy_heroku.sh

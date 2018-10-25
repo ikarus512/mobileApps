@@ -328,7 +328,7 @@ function githubTagAndPublishRelease() {
         case $APP.$TARGET_OS.$DEBUGV.$OPT2 in
         learnLang.ios.*.*)
             #mobileApps/apps/learnLang/platforms/ios/build/emulator/LearnLang.app
-            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-ios-debug.app
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-ios.ipa
             ;;
         learnLang.android.*.*)
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-debug.apk # if no crosswalk used (just 1 version produced)
