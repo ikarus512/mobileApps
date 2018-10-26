@@ -7,6 +7,10 @@ pushd $APPL_DIR >/dev/null 2>&1
 echo "### PWD=$PWD"
 
 # copy/compile files from src to www
+ if [ "$TARGET_OS" == "ios" ];then
+  rm -fr www
+  rm -f config.xml package.json
+ fi
 mkdir -p www
 cp -frv src/* www/
 rm -frv www/fonts/resources

@@ -21,7 +21,7 @@ if(window.navigator.appVersion.search(/Windows/i)>=0) {
 // nw.App.quit();
 
 if(typeof(cordova)==="undefined" || typeof(cordova.version)==="undefined") {
-    if(nw) {
+    if(typeof nw !== "undefined") {
         // Here if NW.js
         a.cordova=false;
         a.alert=function(){window.alert(arguments[0],arguments[1],arguments[2],arguments[3]);};
