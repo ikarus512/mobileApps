@@ -9,10 +9,12 @@ echo "### PWD=$PWD"
 # copy/compile files from src to www
  if [ "$TARGET_OS" == "ios" ];then
   rm -fr www
-  rm -f config.xml package.json
  fi
 mkdir -p www
 cp -frv src/* www/
+ if [ "$TARGET_OS" == "ios" ];then
+  rm -fr wwww/cordova.js
+ fi
 rm -frv www/fonts/resources
 if [ "$OPT2" == "Small" ];then
     rm -frv www/js/data/languages/hindi_oldfont.js
