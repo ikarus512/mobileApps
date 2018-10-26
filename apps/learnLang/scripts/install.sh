@@ -23,6 +23,7 @@ if [ $TARGET_OS == ios ];then
     mydo . $APPL_DIR/scripts/ios-decrypt-key.sh || exit 1
     mydo . $APPL_DIR/scripts/ios-add-key.sh || exit 1
 
+    rvm use system
     mydo npm i
     mydo cordova platform add ios || exit 1
     #mydo cordova plugin add cordova-plugin-crosswalk-webview || exit 1

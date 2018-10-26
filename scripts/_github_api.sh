@@ -328,6 +328,7 @@ function githubTagAndPublishRelease() {
         case $APP.$TARGET_OS.$DEBUGV.$OPT2 in
         learnLang.ios.*.*)
             #mobileApps/apps/learnLang/platforms/ios/build/emulator/LearnLang.app
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-ios-debug.ipa
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-ios.ipa
             ;;
         learnLang.android.*.*)

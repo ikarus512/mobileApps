@@ -56,39 +56,13 @@ osx)
     mydo ls -l $RELEASES_DIR
 ;;
 ios)
-    #mydo cordova build ios --device --debug --verbose || exit 1
-    #sed -i "" "s/iPhone Distribution/iPhone Developer/g" $APPL_DIR/platforms/ios/cordova/build-release.xcconfig
-    #mydo cordova build ios --device --release  --codeSignIdentity=$IOS_DEVELOPER_NAME
-        rvm use system
-        echo "### cordova build ios"; cordova build ios --device --release  --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=a2b92060-29ef-4dc6-96ee-424d45060223 --packageType=development #--automaticProvisioning=true
-    #mydo cordova build ios --device --release #|| exit 1
-    #echo "### ls $HOME/Library/MobileDevice/Provisioning\ Profiles"; ls $HOME/Library/MobileDevice/Provisioning\ Profiles
-    #mydo cat $APPL_DIR/platforms/ios/cordova/build-release.xcconfig
-    #####################
-    # Make the ipa file #
-    #####################
-
-
-    #CordovaError: Promise rejected with non-error: 'Error code 65 for command:
-    #xcodebuild with args: -xcconfig,./platforms/ios/cordova/build-release.xcconfig,-workspace,LearnLang.xcworkspace,-scheme,LearnLang,-configuration,Release,-destination,generic/platform=iOS,-archivePath,LearnLang.xcarchive,archive,CONFIGURATION_BUILD_DIR=./platforms/ios/build/device,SHARED_PRECOMPS_DIR=./platforms/ios/build/sharedpch'
-
-    #xctool -workspace LearnLang.xcworkspace -scheme LearnLang -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
-    PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_NAME.mobileprovision"
-    #OUTPUTDIR="$PWD/build/Release-iphoneos"
-    #echo xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
-    #xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
-
+    if [ "$DEBUGV" == "yes" ];then  debugOpt=--release; debugSuff=-debug
+    else                            debugOpt=--debug  ; debugSuff=         ; fi
+    echo "### cordova build ios"; cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=a2b92060-29ef-4dc6-96ee-424d45060223 --packageType=development #--automaticProvisioning=true
     IOS_APP_NAME=LearnLang
     OUTPUTDIR=$PWD/platforms/ios/build/device
     mydo ls -l $OUTPUTDIR
-#    #mydo xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa
-#    echo '### xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"'
-#              xcrun -log -sdk iphoneos PackageApplication -v $OUTPUTDIR/$IOS_APP_NAME.app -o $OUTPUTDIR/$APPNAME.ipa -sign "$IOS_DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
-#    mydo /usr/bin/zip --verbose --recurse-paths $OUTPUTDIR/$APPNAME.dsym.zip $OUTPUTDIR/$IOS_APP_NAME.app.dsym
-#    mydo cp $OUTPUTDIR/$IOS_APP_NAME.app $RELEASES_DIR/$APPNAME-ios.app
-
-    mydo cp $OUTPUTDIR/$IOS_APP_NAME.ipa $RELEASES_DIR/$APPNAME-ios.ipa
-
+    mydo cp $OUTPUTDIR/$IOS_APP_NAME.ipa $RELEASES_DIR/$APPNAME-ios$debugSuff.ipa
 ;;
 android)
     apkdir=platforms/android/build/outputs/apk
