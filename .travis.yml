@@ -94,6 +94,7 @@ before_script:
     - export  ZIPALIGN=$ANDROID_HOME/build-tools/$ABTVF/zipalign
     # iOS specific:
     - export IOS_PROFILE_NAME=learnLang
+    - export IOS_PROVISIONING_PROFILE_UUID=fd6fa7e8-2fd6-46cc-8526-51d6de5c4cc2
     - export IOS_DEVELOPER_NAME=iPhone\ Distribution\:\ ikarus512@yandex.ru\ \(3UX5BEB7M2\)
 
     - . $WORK_DIR/scripts/_mydo.sh
