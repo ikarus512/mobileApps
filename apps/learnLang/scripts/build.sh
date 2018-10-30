@@ -61,12 +61,17 @@ ios)
     # For Xcode10:   --buildFlag="-UseModernBuildSystem=0"
     echo "### cordova build ios"
     case "$(xcodebuild -version | grep -oE "Xcode \d+")" in
-    "Xcode 7")  cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$IOS_PROVISIONING_PROFILE_UUID --packageType=development ;; #--automaticProvisioning=false
+    "Xcode 7")
+        #cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$IOS_PROVISIONING_PROFILE_UUID --packageType=development ;; #--automaticProvisioning=false
+        cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$IOS_PROVISIONING_PROFILE_UUID --packageType=development --automaticProvisioning=false ;;
     "Xcode 8") ;;
-    "Xcode 9")  
+    "Xcode 9")
+        # nothing works:
         #cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --packageType=development --automaticProvisioning=true ;;
         cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$IOS_PROVISIONING_PROFILE_UUID --packageType=development --automaticProvisioning=false ;;
-    "Xcode 10") cordova build ios --device $debugOpt --buildFlag="-UseModernBuildSystem=0" --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --packageType=development --automaticProvisioning=true ;;
+    "Xcode 10")
+        # works only in local build:
+        cordova build ios --device $debugOpt --buildFlag="-UseModernBuildSystem=0" --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --packageType=development --automaticProvisioning=true ;;
     esac
     # For Xcode10:
     IOS_APP_NAME=LearnLang
