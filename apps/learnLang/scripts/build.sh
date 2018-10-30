@@ -60,9 +60,15 @@ ios)
     else                            debugOpt=--debug  ; debugSuff=         ; fi
     # For Xcode10:   --buildFlag="-UseModernBuildSystem=0"
     echo "### cordova build ios"
-    cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$IOS_PROVISIONING_PROFILE_UUID --packageType=development #--automaticProvisioning=true
+    case "$(xcodebuild -version | grep -oE "Xcode \d+")" in
+    "Xcode 7")  cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$IOS_PROVISIONING_PROFILE_UUID --packageType=development ;; #--automaticProvisioning=false
+    "Xcode 8") ;;
+    "Xcode 9")  
+        #cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --packageType=development --automaticProvisioning=true ;;
+        cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$IOS_PROVISIONING_PROFILE_UUID --packageType=development --automaticProvisioning=false ;;
+    "Xcode 10") cordova build ios --device $debugOpt --buildFlag="-UseModernBuildSystem=0" --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --packageType=development --automaticProvisioning=true ;;
+    esac
     # For Xcode10:
-    #cordova build ios --device $debugOpt --buildFlag="-UseModernBuildSystem=0" --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --packageType=development --automaticProvisioning=true
     IOS_APP_NAME=LearnLang
     OUTPUTDIR=$PWD/platforms/ios/build/device
     mydo ls -l $OUTPUTDIR
