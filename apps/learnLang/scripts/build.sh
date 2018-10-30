@@ -58,7 +58,10 @@ osx)
 ios)
     if [ "$DEBUGV" == "yes" ];then  debugOpt=--release; debugSuff=-debug
     else                            debugOpt=--debug  ; debugSuff=         ; fi
-    echo "### cordova build ios"; cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$IOS_PROVISIONING_PROFILE_UUID --packageType=development #--automaticProvisioning=true
+    # For Xcode10:   --buildFlag="-UseModernBuildSystem=0"
+    echo "### cordova build ios"
+    #cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$IOS_PROVISIONING_PROFILE_UUID --packageType=development #--automaticProvisioning=true
+    cordova build ios --device $debugOpt --buildFlag="-UseModernBuildSystem=0" --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --packageType=development --automaticProvisioning=true
     IOS_APP_NAME=LearnLang
     OUTPUTDIR=$PWD/platforms/ios/build/device
     mydo ls -l $OUTPUTDIR
