@@ -62,8 +62,9 @@ ios)
     echo "### cordova build ios"
     case "$(xcodebuild -version | grep -oE "Xcode \d+")" in
     "Xcode 7")
+        cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$IOS_PROVISIONING_PROFILE_UUID --packageType=development --automaticProvisioning=false ;;
         #cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$IOS_PROVISIONING_PROFILE_UUID --packageType=development ;; #--automaticProvisioning=false
-        cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --provisioningProfile=$IOS_PROVISIONING_PROFILE_UUID --packageType=development --automaticProvisioning=true ;;
+        #cordova build ios --device $debugOpt --codeSignIdentity="iPhone Developer" --developmentTeam=CU6FE4TYC9 --packageType=development --automaticProvisioning=true ;;
     "Xcode 8") ;;
     "Xcode 9")
         # nothing works:
