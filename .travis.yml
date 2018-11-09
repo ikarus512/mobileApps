@@ -35,8 +35,8 @@ matrix:
     # #-os: osx
     # # env: JB=080 TOS=osx       APP=learnLang FRM=nwjs                  DEBUGV=yes
     # ### puzzle15: ######################
-    # - os: linux
-    #   env: JB=090 TOS=android   APP=puzzle15  FRM=cordova-ionic
+    - os: linux
+      env: JB=090 TOS=android   APP=puzzle15  FRM=cordova-ionic
     # #-os: linux
     # # env: JB=100 TOS=android   APP=puzzle15  FRM=cordova-ionic         DEBUGV=yes
     # #-os: linux
