@@ -1,0 +1,50 @@
+"use strict";
+var a = a || {};
+
+a.learnData.add({
+    en: "languages/sinhala ქართული ენა/alphabet/alphabet",
+    ru: "языки    /сингала ქართული ენა/алфавит /алфавит",
+    "font-size": "64px", //"4em",
+    terms: [
+        {term:"ა", transcription:"[a]",  },
+        {term:"ბ", transcription:"[b]",  },
+        {term:"გ", transcription:"[g]",  },
+        {term:"დ", transcription:"[d]",  },
+        {term:"ე", transcription:"[e]",  },
+        {term:"ვ", transcription:"[v]",  },
+        {term:"ზ", transcription:"[z]",  },
+        {term:"ჱ", transcription:"[ē] old",  },
+        {term:"თ", transcription:"[t̪ʰ]", },
+        {term:"ი", transcription:"[i]",  },
+        {term:"კ", transcription:"[k']",  },
+        {term:"ლ", transcription:"[l]",  },
+
+        {term:"მ", transcription:"[m]",  },
+        {term:"ნ", transcription:"[n]",  },
+        {term:"ჲ", transcription:"[j/y] old",  },
+        {term:"ო", transcription:"[o]",  },
+        {term:"პ", transcription:"[p']",  },
+        {term:"ჟ", transcription:"[ʒ]",  },
+        {term:"რ", transcription:"[r]",  },
+        {term:"ს", transcription:"[s]", },
+        {term:"ტ", transcription:"[t’̪]",  },
+        {term:"ჳ", transcription:"[w] old",  },
+        {term:"უ", transcription:"[u]",  },
+        {term:"ფ", transcription:"[pʰ]",  },
+        {term:"ქ", transcription:"[kʰ]",  },
+
+        {term:"ღ", transcription:"[ɣ]",  },
+        {term:"ყ", transcription:"[q']",  },
+        {term:"შ", transcription:"[ʃ]",  },
+        {term:"ჩ", transcription:"[ʧʰ]",  },
+        {term:"ც", transcription:"[ʦʰ]",  },
+        {term:"ძ", transcription:"[ʣ]",  },
+        {term:"წ", transcription:"[ts']",  },
+        {term:"ჭ", transcription:"[ʧ’ɛ]",  },
+        {term:"ხ", transcription:"[xɛ]",  },
+        {term:"ჴ", transcription:"[x] old", },
+        {term:"ჯ", transcription:"[ʤɛ]",  },
+        {term:"ჰ", transcription:"[hɛ]",  },
+        {term:"ჵ", transcription:"[ō] old",  },
+    ]
+});
