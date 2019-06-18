@@ -92,6 +92,8 @@ android)
 
     if [ "$DEBUGV" == "yes" ];then
 
+        mydo cordova requirements
+
         mydo cordova build android --debug --verbose || exit 1
 
         mydo ls -lh $apkdir
@@ -107,6 +109,8 @@ android)
         esac
 
     else # elif [ "$DEBUGV" != "yes" ];then
+
+        mydo cordova requirements
 
         ### build
         mydo cordova build android --release --verbose || exit 1
