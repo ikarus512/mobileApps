@@ -24,8 +24,8 @@ matrix:
     # #  env: JB=020 TOS=android   APP=learnLang FRM=cordova OPT2=Small    DEBUGV=yes
     - os: linux
       env: JB=030 TOS=android   APP=learnLang FRM=cordova
-    # #- os: linux
-    # #  env: JB=040 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
+    - os: linux
+      env: JB=040 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
     # - os: linux
     #   env: JB=050 TOS=linux-win APP=learnLang FRM=nwjs
     # #- os: linux
