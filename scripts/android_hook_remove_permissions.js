@@ -15,7 +15,7 @@
 //       If the count is more than 1, you should search through
 //       the /plugins/<plugin-name>/plugin.xml files for <uses-permission> tags.
 
-//return;
+return; // TODO: comment
 var VERBOSE = 0;
 
 var permissionsToRemove = [
