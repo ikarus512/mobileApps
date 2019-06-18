@@ -5,8 +5,7 @@
 language: node_js
 node_js: "8"
 sudo: required
-jdk:
-  - oraclejdk8
+jdk: oraclejdk8
 
 ### TODO: sign osx application
 ### TODO: sign win application
@@ -24,8 +23,8 @@ matrix:
     #   env: JB=010 TOS=android   APP=learnLang FRM=cordova OPT2=Small
     # #- os: linux
     # #  env: JB=020 TOS=android   APP=learnLang FRM=cordova OPT2=Small    DEBUGV=yes
-    - os: linux
-      env: JB=030 TOS=android   APP=learnLang FRM=cordova
+    #- os: linux
+    #  env: JB=030 TOS=android   APP=learnLang FRM=cordova
     - os: linux
       env: JB=040 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
     # - os: linux
@@ -37,8 +36,8 @@ matrix:
     # #-os: osx
     # # env: JB=080 TOS=osx       APP=learnLang FRM=nwjs                  DEBUGV=yes
     # ### puzzle15: ######################
-    - os: linux
-      env: JB=090 TOS=android   APP=puzzle15  FRM=cordova-ionic
+    ################## os: linux
+    ##################  env: JB=090 TOS=android   APP=puzzle15  FRM=cordova-ionic
     # #-os: linux
     # # env: JB=100 TOS=android   APP=puzzle15  FRM=cordova-ionic         DEBUGV=yes
     # #-os: linux

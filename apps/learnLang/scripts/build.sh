@@ -93,6 +93,8 @@ android)
     if [ "$DEBUGV" == "yes" ];then
 
         mydo cordova requirements
+        mydo which java
+        mydo echo $JAVA_PATH
 
         mydo cordova build android --debug --verbose || exit 1
 
