@@ -68,7 +68,7 @@ a.learnData.add({
         {term:"არა", transcription:"[ara]", translation:{en:"no",ru:"нет"}},
         {term:"საუბრობთ თუ არა ქართული ენა? ილაპარაკეთ ქართული?", transcription:"[saubrobt tu ara kartuli ena? ilap’arak’et kartuli?]", translation:{en:"Do you speek georgian?",ru:"Вы говорите по-грузински? Говорите по-грузински?"}},
         {term:"ინგლისურად ლაპარაკობ?", transcription:"[inglisurad lap’arak’ob?]", translation:{en:"Do you speak english?",ru:"Вы говорите по-английски?"}},
-        {term:"რუსულ ენაზე ლაპარაკობ?", transcription:"[rusul enaze lap’arak’ob?]", translation:{en:"Do you speak russian?",ru:"Вы говорите по-русски?"},
+        {term:"რუსულ ენაზე ლაპარაკობ?", transcription:"[rusul enaze lap’arak’ob?]", translation:{en:"Do you speak russian?",ru:"Вы говорите по-русски?"}},
         //{term:"", transcription:"[]", translation:{en:"",ru:""}},
         //{term:"", transcription:"[]", translation:{en:"",ru:""}},
         //{term:"", transcription:"[]", translation:{en:"",ru:""}},
