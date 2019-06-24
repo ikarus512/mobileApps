@@ -2,8 +2,8 @@
 var a = a || {};
 
 a.learnData.add({
-    en: "languages/sinhala ქართული ენა/alphabet/alphabet",
-    ru: "языки    /сингала ქართული ენა/алфавит /алфавит",
+    en: "languages/georgian ქართული ენა/alphabet/alphabet",
+    ru: "языки    /грузинский ქართული ენა/алфавит /алфавит",
     "font-size": "64px", //"4em",
     terms: [
         {term:"ა", transcription:"[a]",  },
@@ -47,4 +47,32 @@ a.learnData.add({
         {term:"ჰ", transcription:"[hɛ]",  },
         {term:"ჵ", transcription:"[ō] old",  },
     ]
+});
+
+a.learnData.add({
+    en: "languages/georgian ქართული ენა/common phrases",
+    ru: "языки    /грузинский ქართული ენა/общие фразы",
+    //"font-size": "1.1em",
+    terms: [
+        {term:"გამარჯობა", transcription:"[gamarjoba]", translation:{en:"Hello",ru:"Здравствуйте"}},
+        {term:"ნახვამდის", transcription:"[nakhvamdis]", translation:{en:"Bye",ru:"Досвидания"}},
+        {term:"მადლობა", transcription:"[madloba]", translation:{en:"Thank you",ru:"Спасибо"}},
+        {term:"თქვენ მივესალმე", transcription:"[tkven mivesalmebit]", translation:{en:"You are welcome",ru:"Пожалуйста"}},
+        {term:"მე", transcription:"[me]", translation:{en:"me",ru:"я"}},
+        {term:"ჩვენ", transcription:"[chven]", translation:{en:"we",ru:"мы"}},
+        {term:"შენ", transcription:"[shen]", translation:{en:"you (sing./plur.)",ru:"ты/вы"}},
+        {term:"თქვენ", transcription:"[tkven]", translation:{en:"You (sing.)",ru:"Вы (ед.ч.)"}},
+        {term:"ის", transcription:"[is]", translation:{en:"he/she/it",ru:"он/она/оно"}},
+        {term:"მათ", transcription:"[mat]", translation:{en:"them",ru:"они"}},
+        {term:"დიახ", transcription:"[diakh]", translation:{en:"yes",ru:"да"}},
+        {term:"არა", transcription:"[ara]", translation:{en:"no",ru:"нет"}},
+        {term:"საუბრობთ თუ არა ქართული ენა? ილაპარაკეთ ქართული?", transcription:"[saubrobt tu ara kartuli ena? ilap’arak’et kartuli?]", translation:{en:"Do you speek georgian?",ru:"Вы говорите по-грузински? Говорите по-грузински?"}},
+        {term:"ინგლისურად ლაპარაკობ?", transcription:"[inglisurad lap’arak’ob?]", translation:{en:"Do you speak english?",ru:"Вы говорите по-английски?"}},
+        {term:"რუსულ ენაზე ლაპარაკობ?", transcription:"[rusul enaze lap’arak’ob?]", translation:{en:"Do you speak russian?",ru:"Вы говорите по-русски?"},
+        //{term:"", transcription:"[]", translation:{en:"",ru:""}},
+        //{term:"", transcription:"[]", translation:{en:"",ru:""}},
+        //{term:"", transcription:"[]", translation:{en:"",ru:""}},
+        //{term:"", transcription:"[]", translation:{en:"",ru:""}},
+        //{term:"", transcription:"[]", translation:{en:"",ru:""}},
+      ],
 });

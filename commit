@@ -2,10 +2,17 @@
 
 #msg="english added, fail fixing (now android graddle needs declared flavor dimensions)"
 #msg="english added, crosswalk disabled (because build fail after google gradle update)"
-msg="Arabic language: alphabet added"
+msg="Georgian language"
 
 # pull-n-merge
-git fetch origin && git merge --no-edit -m "[ci skip] merge with branch master"
+#git fetch origin && git merge --no-edit -m "[ci skip] merge with branch master"
+git fetch && git pull
+
+# add all changed files
+git add -A
 
 # commit
-git add -A; git commit -m "$msg"; git push origin master
+git commit -m "$msg"
+
+# git push origin master
+git push
