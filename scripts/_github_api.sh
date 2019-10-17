@@ -362,6 +362,13 @@ function githubTagAndPublishRelease() {
             githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-x86-debug.apk
             ;;
 
+        btCtl.android.*.)
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-debug.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
+            githubReleaseUploadAsset $REPO v$latestTag $RELEASES_DIR/$APPNAME-android-x86-debug.apk
+            ;;
+
         esac
 
     fi
