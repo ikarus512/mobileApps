@@ -170,6 +170,9 @@ a.onReady=function() {
         var time = ((new Date().getTime()) - a.time0)/1000;
         jQuery('.mytimer').html(time);
     }, 1000);
+
+    app.initialize();
+
 };
 
 a.init();

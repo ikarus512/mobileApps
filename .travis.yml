@@ -21,7 +21,7 @@ matrix:
     #  env: JB=005 TOS=ios       APP=learnLang FRM=cordova OPT2=Small     DEBUGV=yes
     ### btCtl: #####################
     - os: linux
-      env: JB=010 TOS=android   APP=btCtl FRM=cordova OPT2=Small
+      env: JB=010 TOS=android   APP=btCtl FRM=cordova
     ## ### learnLang: #####################
     ## - os: linux
     ##   env: JB=010 TOS=android   APP=learnLang FRM=cordova OPT2=Small

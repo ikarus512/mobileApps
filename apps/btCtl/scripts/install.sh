@@ -32,6 +32,8 @@ cordova.android|cordova-ionic.android)
         #     cordova plugin add cordova-plugin-console
         # fi
 
+        cordova plugin add cordova-plugin-bluetooth-serial
+
     fi
 
     if [ ! -e plugins/cordova-plugin-dialogs ];then cordova plugin add cordova-plugin-dialogs; fi
