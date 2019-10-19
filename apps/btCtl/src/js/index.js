@@ -1,10 +1,8 @@
 /* jshint quotmark: false, unused: vars, browser: true */
-/* global cordova, console, $, bluetoothSerial, _,
- refreshButton, deviceList, previewColor, red, green, blue, disconnectButton, connectionScreen, colorScreen, rgbText, messageDiv */
+/* global cordova, console, $, bluetoothSerial, _, refreshButton, deviceList, previewColor, red, green, blue, disconnectButton, connectionScreen, colorScreen, rgbText, messageDiv */
 'use strict';
 
 var app = {
-//    var $ = jQuery;
     initialize: function() {
         this.bind();
     },
@@ -15,15 +13,13 @@ var app = {
     deviceready: function() {
 
         // wire buttons to functions
-        a.click('#deviceList', app.connect);//deviceList.ontouchstart = app.connect; // assume not scrolling
-        a.click('#refreshButton', app.list);// refreshButton.ontouchstart = app.list;
-        a.click('#disconnectButton', app.disconnect);//disconnectButton.ontouchstart = app.disconnect;
+        deviceList.ontouchstart = app.connect; // assume not scrolling
+        refreshButton.ontouchstart = app.list;
+        disconnectButton.ontouchstart = app.disconnect;
 
         // throttle changes
-//        var throttledOnColorChange = _.throttle(app.onColorChange, 200);
-//        $('input').on('change', throttledOnColorChange);
-        jQuery('input').on('change', app.onColorChange);
-
+        var throttledOnColorChange = _.throttle(app.onColorChange, 200);
+        $('input').on('change', throttledOnColorChange);
         
         app.list();
     },
@@ -126,3 +122,5 @@ var app = {
         return func;
     }
 };
+
+app.initialize();

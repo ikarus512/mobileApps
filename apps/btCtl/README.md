@@ -1,4 +1,3 @@
-# Puzzle 15
+# btCtrl
 
-Puzzle 15 game.
-Written in JavaScript using Cordova + jQuery Mobile.
+Based on https://github.com/don/BluetoothSerial
