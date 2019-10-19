@@ -17,7 +17,7 @@ rm -frv www/img/logo3.png
 # Prepare cordova hooks
 if [ "$TARGET_OS" == "android" ];then
     mkdir -p $APPL_DIR/hooks/after_prepare
-    cp -frv $WORK_DIR/scripts/android_hook_remove_permissions.js $APPL_DIR/hooks/after_prepare/
+#    cp -frv $WORK_DIR/scripts/android_hook_remove_permissions.js $APPL_DIR/hooks/after_prepare/
     cp -frv $WORK_DIR/scripts/android_check_permissions.sh       $APPL_DIR/hooks/after_prepare/
     chmod -R +x hooks
     ls -hl $APPL_DIR/hooks/after_prepare
