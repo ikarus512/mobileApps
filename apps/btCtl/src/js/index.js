@@ -2,6 +2,8 @@
 /* global cordova, console, $, bluetoothSerial, _, refreshButton, deviceList, previewColor, red, green, blue, disconnectButton, connectionScreen, colorScreen, rgbText, messageDiv */
 'use strict';
 
+var a = a || {};
+
 var app = {
     initialize: function() {
         this.bind();
@@ -24,6 +26,7 @@ var app = {
         app.list();
     },
     list: function(event) {
+        a.permissions.check();
         deviceList.firstChild.innerHTML = "Discovering...";
         app.setStatus("Looking for Bluetooth Devices...");
         
