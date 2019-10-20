@@ -1,0 +1,46 @@
+.mycontainer{
+    position: relative;
+    width:500px;
+    height:500px;
+    margin: auto; /* center horizontally */
+    border: 2px solid black;
+    boxsizing: border-box;
+}
+
+.brick{
+    position: absolute;
+    left: 0;
+    top:  0;
+    boxsizing: border-box;
+    user-select: none;
+    -webkit-transition: left 0.5s, top 0.5s;
+    transition: left 0.5s, top 0.5s;
+    background-size:   contain;
+    text-align:        center;
+    text-shadow:       3px 2px white;
+}
+
+th {
+    border-bottom: 1px solid #d6d6d6;
+}
+tr:nth-child(odd) {
+    background: #f9f9f9;
+}
+tr:nth-child(even) {
+    background: #e9e9e9;
+}
+
+[role=main],[data-role=page]{
+    background:url(../img/bg.jpg);
+}
+
+label *,legend{
+    text-shadow:0;
+    font-weight: 700;/*900*/
+    color:black;    
+}
+
+en { display: inline; }
+ru { display: none; }
+
+body { display: none; } /* Flicker fix */

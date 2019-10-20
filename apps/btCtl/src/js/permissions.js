@@ -23,7 +23,7 @@ a.permissions = {
             if( !status.hasPermission ) {
                 this.plugin.requestPermissions(
                     this.list,
-                    function(status) {
+                    (status) => {
                         if( !status.hasPermission ) this.error("error requestPermissions hasPermission");
                     },
                     this.error.bind(null,"requestPermissions failed"));

@@ -14,20 +14,38 @@
     <meta http-equiv="Content-Security-Policy" content="default-src &apos;self&apos; data: gap: https://ssl.gstatic.com &apos;unsafe-eval&apos;; style-src &apos;self&apos; &apos;unsafe-inline&apos;; media-src *; img-src &apos;self&apos; data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <!-- <link rel="stylesheet" type="text/css" href="css/font-awesome.min-4.7.0.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="css/w3.css"> -->
-    <!--
     <link rel="stylesheet" type="text/css" href="lib/jquery-1.5.0.mobile.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/topcoat-mobile-light.min.css">
     <link rel="stylesheet" type="text/css" href="css/jqm.css">
     <link rel="stylesheet" type="text/css" href="css/15.css">
-    -->
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <link rel="stylesheet" type="text/css" href="css/topcoat-mobile-light.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <title>btCtl</title>
-        <script src="js/jquery-1.9.1.min.js"></script>
 </head>
-    <body>
+<body>
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  #startpage                                                                //
+////////////////////////////////////////////////////////////////////////////////
+-->
+<div data-role="page" id="startpage">
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+        <h1> btCtl </h1>
+    </div><!-- end of page header -->
+
+    <label> &nbsp; </label>
+    <label> &nbsp; </label>
+    <div data-role="navbar"><ul>
+        <li><a href="index.html#pagegame" data-icon="arrow-r"> <en>Start game</en><ru>Играть</ru> </a></li>
+        <li><a href="index.html#pagerecords" data-icon="star"> <en>Hall of fame</en><ru>Рекорды</ru> </a></li>
+        <li><button id="exitbutton" data-rel="back" data-icon="arrow-l"> <en>Exit</en><ru>Выход</ru> </button></li>
+    </ul></div>
+
+    <div role="main" class="ui-content">
+
         <div class="topcoat-navigation-bar">
             <div class="topcoat-navigation-bar__item center full">
                 <h1 class="topcoat-navigation-bar__title">LED</h1>
@@ -65,10 +83,191 @@
             </p>
         </div>
         <div id="messageDiv"></div>
-        <script type="text/javascript" src="js/underscore-min.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/first.js"></script>
-        <script type="text/javascript" src="js/permissions.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+
+        <legend for="username"> <en>Your name:</en><ru>Ваше имя:</ru> </legend>
+        <input type="text" name="username" value="Unonimous">
+        <label> &nbsp; </label>
+
+        <div class="ui-grid-a">
+            <fieldset data-role="controlgroup" class="ui-block-b">
+                <legend><en>Language:</en><ru>Язык:</ru></legend>
+                <label for="en"><en>English</en><ru>Английский</ru></label>
+                <input type="radio" name="language" id="en" value="en" checked="checked">
+                <label for="ru"><en>Russian</en><ru>Русский</ru></label>
+                <input type="radio" name="language" id="ru" value="ru"> 
+            </fieldset>
+
+            <fieldset data-role="controlgroup" class="ui-block-b">
+                <legend><en>Game size:</en><ru>Размер игры:</ru></legend>
+                <label for="2">2x2</label>  <input type="radio" name="gamesize" id="2" value="2" checked="checked">
+                <label for="3">3x3</label>  <input type="radio" name="gamesize" id="3" value="3" checked="checked">
+                <label for="4">4x4</label>  <input type="radio" name="gamesize" id="4" value="4" checked="checked">
+                <label for="5">5x5</label>  <input type="radio" name="gamesize" id="5" value="5" checked="checked">
+            </fieldset>
+        </div>
+        <!-- </form> -->
+
+    </div><!-- end of page content -->
+
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+        <div class=mydebug></div>
+        <h4> btCtl </h4>
+    </div><!-- end of page footer -->
+</div>
+
+
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  #pagegame                                                                 //
+////////////////////////////////////////////////////////////////////////////////
+-->
+<div data-role="page" id="pagegame">
+<!--     <div data-role="header" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+        <h1><en>Game</en><ru>Игра</ru></h1>
+    </div> -->
+    <div data-role="navbar"><ul>
+        <li><button id="startbutton" data-icon="refresh"> <en>Restart</en><ru>Повторить</ru> </button></li>
+        <li><a href="index.html#pagerecords" data-icon="star"><en>Hall of fame</en><ru>Рекорды</ru></a></li>
+        <li><a href="index.html#" data-icon="back" data-rel="back"><en>Back</en><ru>Назад</ru></a></li>
+    </ul></div>
+
+    <div role="main" class="ui-content">
+        <label>
+            <en>Time:</en><ru>Время:</ru>    <span class="mytimer">0.000</span>  <en>sec</en><ru>сек</ru>
+        </label>
+        <div class="mycontainer"></div>
+
+    </div><!-- end of page content -->
+
+    <div class=mydebug></div>
+<!--
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+        <h4><en>Game</en><ru>Игра</ru></h4>
+    </div>
+-->
+</div>
+
+
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  #pageresult                                                               //
+////////////////////////////////////////////////////////////////////////////////
+-->
+<div data-role="page" id="pageresult" data-dialog="true">
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+        <h1><en>Your result</en><ru>Ваш результат</ru></h1>
+    </div><!-- end of page header -->
+
+    <div role="main" class="ui-content">
+        <label>
+            <span><en>Game:</en><ru>Игра:</ru></span>
+            <span id="gamename"></span>
+        </label>
+        <label>
+            <span><en>Name:</en><ru>Имя:</ru></span>
+            <span id="username"></span>
+        </label>
+        <label>
+            <span><en>Time (sec):</en><ru>Время (сек):</ru></span>
+            <span id="userrecord"></span>
+        </label>
+
+    </div><!-- end of page content -->
+
+</div>
+
+
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  #pagerecords                                                              //
+////////////////////////////////////////////////////////////////////////////////
+-->
+<div data-role="page" id="pagerecords">
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+        <h1><en>Hall of fame</en><ru>Рекорды</ru> <span class="gamesize"></span></h1>
+    </div><!-- end of page header -->
+
+    <div data-role="navbar"><ul>
+        <li><a href="index.html#" data-icon="back" data-rel="back"><en>Back</en><ru>Назад</ru></a></li>
+    </ul></div>
+
+    <div role="main" class="ui-content">
+
+        <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow">
+          <thead>
+            <tr>
+              <th><en>Place</en><ru>Место</ru></th>
+              <th><en>Name</en><ru>Имя</ru></th>
+              <th><en>Time (sec)</en><ru>Время (сек)</ru></th>
+            </tr>
+          </thead>
+          <tbody id="tabrecords">
+          </tbody>
+        </table>
+
+    </div><!-- end of page content -->
+
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
+        <div class=mydebug></div>
+        <h4><en>Hall of fame</en><ru>Рекорды</ru> <span class="gamesize"></span></h4>
+    </div><!-- end of page footer -->
+</div>
+
+
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  End of pages.                                                             //
+////////////////////////////////////////////////////////////////////////////////
+-->
+
+<audio id="audio_click">
+    <source src="snd/click.ogg" type="audio/ogg">
+    <source src="snd/click.mp3" type="audio/mpeg">
+</audio>
+<audio id="audio_applause">
+    <!-- https://www.freesoundeffects.com/free-sounds/doors-10030/ -->
+    <source src="snd/applause10.mp3" type="audio/mpeg">
+</audio>
+<audio id="audio_close_door">
+    <source src="snd/close_door_1.mp3" type="audio/mpeg">
+</audio>
+<audio id="audio_open_door">
+    <source src="snd/open_door_1.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="audio_click1" src="snd/click.mp3" type="audio/mpeg"></audio>
+<audio id="audio_applause1" src="snd/applause10.mp3" type="audio/mpeg"></audio>
+<audio id="audio_close_door1" src="snd/close_door_1.mp3" type="audio/mpeg"></audio>
+<audio id="audio_open_door1" src="snd/open_door_1.mp3" type="audio/mpeg"></audio>
+
+
+
+
+<script type="text/javascript" src="lib/jquery-1.11.1.min.js" id="cordova-jquery"></script>
+<script type="text/javascript" src="lib/underscore-min.js" id="underscore"></script>
+<script type="text/javascript" src="lib/jqm.js" id="jqm-trans-disable"></script>
+<script type="text/javascript" src="lib/jquery-1.5.0.mobile.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+
+<!-- Application -->
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/first.js"></script>
+<script type="text/javascript" src="js/debug.js"></script>
+<script type="text/javascript" src="js/storage.js"></script>
+<script type="text/javascript" src="js/language.js"></script>
+<script type="text/javascript" src="js/gamesize.js"></script>
+<script type="text/javascript" src="js/permissions.js"></script>
+<script type="text/javascript" src="js/records.js"></script>
+<script type="text/javascript" src="js/user.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+</body>
 </html>

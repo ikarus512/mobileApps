@@ -1,44 +1,48 @@
 /* jshint quotmark: false, unused: vars, browser: true */
-/* global cordova, console, $, bluetoothSerial, _, refreshButton, deviceList, previewColor, red, green, blue, disconnectButton, connectionScreen, colorScreen, rgbText, messageDiv */
+/* global cordova, console, jQuery, bluetoothSerial, _, refreshButton, deviceList, previewColor, red, green, blue, disconnectButton, connectionScreen, colorScreen, rgbText, messageDiv */
 'use strict';
-
-var a = a || {};
-
 var app = {
+    // initialize: function() {
+    //     this.bind();
+    // },
+    // bind: function() {
+    //     document.addEventListener('deviceready', this.deviceready, false);
+    //     colorScreen.hidden = true;
+    // },
+    // deviceready: function() {
     initialize: function() {
-        this.bind();
-    },
-    bind: function() {
-        document.addEventListener('deviceready', this.deviceready, false);
-        colorScreen.hidden = true;
-    },
-    deviceready: function() {
+        console.log('### app.initialize()');
+        a.permissions.check();
+
+        jQuery('#colorScreen').hide();// = true;
 
         // wire buttons to functions
-        deviceList.ontouchstart = app.connect; // assume not scrolling
-        refreshButton.ontouchstart = app.list;
-        disconnectButton.ontouchstart = app.disconnect;
+        a.click('#deviceList', app.connect); //deviceList.ontouchstart = app.connect; // assume not scrolling
+        a.click('#refreshButton', app.list); //refreshButton.ontouchstart = app.list;
+        a.click('#disconnectButton', app.disconnect); //disconnectButton.ontouchstart = app.disconnect;
 
         // throttle changes
         var throttledOnColorChange = _.throttle(app.onColorChange, 200);
-        $('input').on('change', throttledOnColorChange);
+        jQuery('input').on('change', throttledOnColorChange);
         
         app.list();
     },
     list: function(event) {
-        a.permissions.check();
+        console.log('### app.list()');
         deviceList.firstChild.innerHTML = "Discovering...";
         app.setStatus("Looking for Bluetooth Devices...");
         
         bluetoothSerial.list(app.ondevicelist, app.generateFailureFunction("List Failed"));
     },
     connect: function (e) {
+        console.log('### app.connect()');
         app.setStatus("Connecting...");
         var device = e.target.getAttribute('deviceId');
         console.log("Requesting connection to " + device);
         bluetoothSerial.connect(device, app.onconnect, app.ondisconnect);        
     },
     disconnect: function(event) {
+        console.log('### app.disconnect()');
         if (event) {
             event.preventDefault();
         }
@@ -47,13 +51,15 @@ var app = {
         bluetoothSerial.disconnect(app.ondisconnect);
     },
     onconnect: function() {
-        connectionScreen.hidden = true;
-        colorScreen.hidden = false;
+        console.log('### app.onconnect()');
+        jQuery('#connectionScreen').hide(); //connectionScreen.hidden = true;
+        jQuery('#colorScreen').show();//colorScreen.hidden = false;
         app.setStatus("Connected.");
     },
     ondisconnect: function() {
-        connectionScreen.hidden = false;
-        colorScreen.hidden = true;
+        console.log('### app.ondisconnect()');
+        jQuery('#connectionScreen').show(); //connectionScreen.hidden = false;
+        jQuery('#colorScreen').hide();//colorScreen.hidden = true;
         app.setStatus("Disconnected.");
     },
     onColorChange: function (evt) {
@@ -125,5 +131,3 @@ var app = {
         return func;
     }
 };
-
-app.initialize();
