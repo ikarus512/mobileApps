@@ -39,7 +39,7 @@ var app = {
     connect: function (e) {
         console.log('### app.connect()');
         app.setStatus("Connecting...");
-        var device = e.target.getAttribute('deviceId');
+        var device = e && e.target && e.target.getAttribute && e.target.getAttribute('deviceId');
         console.log("Requesting connection to " + device);
         bluetoothSerial.connect(device, app.onconnect, app.ondisconnect);        
     },

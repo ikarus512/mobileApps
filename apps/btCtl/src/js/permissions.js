@@ -19,7 +19,7 @@ a.permissions = {
     ],
     check: function() {
         console.log("### in function check");
-        this.plugin.hasPermission(this.list, (status) => {
+        this.plugin.checkPermission(this.list, (status) => {
             if( !status.hasPermission ) {
                 this.plugin.requestPermissions(
                     this.list,
