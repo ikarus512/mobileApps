@@ -7,8 +7,11 @@ var a = a || {};
 a.permissions = {
     plugin : cordova.plugins.permissions,
     list : [
-        ///permissions.CAMERA,
-        //permissions.GET_ACCOUNTS
+        ////permissions.CAMERA,
+        ////permissions.GET_ACCOUNTS
+        // "android.permission.BLUETOOTH",
+        // "android.permission.BLUETOOTH_ADMIN",
+        // "android.permission.ACCESS_COARSE_LOCATION",
         cordova.plugins.permissions.BLUETOOTH,
         cordova.plugins.permissions.BLUETOOTH_ADMIN,
         cordova.plugins.permissions.ACCESS_COARSE_LOCATION,

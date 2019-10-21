@@ -34,6 +34,7 @@ cordova.android|cordova-ionic.android)
 
         cordova plugin add cordova-plugin-bluetooth-serial
         cordova plugin add cordova-plugin-android-permissions
+        cordova plugin add cordova-plugin-bluetoothle
 
     fi
 
