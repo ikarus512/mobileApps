@@ -1,5 +1,7 @@
 /* jshint quotmark: false, unused: vars, browser: true */
-/* global cordova, console, jQuery, bluetoothSerial, _, refreshButton, deviceList, previewColor, red, green, blue, disconnectButton, connectionScreen, colorScreen, rgbText, messageDiv */
+/* global cordova, console, jQuery, bluetoothSerial, _,
+refreshButton, deviceList, previewColor, red, green, blue, disconnectButton,
+connectionScreen, colorScreen, rgbText, messageDiv */
 'use strict';
 var app = {
     // initialize: function() {
@@ -29,7 +31,7 @@ var app = {
     },
     list: function(event) {
         console.log('### app.list()');
-        deviceList.firstChild.innerHTML = "Discovering...";
+        jQuery("#deviceList:first-child").html("Discovering...");//deviceList.firstChild.innerHTML = "Discovering...";
         app.setStatus("Looking for Bluetooth Devices...");
         
         bluetoothSerial.list(app.ondevicelist, app.generateFailureFunction("List Failed"));
@@ -64,15 +66,15 @@ var app = {
     },
     onColorChange: function (evt) {
         var c = app.getColor();
-        rgbText.innerText = c;
-        previewColor.style.backgroundColor = "rgb(" + c + ")";
+        jQuery("#rgbText").text(c);//rgbText.innerText = c;
+        jQuery("#previewColor").css('background-color', "rgb(" + c + ")");//previewColor.style.backgroundColor = "rgb(" + c + ")";
         app.sendToArduino(c);
     },
     getColor: function () {
         var color = [];
-        color.push(red.value);
-        color.push(green.value);
-        color.push(blue.value);
+        color.push(jQuery("#red").value());//color.push(red.value);
+        color.push(jQuery("#green").value());//color.push(green.value);
+        color.push(jQuery("#blue").value());//color.push(blue.value);
         return color.join(',');
     },
     sendToArduino: function(c) {
@@ -83,14 +85,14 @@ var app = {
         if (app.timeoutId) {
             clearTimeout(app.timeoutId);
         }
-        messageDiv.innerText = status;
-        app.timeoutId = setTimeout(function() { messageDiv.innerText = ""; }, 4000);
+        jQuery("#messageDiv").text(status);//messageDiv.innerText = status;
+        app.timeoutId = setTimeout(function() { jQuery("#messageDiv").text(status); }, 4000);
     },
     ondevicelist: function(devices) {
         var listItem, deviceId;
 
         // remove existing devices
-        deviceList.innerHTML = "";
+        jQuery("#deviceList").html('');//deviceList.innerHTML = "";
         app.setStatus("");
         
         devices.forEach(function(device) {
@@ -104,8 +106,8 @@ var app = {
                 deviceId = "ERROR " + JSON.stringify(device);
             }
             listItem.setAttribute('deviceId', device.address);            
-            listItem.innerHTML = device.name + "<br/><i>" + deviceId + "</i>";
-            deviceList.appendChild(listItem);
+            jQuery("#listItem").html(device.name + "<br/><i>" + deviceId + "</i>");//listItem.innerHTML = device.name + "<br/><i>" + deviceId + "</i>";
+            jQuery("#deviceList").appendChild(listItem);//deviceList.appendChild(listItem);
         });
 
         if (devices.length === 0) {
