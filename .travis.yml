@@ -9,7 +9,7 @@ env:
     - ANDROID_API_LEVEL=28
     - ANDROID_BUILD_TOOLS_VERSION=28.0.3
     - TERM=dumb # Keep gradle from crapping all over the log
-    - nodejs_version=8
+    - nodejs_version=12 #8
 
 language: android
 jdk: oraclejdk8
@@ -17,6 +17,7 @@ node_js: "8"
 android:
   components:
     - tools
+    - platform-tools
     - build-tools-$ANDROID_BUILD_TOOLS_VERSION
     - android-$ANDROID_API_LEVEL
 
@@ -132,7 +133,7 @@ before_script:
     - export IOS_DEVELOPER_NAME=iPhone\ Distribution\:\ ikarus512@yandex.ru\ \(3UX5BEB7M2\)
 
     - . $WORK_DIR/scripts/_mydo.sh
-    - . $WORK_DIR/scripts/common_before_install.sh
+    #- . $WORK_DIR/scripts/common_before_install.sh
     - . $APPL_DIR/scripts/before_install.sh
     - . $APPL_DIR/scripts/copy.sh
     - . $APPL_DIR/scripts/install.sh
