@@ -4,8 +4,10 @@
 
 language: node_js
 node_js: "8"
-dist: trusty
 sudo: required
+#dist: trusty # ubuntu 14.04
+#Ubuntu Bionic 18.04
+#Ubuntu Xenial 16.04 default
 jdk: oraclejdk8
 
 ### TODO: sign osx application
@@ -21,13 +23,20 @@ matrix:
     #  env: JB=005 TOS=ios       APP=learnLang FRM=cordova OPT2=Small     DEBUGV=yes
     ### btCtl: #####################
     - os: linux
+      dist: trusty # Android builds are only supported on Trusty
       env: JB=010 TOS=android   APP=btCtl FRM=cordova DEBUGV=yes
+      android:
+        components:
+          - build-tools #build-tools-26.0.2
+          - android #android-26
+          #- extra
     ## ### learnLang: #####################
     ## - os: linux
     ##   env: JB=010 TOS=android   APP=learnLang FRM=cordova OPT2=Small
     ## #- os: linux
     ## #  env: JB=020 TOS=android   APP=learnLang FRM=cordova OPT2=Small    DEBUGV=yes
     - os: linux
+      dist: trusty # ubuntu 14.04
       env: JB=030 TOS=android   APP=learnLang FRM=cordova
     ##- os: linux
     ##  env: JB=040 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
@@ -94,9 +103,9 @@ before_script:
     - export CLONE_DIR=$WORK_DIR/_tmp/mobileApps
     #-export  CXX=g++-4.8 #needed for android???
     - export  ANDROID_MANIFEST=$APPL_DIR/platforms/android/AndroidManifest.xml
-    - export  ANDROID_HOME1=$WORK_DIR/_tmp_cached
-    - export  ANDROID_HOME=$WORK_DIR/_tmp_cached/android-sdk-linux
-    - export  ABTVM=25 ABTVF=25.0.2
+    ##- export  ANDROID_HOME1=$WORK_DIR/_tmp_cached
+    ##- export  ANDROID_HOME=$WORK_DIR/_tmp_cached/android-sdk-linux
+    ##- export  ABTVM=25 ABTVF=25.0.2
     - export  ZIPALIGN=$ANDROID_HOME/build-tools/$ABTVF/zipalign
     # iOS specific:
     - export IOS_PROFILE_NAME=learnLang
