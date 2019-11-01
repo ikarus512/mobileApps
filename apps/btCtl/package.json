@@ -1,5 +1,6 @@
 {
-    "name": "com.ikarus512.puzzle15",
-    "version": "1.0.0",
-    "displayName": "Puzzle15"
+  "name": "com.ikarus512.btctl",
+  "displayName": "btCtl",
+  "version": "1.0.0",
+  "main": "index.js"
 }
