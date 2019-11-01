@@ -39,11 +39,11 @@ cordova.android|cordova-ionic.android)
 
     fi
 
-    if [ ! -e plugins/cordova-plugin-dialogs ];then cordova plugin add cordova-plugin-dialogs; fi
-    if [ ! -e plugins/cordova-plugin-media ];then cordova plugin add cordova-plugin-media; fi ### navigator.notification.alert()
-    if [ ! -e plugins/cordova-plugin-crosswalk-webview -a "$DEBUGV" == "yes" ];then
-        cordova plugin add cordova-plugin-crosswalk-webview
-    fi
+    #if [ ! -e plugins/cordova-plugin-dialogs ];then cordova plugin add cordova-plugin-dialogs; fi
+    #if [ ! -e plugins/cordova-plugin-media ];then cordova plugin add cordova-plugin-media; fi ### navigator.notification.alert()
+    #if [ ! -e plugins/cordova-plugin-crosswalk-webview -a "$DEBUGV" == "yes" ];then
+    #    cordova plugin add cordova-plugin-crosswalk-webview
+    #fi
 
     echo "=== android check permissions:"
     . $WORK_DIR/scripts/android_check_permissions.sh
