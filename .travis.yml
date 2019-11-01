@@ -112,7 +112,7 @@ before_install:
   - node --version
   - npm --version
   - gradle --version
-  - npm i -g cordova
+  #- npm i -g cordova
 
 before_script:
     - export LOCAL_RUN=no
