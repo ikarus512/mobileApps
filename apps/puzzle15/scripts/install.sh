@@ -22,6 +22,9 @@ cordova.android|cordova-ionic.android)
 
     if [ ! -e platforms/android -o ! -e plugins ];then
 
+        mydo npm i -g cordova@7 || exit 1
+        #mydo cordova platform add android@8.1.0 --save || exit 1
+
         # echo "### cordova prepare"
         # cordova prepare || exit 1
         # cordova prepare --verbose || exit 1
