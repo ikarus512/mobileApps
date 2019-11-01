@@ -40,6 +40,8 @@ fi
 if [ "$DEBUGV" != "yes" ];then
 
     ### build
+    mydo cordova build android --release || \
+    mydo cordova build android --release || \
     mydo cordova build android --release || exit 1
 
     echo "=== android check permissions:"

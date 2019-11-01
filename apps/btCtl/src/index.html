@@ -36,6 +36,7 @@
         <h1> btCtl </h1>
     </div><!-- end of page header -->
 
+    <!--
     <label> &nbsp; </label>
     <label> &nbsp; </label>
     <div data-role="navbar"><ul>
@@ -43,6 +44,7 @@
         <li><a href="index.html#pagerecords" data-icon="star"> <en>Hall of fame</en><ru>Рекорды</ru> </a></li>
         <li><button id="exitbutton" data-rel="back" data-icon="arrow-l"> <en>Exit</en><ru>Выход</ru> </button></li>
     </ul></div>
+    -->
 
     <div role="main" class="ui-content">
 
@@ -64,6 +66,10 @@
                 Use sliders to set color.
             </div>
             <div class="rangeDiv">
+                <button id="ledOn" />
+                <button id="ledOff" />
+            </div>
+            <!-- <div class="rangeDiv">
                 <input type="range" min="0" max="255" value="0" name="red" id="red" class="topcoat-range"/>
             </div>
             <div class="rangeDiv">
@@ -71,20 +77,21 @@
             </div>
             <div class="rangeDiv">
                 <input type="range" min="0" max="255" value="0" name="blue" id="blue" class="topcoat-range"/>
-            </div>
+            </div> -->
 
-            <div id="rgbText">
+            <!-- <div id="rgbText">
                 &nbsp;
             </div>
             <div id="previewColor">
-            </div>
+            </div> -->
             <p>
                 <a class="topcoat-button--large" id="disconnectButton">Disconnect</a>
             </p>
         </div>
         <div id="messageDiv"></div>
+        <div id="btDataDiv"></div>
 
-        <legend for="username"> <en>Your name:</en><ru>Ваше имя:</ru> </legend>
+        <!-- <legend for="username"> <en>Your name:</en><ru>Ваше имя:</ru> </legend>
         <input type="text" name="username" value="Unonimous">
         <label> &nbsp; </label>
 
@@ -104,11 +111,12 @@
                 <label for="4">4x4</label>  <input type="radio" name="gamesize" id="4" value="4" checked="checked">
                 <label for="5">5x5</label>  <input type="radio" name="gamesize" id="5" value="5" checked="checked">
             </fieldset>
-        </div>
+        </div> -->
         <!-- </form> -->
 
     </div><!-- end of page content -->
 
+    <!--
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-hide-during-focus="">
         <div class=mydebug></div>
         <h4> btCtl </h4>
@@ -258,8 +266,8 @@
 <script type="text/javascript" src="cordova.js"></script>
 
 <!-- Application -->
-<script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/first.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/debug.js"></script>
 <script type="text/javascript" src="js/storage.js"></script>
 <script type="text/javascript" src="js/language.js"></script>
