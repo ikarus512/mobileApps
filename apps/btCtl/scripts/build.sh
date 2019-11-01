@@ -23,18 +23,23 @@ if [ -z $APPL_DIR     ]; then APPL_DIR=$WORK_DIR/apps/$APP; fi
 
 mkdir -p $RELEASES_DIR
 
-apkdir=platforms/android/build/outputs/apk
-# if [ "$DEBUGV" == "yes" ];then apkdir=platforms/android/build/outputs/apk/debug
-# else                           apkdir=platforms/android/build/outputs/apk/release
-# fi
+#apkdir=platforms/android/build/outputs/apk
+#apkdir=platforms/android/app/build/outputs/apk
+#platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+#platforms/android/app/build/outputs/apk/debug/app-debug.apk
+if [ "$DEBUGV" == "yes" ];then apkdir=platforms/android/app/build/outputs/apk/debug
+else                           apkdir=platforms/android/app/build/outputs/apk/release
+fi
+
 rm -fv $apkdir/*.apk
 
 if [ "$DEBUGV" == "yes" ];then
     mydo cordova build android --debug || exit 1 # --verbose
     ls -lh $apkdir
     #cp -frv $apkdir/android-debug.apk $RELEASES_DIR/$APPNAME-android-debug.apk
-    mydo cp -frv $apkdir/android-armv7-debug.apk $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
-    mydo cp -frv $apkdir/android-x86-debug.apk   $RELEASES_DIR/$APPNAME-android-x86-debug.apk
+    cp -frv $apkdir/app-debug.apk $RELEASES_DIR/$APPNAME-android-debug.apk
+    #mydo cp -frv $apkdir/android-armv7-debug.apk $RELEASES_DIR/$APPNAME-android-armv7-debug.apk
+    #mydo cp -frv $apkdir/android-x86-debug.apk   $RELEASES_DIR/$APPNAME-android-x86-debug.apk
 fi
 
 if [ "$DEBUGV" != "yes" ];then
@@ -61,7 +66,8 @@ if [ "$DEBUGV" != "yes" ];then
     # android-release-unsigned.apk
 
     ### sign and copy to $RELEASES_DIR/ for later check-in
-    for apkFile in $(ls $apkdir/android*-release-unsigned.apk);do
+    #for apkFile in $(ls $apkdir/android*-release-unsigned.apk);do
+    for apkFile in $(ls $apkdir/app*-release-unsigned.apk);do
 
         plat1=$(echo $apkFile | perl -e '$_=<>; s/^.*\/\w+|-release-unsigned.apk$//g; print;')
         apkFileOut=$RELEASES_DIR/$APPNAME-android$plat1.apk
