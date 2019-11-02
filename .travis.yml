@@ -110,8 +110,8 @@ before_install:
   - node --version
   - npm --version
   - gradle --version
-  - sdkmanager --version
-  - $ANDROID_HOME/tools/bin/sdkmanager --version
+  - which sdkmanager
+  - which zipalign
   - $ANDROID_SDK_ROOT/tools/bin/sdkmanager --version
   - ls $ANDROID_SDK_ROOT/build-tools
   - $ANDROID_SDK_ROOT/build-tools/zipalign --version
