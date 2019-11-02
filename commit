@@ -8,6 +8,12 @@ msg="btCtl"
 #git fetch origin && git merge --no-edit -m "[ci skip] merge with branch master"
 git fetch && git pull
 
+echo ########################### git status
+git status
+echo ########################### git diff
+git diff
+echo ########################### git add
+
 # add all changed files
 git add -A
 

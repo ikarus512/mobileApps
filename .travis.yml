@@ -8,8 +8,10 @@ env:
   global:
     - CORDOVA_VERSION=9
     - CORDOVA_ANDROID_PLATFORM=8
+    #- ANDROID_API_LEVEL=25   ANDROID_BUILD_TOOLS_VERSION=25.2.5
     - ANDROID_API_LEVEL=28   ANDROID_BUILD_TOOLS_VERSION=28.0.3
     #- ANDROID_API_LEVEL=29   ANDROID_BUILD_TOOLS_VERSION=29.0.2
+    #- ANDROID_API_LEVEL=29   ANDROID_BUILD_TOOLS_VERSION=29.0.5
     - TERM=dumb # Keep gradle from crapping all over the log
     - nodejs_version=12 #8
 
@@ -21,7 +23,7 @@ android:
     - tools
     - platform-tools
     - build-tools-$ANDROID_BUILD_TOOLS_VERSION
-    - android-19
+    #- android-19
     - android-$ANDROID_API_LEVEL
 
 sudo: required
@@ -117,7 +119,7 @@ before_install:
   - echo ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT
   - $ANDROID_HOME/tools/bin/sdkmanager --version || echo 1
   - ls $ANDROID_HOME/build-tools || echo 1
-  - $ANDROID_HOME/build-tools/zipalign --version || echo 1
+  - $ANDROID_HOME/build-tools/disppeared/zipalign --version || echo 1
   #- npm i -g cordova
   #- cordova --version
   #- cordova platform --version
@@ -135,7 +137,8 @@ before_script:
     ##- export  ANDROID_HOME1=$WORK_DIR/_tmp_cached
     ##- export  ANDROID_HOME=$WORK_DIR/_tmp_cached/android-sdk-linux
     ##- export  ABTVM=25 ABTVF=25.0.2
-    - export  ZIPALIGN=$ANDROID_HOME/build-tools/$ABTVF/zipalign
+    #- export  ZIPALIGN=$ANDROID_HOME/build-tools/$ABTVF/zipalign
+    - export  ZIPALIGN=$ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS_VERSION/zipalign
     # iOS specific:
     - export IOS_PROFILE_NAME=learnLang
     - export IOS_PROVISIONING_PROFILE_UUID=fd6fa7e8-2fd6-46cc-8526-51d6de5c4cc2
