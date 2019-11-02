@@ -43,8 +43,8 @@ matrix:
     ### btCtl: #####################
     - os: linux
       env: JB=020 TOS=android   APP=btCtl FRM=cordova
-    - os: linux
-      env: JB=030 TOS=android   APP=btCtl FRM=cordova DEBUGV=yes
+    #- os: linux
+    #  env: JB=030 TOS=android   APP=btCtl FRM=cordova DEBUGV=yes
     ## ### learnLang: #####################
     ## - os: linux
     ##   env: JB=040 TOS=android   APP=learnLang FRM=cordova OPT2=Small
