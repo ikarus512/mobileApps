@@ -6,8 +6,10 @@
 
 env:
   global:
-    - ANDROID_API_LEVEL=28
-    - ANDROID_BUILD_TOOLS_VERSION=28.0.3
+    - CORDOVA_VERSION=9
+    - CORDOVA_ANDROID_PLATFORM=8
+    #- ANDROID_API_LEVEL=28   ANDROID_BUILD_TOOLS_VERSION=28.0.3
+    - ANDROID_API_LEVEL=29   ANDROID_BUILD_TOOLS_VERSION=29.0.2
     - TERM=dumb # Keep gradle from crapping all over the log
     - nodejs_version=12 #8
 
@@ -21,74 +23,68 @@ android:
     - build-tools-$ANDROID_BUILD_TOOLS_VERSION
     - android-$ANDROID_API_LEVEL
 
-#language: node_js
-#node_js: "8"
 sudo: required
-dist: trusty # ubuntu 14.04
-#Ubuntu Bionic 18.04
-#Ubuntu Xenial 16.04 default
-#jdk: oraclejdk8
+dist: trusty # ubuntu trusty=14.04, xenial=16.04 (default), bionic=18.04
 
 
 ### TODO: sign osx application
 ### TODO: sign win application
 ### TODO: build/sign learnLang-ios
-### TODO: build learnLang-winphone
 ### TODO: get version numbers from main package.json to installation info (or create from tags or???)
 matrix:
   include:
     #- os: osx
     #  #osx_image: xcode7.3 8.3 9.4 10
     #  osx_image: xcode7.3
-    #  env: JB=005 TOS=ios       APP=learnLang FRM=cordova OPT2=Small     DEBUGV=yes
+    #  env: JB=010 TOS=ios       APP=learnLang FRM=cordova OPT2=Small     DEBUGV=yes
     ### btCtl: #####################
     - os: linux
-      env: JB=010 TOS=android   APP=btCtl FRM=cordova
+      env: JB=020 TOS=android   APP=btCtl FRM=cordova
     - os: linux
-      env: JB=010 TOS=android   APP=btCtl FRM=cordova DEBUGV=yes
+      env: JB=030 TOS=android   APP=btCtl FRM=cordova DEBUGV=yes
     ## ### learnLang: #####################
     ## - os: linux
-    ##   env: JB=010 TOS=android   APP=learnLang FRM=cordova OPT2=Small
+    ##   env: JB=040 TOS=android   APP=learnLang FRM=cordova OPT2=Small
     ## #- os: linux
-    ## #  env: JB=020 TOS=android   APP=learnLang FRM=cordova OPT2=Small    DEBUGV=yes
+    ## #  env: JB=050 TOS=android   APP=learnLang FRM=cordova OPT2=Small    DEBUGV=yes
     - os: linux
-      env: JB=030 TOS=android   APP=learnLang FRM=cordova
+      env: JB=060 TOS=android   APP=learnLang FRM=cordova
     ##- os: linux
-    ##  env: JB=040 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
+    ##  env: JB=070 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
     ## - os: linux
-    ##   env: JB=050 TOS=linux-win APP=learnLang FRM=nwjs
+    ##   env: JB=080 TOS=linux-win APP=learnLang FRM=nwjs
     ## #- os: linux
-    ## #  env: JB=060 TOS=linux-win APP=learnLang FRM=nwjs                  DEBUGV=yes
+    ## #  env: JB=090 TOS=linux-win APP=learnLang FRM=nwjs                  DEBUGV=yes
     ## - os: osx
-    ##   env: JB=070 TOS=osx       APP=learnLang FRM=nwjs
+    ##   env: JB=100 TOS=osx       APP=learnLang FRM=nwjs
     ## #-os: osx
-    ## # env: JB=080 TOS=osx       APP=learnLang FRM=nwjs                  DEBUGV=yes
+    ## # env: JB=110 TOS=osx       APP=learnLang FRM=nwjs                  DEBUGV=yes
     ## ### puzzle15: ######################
     - os: linux
-      env: JB=090 TOS=android   APP=puzzle15  FRM=cordova-ionic
+      env: JB=120 TOS=android   APP=puzzle15  FRM=cordova-ionic
     ## #-os: linux
-    ## # env: JB=100 TOS=android   APP=puzzle15  FRM=cordova-ionic         DEBUGV=yes
+    ## # env: JB=130 TOS=android   APP=puzzle15  FRM=cordova-ionic         DEBUGV=yes
     ## #-os: linux
-    ## # env: JB=110 TOS=linux-win APP=puzzle15  FRM=nwjs-ionic
+    ## # env: JB=140 TOS=linux-win APP=puzzle15  FRM=nwjs-ionic
     ## #-os: linux
-    ## # env: JB=120 TOS=linux-win APP=puzzle15  FRM=nwjs-ionic            DEBUGV=yes
+    ## # env: JB=150 TOS=linux-win APP=puzzle15  FRM=nwjs-ionic            DEBUGV=yes
     ## #-os: linux
-    ## # env: JB=130 TOS=osx       APP=puzzle15  FRM=nwjs-ionic
+    ## # env: JB=160 TOS=osx       APP=puzzle15  FRM=nwjs-ionic
     ## #-os: linux
-    ## # env: JB=140 TOS=osx       APP=puzzle15  FRM=nwjs-ionic            DEBUGV=yes
+    ## # env: JB=170 TOS=osx       APP=puzzle15  FRM=nwjs-ionic            DEBUGV=yes
     ## ### tripSave: ######################
     ## #-os: linux
-    ## # env: JB=150 TOS=android   APP=tripSave  FRM=nwjs
+    ## # env: JB=180 TOS=android   APP=tripSave  FRM=nwjs
     ## #-os: linux
-    ## # env: JB=160 TOS=android   APP=tripSave  FRM=nwjs                  DEBUGV=yes
+    ## # env: JB=190 TOS=android   APP=tripSave  FRM=nwjs                  DEBUGV=yes
     ## #-os: linux
-    ## # env: JB=170 TOS=linux-win APP=tripSave  FRM=nwjs
+    ## # env: JB=200 TOS=linux-win APP=tripSave  FRM=nwjs
     ## #-os: linux
-    ## # env: JB=180 TOS=linux-win APP=tripSave  FRM=nwjs                  DEBUGV=yes
+    ## # env: JB=210 TOS=linux-win APP=tripSave  FRM=nwjs                  DEBUGV=yes
     ## #-os: linux
-    ## # env: JB=190 TOS=osx       APP=tripSave  FRM=nwjs
+    ## # env: JB=220 TOS=osx       APP=tripSave  FRM=nwjs
     ## #-os: linux
-    ## # env: JB=200 TOS=osx       APP=tripSave  FRM=nwjs                  DEBUGV=yes
+    ## # env: JB=230 TOS=osx       APP=tripSave  FRM=nwjs                  DEBUGV=yes
 
 branches:
     only:
@@ -114,7 +110,14 @@ before_install:
   - node --version
   - npm --version
   - gradle --version
+  - sdkmanager --version
+  - $ANDROID_HOME/tools/bin/sdkmanager --version
+  - $ANDROID_SDK_ROOT/tools/bin/sdkmanager --version
+  - ls $ANDROID_SDK_ROOT/build-tools
+  - $ANDROID_SDK_ROOT/build-tools/zipalign --version
   #- npm i -g cordova
+  #- cordova --version
+  #- cordova platform --version
 
 before_script:
     - export LOCAL_RUN=no
@@ -140,6 +143,8 @@ before_script:
     - . $APPL_DIR/scripts/before_install.sh
     - . $APPL_DIR/scripts/copy.sh
     - . $APPL_DIR/scripts/install.sh
+    - cordova --version
+    - cordova platform --version
     - . $APPL_DIR/scripts/build.sh
 
 script:

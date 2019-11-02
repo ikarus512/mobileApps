@@ -48,21 +48,27 @@
 
 # cordova
  npm i -g cordova
-cordova create mobAppBtCtl
+cordova create myMobApp
 cordova platform add android ### or cordova platform rm android; cordova platform add android@8
 cordova plugin add cordova-plugin-bluetooth-serial
 cordova platform add browser
 cordova run
-cordova run android
-cordova build android
+cordova run android --debug --device
+cordova run browser
+cordova build android --release ### run it several times in case of download problems
 cordova run --emulator
 
-# cordova-android platform versions
- Ver    -- Android API -- Equivalent Android Version
- 8.X.X  -- 19 - 28     -- 4.4 - 9.0.0
- 7.X.X  -- 19 - 27     -- 4.4 - 8.1
- 6.X.X  -- 16 - 26     -- 4.1 - 8.0.0
- 5.X.X  -- 14 - 23     -- 4.0 - 6.0.1
- 4.1.X  -- 14 - 22     -- 4.0 - 5.1
+
+# debug
+  On the phone, enable Developer mode, enable USB debug mode, USB mode = MTP.
+  Connect phone by usb, in chrome, open chrome://inspect/#devices
+  Run: cordova run android --debug --device
 
 
+# cordova-android (platform) versions
+ cordova               cordova-android -- Android API -- Equivalent Android Version
+ 9.x.x (2019-Feb)  --  8.X.X           -- 19 - 28     -- 4.4 - 9.0.0
+ ?.?.?             --  7.X.X           -- 19 - 27     -- 4.4 - 8.1
+ ?.?.?             --  6.X.X           -- 16 - 26     -- 4.1 - 8.0.0
+ ?.?.?             --  5.X.X           -- 14 - 23     -- 4.0 - 6.0.1
+ ?.?.?             --  4.1.X           -- 14 - 22     -- 4.0 - 5.1
