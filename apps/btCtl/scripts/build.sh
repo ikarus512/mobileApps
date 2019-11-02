@@ -60,7 +60,7 @@ if [ "$DEBUGV" != "yes" ];then
     keystoreValidity=10000 # days
     rm -f $keystoreFile || exit 1
     echo "### keytool -genkey -v -noprompt -alias $keystoreAlias -keystore $keystoreFile -storepass $storePassword -keypass $keyPassword -keyalg RSA -keysize 2048 -validity $keystoreValidity -dname \"CN=ikarus512, OU=ikarus512, O=HSH, L=NN, S=RU, C=RU\""
-              keytool -genkey -v -noprompt -alias $keystoreAlias -keystore $keystoreFile -storepass $storePassword -keypass $keyPassword -keyalg RSA -keysize 2048 -validity $keystoreValidity -dname \"CN=ikarus512, OU=ikarus512, O=HSH, L=NN, S=RU, C=RU\" || exit 1
+              keytool -genkey -v -noprompt -alias $keystoreAlias -keystore $keystoreFile -storepass $storePassword -keypass $keyPassword -keyalg RSA -keysize 2048 -validity $keystoreValidity -dname "CN=ikarus512, OU=ikarus512, O=HSH, L=NN, S=RU, C=RU" || exit 1
 
     # android-armv7-release-unsigned.apk
     # android-x86-release-unsigned.apk
@@ -69,6 +69,7 @@ if [ "$DEBUGV" != "yes" ];then
     ### sign and copy to $RELEASES_DIR/ for later check-in
     #for apkFile in $(ls $apkdir/android*-release-unsigned.apk);do
     for apkFile in $(ls $apkdir/app*-release-unsigned.apk);do
+        echo "===== signing apkfile=$apkFile ===================================="
 
         plat1=$(echo $apkFile | perl -e '$_=<>; s/^.*\/\w+|-release-unsigned.apk$//g; print;')
         apkFileOut=$RELEASES_DIR/$APPNAME-android$plat1.apk
