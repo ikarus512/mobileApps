@@ -117,9 +117,9 @@ before_install:
   - which zipalign || echo 1
   - echo ANDROID_HOME=$ANDROID_HOME
   - echo ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT
-  - $ANDROID_HOME/tools/bin/sdkmanager --version || echo 1
+  #- $ANDROID_HOME/tools/bin/sdkmanager --version || echo 1
   - ls $ANDROID_HOME/build-tools || echo 1
-  - $ANDROID_HOME/build-tools/disppeared/zipalign --version || echo 1
+  - $ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS_VERSION/zipalign --version || echo 1
   #- npm i -g cordova
   #- cordova --version
   #- cordova platform --version
