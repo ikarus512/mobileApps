@@ -40,9 +40,9 @@ matrix:
     #  #osx_image: xcode7.3 8.3 9.4 10
     #  osx_image: xcode7.3
     #  env: JB=010 TOS=ios       APP=learnLang FRM=cordova OPT2=Small     DEBUGV=yes
-    ### btCtl: #####################
-    - os: linux
-      env: JB=020 TOS=android   APP=btCtl FRM=cordova
+    # ### btCtl: #####################
+    # - os: linux
+    #   env: JB=020 TOS=android   APP=btCtl FRM=cordova
     #- os: linux
     #  env: JB=030 TOS=android   APP=btCtl FRM=cordova DEBUGV=yes
     ## ### learnLang: #####################
@@ -50,9 +50,9 @@ matrix:
     ##   env: JB=040 TOS=android   APP=learnLang FRM=cordova OPT2=Small
     ## #- os: linux
     ## #  env: JB=050 TOS=android   APP=learnLang FRM=cordova OPT2=Small    DEBUGV=yes
+    - os: linux
+     env: JB=060 TOS=android   APP=learnLang FRM=cordova
     #- os: linux
-    #  env: JB=060 TOS=android   APP=learnLang FRM=cordova
-    ##- os: linux
     ##  env: JB=070 TOS=android   APP=learnLang FRM=cordova               DEBUGV=yes
     ## - os: linux
     ##   env: JB=080 TOS=linux-win APP=learnLang FRM=nwjs
