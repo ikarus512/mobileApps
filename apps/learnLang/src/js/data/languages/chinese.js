@@ -6,10 +6,23 @@ a.learnData.add({
     en: "languages/chineeze 普通話中文 /tvkultura.ru-poliglot/lesson 1",
     ru: "языки    /китайский 普通話中文/tvkultura.ru-полиглот/урок 1",
     terms: [
-        {term:"pin yin", transcription:"[āáăàa īíĭìi ūúŭùu ǖǘǚǜü ōóŏòo ēéěèe]", translation:{en:"translation1", ru:"перевод1"}},
-        {term:"term2", transcription:"[term2]", translation:{en:"translation2", ru:"перевод2"}},
-        {term:"term3", transcription:"[term3]", translation:{en:"translation3", ru:"перевод3"}},
-        {term:"term4", transcription:"[term4]", translation:{en:"translation4", ru:"перевод4"}},
+        {term:"wŏ", transcription:"[уо]", translation:{en:"I (to me, of myself)", ru:"я (мне, меня)"}},
+        {term:"nĭ", transcription:"[ни]", translation:{en:"you (to you, yourself)", ru:"ты (тебе, тебя)"}},
+        {term:"tā", transcription:"[та]", translation:{en:"he/she", ru:"он, она (ему,ей, его,ее)"}},
+
+        {term:"wŏ men", transcription:"[уо мэн]", translation:{en:"I (to me, of myself)", ru:"мы,нас,нам"}},
+        {term:"nĭ men", transcription:"[ни мэн]", translation:{en:"you (plural)", ru:"вы"}},
+        {term:"tā men", transcription:"[та мэн]", translation:{en:"them", ru:"они"}},
+        {term:"nín",    transcription:"[нин]",    translation:{en:"you (polite)", ru:"Вы (вежл.)"}},
+
+        {term:"ài", transcription:"[ай]", translation:{en:"to love", ru:"любить"}},
+
+        // āáăàa
+        // īíĭìi
+        // ūúŭùu ǖǘǚǜü
+        // ōóŏòo
+        // ēéěèe
+//        {term:"tā", transcription:"[та]", translation:{en:"", ru:""}},
     ],
 });
 
