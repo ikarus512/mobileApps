@@ -8,7 +8,7 @@
 
 #clear;clear
 cd $HOME/w/m/mobileApps
-echo "##### REPOSITORY: git clone https://github.com/ikarus512/mobileApps"
+echo "##### REPOSITORY: git clone ssh://git@github.com/ikarus512/mobileApps.git"
 
 case "$1" in
 commit)
